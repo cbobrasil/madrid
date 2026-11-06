@@ -3,9 +3,93 @@
   "tipo": "ruas",
   "itens": [
     {
+      "id": "calle-augusto-figueroa",
+      "nome": "Calle Augusto Figueroa",
+      "bairro": "chueca",
+      "secoes": [
+        {
+          "texto": ""
+        }
+      ],
+      "links": [],
+      "origem": "Calles principales"
+    },
+    {
+      "id": "calle-de-hortaleza",
+      "nome": "Calle de Hortaleza",
+      "bairro": "chueca",
+      "secoes": [
+        {
+          "texto": ""
+        }
+      ],
+      "links": [],
+      "origem": "Calles principales"
+    },
+    {
       "id": "calle-de-argumosa",
       "nome": "Calle de Argumosa",
       "bairro": "lavapies",
+      "secoes": [
+        {
+          "texto": "Calle com muitos bares em sequencia"
+        }
+      ],
+      "links": [],
+      "origem": "Calles principales"
+    },
+    {
+      "id": "calle-del-pez",
+      "nome": "Calle del Pez",
+      "bairro": "malasana",
+      "secoes": [
+        {
+          "texto": ""
+        }
+      ],
+      "links": [],
+      "origem": "Calles principales"
+    },
+    {
+      "id": "calle-de-las-huertas",
+      "nome": "Calle de las Huertas",
+      "bairro": "letras",
+      "secoes": [
+        {
+          "texto": ""
+        }
+      ],
+      "links": [],
+      "origem": "Calles principales"
+    },
+    {
+      "id": "cava-baja",
+      "nome": "Cava Baja",
+      "bairro": "latina",
+      "secoes": [
+        {
+          "texto": ""
+        }
+      ],
+      "links": [],
+      "origem": "Calles principales"
+    },
+    {
+      "id": "calle-de-serrano",
+      "nome": "Calle de Serrano",
+      "bairro": "salamanca",
+      "secoes": [
+        {
+          "texto": ""
+        }
+      ],
+      "links": [],
+      "origem": "Calles principales"
+    },
+    {
+      "id": "calle-de-goya",
+      "nome": "Calle de Goya",
+      "bairro": "salamanca",
       "secoes": [
         {
           "texto": ""

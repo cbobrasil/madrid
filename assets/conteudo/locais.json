@@ -737,10 +737,12 @@
       "id": "google-11090263251894186972",
       "nome": "Cafetería Santa Isabel",
       "tipo": "Restaurante",
-      "secoes": [{
-                  "titulo": "Note",
-                  "texto": "Café + menu almoço"
-                }],
+      "secoes": [
+        {
+          "titulo": "Note",
+          "texto": "Café + menu almoço"
+        }
+      ],
       "links": [],
       "origens": [
         "Madrid - Samantha Del Tagle"
@@ -750,10 +752,12 @@
       "id": "google-17847004284429484810",
       "nome": "Más Corazón",
       "tipo": "Bar de tapas",
-      "secoes": [{
-                  "titulo": "Note",
-                  "texto": "Terrazo. Tapas barata. Tinto de verano"
-                }],
+      "secoes": [
+        {
+          "titulo": "Note",
+          "texto": "Terrazo. Tapas barata. Tinto de verano"
+        }
+      ],
       "links": [],
       "origens": [
         "Madrid - Samantha Del Tagle",
@@ -774,10 +778,12 @@
       "id": "google-12403492849310868236",
       "nome": "Taberna Antonio Sánchez - 1787",
       "tipo": "Restaurante",
-      "secoes": [{
-                  "titulo": "Note",
-                  "texto": "La Taberna más antigua de Madrid"
-                }],
+      "secoes": [
+        {
+          "titulo": "Note",
+          "texto": "La Taberna más antigua de Madrid"
+        }
+      ],
       "links": [],
       "origens": [
         "Madrid - Samantha Del Tagle"
@@ -797,10 +803,12 @@
       "id": "google-13501021393992418522",
       "nome": "Ni Subo Ni Bajo",
       "tipo": "Restaurante gallego",
-      "secoes": [{
-                  "titulo": "Note",
-                  "texto": "Comida Galega"
-                }],
+      "secoes": [
+        {
+          "titulo": "Note",
+          "texto": "Comida Galega"
+        }
+      ],
       "links": [],
       "origens": [
         "Madrid - Samantha Del Tagle"
@@ -1774,6 +1782,25 @@
       "links": [],
       "origens": [
         "Madrid Tapas"
+      ]
+    },
+    {
+      "id": "hotel-axel-madrid",
+      "nome": "Axel Hotel Madrid",
+      "tipo": "Hotel · Hospedagem da viagem",
+      "secoes": [
+        {
+          "texto": ""
+        }
+      ],
+      "links": [
+        {
+          "texto": "Abrir no Google Maps",
+          "url": "https://www.google.com/maps/place/Axel+Hotel+Madrid/data=!4m2!3m1!1s0xd4228802bbbbd6b:0x4bdd7f69395c64b9!8m2!3d40.4131764!4d-3.7005754"
+        }
+      ],
+      "origens": [
+        "Hospedagem da viagem"
       ]
     }
   ]

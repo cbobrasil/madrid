@@ -2,61 +2,127 @@
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
     <name>Calles principales</name>
-    <Style id="poly-000000-1200-77-nodesc-normal">
+    <Style id="line-000000-1200-nodesc-normal">
       <LineStyle>
         <color>ff000000</color>
         <width>1.2</width>
       </LineStyle>
-      <PolyStyle>
-        <color>4d000000</color>
-        <fill>1</fill>
-        <outline>1</outline>
-      </PolyStyle>
       <BalloonStyle>
         <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
     </Style>
-    <Style id="poly-000000-1200-77-nodesc-highlight">
+    <Style id="line-000000-1200-nodesc-highlight">
       <LineStyle>
         <color>ff000000</color>
         <width>1.8</width>
       </LineStyle>
-      <PolyStyle>
-        <color>4d000000</color>
-        <fill>1</fill>
-        <outline>1</outline>
-      </PolyStyle>
       <BalloonStyle>
         <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
     </Style>
-    <StyleMap id="poly-000000-1200-77-nodesc">
+    <StyleMap id="line-000000-1200-nodesc">
       <Pair>
         <key>normal</key>
-        <styleUrl>#poly-000000-1200-77-nodesc-normal</styleUrl>
+        <styleUrl>#line-000000-1200-nodesc-normal</styleUrl>
       </Pair>
       <Pair>
         <key>highlight</key>
-        <styleUrl>#poly-000000-1200-77-nodesc-highlight</styleUrl>
+        <styleUrl>#line-000000-1200-nodesc-highlight</styleUrl>
       </Pair>
     </StyleMap>
     <Placemark>
+      <name>Calle Augusto Figueroa</name>
+      <styleUrl>#line-000000-1200-nodesc</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          -3.6992816,40.422723,0
+          -3.6976937,40.4221458,0
+          -3.6957196,40.4219226,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+    <Placemark>
+      <name>Calle de Hortaleza</name>
+      <styleUrl>#line-000000-1200-nodesc</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          -3.6971784,40.4259256,0
+          -3.7011695,40.4200885,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+    <Placemark>
       <name>Calle de Argumosa</name>
-      <styleUrl>#poly-000000-1200-77-nodesc</styleUrl>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <tessellate>1</tessellate>
-            <coordinates>
-              -3.7005922,40.4084251,0
-              -3.6967727,40.4077879,0
-              -3.6955282,40.4071834,0
-              -3.6967727,40.4078369,0
-              -3.7005922,40.4084251,0
-            </coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
+      <styleUrl>#line-000000-1200-nodesc</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          -3.7005544,40.4084129,0
+          -3.6967349,40.4077593,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+    <Placemark>
+      <name>Calle del Pez</name>
+      <styleUrl>#line-000000-1200-nodesc</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          -3.7072626,40.4243222,0
+          -3.7066403,40.4242896,0
+          -3.7053457,40.4237723,0
+          -3.7037364,40.4226125,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+    <Placemark>
+      <name>Calle de las Huertas</name>
+      <styleUrl>#line-000000-1200-nodesc</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          -3.7014077,40.4141558,0
+          -3.6935685,40.4127508,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+    <Placemark>
+      <name>Cava Baja</name>
+      <styleUrl>#line-000000-1200-nodesc</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          -3.7082017,40.4135912,0
+          -3.7087882,40.4126708,0
+          -3.7094677,40.4121862,0
+          -3.710605,40.4117559,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+    <Placemark>
+      <name>Calle de Serrano</name>
+      <styleUrl>#line-000000-1200-nodesc</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          -3.6886768,40.420326,0
+          -3.687933,40.4253463,0
+          -3.6866149,40.4343372,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+    <Placemark>
+      <name>Calle de Goya</name>
+      <styleUrl>#line-000000-1200-nodesc</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          -3.67588,40.4247631,0
+          -3.6878606,40.4254165,0
+        </coordinates>
+      </LineString>
     </Placemark>
   </Document>
 </kml>

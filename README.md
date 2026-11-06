@@ -9,7 +9,7 @@ Pensado principalmente para usar no celular durante os passeios.
 - **13 regiões de passeio**, desenhadas no Google My Maps e identificadas com as cores da bandeira arco-íris.
 - **Fichas dos bairros** com descrições, destaques e ideias de passeio.
 - **Pontos no mapa** com o nome do lugar e sua categoria.
-- **Ruas em destaque**, com traçados na cor do bairro e comentários ao tocar. A primeira é a Calle de Argumosa, em Lavapiés.
+- **8 ruas em destaque**, com traçados na cor do bairro e comentários ao tocar: Augusto Figueroa, Hortaleza, Argumosa, Pez, Huertas, Cava Baja, Serrano e Goya.
 - **Listas independentes** de restaurantes, tapas, cafés e brunch, bares e clubs, galerias de arte e indicações de Samantha Del Tagle.
 
 ## Como explorar

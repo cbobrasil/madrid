@@ -1,4 +1,4 @@
-# Guia Madrid por bairros
+# Guia de Madrid
 
 Um guia pessoal e interativo para explorar Madrid durante a viagem de **13 a 16 de novembro de 2026**. O mapa reúne bairros, pontos de interesse e listas de lugares para comer, tomar café, conhecer arte e sair à noite.
 
@@ -11,6 +11,7 @@ Pensado principalmente para usar no celular durante os passeios.
 - **Pontos no mapa** com o nome do lugar e sua categoria.
 - **Cores por categoria nos pontos:** verde para parques e jardins, vermelho para monumentos e praças, azul para estabelecimentos e museus.
 - **8 ruas em destaque**, com traçados na cor do bairro e comentários ao tocar: Augusto Figueroa, Hortaleza, Argumosa, Pez, Huertas, Cava Baja, Serrano e Goya.
+- **Metrô de Madri**: as 12 linhas e o Ramal com as cores oficiais e as estações marcadas com o losango do metrô. Toque numa estação para ver as linhas que passam por ela.
 - **Listas independentes** de restaurantes, tapas, cafés e brunch, bares e clubs, galerias de arte e indicações de Samantha Del Tagle.
 
 ## Como explorar
@@ -19,9 +20,9 @@ Em **Minhas listas**, ative os assuntos que quer ver no mapa. É possível combi
 
 Toque nos pontos para consultar as informações dos locais. Na lista de bairros, escolha uma região para ler sua ficha. No celular, a ficha ocupa a tela inteira; o **X** fecha e retorna ao mapa, mantendo as listas ativadas.
 
-No celular, arraste a alça acima de **Guia Madrid por bairros** para cima para expandir a lista de bairros e para baixo para voltar ao mapa. Também é possível tocar na alça para alternar os tamanhos.
+No celular, arraste a alça acima de **Guia de Madrid** para cima para expandir a lista de bairros e para baixo para voltar ao mapa. Também é possível tocar na alça para alternar os tamanhos.
 
-Os controles **Áreas**, **Nomes** e **Referências** permitem ajustar o que aparece no mapa.
+Os controles **Áreas**, **Nomes**, **Referências** e **Metrô** permitem ajustar o que aparece no mapa. Na seção **Metrô** da lista, escolha quais linhas aparecem (ou use **Todas** / **Nenhuma**).
 
 ## Sobre o mapa
 

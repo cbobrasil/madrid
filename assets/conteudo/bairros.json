@@ -30,7 +30,7 @@
       "subtitulo": "Vida noturna e diversidade",
       "secoes": [
         {
-          "texto": " LGBT de Madri"
+          "texto": "Coração da vida LGBT de Madri, entre a Gran Vía e Malasaña. Ruas estreitas cheias de bares, lojas e restaurantes, que ficam animadas à noite. Em julho, é o centro do Orgulho (MADO)."
         },
         {
           "titulo": "Pontos Principais",
@@ -60,6 +60,7 @@
             "Lojas e cafés da Calle del Pez"
           ]
         }
+      ]
     },
     {
       "id": "letras",
@@ -81,6 +82,7 @@
             "Casa de Lope de Vega"
           ]
         }
+      ]
     },
     {
       "id": "las-literras",
@@ -101,6 +103,7 @@
             "Ligação com o Paseo del Prado"
           ]
         }
+      ]
     },
     {
       "id": "latina",
@@ -122,6 +125,7 @@
             "El Rastro"
           ]
         }
+      ]
     },
     {
       "id": "retiro",
@@ -140,6 +144,7 @@
             "Jardins e caminhos do parque"
           ]
         }
+      ]
     },
     {
       "id": "austrias",
@@ -161,6 +166,7 @@
             "Jardines de Sabatini"
           ]
         }
+      ]
     },
     {
       "id": "chamberi",
@@ -181,6 +187,7 @@
             "Andén 0 · estação de Chamberí"
           ]
         }
+      ]
     },
     {
       "id": "embajadores",
@@ -202,6 +209,7 @@
             "Lavapiés e suas ruas próximas"
           ]
         }
+      ]
     },
     {
       "id": "sol",
@@ -223,6 +231,7 @@
             "Ligação com a Plaza Mayor"
           ]
         }
+      ]
     },
     {
       "id": "moncloa-arguelles",
@@ -244,6 +253,7 @@
             "Templo de Debod, na parte sul do passeio"
           ]
         }
+      ]
     },
     {
       "id": "salamanca",
@@ -265,6 +275,7 @@
             "Puerta de Alcalá, na borda sul"
           ]
         }
+      ]
     }
   ]
 }

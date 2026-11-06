@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5f3ed">
   <meta name="description" content="Um mapa de Madri por regiões de passeio: bairros, parques e pontos de referência.">
-  <title>Guia Madrid por bairros · 13 a 16 de novembro de 2026</title>
+  <title>Guia de Madrid · 13 a 16 de novembro de 2026</title>
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <style>
 :root{--paper:#fcfbf8;--ink:#263b35;--muted:#63716a;--line:#dcded5;--accent:#b94730}
@@ -118,6 +118,15 @@ button:disabled{cursor:default;opacity:.55}
 .list-count{font-size:10px;opacity:.75;flex:none}
 .neighborhood-list-heading{padding:3px 10px 10px;color:var(--muted);font-size:10px;font-weight:650;letter-spacing:.6px;text-transform:uppercase}
 .fit-lists{width:100%;margin-top:9px;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:#f3f5ee;color:var(--ink);font-size:11px}
+.metro-toggles{display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:6px}
+.metro-toggle{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0;border:1px solid var(--line);border-radius:8px;background:#fff}
+.metro-toggle[aria-pressed="false"] .metro-badge{opacity:.3;filter:grayscale(1)}
+.metro-toggle[aria-pressed="true"]{border-color:#263b35}
+.metro-badge{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 4px;border-radius:12px;background:var(--line-color);color:var(--line-ink);border:2px solid var(--line-edge,var(--line-color));font-size:11px;font-weight:800;line-height:1}
+.metro-actions{display:flex;gap:7px;margin-top:9px}
+.metro-actions button{flex:1;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:#f3f5ee;color:var(--ink);font-size:11px}
+.metro-popup-lines{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.metro-popup-lines .metro-badge{font-size:12px;min-width:26px;height:26px;border-radius:13px}
 .street-list{margin-bottom:14px}
 .street-button{display:block;width:100%;text-align:left;min-height:46px;padding:10px 12px;border:0;border-left:5px solid var(--color);border-radius:6px;background:#fff;color:var(--ink);font-size:13px;margin:7px 0}
 .street-button small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
@@ -149,6 +158,8 @@ button:disabled{cursor:default;opacity:.55}
 .place-editorial p,.place-editorial li{font-size:13px;line-height:1.6}
 .place-editorial p{margin:0 0 10px}.place-editorial ul{padding-left:18px;margin:7px 0 12px}
 .place-editorial .editorial-links{margin:8px 0 0;gap:3px 12px}.place-editorial a{font-size:12px;color:#9f3e2c}
+.place-google{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.place-google a{display:inline-flex;align-items:center;min-height:44px;padding:8px 11px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);font-size:12px;font-weight:600;text-decoration:none}
 .editorial-tools{margin-top:7px}.editorial-tools button{min-height:44px;padding:8px 11px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);font-size:12px}
 .editorial-tools p{line-height:1.6}.content-error{color:#9f3e2c}
 </style>
@@ -159,24 +170,24 @@ button:disabled{cursor:default;opacity:.55}
       <button id="guide-handle" class="guide-handle" type="button" aria-expanded="false" aria-controls="regions" aria-label="Expandir o guia de bairros. Também pode arrastar para cima."><span id="guide-handle-label">Deslize para cima · Mais bairros</span></button>
       <header id="guide-header">
         <div class="pride-stripe" aria-hidden="true"></div>
-        <h1>Guia Madrid<br><span>por bairros</span></h1>
+        <h1>Guia<br><span>de Madrid</span></h1>
         <p class="trip-dates">Viagem 13/11/2026 a 16/11/2026</p>
       </header>
       <div class="list-heading"><span>Explore o guia</span><span id="count" aria-live="polite">13 áreas</span></div>
       <div class="list" id="regions"></div>
-      <footer><strong>Como ler o mapa</strong><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. O controle “Referências” cuida dos pontos turísticos que já estavam no mapa. Toque nos traçados das ruas em destaque para ler seus comentários; cada rua usa a cor de seu bairro.</p><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
+      <footer><strong>Como ler o mapa</strong><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. O controle “Referências” cuida dos pontos turísticos que já estavam no mapa. Toque nos traçados das ruas em destaque para ler seus comentários; cada rua usa a cor de seu bairro. As linhas de metrô seguem as cores oficiais; toque no losango de uma estação para ver as linhas que passam por ela.</p><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap. Linhas e estações de metrô: OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
     </aside>
     <section class="map-shell" aria-label="Mapa interativo de Madri">
       <div id="map" aria-label="Mapa: toque nos locais ou nas ruas em destaque para ver suas informações. Informações dos bairros ficam na lista."></div>
       <div class="map-top"><div class="map-caption"><b>Madri · Espanha</b><span>Áreas de passeio, em cores</span></div><button id="overview" class="overview" type="button">↗ Ver todas as áreas</button></div>
       <div id="notice" class="notice" role="status" hidden></div>
-      <div class="layers"><label><input type="checkbox" id="areas" checked> Áreas</label><label><input type="checkbox" id="labels" checked> Nomes</label><label><input type="checkbox" id="places" checked> Referências</label></div>
+      <div class="layers"><label><input type="checkbox" id="areas" checked> Áreas</label><label><input type="checkbox" id="labels" checked> Nomes</label><label><input type="checkbox" id="places" checked> Referências</label><label><input type="checkbox" id="metro" checked> Metrô</label></div>
       <noscript><p class="noscript">Ative o JavaScript para explorar o mapa. Este HTML usa internet para carregar o mapa de ruas.</p></noscript>
     </section>
   </main>
   <dialog id="region-dialog" class="region-dialog" aria-labelledby="region-dialog-title">
     <div class="region-dialog-header">
-      <div><p>Guia por bairros</p><h2 id="region-dialog-title"></h2></div>
+      <div><p>Guia de Madrid</p><h2 id="region-dialog-title"></h2></div>
       <button id="close-region-dialog" class="region-dialog-close" type="button" aria-label="Fechar informações do bairro e voltar ao mapa" autofocus>×</button>
     </div>
     <div id="region-dialog-body" class="region-details region-dialog-body"></div>
@@ -4295,24 +4306,6 @@ button:disabled{cursor:default;opacity:.55}
       "googleCid": "6526324325580628742"
     },
     {
-      "id": "google-1333046324896884765",
-      "name": "La Boite",
-      "sourceName": "La Boite",
-      "coords": [
-        40.4183095,
-        -3.7032094
-      ],
-      "symbol": "•",
-      "saved": true,
-      "type": "Local de ambiente",
-      "base": false,
-      "listIds": [
-        "bares"
-      ],
-      "googleUrl": "https://www.google.com/maps/place/La+Boite/data=!4m2!3m1!1s0xd42287e07432377:0x127fee91d89e681d",
-      "googleCid": "1333046324896884765"
-    },
-    {
       "id": "google-8823429009575331122",
       "name": "Teatro Barceló",
       "sourceName": "Barceló Theatre",
@@ -4403,24 +4396,6 @@ button:disabled{cursor:default;opacity:.55}
       "googleCid": "4840729264217534456"
     },
     {
-      "id": "google-11348647999543357696",
-      "name": "Truco",
-      "sourceName": "Truco",
-      "coords": [
-        40.4229534,
-        -3.6976309
-      ],
-      "symbol": "•",
-      "saved": true,
-      "type": "Bar",
-      "base": false,
-      "listIds": [
-        "bares"
-      ],
-      "googleUrl": "https://www.google.com/maps/place/Truco/data=!4m2!3m1!1s0xd422885fe591b09:0x9d7e7f3a55bab100",
-      "googleCid": "11348647999543357696"
-    },
-    {
       "id": "google-9498297823461622240",
       "name": "Fulanita de Tal",
       "sourceName": "Tal Fulanita",
@@ -4437,24 +4412,6 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "googleUrl": "https://www.google.com/maps/place/Tal+Fulanita/data=!4m2!3m1!1s0xd422885154b2175:0x83d0bb8bda4bc1e0",
       "googleCid": "9498297823461622240"
-    },
-    {
-      "id": "google-11715439545118424628",
-      "name": "Cazador",
-      "sourceName": "Cazador",
-      "coords": [
-        40.4110247,
-        -3.6995904
-      ],
-      "symbol": "•",
-      "saved": true,
-      "type": "Bar",
-      "base": false,
-      "listIds": [
-        "bares"
-      ],
-      "googleUrl": "https://www.google.com/maps/place/Cazador/data=!4m2!3m1!1s0xd4228630d4ef3b7:0xa2959a31fa58fe34",
-      "googleCid": "11715439545118424628"
     },
     {
       "id": "google-12644374886195368111",
@@ -4547,24 +4504,6 @@ button:disabled{cursor:default;opacity:.55}
       "googleCid": "9842588642587067223"
     },
     {
-      "id": "google-66789211272748296",
-      "name": "Concha Barrios Gallery",
-      "sourceName": "Concha Barrios Gallery",
-      "coords": [
-        40.422394,
-        -3.683795
-      ],
-      "symbol": "•",
-      "saved": true,
-      "type": "Galería de arte",
-      "base": false,
-      "listIds": [
-        "galerias"
-      ],
-      "googleUrl": "https://www.google.com/maps/place/Concha+Barrios+Gallery/data=!4m2!3m1!1s0xd4228986aca9ac1:0xed486f0cbd9d08",
-      "googleCid": "66789211272748296"
-    },
-    {
       "id": "google-8526298465525008785",
       "name": "Galería Jorge Juan",
       "sourceName": "Gallery Jorge Juan",
@@ -4581,24 +4520,6 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "googleUrl": "https://www.google.com/maps/place/Gallery+Jorge+Juan/data=!4m2!3m1!1s0xd4228976135ff5f:0x76537f47b6938991",
       "googleCid": "8526298465525008785"
-    },
-    {
-      "id": "google-48050933080513137",
-      "name": "Galería de Arte Puerta de Alcalá",
-      "sourceName": "Art gallery Puerta de Alcalá",
-      "coords": [
-        40.4201316,
-        -3.6898997
-      ],
-      "symbol": "•",
-      "saved": true,
-      "type": "Galería de arte",
-      "base": false,
-      "listIds": [
-        "galerias"
-      ],
-      "googleUrl": "https://www.google.com/maps/place/Art+gallery+Puerta+de+Alcal%C3%A1/data=!4m2!3m1!1s0xd42289ba378544b:0xaab611ad63da71",
-      "googleCid": "48050933080513137"
     },
     {
       "id": "google-16354534992943358253",
@@ -5051,42 +4972,6 @@ button:disabled{cursor:default;opacity:.55}
       "googleCid": "5910748328877585550"
     },
     {
-      "id": "google-18421491318895562903",
-      "name": "Tatema Madrid",
-      "sourceName": "Tatema Madrid",
-      "coords": [
-        40.4082989,
-        -3.6992193
-      ],
-      "symbol": "•",
-      "saved": true,
-      "type": "Restaurante",
-      "base": false,
-      "listIds": [
-        "restaurantes"
-      ],
-      "googleUrl": "https://www.google.com/maps/place/Tatema+Madrid/data=!4m2!3m1!1s0xd422783c85fc995:0xffa648c0d7b65097",
-      "googleCid": "18421491318895562903"
-    },
-    {
-      "id": "google-15234851080654399231",
-      "name": "C. de la Torrecilla del Leal, 4",
-      "sourceName": "C. de la Torrecilla del Leal, 4",
-      "coords": [
-        40.4114329,
-        -3.6995092
-      ],
-      "symbol": "•",
-      "saved": true,
-      "type": "Dirección",
-      "base": false,
-      "listIds": [
-        "restaurantes"
-      ],
-      "googleUrl": "https://www.google.com/maps/place/C.+de+la+Torrecilla+del+Leal,+4/data=!4m2!3m1!1s0xd42262a4471e6f7:0xd36d10571461a6ff",
-      "googleCid": "15234851080654399231"
-    },
-    {
       "id": "google-4925830301960849510",
       "name": "Los Porfiados",
       "sourceName": "Los Porfiados",
@@ -5121,24 +5006,6 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "googleUrl": "https://www.google.com/maps/place/Arz%C3%A1bal+Reina+Sofia+Museum/data=!4m2!3m1!1s0xd422628c9e741a9:0x7a8c1971fb6bfc7b",
       "googleCid": "8830460946706857083"
-    },
-    {
-      "id": "google-173692238674608533",
-      "name": "C. de San Carlos, 17",
-      "sourceName": "C. de San Carlos, 17",
-      "coords": [
-        40.4105036,
-        -3.7011123
-      ],
-      "symbol": "•",
-      "saved": true,
-      "type": "Dirección",
-      "base": false,
-      "listIds": [
-        "restaurantes"
-      ],
-      "googleUrl": "https://www.google.com/maps/place/C.+de+San+Carlos,+17/data=!4m2!3m1!1s0xd42262ae2ee15bf:0x269142bba714195",
-      "googleCid": "173692238674608533"
     },
     {
       "id": "google-8563962755142144770",
@@ -5533,15 +5400,12 @@ button:disabled{cursor:default;opacity:.55}
         "google-7256781333778537159",
         "google-3929411769757451141",
         "google-6526324325580628742",
-        "google-1333046324896884765",
         "google-8823429009575331122",
         "google-6282320076328955658",
         "google-13965533682271774518",
         "google-14261144102398146015",
         "google-4840729264217534456",
-        "google-11348647999543357696",
         "google-9498297823461622240",
-        "google-11715439545118424628",
         "google-12644374886195368111",
         "google-2128826372851116398",
         "google-17680540480222121474"
@@ -5554,9 +5418,7 @@ button:disabled{cursor:default;opacity:.55}
       "placeIds": [
         "google-14967256057652037010",
         "google-9842588642587067223",
-        "google-66789211272748296",
         "google-8526298465525008785",
-        "google-48050933080513137",
         "google-16354534992943358253",
         "google-2273468348997727658",
         "google-7832960485702692459",
@@ -5592,11 +5454,8 @@ button:disabled{cursor:default;opacity:.55}
         "google-8374021515657965940",
         "google-15220245183242151038",
         "google-5910748328877585550",
-        "google-18421491318895562903",
-        "google-15234851080654399231",
         "google-4925830301960849510",
         "google-8830460946706857083",
-        "google-173692238674608533",
         "google-8563962755142144770",
         "google-6841416850379268829",
         "google-9532164442613046126",
@@ -5831,6 +5690,12 @@ const listButtons = new Map(), activeLists = new Set();
 const placeLists = data.placeLists || [];
 const allPlaces = data.places;
 const streets = data.streets || [], streetButtons = new Map();
+const metroLines = [], metroStations = [], metroButtons = new Map(), activeMetroLines = new Set();
+let metroReady = false, activeStation = null;
+const metroData = fetch(new URL('assets/maps/metro.geojson',location.href)).then(response=>{
+  if (!response.ok) throw new Error('metro.geojson ('+response.status+')');
+  return response.json();
+});
 const editorial = {bairros:new Map(),locais:new Map(),ruas:new Map()};
 const editorialKind = {bairros:data.regions,locais:data.places,ruas:streets};
 const editorialPaths = ['assets/conteudo/bairros.json','assets/conteudo/locais.json','assets/conteudo/ruas.json'];
@@ -5886,10 +5751,18 @@ function placeColor(place) {
   if (/\b(parque|parc|park|jardim|jardin|jardines|lago)\b/.test(type)) return '#008026';
   return '#1565c0';
 }
+// Saved Google list places keep their own link; the others search by name.
+function placeGoogleLinks(place) {
+  const search = 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(placeName(place).replace(/\s*·\s*/g,' ')+', Madrid');
+  const open = safeContentUrl(place.googleUrl || '') || search;
+  const directions = 'https://www.google.com/maps/dir/?api=1&travelmode=walking&destination='+place.coords.join(',');
+  const link = (url, text) => '<a href="'+escapeHTML(url)+'" target="_blank" rel="noopener noreferrer">'+text+'</a>';
+  return '<div class="place-google">'+link(open,'Abrir no Google Maps ↗')+link(directions,'Como chegar ↗')+'</div>';
+}
 function placeContent(place) {
   const item = editorial.locais.get(place.id);
   const extra = item?renderEditorialSections(item):'';
-  return '<strong class="place-name">'+escapeHTML(placeName(place))+'</strong><span class="place-type">'+escapeHTML(placeType(place))+'</span>'+(extra?'<div class="place-editorial">'+extra+'</div>':'');
+  return '<strong class="place-name">'+escapeHTML(placeName(place))+'</strong><span class="place-type">'+escapeHTML(placeType(place))+'</span>'+(extra?'<div class="place-editorial">'+extra+'</div>':'')+placeGoogleLinks(place);
 }
 function streetName(street) {return editorial.ruas.get(street.id)?.nome ?? street.name;}
 function streetRegion(street) {return data.regions.find(region=>region.id === (editorial.ruas.get(street.id)?.bairro ?? street.regionId));}
@@ -6122,6 +5995,117 @@ function renderStreetControls() {
   const list = $('regions'); list.insertBefore(section,list.querySelector('.neighborhood-list-heading'));
   $('streets').addEventListener('change',syncLayers);
 }
+// Light line colours (yellow, lime, Ramal white…) need dark numbers to stay legible.
+function metroInk(color) {
+  const [r,g,b] = [1,3,5].map(i=>parseInt(color.slice(i,i+2),16)/255);
+  return .2126*r+.7152*g+.0722*b > .55 ? '#1d2b33' : '#fff';
+}
+function metroBadge(line) {
+  const edge = line.color.toUpperCase() === '#FFFFFF' ? ';--line-edge:#005AA9' : '';
+  return '<span class="metro-badge" style="--line-color:'+line.color+';--line-ink:'+metroInk(line.color)+edge+'" aria-hidden="true">'+escapeHTML(line.line)+'</span>';
+}
+function metroSummary() {
+  const count = $('metro-count');
+  if (!count) return;
+  count.textContent = !$('metro').checked ? 'Oculto' : activeMetroLines.size === metroLines.length ? 'Todas as linhas' : activeMetroLines.size+' de '+metroLines.length+' linhas';
+}
+function renderMetroControls() {
+  const section = document.createElement('details');
+  section.className = 'place-lists metro-lines';
+  section.innerHTML = '<summary><span>Metrô</span><span class="active-list-count" id="metro-count" aria-live="polite">Carregando…</span></summary>';
+  const content = document.createElement('div'); content.className = 'place-list-content';
+  const hint = document.createElement('p'); hint.textContent = 'Escolha as linhas que aparecem no mapa. O controle “Metrô” no mapa mostra ou oculta tudo.';
+  const controls = document.createElement('div'); controls.className = 'metro-toggles';
+  const actions = document.createElement('div'); actions.className = 'metro-actions';
+  actions.innerHTML = '<button type="button" data-metro="all">Todas</button><button type="button" data-metro="none">Nenhuma</button>';
+  actions.addEventListener('click',event=>{
+    const action = event.target.closest('button')?.dataset.metro;
+    if (!action) return;
+    activeMetroLines.clear();
+    if (action === 'all') metroLines.forEach(line=>activeMetroLines.add(line.line));
+    $('metro').checked = true;
+    syncMetroButtons();
+  });
+  content.append(hint,controls,actions); section.append(content);
+  const list = $('regions'); list.insertBefore(section,list.querySelector('.neighborhood-list-heading'));
+  $('metro').addEventListener('change',()=>{metroSummary();syncLayers();});
+  metroData.then(collection=>{
+    for (const feature of collection.features) {
+      if (feature.properties.kind === 'line') metroLines.push(feature.properties);
+      else metroStations.push(feature);
+    }
+    for (const line of metroLines) {
+      activeMetroLines.add(line.line);
+      const button = document.createElement('button');
+      button.type = 'button'; button.className = 'metro-toggle'; button.setAttribute('aria-pressed','true');
+      button.title = line.name; button.setAttribute('aria-label',line.name);
+      button.innerHTML = metroBadge(line);
+      button.addEventListener('click',()=>{
+        if (activeMetroLines.has(line.line)) activeMetroLines.delete(line.line); else activeMetroLines.add(line.line);
+        $('metro').checked = true;
+        syncMetroButtons();
+      });
+      metroButtons.set(line.line,button); controls.append(button);
+    }
+    metroSummary();
+  }).catch(()=>{
+    $('metro-count').textContent = 'Indisponível';
+    hint.textContent = 'As linhas de metrô não carregaram. Abra o guia pelo site (não como arquivo local) e verifique a conexão.';
+    actions.hidden = true;
+    $('metro').disabled = true;
+  });
+}
+function syncMetroButtons() {
+  for (const [id,button] of metroButtons) button.setAttribute('aria-pressed',String(activeMetroLines.has(id)));
+  metroSummary();
+  syncLayers();
+}
+function isStationVisible(station) {
+  return $('metro').checked && station.properties.lines.some(line=>activeMetroLines.has(line));
+}
+// Metro de Madrid rhombus with its blue band, drawn once for the station symbol layer.
+function metroStationIcon() {
+  const ratio = 2, size = 22*ratio, canvas = document.createElement('canvas');
+  canvas.width = canvas.height = size;
+  const ctx = canvas.getContext('2d'), c = size/2, r = size/2-3*ratio;
+  ctx.beginPath(); ctx.moveTo(c,c-r); ctx.lineTo(c+r,c); ctx.lineTo(c,c+r); ctx.lineTo(c-r,c); ctx.closePath();
+  ctx.fillStyle = '#fff'; ctx.fill();
+  ctx.lineWidth = 3.2*ratio; ctx.strokeStyle = '#E30613'; ctx.lineJoin = 'miter'; ctx.stroke();
+  ctx.fillStyle = '#00589C'; ctx.fillRect(1*ratio,c-3*ratio,size-2*ratio,6*ratio);
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = .8*ratio; ctx.strokeRect(1*ratio,c-3*ratio,size-2*ratio,6*ratio);
+  return {image:ctx.getImageData(0,0,size,size),pixelRatio:ratio};
+}
+function addMetroLayers() {
+  return metroData.then(collection=>{
+    // GeoJSON sources stringify array properties, so station lines become "|1|2|" for filtering.
+    const features = collection.features.map(({properties,geometry})=>({type:'Feature',geometry,properties:properties.kind === 'line'
+      ? {line:properties.line,color:properties.color,casing:properties.color.toUpperCase() === '#FFFFFF'?'#005AA9':'#fffdf8'}
+      : {name:properties.name,station:metroStations.findIndex(station=>station.properties === properties),lineKey:'|'+properties.lines.join('|')+'|'}}));
+    const {image,pixelRatio} = metroStationIcon();
+    map.addImage('metro-station',image,{pixelRatio});
+    map.addSource('metro',{type:'geojson',data:{type:'FeatureCollection',features}});
+    const before = map.getLayer('street-fills') ? 'street-fills' : undefined;
+    map.addLayer({id:'metro-casing',type:'line',source:'metro',filter:['has','line'],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','casing'],'line-width':['interpolate',['linear'],['zoom'],11,3,16,8.5]}},before);
+    map.addLayer({id:'metro-lines',type:'line',source:'metro',filter:['has','line'],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','color'],'line-width':['interpolate',['linear'],['zoom'],11,1.6,16,5],'line-opacity':.9}},before);
+    map.addLayer({id:'metro-stations',type:'symbol',source:'metro',minzoom:11.5,filter:['has','lineKey'],layout:{
+      'icon-image':'metro-station','icon-size':['interpolate',['linear'],['zoom'],11.5,.5,14,.8,17,1.1],'icon-allow-overlap':true,
+      'text-field':['step',['zoom'],'',14.5,['get','name']],'text-font':['Noto Sans Regular'],'text-size':11,'text-offset':[0,1.2],'text-anchor':'top','text-optional':true
+    },paint:{'text-color':'#263b35','text-halo-color':'#fffdf8','text-halo-width':1.5}},before);
+    metroReady = true; syncLayers();
+  });
+}
+function stationContent(station) {
+  const lines = station.properties.lines.map(id=>metroLines.find(line=>line.line === id)).filter(Boolean);
+  const [lng,lat] = station.geometry.coordinates;
+  return '<strong class="place-name">'+escapeHTML(station.properties.name)+'</strong><span class="place-type">Estação de metrô</span><div class="metro-popup-lines">'+lines.map(line=>'<span title="'+escapeHTML(line.name)+'">'+metroBadge(line)+'</span>').join('')+'</div>'+placeGoogleLinks({name:'Metro '+station.properties.name,coords:[lat,lng]});
+}
+function showStation(station) {
+  if (!map || !isStationVisible(station)) return;
+  if (activePopup) activePopup.remove();
+  activePlace = null; activeStreet = null; activeStation = station;
+  activePopup = new maplibregl.Popup({offset:12,maxWidth:'270px',closeButton:true,closeOnClick:true})
+    .setLngLat(station.geometry.coordinates).setHTML(stationContent(station)).addTo(map);
+}
 function renderListControls() {
   if (!placeLists.length) return;
   const section = document.createElement('details');
@@ -6162,6 +6146,14 @@ function syncLayers() {
     for (const id of ['region-fills','region-lines']) map.setLayoutProperty(id,'visibility',$('areas').checked?'visible':'none');
     for (const id of ['street-fills','street-halo','street-lines','street-hit']) map.setLayoutProperty(id,'visibility',$('streets')?.checked === false?'none':'visible');
   }
+  if (overlaysReady && metroReady) {
+    const lines = [...activeMetroLines], visible = $('metro').checked && lines.length ? 'visible' : 'none';
+    for (const id of ['metro-casing','metro-lines','metro-stations']) map.setLayoutProperty(id,'visibility',visible);
+    map.setFilter('metro-casing',['all',['has','line'],['in',['get','line'],['literal',lines]]]);
+    map.setFilter('metro-lines',['all',['has','line'],['in',['get','line'],['literal',lines]]]);
+    map.setFilter('metro-stations',['all',['has','lineKey'],['any',...lines.map(line=>['in','|'+line+'|',['get','lineKey']])]]);
+  }
+  if (activeStation && !isStationVisible(activeStation) && activePopup) {activePopup.remove();activeStation=null;}
   labels.forEach(marker => marker.getElement().hidden = !$('labels').checked);
   markers.forEach(({marker,place}) => marker.getElement().hidden = !isPlaceVisible(place));
   if (activePlace && !isPlaceVisible(activePlace) && activePopup) {activePopup.remove();activePlace=null;}
@@ -6177,7 +6169,7 @@ function showPlace(place) {
   if (!map || !isPlaceVisible(place)) return;
   if (activePopup) activePopup.remove();
   activePlace = place;
-  activeStreet = null;
+  activeStreet = null; activeStation = null;
   activePopup = new maplibregl.Popup({offset:14,maxWidth:'270px',closeButton:true,closeOnClick:true})
     .setLngLat(lngLat(place.coords))
     .setHTML(placeContent(place))
@@ -6186,7 +6178,7 @@ function showPlace(place) {
 function showStreet(street, position) {
   if (!map || $('streets')?.checked === false) return;
   if (activePopup) activePopup.remove();
-  activePlace = null; activeStreet = street;
+  activePlace = null; activeStreet = street; activeStation = null;
   activePopup = new maplibregl.Popup({offset:12,maxWidth:'290px',closeButton:true,closeOnClick:true})
     .setLngLat(position).setHTML(streetContent(street)).addTo(map);
 }
@@ -6204,6 +6196,7 @@ function nearestPlace(point, radius = 28) {
 }
 $('count').textContent = data.regions.length + ' áreas';
 renderListControls();
+renderMetroControls();
 renderStreetControls();
 data.regions.forEach(region => {
   const panel = document.createElement('details');
@@ -6287,8 +6280,12 @@ try {
   map.on('click',event=>{
     const place = nearestPlace(event.point);
     if (place) {showPlace(place);return;}
-    if (!overlaysReady || $('streets')?.checked === false) return;
+    if (!overlaysReady) return;
     const {x,y} = event.point;
+    const stationFeature = metroReady && $('metro').checked && map.queryRenderedFeatures([[x-12,y-12],[x+12,y+12]],{layers:['metro-stations']})[0];
+    const station = stationFeature && metroStations[stationFeature.properties.station];
+    if (station) {showStation(station);return;}
+    if ($('streets')?.checked === false) return;
     const feature = map.queryRenderedFeatures([[x-10,y-10],[x+10,y+10]],{layers:['street-hit','street-fills']})[0];
     const street = feature && streets.find(item=>item.id === feature.properties.id);
     if (street) showStreet(street,event.lngLat);
@@ -6307,6 +6304,7 @@ try {
     map.addLayer({id:'street-lines',type:'line',source:'streets',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','color'],'line-width':4}});
     map.addLayer({id:'street-hit',type:'line',source:'streets',paint:{'line-color':'#000','line-width':24,'line-opacity':0}});
     overlaysReady = true; refreshSelection(); syncLayers();
+    addMetroLayers().catch(()=>{});
   });
   map.on('error',()=>{
     $('map').dataset.background='error';

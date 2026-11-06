@@ -160,7 +160,8 @@
       "links": [],
       "origens": [
         "Referências do mapa"
-      ]
+      ],
+      "exibicao": "Não aparece como ponto: Cava Baja já está nos traçados de ruas."
     },
     {
       "id": "reference-17",
@@ -170,7 +171,8 @@
       "links": [],
       "origens": [
         "Referências do mapa"
-      ]
+      ],
+      "exibicao": "Não aparece como ponto: El Rastro será representado pelo traçado da Calle de la Ribera de Curtidores."
     },
     {
       "id": "google-2540394481554893872",
@@ -1801,6 +1803,68 @@
       ],
       "origens": [
         "Hospedagem da viagem"
+      ]
+    },
+    {
+      "id": "reference-55",
+      "nome": "Mercado de San Fernando",
+      "tipo": "Mercado",
+      "secoes": [
+        {
+          "texto": ""
+        }
+      ],
+      "links": [
+        {
+          "texto": "Abrir no Google Maps",
+          "url": "https://www.google.com/maps/place/Mercado+de+San+Fernando/data=!4m6!3m5!1s0xd42263242abf7bb:0x75f8f544b4576748!8m2!3d40.4076318!4d-3.7038442"
+        }
+      ],
+      "origens": [
+        "Referências do mapa"
+      ]
+    },
+    {
+      "id": "google-9599887704240966012",
+      "nome": "Nomade Cafe",
+      "tipo": "Cafetería",
+      "secoes": [
+        {
+          "texto": "Bom para café da manhã."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Abrir no Google Maps",
+          "url": "https://www.google.com/maps/place/Nomade+Cafe/data=!4m2!3m1!1s0xd42262a4beb11e3:0x8539a7012eec497c!8m2!3d40.4107147!4d-3.6993613"
+        }
+      ],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas",
+        "Madrid - Samantha Del Tagle"
+      ]
+    },
+    {
+      "id": "bus-estacion-sur",
+      "nome": "Estación Sur de Autobuses",
+      "tipo": "Estação rodoviária",
+      "secoes": [
+        {
+          "texto": ""
+        }
+      ],
+      "links": [
+        {
+          "texto": "Abrir no Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Estaci%C3%B3n+Sur+de+Autobuses+Madrid"
+        },
+        {
+          "texto": "Site oficial da estação",
+          "url": "https://estacionsurmadrid.avanzagrupo.com/la-estacion/donde-estamos"
+        }
+      ],
+      "origens": [
+        "Transporte da viagem"
       ]
     }
   ]

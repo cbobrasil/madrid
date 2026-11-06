@@ -71,15 +71,15 @@ button:disabled{cursor:default;opacity:.55}
 .maplibregl-ctrl-group button{color:var(--ink);width:40px;height:40px}
 .maplibregl-ctrl-attrib a{color:inherit}
 .zone-label{pointer-events:none!important;background:#fffdf8e8;border:1px solid #ffffff90;box-shadow:0 1px 5px #283d301a;color:#283d31;padding:3px 7px;border-radius:4px;font-size:11px;font-weight:650;text-align:center;max-width:125px;line-height:1.2;z-index:1}
-.place-icon{padding:0;background:transparent!important;border:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;z-index:2;touch-action:manipulation;cursor:pointer}
-.place-dot{width:14px;height:14px;display:flex;align-items:center;justify-content:center;background:#fffdf8;border:2px solid #334e41;border-radius:50%;box-shadow:0 1px 5px #182b3030;font-size:9px;font-weight:800;line-height:1;color:#334e41;pointer-events:none}
+.place-icon{--place-color:#1565c0;padding:0;background:transparent!important;border:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;z-index:2;touch-action:manipulation;cursor:pointer}
+.place-dot{width:14px;height:14px;display:flex;align-items:center;justify-content:center;background:#fffdf8;border:2px solid var(--place-color);border-radius:50%;box-shadow:0 1px 5px #182b3030;font-size:9px;font-weight:800;line-height:1;color:var(--place-color);pointer-events:none}
 .place-icon.anchor{z-index:3}
-.place-icon.anchor .place-dot{width:23px;height:23px;background:#334e41;color:#fffdf8}
-.place-icon.saved .place-dot{border-color:#c74939;color:#c74939}
-.place-icon.saved.anchor .place-dot{background:#c74939;color:#fffdf8}
-.place-icon.hotel{z-index:4}
-.place-icon.hotel .place-dot{width:32px;height:32px;border-radius:9px;background:#fffdf8;border:2px solid #750787;color:#750787;box-shadow:0 2px 8px #36154240}
-.place-icon.hotel svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.place-icon.anchor .place-dot{width:23px;height:23px;background:var(--place-color);color:#fffdf8}
+.place-icon.anchor.compact-anchor .place-dot{width:20px;height:20px}
+.place-icon.hotel,.place-icon.bus-station{z-index:4}
+.place-icon.hotel .place-dot,.place-icon.bus-station .place-dot{width:32px;height:32px;border-radius:6px;background:#1565c0;border:2px solid #fff;color:#fff;box-shadow:0 2px 8px #15365450}
+.place-icon.hotel .place-dot{width:23px;height:23px;border-radius:5px;font-size:14px;font-weight:800}
+.place-icon.bus-station svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .maplibregl-popup{z-index:20}
 .maplibregl-popup-content{font-size:13px;line-height:1.5;border-radius:10px;padding:17px 46px 17px 17px;box-shadow:0 4px 20px #183d2926}
 .place-name{display:block;font-size:14px;font-weight:650;overflow-wrap:anywhere}
@@ -164,7 +164,7 @@ button:disabled{cursor:default;opacity:.55}
       </header>
       <div class="list-heading"><span>Explore o guia</span><span id="count" aria-live="polite">13 áreas</span></div>
       <div class="list" id="regions"></div>
-      <footer><strong>Como ler o mapa</strong><p>As cores acompanham a lista de regiões. Os pontos vermelhos são seus lugares. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. O controle “Referências” cuida dos pontos turísticos que já estavam no mapa. Toque nos traçados das ruas em destaque para ler seus comentários; cada rua usa a cor de seu bairro.</p><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
+      <footer><strong>Como ler o mapa</strong><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. O controle “Referências” cuida dos pontos turísticos que já estavam no mapa. Toque nos traçados das ruas em destaque para ler seus comentários; cada rua usa a cor de seu bairro.</p><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
     </aside>
     <section class="map-shell" aria-label="Mapa interativo de Madri">
       <div id="map" aria-label="Mapa: toque nos locais ou nas ruas em destaque para ver suas informações. Informações dos bairros ficam na lista."></div>
@@ -2033,7 +2033,7 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "name": "Sol",
       "mapLabel": "Sol",
-      "color": "#004DFF",
+      "color": "#E40303",
       "sourceName": "Sol",
       "boundaryType": "user-drawn",
       "boundarySource": "assets/maps/barrios-madrid.kml",
@@ -2524,6 +2524,7 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "M",
       "anchor": true,
+      "hideMarker": true,
       "type": "Estação de metrô",
       "base": true,
       "id": "reference-2",
@@ -2704,7 +2705,8 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Rua de bares e tapas",
       "base": true,
       "id": "reference-16",
-      "listIds": []
+      "listIds": [],
+      "isStreet": true
     },
     {
       "name": "El Rastro · Ribera de Curtidores",
@@ -2716,7 +2718,8 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Feira de rua",
       "base": true,
       "id": "reference-17",
-      "listIds": []
+      "listIds": [],
+      "hideMarker": true
     },
     {
       "name": "Plaza de Santa Ana",
@@ -2941,7 +2944,9 @@ button:disabled{cursor:default;opacity:.55}
         40.41993,
         -3.70508
       ],
-      "symbol": "•",
+      "symbol": "U",
+      "anchor": true,
+      "compactAnchor": true,
       "saved": true,
       "type": "Loja de roupas",
       "base": true,
@@ -2981,7 +2986,9 @@ button:disabled{cursor:default;opacity:.55}
         40.42535,
         -3.68699
       ],
-      "symbol": "•",
+      "symbol": "U",
+      "anchor": true,
+      "compactAnchor": true,
       "saved": true,
       "type": "Loja de roupas",
       "base": true,
@@ -5381,6 +5388,55 @@ button:disabled{cursor:default;opacity:.55}
       "hotel": true,
       "alwaysVisible": true,
       "googleUrl": "https://www.google.com/maps/place/Axel+Hotel+Madrid/data=!4m2!3m1!1s0xd4228802bbbbd6b:0x4bdd7f69395c64b9!8m2!3d40.4131764!4d-3.7005754"
+    },
+    {
+      "id": "reference-55",
+      "name": "Mercado de San Fernando",
+      "coords": [
+        40.4076318,
+        -3.7038442
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Mercado",
+      "base": true,
+      "listIds": [],
+      "googleUrl": "https://www.google.com/maps/place/Mercado+de+San+Fernando/data=!4m6!3m5!1s0xd42263242abf7bb:0x75f8f544b4576748!8m2!3d40.4076318!4d-3.7038442"
+    },
+    {
+      "id": "google-9599887704240966012",
+      "name": "Nomade Cafe",
+      "sourceName": "Nomade Cafe",
+      "coords": [
+        40.4107147,
+        -3.6993613
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Cafetería",
+      "base": false,
+      "listIds": [
+        "desayunos",
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Nomade+Cafe/data=!4m2!3m1!1s0xd42262a4beb11e3:0x8539a7012eec497c!8m2!3d40.4107147!4d-3.6993613",
+      "googleCid": "9599887704240966012"
+    },
+    {
+      "id": "bus-estacion-sur",
+      "name": "Estación Sur de Autobuses",
+      "type": "Estação rodoviária",
+      "coords": [
+        40.3935824,
+        -3.6773867
+      ],
+      "symbol": "",
+      "base": false,
+      "listIds": [],
+      "busStation": true,
+      "alwaysVisible": true,
+      "googleUrl": "https://www.google.com/maps/search/?api=1&query=Estaci%C3%B3n+Sur+de+Autobuses+Madrid",
+      "coordinateSource": "https://estacionsurmadrid.avanzagrupo.com/la-estacion/donde-estamos"
     }
   ],
   "boundaryAttribution": "Contornos pessoais do mapa Barrios Madrid, desenhados pelo usuário no Google My Maps e importados sem simplificação do arquivo KMZ.",
@@ -5407,7 +5463,8 @@ button:disabled{cursor:default;opacity:.55}
         "google-3128596001001833931",
         "google-14443535890859007998",
         "google-9530508032753326214",
-        "google-11425162409541839954"
+        "google-11425162409541839954",
+        "google-9599887704240966012"
       ]
     },
     {
@@ -5449,7 +5506,8 @@ button:disabled{cursor:default;opacity:.55}
         "google-4303489101585349766",
         "google-9621959801930236433",
         "google-7769702076070350088",
-        "google-12591180763755363191"
+        "google-12591180763755363191",
+        "google-9599887704240966012"
       ]
     },
     {
@@ -5820,6 +5878,14 @@ function renderEditorialSections(item) {
 function regionName(region) {return editorial.bairros.get(region.id)?.nome ?? region.name;}
 function placeName(place) {return editorial.locais.get(place.id)?.nome ?? place.name;}
 function placeType(place) {return editorial.locais.get(place.id)?.tipo ?? place.type;}
+function placeColor(place) {
+  const type = placeType(place).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  // Cultural venues stay blue even when housed in a palace or historic building.
+  if (/muse|centro cultural|espaco cultural|espaco de expos|instituicao cultural|galeria|teatro/.test(type)) return '#1565c0';
+  if (/\b(praca|plaza|monumento|escultura|fonte|fuente|arco|catedral|palacio|templo)\b/.test(type)) return '#c74939';
+  if (/\b(parque|parc|park|jardim|jardin|jardines|lago)\b/.test(type)) return '#008026';
+  return '#1565c0';
+}
 function placeContent(place) {
   const item = editorial.locais.get(place.id);
   const extra = item?renderEditorialSections(item):'';
@@ -5830,7 +5896,7 @@ function streetRegion(street) {return data.regions.find(region=>region.id === (e
 function streetContent(street) {
   const region = streetRegion(street), item = editorial.ruas.get(street.id);
   const extra = item?renderEditorialSections(item):street.description?'<p class="editable-text">'+escapeHTML(street.description)+'</p>':'';
-  return '<strong class="place-name">'+escapeHTML(streetName(street))+'</strong><span class="place-type">Rua em destaque'+(region?' · '+escapeHTML(regionName(region)):'')+'</span>'+(extra?'<div class="place-editorial">'+extra+'</div>':'');
+  return '<strong class="place-name">'+escapeHTML(streetName(street))+'</strong>'+(region?'<span class="place-type">'+escapeHTML(regionName(region))+'</span>':'')+(extra?'<div class="place-editorial">'+extra+'</div>':'');
 }
 function streetFeatures() {
   return {type:'FeatureCollection',features:streets.map(street=>({type:'Feature',properties:{id:street.id,color:streetRegion(street)?.color || '#263b35'},geometry:street.geometry}))};
@@ -5853,6 +5919,7 @@ function refreshEditorialViews() {
     const label = placeName(place)+' · '+placeType(place);
     marker.getElement().title = label;
     marker.getElement().setAttribute('aria-label',label);
+    marker.getElement().style.setProperty('--place-color',placeColor(place));
   }
   if (regionDialog.open && selected) {
     const region = data.regions.find(item=>item.id === selected);
@@ -6026,7 +6093,7 @@ mobileLayout.addEventListener('change',()=>{
   }
 });
 function isPlaceVisible(place) {
-  if (place.isStreet) return false; // Streets will use the user's KML lines instead of dots.
+  if (place.isStreet || place.hideMarker) return false; // Routes and hidden references do not get dots.
   if (place.alwaysVisible) return true;
   const isReference = place.base !== false;
   return (isReference && $('places').checked) || (place.listIds || []).some(id => activeLists.has(id));
@@ -6101,7 +6168,10 @@ function syncLayers() {
   if (activeStreet && $('streets')?.checked === false && activePopup) {activePopup.remove();activeStreet=null;}
 }
 function fitAllAreas() {
-  if (map) map.fitBounds(boundsFor(data.regions), {padding:{top:75,bottom:80,left:25,right:45},maxZoom:14,duration:0});
+  if (!map) return;
+  const bounds = boundsFor(data.regions);
+  allPlaces.filter(place=>place.alwaysVisible).forEach(place=>bounds.extend(lngLat(place.coords)));
+  map.fitBounds(bounds, {padding:{top:75,bottom:80,left:25,right:45},maxZoom:14,duration:0});
 }
 function showPlace(place) {
   if (!map || !isPlaceVisible(place)) return;
@@ -6182,6 +6252,13 @@ try {
   map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'bottom-right');
   map.addControl(new maplibregl.ScaleControl({unit:'metric'}), 'bottom-right');
   map.addControl(new maplibregl.AttributionControl({compact:true,customAttribution:'Contornos: mapa pessoal Barrios Madrid'}), 'bottom-right');
+  const attribution = map.getContainer().querySelector('.maplibregl-ctrl-attrib');
+  // Start collapsed once; the native information button handles later opening/closing.
+  attribution.classList.remove('maplibregl-compact-show');
+  attribution.removeAttribute('open');
+  const attributionButton = attribution.querySelector('summary');
+  attributionButton.title = 'Informações e créditos do mapa';
+  attributionButton.setAttribute('aria-label',attributionButton.title);
   fitAllAreas();
   data.regions.forEach(region => {
     const label = document.createElement('span');
@@ -6191,10 +6268,12 @@ try {
   });
   data.places.forEach(place => {
     const icon = document.createElement('button');
-    icon.type = 'button'; icon.className = 'place-icon'+(place.anchor?' anchor':'')+(place.saved?' saved':'')+(place.hotel?' hotel':'');
+    icon.type = 'button'; icon.className = 'place-icon'+(place.anchor?' anchor':'')+(place.compactAnchor?' compact-anchor':'')+(place.hotel?' hotel':'')+(place.busStation?' bus-station':'');
+    icon.style.setProperty('--place-color',placeColor(place));
     icon.title = place.name+' · '+place.type; icon.setAttribute('aria-label',icon.title);
     const dot = document.createElement('span'); dot.className = 'place-dot'; dot.textContent = place.symbol; dot.setAttribute('aria-hidden','true');
-    if (place.hotel) dot.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5v15M21 12v8M3 17h18M3 9h5a3 3 0 0 1 3 3v1H3M11 9h6a4 4 0 0 1 4 4H11"/></svg>';
+    if (place.hotel) dot.textContent = 'H';
+    if (place.busStation) dot.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="16" rx="3"/><rect x="7" y="6" width="10" height="6" rx="1"/><path d="M8 19v2M16 19v2M9 3V2h6v1"/><circle cx="8" cy="16" r=".8" fill="currentColor"/><circle cx="16" cy="16" r=".8" fill="currentColor"/></svg>';
     icon.append(dot);
     icon.addEventListener('click',event=>{
       event.stopPropagation();

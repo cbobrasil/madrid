@@ -118,6 +118,7 @@ button:disabled{cursor:default;opacity:.55}
 .list-count{font-size:10px;opacity:.75;flex:none}
 .neighborhood-list-heading{padding:3px 10px 10px;color:var(--muted);font-size:10px;font-weight:650;letter-spacing:.6px;text-transform:uppercase}
 .fit-lists{width:100%;margin-top:9px;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:#f3f5ee;color:var(--ink);font-size:11px}
+.metro-hint{font-size:11px;color:var(--muted);margin:2px 0 8px}
 .metro-toggles{display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:6px}
 .metro-toggle{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0;border:1px solid var(--line);border-radius:8px;background:#fff}
 .metro-toggle[aria-pressed="false"] .metro-badge{opacity:.3;filter:grayscale(1)}
@@ -175,7 +176,7 @@ button:disabled{cursor:default;opacity:.55}
       </header>
       <div class="list-heading"><span>Explore o guia</span><span id="count" aria-live="polite">13 áreas</span></div>
       <div class="list" id="regions"></div>
-      <footer><strong>Como ler o mapa</strong><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. O controle “Referências” cuida dos pontos turísticos que já estavam no mapa. Toque nos traçados das ruas em destaque para ler seus comentários; cada rua usa a cor de seu bairro. As linhas de metrô seguem as cores oficiais; toque no losango de uma estação para ver as linhas que passam por ela.</p><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap. Linhas e estações de metrô: OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
+      <footer><details><summary>Como ler o mapa</summary><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. O controle “Referências” mostra Sol (S), o Palácio Real (P) e Atocha (A); o hotel e a rodoviária aparecem sempre. Toque nos traçados das ruas em destaque para ler seus comentários; cada rua usa a cor de seu bairro. As linhas de metrô seguem as cores oficiais; toque no losango de uma estação para ver as linhas que passam por ela.</p></details><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap. Linhas e estações de metrô: OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
     </aside>
     <section class="map-shell" aria-label="Mapa interativo de Madri">
       <div id="map" aria-label="Mapa: toque nos locais ou nas ruas em destaque para ver suas informações. Informações dos bairros ficam na lista."></div>
@@ -2577,9 +2578,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Praça",
-      "base": true,
+      "base": false,
       "id": "reference-5",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Centro Cultural Conde Duque",
@@ -2589,9 +2592,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Centro cultural",
-      "base": true,
+      "base": false,
       "id": "reference-6",
-      "listIds": []
+      "listIds": [
+        "cultura"
+      ]
     },
     {
       "name": "Mercado de San Antón",
@@ -2602,9 +2607,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Mercado gastronômico",
-      "base": true,
+      "base": false,
       "id": "reference-7",
-      "listIds": []
+      "listIds": [
+        "lojas"
+      ]
     },
     {
       "name": "Plaza de las Salesas",
@@ -2614,9 +2621,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Praça",
-      "base": true,
+      "base": false,
       "id": "reference-8",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Museo Sorolla",
@@ -2626,9 +2635,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Museu",
-      "base": true,
+      "base": false,
       "id": "reference-9",
-      "listIds": []
+      "listIds": [
+        "museus"
+      ]
     },
     {
       "name": "Andén 0 · Chamberí",
@@ -2638,9 +2649,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Museu do metrô",
-      "base": true,
+      "base": false,
       "id": "reference-10",
-      "listIds": []
+      "listIds": [
+        "museus"
+      ]
     },
     {
       "name": "Plaza Mayor",
@@ -2651,9 +2664,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Praça",
-      "base": true,
+      "base": false,
       "id": "reference-11",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Mercado de San Miguel",
@@ -2664,9 +2679,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Mercado gastronômico",
-      "base": true,
+      "base": false,
       "id": "reference-12",
-      "listIds": []
+      "listIds": [
+        "lojas"
+      ]
     },
     {
       "name": "Catedral de la Almudena",
@@ -2676,9 +2693,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Catedral",
-      "base": true,
+      "base": false,
       "id": "reference-13",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Jardines de Sabatini",
@@ -2689,9 +2708,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Jardim",
-      "base": true,
+      "base": false,
       "id": "reference-14",
-      "listIds": []
+      "listIds": [
+        "parques"
+      ]
     },
     {
       "name": "Templo de Debod",
@@ -2702,9 +2723,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Templo e monumento",
-      "base": true,
+      "base": false,
       "id": "reference-15",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Cava Baja",
@@ -2740,10 +2763,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Praça",
-      "base": true,
+      "base": false,
       "id": "google-2540394481554893872",
       "listIds": [
-        "samantha"
+        "samantha",
+        "pracas"
       ],
       "googleUrl": "https://www.google.com/maps/place/Plaza+santa+Ana/data=!4m2!3m1!1s0xd4229f872078c35:0x23414b5246712c30",
       "googleCid": "2540394481554893872"
@@ -2756,9 +2780,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Casa-museu",
-      "base": true,
+      "base": false,
       "id": "reference-19",
-      "listIds": []
+      "listIds": [
+        "museus"
+      ]
     },
     {
       "name": "Plaza de Lavapiés",
@@ -2768,9 +2794,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Praça",
-      "base": true,
+      "base": false,
       "id": "reference-20",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Tabacalera",
@@ -2780,9 +2808,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Espaço cultural",
-      "base": true,
+      "base": false,
       "id": "reference-21",
-      "listIds": []
+      "listIds": [
+        "cultura"
+      ]
     },
     {
       "name": "Museo Nacional Centro de Arte Reina Sofía",
@@ -2793,9 +2823,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Museu de arte",
-      "base": true,
+      "base": false,
       "id": "reference-22",
-      "listIds": []
+      "listIds": [
+        "museus"
+      ]
     },
     {
       "name": "Museo Nacional del Prado",
@@ -2806,9 +2838,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Museu de arte",
-      "base": true,
+      "base": false,
       "id": "reference-23",
-      "listIds": []
+      "listIds": [
+        "museus"
+      ]
     },
     {
       "name": "Museo Nacional Thyssen-Bornemisza",
@@ -2818,9 +2852,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Museu de arte",
-      "base": true,
+      "base": false,
       "id": "reference-24",
-      "listIds": []
+      "listIds": [
+        "museus"
+      ]
     },
     {
       "name": "CaixaForum Madrid",
@@ -2830,9 +2866,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Centro cultural",
-      "base": true,
+      "base": false,
       "id": "reference-25",
-      "listIds": []
+      "listIds": [
+        "cultura"
+      ]
     },
     {
       "name": "Estanque Grande de El Retiro",
@@ -2842,9 +2880,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Lago",
-      "base": true,
+      "base": false,
       "id": "reference-26",
-      "listIds": []
+      "listIds": [
+        "parques"
+      ]
     },
     {
       "name": "Palacio de Cristal",
@@ -2855,9 +2895,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Palácio e espaço de exposições",
-      "base": true,
+      "base": false,
       "id": "reference-27",
-      "listIds": []
+      "listIds": [
+        "cultura"
+      ]
     },
     {
       "name": "Puerta de Alcalá",
@@ -2867,9 +2909,11 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "type": "Monumento",
-      "base": true,
+      "base": false,
       "id": "reference-28",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Calle de Serrano",
@@ -2893,9 +2937,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Praça",
-      "base": true,
+      "base": false,
       "id": "reference-30",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Mercado de los Mostenses",
@@ -2906,9 +2952,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Mercado",
-      "base": true,
+      "base": false,
       "id": "reference-31",
-      "listIds": []
+      "listIds": [
+        "lojas"
+      ]
     },
     {
       "name": "Mercado de San Ildefonso",
@@ -2919,9 +2967,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Mercado gastronômico",
-      "base": true,
+      "base": false,
       "id": "reference-32",
-      "listIds": []
+      "listIds": [
+        "lojas"
+      ]
     },
     {
       "name": "Plaza de Chueca",
@@ -2932,9 +2982,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Praça",
-      "base": true,
+      "base": false,
       "id": "reference-33",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Plaza de Pedro Zerolo",
@@ -2945,9 +2997,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Praça",
-      "base": true,
+      "base": false,
       "id": "reference-34",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "UNIQLO Gran Vía",
@@ -2960,9 +3014,11 @@ button:disabled{cursor:default;opacity:.55}
       "compactAnchor": true,
       "saved": true,
       "type": "Loja de roupas",
-      "base": true,
+      "base": false,
       "id": "reference-35",
-      "listIds": []
+      "listIds": [
+        "lojas"
+      ]
     },
     {
       "name": "Gran Vía",
@@ -2987,9 +3043,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Palácio e centro cultural",
-      "base": true,
+      "base": false,
       "id": "reference-37",
-      "listIds": []
+      "listIds": [
+        "cultura"
+      ]
     },
     {
       "name": "UNIQLO Serrano",
@@ -3002,9 +3060,11 @@ button:disabled{cursor:default;opacity:.55}
       "compactAnchor": true,
       "saved": true,
       "type": "Loja de roupas",
-      "base": true,
+      "base": false,
       "id": "reference-38",
-      "listIds": []
+      "listIds": [
+        "lojas"
+      ]
     },
     {
       "name": "Plaza de Oriente",
@@ -3015,9 +3075,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Praça e jardins",
-      "base": true,
+      "base": false,
       "id": "reference-39",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Teatro Real",
@@ -3028,9 +3090,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Teatro de ópera",
-      "base": true,
+      "base": false,
       "id": "reference-40",
-      "listIds": []
+      "listIds": [
+        "cultura"
+      ]
     },
     {
       "name": "Calle del Arenal",
@@ -3055,9 +3119,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Praça",
-      "base": true,
+      "base": false,
       "id": "reference-42",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Arco de Cuchilleros",
@@ -3068,9 +3134,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Arco histórico",
-      "base": true,
+      "base": false,
       "id": "reference-43",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Jardín del Príncipe de Anglona",
@@ -3081,9 +3149,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Jardim",
-      "base": true,
+      "base": false,
       "id": "reference-44",
-      "listIds": []
+      "listIds": [
+        "parques"
+      ]
     },
     {
       "name": "Ateneo de Madrid",
@@ -3094,9 +3164,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Instituição cultural",
-      "base": true,
+      "base": false,
       "id": "reference-45",
-      "listIds": []
+      "listIds": [
+        "cultura"
+      ]
     },
     {
       "name": "Parque de El Retiro",
@@ -3107,9 +3179,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Parque",
-      "base": true,
+      "base": false,
       "id": "reference-46",
-      "listIds": []
+      "listIds": [
+        "parques"
+      ]
     },
     {
       "name": "Fuente del Ángel Caído",
@@ -3120,9 +3194,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Fonte e escultura",
-      "base": true,
+      "base": false,
       "id": "reference-47",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Real Jardín Botánico",
@@ -3133,9 +3209,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Jardim botânico",
-      "base": true,
+      "base": false,
       "id": "reference-48",
-      "listIds": []
+      "listIds": [
+        "parques"
+      ]
     },
     {
       "name": "Mercado de la Cebada",
@@ -3146,9 +3224,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Mercado",
-      "base": true,
+      "base": false,
       "id": "reference-49",
-      "listIds": []
+      "listIds": [
+        "lojas"
+      ]
     },
     {
       "name": "Plaza del General Vara de Rey",
@@ -3159,9 +3239,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Praça",
-      "base": true,
+      "base": false,
       "id": "reference-50",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Puerta de Toledo",
@@ -3172,9 +3254,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Monumento",
-      "base": true,
+      "base": false,
       "id": "reference-51",
-      "listIds": []
+      "listIds": [
+        "pracas"
+      ]
     },
     {
       "name": "Calle de la Ribera de Curtidores",
@@ -3213,9 +3297,11 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Centro cultural",
-      "base": true,
+      "base": false,
       "id": "reference-54",
-      "listIds": []
+      "listIds": [
+        "cultura"
+      ]
     },
     {
       "id": "google-4863409570507183551",
@@ -5266,8 +5352,10 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "•",
       "saved": true,
       "type": "Mercado",
-      "base": true,
-      "listIds": [],
+      "base": false,
+      "listIds": [
+        "lojas"
+      ],
       "googleUrl": "https://www.google.com/maps/place/Mercado+de+San+Fernando/data=!4m6!3m5!1s0xd42263242abf7bb:0x75f8f544b4576748!8m2!3d40.4076318!4d-3.7038442"
     },
     {
@@ -5487,6 +5575,85 @@ button:disabled{cursor:default;opacity:.55}
         "google-11299379746788690756",
         "google-17847004284429484810",
         "google-14169323668987311339"
+      ]
+    },
+    {
+      "id": "pracas",
+      "name": "Praças e monumentos",
+      "sourceName": "Praças e monumentos",
+      "placeIds": [
+        "reference-5",
+        "reference-8",
+        "reference-11",
+        "google-2540394481554893872",
+        "reference-20",
+        "reference-30",
+        "reference-33",
+        "reference-34",
+        "reference-39",
+        "reference-42",
+        "reference-50",
+        "reference-13",
+        "reference-15",
+        "reference-28",
+        "reference-51",
+        "reference-43",
+        "reference-47"
+      ]
+    },
+    {
+      "id": "parques",
+      "name": "Parques e jardins",
+      "sourceName": "Parques e jardins",
+      "placeIds": [
+        "reference-46",
+        "reference-26",
+        "reference-14",
+        "reference-44",
+        "reference-48"
+      ]
+    },
+    {
+      "id": "museus",
+      "name": "Museus",
+      "sourceName": "Museus",
+      "placeIds": [
+        "reference-23",
+        "reference-22",
+        "reference-24",
+        "reference-9",
+        "reference-19",
+        "reference-10"
+      ]
+    },
+    {
+      "id": "cultura",
+      "name": "Cultura",
+      "sourceName": "Cultura",
+      "placeIds": [
+        "reference-6",
+        "reference-25",
+        "reference-54",
+        "reference-21",
+        "reference-45",
+        "reference-27",
+        "reference-37",
+        "reference-40"
+      ]
+    },
+    {
+      "id": "lojas",
+      "name": "Lojas e mercados",
+      "sourceName": "Lojas e mercados",
+      "placeIds": [
+        "reference-35",
+        "reference-38",
+        "reference-7",
+        "reference-12",
+        "reference-32",
+        "reference-31",
+        "reference-49",
+        "reference-55"
       ]
     }
   ],
@@ -6007,14 +6174,16 @@ function metroBadge(line) {
 function metroSummary() {
   const count = $('metro-count');
   if (!count) return;
+  $('metro-show').checked = $('metro').checked;
   count.textContent = !$('metro').checked ? 'Oculto' : activeMetroLines.size === metroLines.length ? 'Todas as linhas' : activeMetroLines.size+' de '+metroLines.length+' linhas';
 }
 function renderMetroControls() {
-  const section = document.createElement('details');
-  section.className = 'place-lists metro-lines';
-  section.innerHTML = '<summary><span>Metrô</span><span class="active-list-count" id="metro-count" aria-live="polite">Carregando…</span></summary>';
-  const content = document.createElement('div'); content.className = 'place-list-content';
-  const hint = document.createElement('p'); hint.textContent = 'Escolha as linhas que aparecem no mapa. O controle “Metrô” no mapa mostra ou oculta tudo.';
+  const section = document.createElement('section');
+  section.className = 'street-list metro-lines';
+  section.setAttribute('aria-label','Metrô');
+  section.innerHTML = '<div class="street-heading"><span>Metrô <small class="active-list-count" id="metro-count" aria-live="polite">Carregando…</small></span><label><input id="metro-show" type="checkbox" checked> Mostrar</label></div>';
+  const content = document.createElement('div');
+  const hint = document.createElement('p'); hint.className = 'metro-hint'; hint.textContent = 'Toque numa linha para mostrar ou esconder.';
   const controls = document.createElement('div'); controls.className = 'metro-toggles';
   const actions = document.createElement('div'); actions.className = 'metro-actions';
   actions.innerHTML = '<button type="button" data-metro="all">Todas</button><button type="button" data-metro="none">Nenhuma</button>';
@@ -6029,6 +6198,7 @@ function renderMetroControls() {
   content.append(hint,controls,actions); section.append(content);
   const list = $('regions'); list.insertBefore(section,list.querySelector('.neighborhood-list-heading'));
   $('metro').addEventListener('change',()=>{metroSummary();syncLayers();});
+  $('metro-show').addEventListener('change',event=>{$('metro').checked = event.target.checked;metroSummary();syncLayers();});
   metroData.then(collection=>{
     for (const feature of collection.features) {
       if (feature.properties.kind === 'line') metroLines.push(feature.properties);
@@ -6053,6 +6223,7 @@ function renderMetroControls() {
     hint.textContent = 'As linhas de metrô não carregaram. Abra o guia pelo site (não como arquivo local) e verifique a conexão.';
     actions.hidden = true;
     $('metro').disabled = true;
+    $('metro-show').disabled = true;
   });
 }
 function syncMetroButtons() {

@@ -12,7 +12,8 @@ Pensado principalmente para usar no celular durante os passeios.
 - **Cores por categoria nos pontos:** verde para parques e jardins, vermelho para monumentos e praças, azul para estabelecimentos e museus.
 - **8 ruas em destaque**, com traçados na cor do bairro e comentários ao tocar: Augusto Figueroa, Hortaleza, Argumosa, Pez, Huertas, Cava Baja, Serrano e Goya.
 - **Metrô de Madri**: as 12 linhas e o Ramal com as cores oficiais e as estações marcadas com o losango do metrô. Toque numa estação para ver as linhas que passam por ela.
-- **Listas independentes** de restaurantes, tapas, cafés e brunch, bares e clubs, galerias de arte e indicações de Samantha Del Tagle.
+- **Listas independentes** de restaurantes, tapas, cafés e brunch, bares e clubs, galerias de arte, indicações de Samantha Del Tagle, praças e monumentos, parques e jardins, museus, cultura, e lojas e mercados.
+- **Referências fixas no mapa:** Sol (S), Palácio Real (P) e Atocha (A), além do hotel e da rodoviária, que aparecem sempre.
 
 ## Como explorar
 
@@ -22,7 +23,7 @@ Toque nos pontos para consultar as informações dos locais. Na lista de bairros
 
 No celular, arraste a alça acima de **Guia de Madrid** para cima para expandir a lista de bairros e para baixo para voltar ao mapa. Também é possível tocar na alça para alternar os tamanhos.
 
-Os controles **Áreas**, **Nomes**, **Referências** e **Metrô** permitem ajustar o que aparece no mapa. Na seção **Metrô** da lista, escolha quais linhas aparecem (ou use **Todas** / **Nenhuma**).
+Os controles **Áreas**, **Nomes**, **Referências** e **Metrô** permitem ajustar o que aparece no mapa. Na seção **Metrô** da lista, que fica sempre aberta como a das ruas, escolha quais linhas aparecem (ou use **Todas** / **Nenhuma**); a caixa **Mostrar** liga e desliga o metrô inteiro.
 
 ## Sobre o mapa
 

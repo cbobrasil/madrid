@@ -8,6 +8,10 @@ Abra `index.html` no Firefox ou em outro navegador. É necessário acesso à int
 
 Para conferir alterações, atualize a página com **Ctrl + F5**.
 
+No celular, o mapa fica acima da lista de bairros, que tem rolagem própria. Toque no nome de um bairro na lista para expandir suas informações; os outros itens ficam fechados. O botão **Ver área no mapa** enquadra o bairro escolhido. As áreas e os nomes dos bairros no mapa não abrem fichas.
+
+Toque nos pontos do mapa para ver somente o nome do local, em espanhol, e o tipo de lugar. Os pontos têm uma área de toque ampliada, e locais próximos são escolhidos pela distância do toque ao centro do ponto. As categorias ficam no campo `type` dos locais em `map-data`.
+
 Se preferir um endereço local, execute nesta pasta:
 
 ```powershell

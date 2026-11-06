@@ -8,19 +8,94 @@
   <title>Guia Madrid por bairros · 13 a 16 de novembro de 2026</title>
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <style>
-    :root{--paper:#f5f3ed;--ink:#263b35;--muted:#63716a;--line:#dcded5;--accent:#b94730}
-    [hidden]{display:none!important}
-    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}button,a,input{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #267a70;outline-offset:3px}button:disabled{cursor:default;opacity:.55}
-    .app{display:grid;grid-template-columns:360px 1fr;height:100vh;height:100dvh}.sidebar{display:flex;flex-direction:column;min-height:0;border-right:1px solid var(--line);z-index:1001;background:var(--paper)}header{padding:27px 25px 19px}.eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:750;color:var(--accent)}h1{font:normal 43px/.98 Georgia,serif;letter-spacing:-1.8px;margin:13px 0 15px}h1 em{font-weight:normal;color:var(--accent)}.intro{color:var(--muted);margin:0;font-size:13px;max-width:290px}.list-heading{display:flex;justify-content:space-between;margin:0 25px;padding:12px 0 9px;border-top:1px solid var(--line);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}.list{overflow:auto;flex:1;padding:0 14px 12px;scrollbar-width:thin}.region{width:100%;display:grid;grid-template-columns:12px 1fr 18px;gap:12px;align-items:center;text-align:left;padding:12px 11px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--ink);margin-bottom:2px}.region:hover{background:#eaece3}.region[aria-pressed="true"]{background:#fffdf8;border-color:#c9d0c3;box-shadow:0 2px 4px #223a3008}.dot{width:10px;height:10px;border-radius:50%;background:var(--color)}.region strong{font-size:13px;display:block;font-weight:650}.region small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.arrow{color:#748177;font-size:17px}.sidebar footer{padding:13px 25px 17px;border-top:1px solid var(--line);font-size:10px;color:var(--muted)}.sidebar footer strong{color:var(--ink);font-weight:650}
-    .map-shell{position:relative;min-width:0;background:#e4e7db;overflow:hidden}#map{position:absolute;inset:0;z-index:0}.map-top{position:absolute;left:22px;right:22px;top:20px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;z-index:500;pointer-events:none}.map-top>*{pointer-events:auto}.map-caption{background:#fffdf8ed;border:1px solid #d8ddd2;box-shadow:0 3px 15px #25372e10;padding:11px 15px;border-radius:9px;font-size:12px}.map-caption b{display:block;font-size:10px;letter-spacing:1.3px;text-transform:uppercase}.map-caption span{font-size:11px;color:var(--muted)}.overview{border:1px solid #d1d8cc;border-radius:8px;background:#fffdf8;padding:10px 14px;color:var(--ink);font-size:12px;box-shadow:0 3px 15px #25372e10}.layers{position:absolute;bottom:29px;left:22px;z-index:500;background:#fffdf8ef;border:1px solid #d8ddd2;border-radius:8px;padding:10px 14px;display:flex;gap:16px;font-size:11px}.layers label{display:flex;gap:6px;align-items:center;cursor:pointer}.layers input{accent-color:var(--ink);margin:0}.detail{position:absolute;right:22px;bottom:30px;width:360px;max-width:calc(100% - 44px);max-height:calc(100% - 125px);overflow:auto;overscroll-behavior:contain;z-index:600;background:#fffdf8;border:1px solid #d4d9cc;border-top:4px solid var(--color);border-radius:12px;box-shadow:0 8px 35px #183d2926;padding:21px}.detail[hidden]{display:none}.detail h2{font:27px/1.1 Georgia,serif;letter-spacing:-.6px;margin:9px 23px 10px 0}.detail p{font-size:13px;color:var(--muted);margin:0 0 13px}.detail ul{padding-left:17px;font-size:12px;line-height:1.9;margin:8px 0 14px}.detail a{color:#9f3e2c;font-size:12px;font-weight:650;text-underline-offset:3px}.detail h3{font-size:11px;letter-spacing:.5px;margin:18px 0 6px;color:var(--ink)}.detail .source{display:block;font-size:10px;font-weight:400;margin-top:12px;color:var(--muted)}.detail .group{font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:var(--muted)}.close{position:absolute;right:13px;top:12px;border:0;background:transparent;color:var(--ink);font-size:22px;line-height:1;padding:5px}.official{border-top:1px solid var(--line);padding-top:11px;font-size:11px!important}.notice{position:absolute;top:91px;left:22px;right:22px;z-index:700;background:#fff4d8;padding:12px 16px;border:1px solid #d8bb70;border-radius:8px;font-size:12px}.notice[hidden]{display:none}
-    .maplibregl-map{font-family:inherit;background:#e5e8dd}.maplibregl-ctrl-bottom-right{right:12px;bottom:12px}.maplibregl-ctrl-group button{color:var(--ink)}.zone-label{background:#fffdf8e8;border:1px solid #ffffff90;box-shadow:0 1px 5px #283d301a;color:#283d31;padding:3px 7px;border-radius:4px;font-size:11px;font-weight:650;text-align:center;white-space:nowrap;z-index:1}.place-icon{padding:0;background:#fffdf8;border:2px solid #334e41;border-radius:50%;box-shadow:0 1px 5px #182b3030;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;line-height:1;color:#334e41;z-index:2}.place-icon.anchor{background:#334e41;color:#fffdf8;z-index:3}.place-icon.saved{border-color:#c74939;color:#c74939;background:#fffdf8}.place-icon.saved.anchor{background:#c74939;color:#fffdf8}.maplibregl-popup{z-index:4}.maplibregl-popup-content{font-size:12px;line-height:1.7;border-radius:10px;padding:15px 20px 15px 15px}.maplibregl-popup-content b{font-size:14px}.maplibregl-popup-content a{color:#9f3e2c}.maplibregl-popup-close-button{padding:3px 7px;font-size:18px}.noscript{position:absolute;inset:100px 25px auto;z-index:800;padding:20px;background:#fffdf8}
-    @media(min-width:1500px){.app{grid-template-columns:390px 1fr}header{padding:32px}.list-heading{margin:0 32px}.region{padding:14px 17px}}
-    @media(max-width:800px){.app{grid-template-columns:285px 1fr}header{padding:20px}h1{font-size:37px}.list-heading{margin:0 20px}.map-top{left:14px;right:14px;top:14px}.map-caption{display:none}.map-top{justify-content:flex-end}.layers{left:14px;bottom:27px;gap:10px}.detail{right:14px;bottom:82px;width:285px;padding:17px}.detail h2{font-size:24px}}
-    @media(max-width:580px){.app{display:flex;flex-direction:column;height:auto;min-height:100dvh}.sidebar{order:2;border:0}.map-shell{height:58dvh;min-height:370px;order:1;position:sticky;top:0;z-index:1002;border-bottom:1px solid var(--line)}header{padding:19px 20px 13px}h1{font-size:35px;margin:8px 0}h1 br{display:none}.intro{max-width:none}.list{overflow:visible;padding:0 10px 10px}.region{padding:11px 10px}.list-heading{padding-top:10px}.sidebar footer{padding:12px 20px}.detail{bottom:68px;max-height:calc(58dvh - 132px);overflow:auto;width:290px;padding:14px}.detail h2{font-size:22px;margin:5px 24px 8px 0}.detail ul{line-height:1.65;margin:6px 0 10px}.detail p{font-size:12px;margin-bottom:9px}.map-caption{display:block;padding:8px 11px}.map-caption span{display:none}.map-caption b{font-size:9px}.overview{padding:8px 10px;font-size:11px}.zone-label{font-size:9px;padding:2px 4px}.layers{padding:8px 10px;font-size:10px;gap:10px}.notice{top:62px;left:14px;right:14px}}
+:root{--paper:#fcfbf8;--ink:#263b35;--muted:#63716a;--line:#dcded5;--accent:#b94730}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,summary{font:inherit;-webkit-tap-highlight-color:transparent}
+button,summary{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #267a70;outline-offset:3px}
+button:disabled{cursor:default;opacity:.55}
+.app{display:grid;grid-template-columns:360px minmax(0,1fr);height:100vh;height:100dvh;overflow:hidden}
+.sidebar{display:flex;flex-direction:column;min-height:0;min-width:0;border-right:1px solid var(--line);background:var(--paper)}
+.sidebar header{padding:29px 25px 23px;flex:none}
+.pride-stripe{height:5px;width:108px;border-radius:4px;background:linear-gradient(to right,#E40303 0 16.667%,#FF8C00 16.667% 33.333%,#FFED00 33.333% 50%,#008026 50% 66.667%,#004DFF 66.667% 83.333%,#750787 83.333% 100%);margin-bottom:21px}
+.sidebar h1{font-size:31px;line-height:1.12;font-weight:700;letter-spacing:-1px;margin:0 0 15px;color:#25352f}
+.sidebar h1 span{font-weight:450}
+.trip-dates{font-size:12px;color:#52605a;margin:0;padding-top:9px;border-top:1px solid #e1e4dc;white-space:nowrap}
+.list-heading{display:flex;justify-content:space-between;margin:0 25px;padding:12px 0 9px;border-top:1px solid var(--line);font-size:10px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);font-weight:650;flex:none}
+.list{overflow:auto;flex:1;min-height:0;padding:0 14px 12px;scrollbar-width:thin;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.region-item{border:1px solid transparent;border-radius:9px;margin:0 0 4px}
+.region{display:grid;grid-template-columns:14px minmax(0,1fr) 18px;gap:12px;align-items:center;text-align:left;padding:13px 11px;min-height:58px;list-style:none;border-radius:8px;color:var(--ink)}
+.region::-webkit-details-marker{display:none}
+.region::marker{content:""}
+.region:hover{background:color-mix(in srgb,var(--color) 8%,#fff)}
+.region-item[open]{border-color:var(--color);background:#fffdf9}
+.region-item[open]>.region{background:color-mix(in srgb,var(--color) 9%,#fff);border-radius:8px 8px 0 0}
+.dot{width:13px;height:13px;border-radius:50%;background:var(--color);box-shadow:inset 0 0 0 1px #00000014}
+.region strong{display:block;font-size:13px;font-weight:650}
+.region small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.arrow{color:#748177;font-size:20px;text-align:center;transition:transform .15s}
+.region-item[open] .arrow{transform:rotate(180deg)}
+.region-details{padding:16px 15px 18px;overflow-wrap:anywhere}
+.region-details p{font-size:13px;color:var(--muted);margin:0 0 13px}
+.region-details h3{font-size:11px;letter-spacing:.5px;margin:18px 0 6px;color:var(--ink)}
+.region-details h3:first-child{margin-top:0}
+.region-details ul{padding-left:17px;font-size:12px;line-height:1.9;margin:8px 0 14px}
+.region-details a{color:#9f3e2c;font-size:12px;font-weight:650;text-underline-offset:3px}
+.region-details .source{display:block;font-size:10px;font-weight:400;margin-top:15px;color:var(--muted)}
+.official{border-top:1px solid var(--line);padding-top:11px;font-size:11px!important}
+.region-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.region-actions a{display:inline-flex;align-items:center;min-height:44px}
+.locate-region{border:1px solid var(--line);border-radius:7px;padding:10px 12px;min-height:44px;background:#f3f5ee;color:var(--ink);font-size:12px}
+.sidebar footer{padding:14px 25px;border-top:1px solid var(--line);font-size:10px;color:var(--muted);flex:none}
+.sidebar footer>strong{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink)}
+.sidebar footer p{margin:5px 0 9px}
+.sidebar footer summary{text-decoration:underline;text-underline-offset:2px}
+.sidebar footer a{color:var(--muted)}
+.map-shell{position:relative;min-width:0;min-height:0;background:#e4e7db;overflow:hidden}
+#map{position:absolute;inset:0;z-index:0}
+.map-top{position:absolute;left:22px;right:22px;top:20px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;z-index:10;pointer-events:none}
+.map-top>*{pointer-events:auto}
+.map-caption{background:#fffdf8ed;border:1px solid #d8ddd2;box-shadow:0 3px 15px #25372e10;padding:11px 15px;border-radius:9px;font-size:12px}
+.map-caption b{display:block;font-size:10px;letter-spacing:1.3px;text-transform:uppercase}
+.map-caption span{font-size:11px;color:var(--muted)}
+.overview{border:1px solid #d1d8cc;border-radius:8px;background:#fffdf8;min-height:44px;padding:10px 14px;color:var(--ink);font-size:12px;box-shadow:0 3px 15px #25372e10}
+.layers{position:absolute;bottom:29px;left:22px;z-index:10;background:#fffdf8ef;border:1px solid #d8ddd2;border-radius:8px;padding:0 9px;display:flex;gap:6px;font-size:11px;max-width:calc(100% - 85px)}
+.layers label{display:flex;gap:6px;align-items:center;cursor:pointer;min-height:44px;padding:0 5px}
+.layers input{accent-color:var(--ink);margin:0}
+.notice{position:absolute;top:91px;left:22px;right:22px;z-index:15;background:#fff4d8;padding:12px 16px;border:1px solid #d8bb70;border-radius:8px;font-size:12px}
+.maplibregl-map{font-family:inherit;background:#e5e8dd}
+.maplibregl-ctrl-bottom-right{right:10px;bottom:8px}
+.maplibregl-ctrl-group button{color:var(--ink);width:40px;height:40px}
+.maplibregl-ctrl-attrib a{color:inherit}
+.zone-label{pointer-events:none!important;background:#fffdf8e8;border:1px solid #ffffff90;box-shadow:0 1px 5px #283d301a;color:#283d31;padding:3px 7px;border-radius:4px;font-size:11px;font-weight:650;text-align:center;max-width:125px;line-height:1.2;z-index:1}
+.place-icon{padding:0;background:transparent!important;border:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;z-index:2;touch-action:manipulation;cursor:pointer}
+.place-dot{width:14px;height:14px;display:flex;align-items:center;justify-content:center;background:#fffdf8;border:2px solid #334e41;border-radius:50%;box-shadow:0 1px 5px #182b3030;font-size:9px;font-weight:800;line-height:1;color:#334e41;pointer-events:none}
+.place-icon.anchor{z-index:3}
+.place-icon.anchor .place-dot{width:23px;height:23px;background:#334e41;color:#fffdf8}
+.place-icon.saved .place-dot{border-color:#c74939;color:#c74939}
+.place-icon.saved.anchor .place-dot{background:#c74939;color:#fffdf8}
+.maplibregl-popup{z-index:20}
+.maplibregl-popup-content{font-size:13px;line-height:1.5;border-radius:10px;padding:17px 46px 17px 17px;box-shadow:0 4px 20px #183d2926}
+.place-name{display:block;font-size:14px;font-weight:650;overflow-wrap:anywhere}
+.place-type{display:block;color:var(--muted);font-size:12px;margin-top:5px}
+.maplibregl-popup-close-button{width:40px;height:40px;font-size:23px;color:var(--ink)}
+.noscript{position:absolute;inset:100px 25px auto;z-index:25;padding:20px;background:#fffdf8}
+@media(min-width:1500px){.app{grid-template-columns:390px minmax(0,1fr)}.sidebar header{padding:32px}.list-heading{margin:0 32px}}
+@media(max-width:800px){.app{grid-template-columns:285px minmax(0,1fr)}.sidebar header{padding:23px 20px 20px}.sidebar h1{font-size:28px}.trip-dates{font-size:11px}.list-heading{margin:0 20px}.sidebar footer{padding:12px 20px}.map-top{left:12px;right:12px;top:12px}.map-caption{display:none}.map-top{justify-content:flex-end}.layers{left:12px;bottom:29px;gap:0;padding:0 5px}.layers label{padding:0 4px}.notice{left:12px;right:12px;top:67px}}
+@media(max-width:580px){
+  .app{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(220px,55dvh) minmax(0,1fr)}
+  .map-shell{grid-row:1}.sidebar{grid-row:2;border-right:0;border-top:1px solid var(--line)}
+  .sidebar header{padding:13px 17px 10px}.sidebar h1{font-size:22px;line-height:1.15;letter-spacing:-.5px;margin:0 0 6px}.sidebar h1 br{display:none}.sidebar h1 span{margin-left:5px}
+  .pride-stripe{height:4px;width:80px;margin-bottom:9px}.trip-dates{font-size:11px;border:0;padding:0}
+  .list-heading{margin:0 17px;padding:8px 0;font-size:9px}.list{padding:0 9px 10px}.region{min-height:60px;padding:11px}.region strong{font-size:14px}.region small{font-size:11px}.region-details{padding:14px}.region-details p{font-size:13px}
+  .sidebar footer{padding:7px 17px}.sidebar footer>strong,.sidebar footer>p{display:none}.sidebar footer summary{min-height:28px;display:flex;align-items:center}
+  .map-caption{display:block;padding:9px 10px}.map-caption span{display:none}.map-caption b{font-size:9px}.overview{padding:9px 10px;font-size:11px}
+  .zone-label{font-size:9px;padding:2px 4px;max-width:100px}.layers{font-size:10px}.layers label{gap:4px}.maplibregl-popup-content{padding-top:14px;padding-bottom:14px}
+}
+@media(prefers-reduced-motion:reduce){.arrow{transition:none}}
 
-    .sidebar{background:#fcfbf8}.sidebar header{padding:29px 25px 23px}.pride-stripe{height:5px;width:108px;border-radius:4px;background:linear-gradient(to right,#E40303 0 16.667%,#FF8C00 16.667% 33.333%,#FFED00 33.333% 50%,#008026 50% 66.667%,#004DFF 66.667% 83.333%,#750787 83.333% 100%);margin-bottom:21px}.sidebar h1{font:700 31px/1.12 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-1px;margin:0 0 15px;color:#25352f}.sidebar h1 span{font-weight:450}.trip-dates{font-size:12px;color:#52605a;margin:0;padding:9px 0 0;border-top:1px solid #e1e4dc;white-space:nowrap}.list-heading{font-size:10px;font-weight:650;letter-spacing:.7px}.region{grid-template-columns:14px 1fr 18px;gap:12px;padding:13px 11px;border-radius:8px;margin-bottom:4px}.region .dot{width:13px;height:13px;box-shadow:inset 0 0 0 1px #00000014}.region:hover{background:color-mix(in srgb,var(--color) 8%,#fff)}.region[aria-pressed="true"]{background:color-mix(in srgb,var(--color) 9%,#fff);border-color:var(--color);box-shadow:none}.region strong{font-size:13px}.region small{font-size:11px}.sidebar footer{font-size:10px;padding:14px 25px}.sidebar footer>strong{font-size:10px;text-transform:uppercase;letter-spacing:.5px}.sidebar footer p{margin:5px 0 9px}.sidebar footer summary{cursor:pointer;text-decoration:underline;text-underline-offset:2px}.sidebar footer a{color:var(--muted)}.zone-label{max-width:130px;white-space:normal;line-height:1.2}.maplibregl-ctrl-attrib a{color:inherit}
-    @media(max-width:800px){.sidebar header{padding:23px 20px 20px}.sidebar h1{font-size:28px}.trip-dates{font-size:11px}.sidebar footer{padding:12px 20px}}
-    @media(max-width:580px){.sidebar header{padding:22px 20px 18px}.sidebar h1{font-size:28px}.sidebar h1 br{display:block}.pride-stripe{margin-bottom:14px}.trip-dates{font-size:12px}.zone-label{max-width:100px}}
   </style>
 </head>
 <body>
@@ -31,16 +106,15 @@
         <h1>Guia Madrid<br><span>por bairros</span></h1>
         <p class="trip-dates">Viagem 13/11/2026 a 16/11/2026</p>
       </header>
-      <div class="list-heading"><span>Escolha uma região</span><span id="count" aria-live="polite">13 áreas</span></div>
+      <div class="list-heading"><span>Explore os bairros</span><span id="count" aria-live="polite">13 áreas</span></div>
       <div class="list" id="regions"></div>
       <footer><strong>Como ler o mapa</strong><p>As cores acompanham a lista de regiões. Os pontos vermelhos são os lugares da sua seleção.</p><details><summary>Sobre os contornos e as fontes</summary><p>Áreas desenhadas por você no Google My Maps, preservadas como no arquivo enviado. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap.</p></details></footer>
     </aside>
     <section class="map-shell" aria-label="Mapa interativo de Madri">
-      <div id="map" aria-label="Mapa: use os botões de zoom ou escolha uma região na lista"></div>
+      <div id="map" aria-label="Mapa: toque nos locais para ver nome e tipo. Informações dos bairros ficam na lista."></div>
       <div class="map-top"><div class="map-caption"><b>Madri · Espanha</b><span>Áreas de passeio, em cores</span></div><button id="overview" class="overview" type="button">↗ Ver todas as áreas</button></div>
       <div id="notice" class="notice" role="status" hidden></div>
       <div class="layers"><label><input type="checkbox" id="areas" checked> Áreas</label><label><input type="checkbox" id="labels" checked> Nomes</label><label><input type="checkbox" id="places" checked> Referências</label></div>
-      <article id="detail" class="detail" aria-live="polite" aria-label="Detalhes da região" hidden></article>
       <noscript><p class="noscript">Ative o JavaScript para explorar o mapa. Este HTML usa internet para carregar o mapa de ruas.</p></noscript>
     </section>
   </main>
@@ -2373,7 +2447,8 @@
         -3.7036
       ],
       "symbol": "S",
-      "anchor": true
+      "anchor": true,
+      "type": "Praça"
     },
     {
       "name": "San Bernardo · Metro",
@@ -2382,7 +2457,8 @@
         -3.7056
       ],
       "symbol": "M",
-      "anchor": true
+      "anchor": true,
+      "type": "Estação de metrô"
     },
     {
       "name": "Madrid Puerta de Atocha–Almudena Grandes",
@@ -2392,7 +2468,8 @@
       ],
       "symbol": "A",
       "anchor": true,
-      "saved": true
+      "saved": true,
+      "type": "Estação ferroviária"
     },
     {
       "name": "Palacio Real de Madrid",
@@ -2402,7 +2479,8 @@
       ],
       "symbol": "P",
       "anchor": true,
-      "saved": true
+      "saved": true,
+      "type": "Palácio"
     },
     {
       "name": "Plaza del Dos de Mayo",
@@ -2410,7 +2488,8 @@
         40.4269,
         -3.7039
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Praça"
     },
     {
       "name": "Centro Cultural Conde Duque",
@@ -2418,7 +2497,8 @@
         40.4275,
         -3.7106
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Centro cultural"
     },
     {
       "name": "Mercado de San Antón",
@@ -2427,7 +2507,8 @@
         -3.6973
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Mercado gastronômico"
     },
     {
       "name": "Plaza de las Salesas",
@@ -2435,7 +2516,8 @@
         40.4246,
         -3.6944
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Praça"
     },
     {
       "name": "Museo Sorolla",
@@ -2443,7 +2525,8 @@
         40.4359,
         -3.6925
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Museu"
     },
     {
       "name": "Andén 0 · Chamberí",
@@ -2451,7 +2534,8 @@
         40.4325,
         -3.6977
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Museu do metrô"
     },
     {
       "name": "Plaza Mayor",
@@ -2460,7 +2544,8 @@
         -3.7074
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Praça"
     },
     {
       "name": "Mercado de San Miguel",
@@ -2469,7 +2554,8 @@
         -3.7092
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Mercado gastronômico"
     },
     {
       "name": "Catedral de la Almudena",
@@ -2477,7 +2563,8 @@
         40.4156,
         -3.7145
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Catedral"
     },
     {
       "name": "Jardines de Sabatini",
@@ -2486,7 +2573,8 @@
         -3.7124
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Jardim"
     },
     {
       "name": "Templo de Debod",
@@ -2495,7 +2583,8 @@
         -3.7178
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Templo e monumento"
     },
     {
       "name": "Cava Baja",
@@ -2503,7 +2592,8 @@
         40.4122,
         -3.7092
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Rua de bares e tapas"
     },
     {
       "name": "El Rastro · Ribera de Curtidores",
@@ -2511,7 +2601,8 @@
         40.4083,
         -3.7076
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Feira de rua"
     },
     {
       "name": "Plaza de Santa Ana",
@@ -2519,7 +2610,8 @@
         40.4147,
         -3.7013
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Praça"
     },
     {
       "name": "Casa Museo Lope de Vega",
@@ -2527,7 +2619,8 @@
         40.4143,
         -3.6976
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Casa-museu"
     },
     {
       "name": "Plaza de Lavapiés",
@@ -2535,7 +2628,8 @@
         40.4087,
         -3.7009
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Praça"
     },
     {
       "name": "Tabacalera",
@@ -2543,7 +2637,8 @@
         40.4062,
         -3.7027
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Espaço cultural"
     },
     {
       "name": "Museo Nacional Centro de Arte Reina Sofía",
@@ -2552,7 +2647,8 @@
         -3.6946
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Museu de arte"
     },
     {
       "name": "Museo Nacional del Prado",
@@ -2561,7 +2657,8 @@
         -3.6921
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Museu de arte"
     },
     {
       "name": "Museo Nacional Thyssen-Bornemisza",
@@ -2569,7 +2666,8 @@
         40.416,
         -3.6949
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Museu de arte"
     },
     {
       "name": "CaixaForum Madrid",
@@ -2577,7 +2675,8 @@
         40.411,
         -3.6933
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Centro cultural"
     },
     {
       "name": "Estanque Grande de El Retiro",
@@ -2585,7 +2684,8 @@
         40.4172,
         -3.6836
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Lago"
     },
     {
       "name": "Palacio de Cristal",
@@ -2594,7 +2694,8 @@
         -3.682
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Palácio e espaço de exposições"
     },
     {
       "name": "Puerta de Alcalá",
@@ -2602,7 +2703,8 @@
         40.42,
         -3.6887
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Monumento"
     },
     {
       "name": "Calle de Serrano",
@@ -2610,7 +2712,8 @@
         40.429,
         -3.6878
       ],
-      "symbol": "•"
+      "symbol": "•",
+      "type": "Rua de compras"
     },
     {
       "name": "Plaza de España",
@@ -2619,7 +2722,8 @@
         -3.7122
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Praça"
     },
     {
       "name": "Mercado de los Mostenses",
@@ -2628,7 +2732,8 @@
         -3.7085
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Mercado"
     },
     {
       "name": "Mercado de San Ildefonso",
@@ -2637,7 +2742,8 @@
         -3.7007
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Mercado gastronômico"
     },
     {
       "name": "Plaza de Chueca",
@@ -2646,7 +2752,8 @@
         -3.6978
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Praça"
     },
     {
       "name": "Plaza de Pedro Zerolo",
@@ -2655,7 +2762,8 @@
         -3.69944
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Praça"
     },
     {
       "name": "UNIQLO Gran Vía",
@@ -2664,7 +2772,8 @@
         -3.70508
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Loja de roupas"
     },
     {
       "name": "Gran Vía",
@@ -2673,7 +2782,8 @@
         -3.6979
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Avenida"
     },
     {
       "name": "Palacio de Cibeles",
@@ -2682,7 +2792,8 @@
         -3.6919
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Palácio e centro cultural"
     },
     {
       "name": "UNIQLO Serrano",
@@ -2691,7 +2802,8 @@
         -3.68699
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Loja de roupas"
     },
     {
       "name": "Plaza de Oriente",
@@ -2700,7 +2812,8 @@
         -3.7121
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Praça e jardins"
     },
     {
       "name": "Teatro Real",
@@ -2709,7 +2822,8 @@
         -3.7106
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Teatro de ópera"
     },
     {
       "name": "Calle del Arenal",
@@ -2718,7 +2832,8 @@
         -3.7075
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Rua"
     },
     {
       "name": "Plaza de la Armería",
@@ -2727,7 +2842,8 @@
         -3.7145
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Praça"
     },
     {
       "name": "Arco de Cuchilleros",
@@ -2736,7 +2852,8 @@
         -3.7085
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Arco histórico"
     },
     {
       "name": "Jardín del Príncipe de Anglona",
@@ -2745,7 +2862,8 @@
         -3.711464
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Jardim"
     },
     {
       "name": "Ateneo de Madrid",
@@ -2754,7 +2872,8 @@
         -3.698
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Instituição cultural"
     },
     {
       "name": "Parque de El Retiro",
@@ -2763,7 +2882,8 @@
         -3.682
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Parque"
     },
     {
       "name": "Fuente del Ángel Caído",
@@ -2772,7 +2892,8 @@
         -3.6846
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Fonte e escultura"
     },
     {
       "name": "Real Jardín Botánico",
@@ -2781,7 +2902,8 @@
         -3.6908
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Jardim botânico"
     },
     {
       "name": "Mercado de la Cebada",
@@ -2790,7 +2912,8 @@
         -3.7088
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Mercado"
     },
     {
       "name": "Plaza del General Vara de Rey",
@@ -2799,7 +2922,8 @@
         -3.708181
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Praça"
     },
     {
       "name": "Puerta de Toledo",
@@ -2808,7 +2932,8 @@
         -3.7115
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Monumento"
     },
     {
       "name": "Calle de la Ribera de Curtidores",
@@ -2817,7 +2942,8 @@
         -3.7071
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Rua"
     },
     {
       "name": "Calle del Doctor Fourquet",
@@ -2826,7 +2952,8 @@
         -3.6973
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Rua de galerias de arte"
     },
     {
       "name": "La Casa Encendida",
@@ -2835,7 +2962,8 @@
         -3.6995
       ],
       "symbol": "•",
-      "saved": true
+      "saved": true,
+      "type": "Centro cultural"
     }
   ],
   "boundaryAttribution": "Contornos pessoais do mapa Barrios Madrid, desenhados pelo usuário no Google My Maps e importados sem simplificação do arquivo KMZ."
@@ -2848,8 +2976,8 @@ const data = JSON.parse(document.getElementById('map-data').textContent);
 const $ = id => document.getElementById(id);
 const escapeHTML = text => text.replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const lngLat = ([lat, lng]) => [lng, lat];
-const buttons = new Map(), labels = [], markers = [];
-let selected = null, map = null, overlaysReady = false;
+const panels = new Map(), labels = [], markers = [];
+let selected = null, map = null, overlaysReady = false, activePopup = null;
 const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const mapLink = name => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(name + ', Madrid, España');
 function showNotice(text) { $('notice').textContent = text; $('notice').hidden = false; }
@@ -2863,58 +2991,77 @@ function boundsFor(regions) {
   return bounds;
 }
 function refreshSelection() {
-  for (const [id, button] of buttons) button.setAttribute('aria-pressed', String(id === selected));
   if (!overlaysReady) return;
   map.setPaintProperty('region-fills', 'fill-opacity', ['case',['==',['get','id'],selected || ''],.36,.22]);
   map.setPaintProperty('region-lines', 'line-width', ['case',['==',['get','id'],selected || ''],3,1.7]);
 }
-function selectRegion(region) {
-  selected = region.id;
-  refreshSelection();
-  const detail = $('detail');
-  detail.style.setProperty('--color', region.color);
-  detail.innerHTML = '<button type="button" class="close" aria-label="Fechar detalhes">×</button><div class="group">'+escapeHTML(data.groups[region.group])+'</div><h2>'+escapeHTML(region.name)+'</h2><p>'+escapeHTML(region.description)+'</p><h3>O clima da região</h3><p>'+escapeHTML(region.atmosphere)+'</p><h3>O que ver</h3><ul>'+region.highlights.map(item=>'<li>'+escapeHTML(item)+'</li>').join('')+'</ul><h3>Uma ideia de passeio</h3><p>'+escapeHTML(region.walk)+'</p><h3>Para aproveitar melhor</h3><p>'+escapeHTML(region.tip)+'</p><p class="official">'+escapeHTML(region.official)+'</p><a target="_blank" rel="noopener noreferrer" href="'+mapLink(region.name)+'">Pesquisar no Google Maps ↗</a><a class="source" target="_blank" rel="noopener noreferrer" href="'+escapeHTML(region.source)+'">Mais sobre a região · fonte oficial ↗</a>';
-  detail.hidden = false;
-  detail.scrollTop = 0;
-  detail.querySelector('.close').addEventListener('click', closeDetail);
-  if (map) {
-    const mobile = matchMedia('(max-width:580px)').matches;
-    const right = mobile || $('map').clientWidth < 650 ? 35 : 390;
-    map.fitBounds(boundsFor([region]), {padding:{top:75,bottom:mobile?125:65,left:35,right},maxZoom:15,duration:reducedMotion()?0:500});
-  }
+function focusRegion(region) {
+  if (!map) return;
+  if (activePopup) activePopup.remove();
+  map.fitBounds(boundsFor([region]), {padding:{top:75,bottom:80,left:30,right:45},maxZoom:15,duration:reducedMotion()?0:450});
 }
-function closeDetail() {
-  const previous = selected;
-  selected = null;
-  $('detail').hidden = true;
-  refreshSelection();
-  if (buttons.has(previous)) buttons.get(previous).focus({preventScroll:true});
+function regionContent(region) {
+  return '<p>'+escapeHTML(region.description)+'</p><h3>O clima da região</h3><p>'+escapeHTML(region.atmosphere)+'</p><h3>O que ver</h3><ul>'+region.highlights.map(item=>'<li>'+escapeHTML(item)+'</li>').join('')+'</ul><h3>Uma ideia de passeio</h3><p>'+escapeHTML(region.walk)+'</p><h3>Para aproveitar melhor</h3><p>'+escapeHTML(region.tip)+'</p><p class="official">'+escapeHTML(region.official)+'</p><div class="region-actions"><button type="button" class="locate-region">Ver área no mapa</button><a target="_blank" rel="noopener noreferrer" href="'+mapLink(region.name)+'">Google Maps ↗</a></div><a class="source" target="_blank" rel="noopener noreferrer" href="'+escapeHTML(region.source)+'">Mais sobre a região · fonte oficial ↗</a>';
 }
 function syncLayers() {
   if (overlaysReady) {
     for (const id of ['region-fills','region-lines']) map.setLayoutProperty(id,'visibility',$('areas').checked?'visible':'none');
   }
   labels.forEach(marker => marker.getElement().hidden = !$('labels').checked);
-  markers.forEach(marker => {
-    marker.getElement().hidden = !$('places').checked;
-    if (!$('places').checked && marker.getPopup().isOpen()) marker.togglePopup();
-  });
+  markers.forEach(marker => marker.getElement().hidden = !$('places').checked);
+  if (!$('places').checked && activePopup) activePopup.remove();
 }
 function fitAllAreas() {
-  if (map) map.fitBounds(boundsFor(data.regions), {padding:{top:80,bottom:65,left:30,right:30},maxZoom:14,duration:0});
+  if (map) map.fitBounds(boundsFor(data.regions), {padding:{top:75,bottom:80,left:25,right:45},maxZoom:14,duration:0});
+}
+function showPlace(place) {
+  if (!map || !$('places').checked) return;
+  if (activePopup) activePopup.remove();
+  activePopup = new maplibregl.Popup({offset:14,maxWidth:'270px',closeButton:true,closeOnClick:true})
+    .setLngLat(lngLat(place.coords))
+    .setHTML('<strong class="place-name">'+escapeHTML(place.name)+'</strong><span class="place-type">'+escapeHTML(place.type)+'</span>')
+    .addTo(map);
+}
+// Pick the closest actual dot, even when enlarged touch targets overlap.
+function nearestPlace(point, radius = 28) {
+  if (!map || !$('places').checked) return null;
+  let closest = null, distance = radius*radius;
+  for (const place of data.places) {
+    const projected = map.project(lngLat(place.coords));
+    const squared = (projected.x-point.x)**2+(projected.y-point.y)**2;
+    if (squared <= distance) { distance = squared; closest = place; }
+  }
+  return closest;
 }
 $('count').textContent = data.regions.length + ' áreas';
 data.regions.forEach(region => {
-  const button = document.createElement('button');
-  button.type = 'button'; button.className = 'region'; button.setAttribute('aria-pressed','false');
-  button.style.setProperty('--color',region.color);
-  button.innerHTML = '<span class="dot" aria-hidden="true"></span><span><strong>'+escapeHTML(region.name)+'</strong><small>'+escapeHTML(region.tag)+'</small></span><span class="arrow" aria-hidden="true">↗</span>';
-  button.addEventListener('click',()=>selectRegion(region));
-  buttons.set(region.id,button); $('regions').append(button);
+  const panel = document.createElement('details');
+  panel.className = 'region-item'; panel.style.setProperty('--color',region.color);
+  const summary = document.createElement('summary'); summary.className = 'region';
+  summary.innerHTML = '<span class="dot" aria-hidden="true"></span><span><strong>'+escapeHTML(region.name)+'</strong><small>'+escapeHTML(region.tag)+'</small></span><span class="arrow" aria-hidden="true">⌄</span>';
+  const content = document.createElement('div'); content.className = 'region-details';
+  content.innerHTML = regionContent(region);
+  content.querySelector('.locate-region').addEventListener('click',()=>focusRegion(region));
+  panel.append(summary,content);
+  panel.addEventListener('toggle',()=>{
+    if (panel.open) {
+      selected = region.id;
+      for (const other of panels.values()) if (other !== panel) other.open = false;
+    } else if (selected === region.id) selected = null;
+    refreshSelection();
+  });
+  panels.set(region.id,panel); $('regions').append(panel);
 });
-document.addEventListener('keydown',event=>{ if(event.key === 'Escape' && !$('detail').hidden) closeDetail(); });
+document.addEventListener('keydown',event=>{
+  if (event.key === 'Escape') {
+    if (activePopup && activePopup.isOpen()) activePopup.remove();
+    else if (selected) {
+      const panel = panels.get(selected); panel.open = false; panel.querySelector('summary').focus({preventScroll:true});
+    }
+  }
+});
 ['areas','labels','places'].forEach(id => $(id).addEventListener('change',syncLayers));
-$('overview').addEventListener('click',()=>{closeDetail();fitAllAreas();});
+$('overview').addEventListener('click',()=>{if(activePopup)activePopup.remove();fitAllAreas();});
 try {
   if (typeof maplibregl === 'undefined') throw new Error('Biblioteca do mapa indisponível.');
   map = new maplibregl.Map({
@@ -2928,50 +3075,47 @@ try {
   map.addControl(new maplibregl.ScaleControl({unit:'metric'}), 'bottom-right');
   map.addControl(new maplibregl.AttributionControl({compact:true,customAttribution:'Contornos: mapa pessoal Barrios Madrid'}), 'bottom-right');
   fitAllAreas();
-  // Background, polygons, labels and markers now share MapLibre's projection.
   data.regions.forEach(region => {
-    const label = document.createElement('button');
-    label.type = 'button'; label.className = 'zone-label'; label.textContent = region.mapLabel || region.name;
-    label.setAttribute('aria-label','Ver '+region.name);
-    label.addEventListener('click',()=>selectRegion(region));
+    const label = document.createElement('span');
+    label.className = 'zone-label'; label.textContent = region.mapLabel || region.name;
+    label.setAttribute('aria-hidden','true');
     labels.push(new maplibregl.Marker({element:label,anchor:'center'}).setLngLat(lngLat(region.center)).addTo(map));
   });
   data.places.forEach(place => {
     const icon = document.createElement('button');
     icon.type = 'button'; icon.className = 'place-icon'+(place.anchor?' anchor':'')+(place.saved?' saved':'');
-    icon.textContent = place.symbol; icon.title = place.name; icon.setAttribute('aria-label',place.name);
-    const size = place.anchor?23:13;
-    icon.style.width = size+'px'; icon.style.height = size+'px';
-    const popup = new maplibregl.Popup({offset:12,maxWidth:'290px'}).setHTML('<b>'+escapeHTML(place.name)+'</b>'+(place.saved?'<br><span style="color:#a14134">Ponto da sua seleção</span>':'')+'<br><a href="'+mapLink(place.name)+'" target="_blank" rel="noopener noreferrer">Pesquisar no Google Maps ↗</a>');
-    const marker = new maplibregl.Marker({element:icon,anchor:'center'}).setLngLat(lngLat(place.coords)).setPopup(popup).addTo(map);
-    markers.push(marker);
+    icon.title = place.name+' · '+place.type; icon.setAttribute('aria-label',icon.title);
+    const dot = document.createElement('span'); dot.className = 'place-dot'; dot.textContent = place.symbol; dot.setAttribute('aria-hidden','true');
+    icon.append(dot);
+    icon.addEventListener('click',event=>{
+      event.stopPropagation();
+      if (event.detail === 0) {showPlace(place);return;}
+      const rect = map.getContainer().getBoundingClientRect();
+      showPlace(nearestPlace({x:event.clientX-rect.left,y:event.clientY-rect.top}) || place);
+    });
+    markers.push(new maplibregl.Marker({element:icon,anchor:'center'}).setLngLat(lngLat(place.coords)).addTo(map));
+  });
+  // Only places respond to map taps; regions and their labels are passive.
+  map.on('click',event=>{
+    const place = nearestPlace(event.point);
+    if (place) showPlace(place);
   });
   map.on('load',()=>{
     const features = data.regions.map(region => {
-      const ring = region.polygon.map(lngLat);
-      ring.push([...ring[0]]);
+      const ring = region.polygon.map(lngLat); ring.push([...ring[0]]);
       return {type:'Feature',properties:{id:region.id,color:region.color,stroke:region.color === '#FFED00' ? '#B39400' : region.color},geometry:region.geometry || {type:'Polygon',coordinates:[ring]}};
     });
     map.addSource('regions',{type:'geojson',data:{type:'FeatureCollection',features}});
     map.addLayer({id:'region-fills',type:'fill',source:'regions',paint:{'fill-color':['get','color'],'fill-opacity':.22}});
     map.addLayer({id:'region-lines',type:'line',source:'regions',paint:{'line-color':['get','stroke'],'line-width':1.7}});
-    overlaysReady = true;
-    refreshSelection(); syncLayers();
-    map.on('click','region-fills',event=>{
-      const region = data.regions.find(region=>region.id === event.features[0].properties.id);
-      if (region) selectRegion(region);
-    });
-    map.on('mouseenter','region-fills',()=>map.getCanvas().style.cursor='pointer');
-    map.on('mouseleave','region-fills',()=>map.getCanvas().style.cursor='');
+    overlaysReady = true; refreshSelection(); syncLayers();
   });
   map.on('error',()=>{
     $('map').dataset.background='error';
     showNotice('O mapa não carregou por completo. Verifique a conexão e o acesso a tiles.openfreemap.org.');
   });
   map.on('idle',()=>{
-    if (map.isStyleLoaded() && map.areTilesLoaded()) {
-      $('map').dataset.background='loaded'; $('notice').hidden=true;
-    }
+    if (map.isStyleLoaded() && map.areTilesLoaded()) {$('map').dataset.background='loaded';$('notice').hidden=true;}
   });
   syncLayers();
   if (typeof ResizeObserver !== 'undefined') new ResizeObserver(()=>map.resize()).observe($('map'));
@@ -2979,6 +3123,7 @@ try {
   showNotice('Não foi possível iniciar o mapa. Verifique a conexão e a aceleração de hardware do navegador. Você pode consultar as regiões na lista.');
   $('overview').disabled = true;
   document.querySelectorAll('.layers input').forEach(input=>input.disabled=true);
+  document.querySelectorAll('.locate-region').forEach(button=>button.disabled=true);
 }
 
   </script>

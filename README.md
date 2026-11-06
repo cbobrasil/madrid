@@ -17,6 +17,8 @@ Em **Minhas listas**, ative os assuntos que quer ver no mapa. É possível combi
 
 Toque nos pontos para consultar as informações dos locais. Na lista de bairros, escolha uma região para ler sua ficha. No celular, a ficha ocupa a tela inteira; o **X** fecha e retorna ao mapa, mantendo as listas ativadas.
 
+No celular, arraste a alça acima de **Guia Madrid por bairros** para cima para expandir a lista de bairros e para baixo para voltar ao mapa. Também é possível tocar na alça para alternar os tamanhos.
+
 Os controles **Áreas**, **Nomes** e **Referências** permitem ajustar o que aparece no mapa.
 
 ## Sobre o mapa

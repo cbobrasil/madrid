@@ -7,1211 +7,1762 @@
       "nome": "Puerta del Sol",
       "tipo": "Praça",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-2",
       "nome": "San Bernardo · Metro",
       "tipo": "Estação de metrô",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-3",
       "nome": "Madrid Puerta de Atocha–Almudena Grandes",
       "tipo": "Estação ferroviária",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-4",
       "nome": "Palacio Real de Madrid",
       "tipo": "Palácio",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-5",
       "nome": "Plaza del Dos de Mayo",
       "tipo": "Praça",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-6",
       "nome": "Centro Cultural Conde Duque",
       "tipo": "Centro cultural",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-7",
       "nome": "Mercado de San Antón",
       "tipo": "Mercado gastronômico",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-8",
       "nome": "Plaza de las Salesas",
       "tipo": "Praça",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-9",
       "nome": "Museo Sorolla",
       "tipo": "Museu",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-10",
       "nome": "Andén 0 · Chamberí",
       "tipo": "Museu do metrô",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-11",
       "nome": "Plaza Mayor",
       "tipo": "Praça",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-12",
       "nome": "Mercado de San Miguel",
       "tipo": "Mercado gastronômico",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-13",
       "nome": "Catedral de la Almudena",
       "tipo": "Catedral",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-14",
       "nome": "Jardines de Sabatini",
       "tipo": "Jardim",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-15",
       "nome": "Templo de Debod",
       "tipo": "Templo e monumento",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-16",
       "nome": "Cava Baja",
       "tipo": "Rua de bares e tapas",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-17",
       "nome": "El Rastro · Ribera de Curtidores",
       "tipo": "Feira de rua",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "google-2540394481554893872",
       "nome": "Plaza de Santa Ana",
       "tipo": "Praça",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa",
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "reference-19",
       "nome": "Casa Museo Lope de Vega",
       "tipo": "Casa-museu",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-20",
       "nome": "Plaza de Lavapiés",
       "tipo": "Praça",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-21",
       "nome": "Tabacalera",
       "tipo": "Espaço cultural",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-22",
       "nome": "Museo Nacional Centro de Arte Reina Sofía",
       "tipo": "Museu de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-23",
       "nome": "Museo Nacional del Prado",
       "tipo": "Museu de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-24",
       "nome": "Museo Nacional Thyssen-Bornemisza",
       "tipo": "Museu de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-25",
       "nome": "CaixaForum Madrid",
       "tipo": "Centro cultural",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-26",
       "nome": "Estanque Grande de El Retiro",
       "tipo": "Lago",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-27",
       "nome": "Palacio de Cristal",
       "tipo": "Palácio e espaço de exposições",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-28",
       "nome": "Puerta de Alcalá",
       "tipo": "Monumento",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-29",
       "nome": "Calle de Serrano",
       "tipo": "Rua de compras",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ],
+      "exibicao": "Aguardando traçado da rua no KML; não aparece como ponto."
     },
     {
       "id": "reference-30",
       "nome": "Plaza de España",
       "tipo": "Praça",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-31",
       "nome": "Mercado de los Mostenses",
       "tipo": "Mercado",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-32",
       "nome": "Mercado de San Ildefonso",
       "tipo": "Mercado gastronômico",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-33",
       "nome": "Plaza de Chueca",
       "tipo": "Praça",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-34",
       "nome": "Plaza de Pedro Zerolo",
       "tipo": "Praça",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-35",
       "nome": "UNIQLO Gran Vía",
       "tipo": "Loja de roupas",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-36",
       "nome": "Gran Vía",
       "tipo": "Avenida",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ],
+      "exibicao": "Aguardando traçado da rua no KML; não aparece como ponto."
     },
     {
       "id": "reference-37",
       "nome": "Palacio de Cibeles",
       "tipo": "Palácio e centro cultural",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-38",
       "nome": "UNIQLO Serrano",
       "tipo": "Loja de roupas",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-39",
       "nome": "Plaza de Oriente",
       "tipo": "Praça e jardins",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-40",
       "nome": "Teatro Real",
       "tipo": "Teatro de ópera",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-41",
       "nome": "Calle del Arenal",
       "tipo": "Rua",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ],
+      "exibicao": "Aguardando traçado da rua no KML; não aparece como ponto."
     },
     {
       "id": "reference-42",
       "nome": "Plaza de la Armería",
       "tipo": "Praça",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-43",
       "nome": "Arco de Cuchilleros",
       "tipo": "Arco histórico",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-44",
       "nome": "Jardín del Príncipe de Anglona",
       "tipo": "Jardim",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-45",
       "nome": "Ateneo de Madrid",
       "tipo": "Instituição cultural",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-46",
       "nome": "Parque de El Retiro",
       "tipo": "Parque",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-47",
       "nome": "Fuente del Ángel Caído",
       "tipo": "Fonte e escultura",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-48",
       "nome": "Real Jardín Botánico",
       "tipo": "Jardim botânico",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-49",
       "nome": "Mercado de la Cebada",
       "tipo": "Mercado",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-50",
       "nome": "Plaza del General Vara de Rey",
       "tipo": "Praça",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-51",
       "nome": "Puerta de Toledo",
       "tipo": "Monumento",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "reference-52",
       "nome": "Calle de la Ribera de Curtidores",
       "tipo": "Rua",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ],
+      "exibicao": "Aguardando traçado da rua no KML; não aparece como ponto."
     },
     {
       "id": "reference-53",
       "nome": "Calle del Doctor Fourquet",
       "tipo": "Rua de galerias de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ],
+      "exibicao": "Aguardando traçado da rua no KML; não aparece como ponto."
     },
     {
       "id": "reference-54",
       "nome": "La Casa Encendida",
       "tipo": "Centro cultural",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Referências do mapa"
+      ]
     },
     {
       "id": "google-4863409570507183551",
       "nome": "HanSo Café",
       "tipo": "Cafetería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas",
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-16249970219666254974",
       "nome": "Café de la Luz",
       "tipo": "Cafetería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas",
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-5620708204232263553",
       "nome": "La Bicicleta Café",
       "tipo": "Restaurante de brunch",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas",
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-8058510306749723843",
       "nome": "Motteau pastelería",
       "tipo": "Pastelería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas",
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-4239888599698978590",
       "nome": "ACID Café",
       "tipo": "Cafetería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas",
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-2544653266152632812",
       "nome": "Adorado Bar Lavapies",
       "tipo": "Cafetería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-16665013920977340912",
       "nome": "Churrería-Chocolatería Las Farolas",
       "tipo": "Churrería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-18173052380889699295",
       "nome": "Cafés La Mexicana",
       "tipo": "Tienda de café",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-6290939653698193056",
       "nome": "FEDERAL Brunch y Café de Especialidad - Comendadoras",
       "tipo": "Restaurante de brunch",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-12250481613890523802",
       "nome": "Religion Coffee & EATERY",
       "tipo": "Cafetería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-7872075929105124128",
       "nome": "Bô Specialty Coffee",
       "tipo": "Cafetería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-10842700100078159715",
       "nome": "Salón des Fleurs",
       "tipo": "Cafetería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-5365112568611976535",
       "nome": "Varela Café",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-2811971431825680536",
       "nome": "Zenith Brunch & Cocktails",
       "tipo": "Restaurante de brunch",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-3128596001001833931",
       "nome": "Restaurante Carmencita",
       "tipo": "Restaurante de brunch",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-14443535890859007998",
       "nome": "Bar Tomate - Madrid",
       "tipo": "Bar de tapas",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-9530508032753326214",
       "nome": "NAJI SPECIALTY COFFEE",
       "tipo": "Cafetería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-11425162409541839954",
       "nome": "Le Pain Quotidien",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
     },
     {
       "id": "google-11090263251894186972",
       "nome": "Cafetería Santa Isabel",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-17847004284429484810",
       "nome": "Más Corazón",
       "tipo": "Bar de tapas",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Tapas"
+      ]
     },
     {
       "id": "google-10536130390506159085",
       "nome": "Cafetería Rocablanca",
       "tipo": "Cafetería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-12403492849310868236",
       "nome": "Taberna Antonio Sánchez - 1787 - La Taberna más antigua de Madrid",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-1695919946792572181",
       "nome": "La Embajada de Embajadores",
       "tipo": "Bar restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-13501021393992418522",
       "nome": "Ni Subo Ni Bajo",
       "tipo": "Restaurante gallego",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-7847081014235962356",
       "nome": "Heladería Sienna Narváez",
       "tipo": "Heladería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-10021149558472812878",
       "nome": "PANEM",
       "tipo": "Panadería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-9221432279364710718",
       "nome": "La Castela",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-12343702592041276602",
       "nome": "Restaurante La Montería",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-11299379746788690756",
       "nome": "La Musa Latina",
       "tipo": "Restaurante especializado en tapas",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Tapas"
+      ]
     },
     {
       "id": "google-5207724359404973078",
       "nome": "Taberna La Concha",
       "tipo": "Bar de tapas",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Tapas"
+      ]
     },
     {
       "id": "google-16967322963016588772",
       "nome": "Casa Lucio",
       "tipo": "Restaurante de cocina española",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Tapas"
+      ]
     },
     {
       "id": "google-13485039316248665669",
       "nome": "La Santoría Cocktail Bar",
       "tipo": "Coctelería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-15941502466976776414",
       "nome": "Santos y Desamparados",
       "tipo": "Coctelería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-970529132706750433",
       "nome": "Jazz Bar",
       "tipo": "Coctelería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-10602161234339883812",
       "nome": "Taberna La Elisa l Taberna Madrid",
       "tipo": "Restaurante de cocina española",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-14807356915472911636",
       "nome": "Cervecería El Diario",
       "tipo": "Bar de tapas",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Tapas"
+      ]
     },
     {
       "id": "google-16607483527883873431",
       "nome": "Pez Tortilla",
       "tipo": "Bar de tapas",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Tapas"
+      ]
     },
     {
       "id": "google-8875086737308258876",
       "nome": "Solo de Croquetas Echegaray",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Tapas"
+      ]
     },
     {
       "id": "google-17882959854788034088",
       "nome": "La abacería del príncipe",
       "tipo": "Taberna",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-3135864569193974320",
       "nome": "La Venencia",
       "tipo": "Bar",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-5012004565998211204",
       "nome": "Casa Alberto",
       "tipo": "Restaurante de cocina española",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Tapas"
+      ]
     },
     {
       "id": "google-640524323929077889",
       "nome": "TÖTO ICE CREAM & COFFEE",
       "tipo": "Heladería",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle"
+      ]
     },
     {
       "id": "google-5610143011285896869",
       "nome": "Freeway",
       "tipo": "Bar",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-4303489101585349766",
       "nome": "Calle del Clavel",
       "tipo": "Calle",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Clubs e Bares",
+        "Madrid Tapas"
+      ],
+      "exibicao": "Aguardando traçado da rua no KML; não aparece como ponto."
     },
     {
       "id": "google-9621959801930236433",
       "nome": "Bodega de la Ardosa",
       "tipo": "Bar de tapas",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Tapas"
+      ]
     },
     {
       "id": "google-7769702076070350088",
       "nome": "BAR SIDI",
       "tipo": "Bar de tapas",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Tapas"
+      ]
     },
     {
       "id": "google-12591180763755363191",
       "nome": "La Colmada",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid - Samantha Del Tagle",
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-4915677956733284920",
       "nome": "La Taberna de Al Lado Lavapiés",
       "tipo": "Taberna",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-17477045954970439440",
       "nome": "SALA EQUIS",
       "tipo": "Bar",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-9657289886343318337",
       "nome": "Los Chuchis",
       "tipo": "Bar",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-656591650489203650",
       "nome": "Twist & Shout Bar",
       "tipo": "Bar",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-16466690213159839955",
       "nome": "La Monte",
       "tipo": "Bar restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-5323126480045677272",
       "nome": "Patio de Leones",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-8698733027357404921",
       "nome": "Hermanos Vinagre",
       "tipo": "Bar",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-1107236860694176798",
       "nome": "DLRO Live",
       "tipo": "Local de ambiente",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-11512730167455505112",
       "nome": "Madklyn",
       "tipo": "Bar musical",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-7256781333778537159",
       "nome": "Picnic",
       "tipo": "Bar",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-3929411769757451141",
       "nome": "Bar Tupper Ware",
       "tipo": "Bar",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-6526324325580628742",
       "nome": "ContraClub",
       "tipo": "Sala de conciertos",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-1333046324896884765",
       "nome": "La Boite",
       "tipo": "Local de ambiente",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-8823429009575331122",
       "nome": "Teatro Barceló",
       "tipo": "Discoteca",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-6282320076328955658",
       "nome": "Studio 54 Madrid",
       "tipo": "Club",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-13965533682271774518",
       "nome": "Black & White",
       "tipo": "Discoteca",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-14261144102398146015",
       "nome": "Escape",
       "tipo": "Bar",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-4840729264217534456",
       "nome": "Club 33",
       "tipo": "Discoteca",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-11348647999543357696",
       "nome": "Truco",
       "tipo": "Bar",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-9498297823461622240",
       "nome": "Fulanita de Tal",
       "tipo": "Bar lésbico",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-11715439545118424628",
       "nome": "Cazador",
       "tipo": "Bar",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-12644374886195368111",
       "nome": "Costa Social Club",
       "tipo": "Discoteca",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-2128826372851116398",
       "nome": "Maravillas Club",
       "tipo": "Discoteca",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-17680540480222121474",
       "nome": "Club Malasaña",
       "tipo": "Club nocturno",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares"
+      ]
     },
     {
       "id": "google-14967256057652037010",
       "nome": "Galería Fernando Pradilla",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-9842588642587067223",
       "nome": "Galería Luis Carvajal",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-66789211272748296",
       "nome": "Concha Barrios Gallery",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-8526298465525008785",
       "nome": "Galería Jorge Juan",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-48050933080513137",
       "nome": "Galería de Arte Puerta de Alcalá",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-16354534992943358253",
       "nome": "Galería María Porto & David Bardía - Espacio Villanueva",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-2273468348997727658",
       "nome": "Galería Jorge Alcolea",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-7832960485702692459",
       "nome": "GÄRNA GALLERY",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-2694973609330292786",
       "nome": "Galería Parra & Romero",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-3697390330958135631",
       "nome": "NF Nieves Fernández",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-1283512662765786324",
       "nome": "Galería Guillermo de Osma",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-3312834804244923264",
       "nome": "Galeria de Arte Fernández-Braso",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-13419042500056169886",
       "nome": "Casado Santapau",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-11177896781365376239",
       "nome": "Álvaro Alcázar Arte",
       "tipo": "Galería de arte",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
     },
     {
       "id": "google-10685162323907715484",
       "nome": "La Buga del Lobo",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-7583036715135880975",
       "nome": "Restaurante Himalaya",
       "tipo": "Restaurante indio",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-5013808763917864695",
       "nome": "La Máquina Jorge Juan",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-12390837081556648169",
       "nome": "Cachivache l Restaurante Chamartín",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-17490519682216145550",
       "nome": "Raimunda | Restaurante Fusión Madrid",
       "tipo": "Restaurante de fusión",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-12418458808243515079",
       "nome": "Restaurante Abascal",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-12247816939941948797",
       "nome": "perretxiCo Chamberí",
       "tipo": "Taberna",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-11025778450379756612",
       "nome": "Nômâda",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-3321513216854555284",
       "nome": "Marieta",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-17673806090390484062",
       "nome": "L’Entrecote Café de París",
       "tipo": "Restaurante francés",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-17467081702055343602",
       "nome": "Tortillas de Gabino",
       "tipo": "Restaurante de cocina española",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-11931624270227425837",
       "nome": "Restaurante Cañadío Madrid",
       "tipo": "Restaurante cántabro",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-3782343548019451332",
       "nome": "La Maruca - Velázquez",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-8374021515657965940",
       "nome": "Ochenta Grados Malasaña",
       "tipo": "Restaurante de fusión",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-15220245183242151038",
       "nome": "Casa Dani",
       "tipo": "Restaurante de cocina española",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-5910748328877585550",
       "nome": "El Imparcial",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-18421491318895562903",
       "nome": "Tatema Madrid",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-15234851080654399231",
       "nome": "C. de la Torrecilla del Leal, 4",
       "tipo": "Dirección",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-4925830301960849510",
       "nome": "Los Porfiados",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-8830460946706857083",
       "nome": "El Jardín de Arzábal | Restaurante Reina Sofia",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-173692238674608533",
       "nome": "C. de San Carlos, 17",
       "tipo": "Dirección",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-8563962755142144770",
       "nome": "Casa González",
       "tipo": "Tienda de delicatessen",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-6841416850379268829",
       "nome": "Restaurante Docamar",
       "tipo": "Bar",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-9532164442613046126",
       "nome": "Taberna Laredo",
       "tipo": "Taberna",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-1538361556832068294",
       "nome": "La Catapa",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-4394264153438677907",
       "nome": "Casa de Canarias",
       "tipo": "Asociación sociocultural",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-12237500682244192994",
       "nome": "Hogar Extremeño De Madrid",
       "tipo": "Asociación sociocultural",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-9525813679709581549",
       "nome": "Casa Regional de Castilla-La Mancha",
       "tipo": "Centro cultural",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-16622484925084248816",
       "nome": "Xiongzai",
       "tipo": "Restaurante de cocina mandarina",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-9137709714899748970",
       "nome": "Restaurante Lily Peruano",
       "tipo": "Restaurante peruano",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-4684091705908314090",
       "nome": "11 Nudos Madrid",
       "tipo": "Restaurante de cocina española",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-2702315172062738795",
       "nome": "La Cerda de Chueca",
       "tipo": "Restaurante",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-10348270423779738464",
       "nome": "Gracias Padre - Zona Rosa - Restaurante Mexicano",
       "tipo": "Restaurante mexicano",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Restaurante"
+      ]
     },
     {
       "id": "google-14169323668987311339",
       "nome": "Bar Melo's Lavapiés",
       "tipo": "Bar de tapas",
       "secoes": [],
-      "links": []
+      "links": [],
+      "origens": [
+        "Madrid Tapas"
+      ]
     }
   ]
 }

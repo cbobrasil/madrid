@@ -18,6 +18,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 button:disabled{cursor:default;opacity:.55}
 .app{display:grid;grid-template-columns:360px minmax(0,1fr);height:100vh;height:100dvh;overflow:hidden}
 .sidebar{display:flex;flex-direction:column;min-height:0;min-width:0;border-right:1px solid var(--line);background:var(--paper)}
+.guide-handle{display:none}
 .sidebar header{padding:29px 25px 23px;flex:none}
 .pride-stripe{height:5px;width:108px;border-radius:4px;background:linear-gradient(to right,#E40303 0 16.667%,#FF8C00 16.667% 33.333%,#FFED00 33.333% 50%,#008026 50% 66.667%,#004DFF 66.667% 83.333%,#750787 83.333% 100%);margin-bottom:21px}
 .sidebar h1{font-size:31px;line-height:1.12;font-weight:700;letter-spacing:-1px;margin:0 0 15px;color:#25352f}
@@ -85,8 +86,13 @@ button:disabled{cursor:default;opacity:.55}
 @media(min-width:1500px){.app{grid-template-columns:390px minmax(0,1fr)}.sidebar header{padding:32px}.list-heading{margin:0 32px}}
 @media(max-width:800px){.app{grid-template-columns:285px minmax(0,1fr)}.sidebar header{padding:23px 20px 20px}.sidebar h1{font-size:28px}.trip-dates{font-size:11px}.list-heading{margin:0 20px}.sidebar footer{padding:12px 20px}.map-top{left:12px;right:12px;top:12px}.map-caption{display:none}.map-top{justify-content:flex-end}.layers{left:12px;bottom:29px;gap:0;padding:0 5px}.layers label{padding:0 4px}.notice{left:12px;right:12px;top:67px}}
 @media(max-width:580px){
-  .app{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(220px,55dvh) minmax(0,1fr)}
+  .app{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,var(--map-height,45%)) minmax(0,1fr)}
   .map-shell{grid-row:1}.sidebar{grid-row:2;border-right:0;border-top:1px solid var(--line)}
+  .guide-handle{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:none;width:100%;min-height:44px;padding:6px 16px;border:0;background:transparent;color:var(--muted);font-size:10px;touch-action:none;cursor:ns-resize;user-select:none}
+  .guide-handle::before{content:"";width:42px;height:4px;border-radius:4px;background:#9ba69f}
+  .sidebar header{touch-action:none;user-select:none;cursor:ns-resize}
+  .sidebar footer{max-height:24dvh;overflow:auto}
+.app[data-guide-expanded="true"] .map-top,.app[data-guide-expanded="true"] .layers,.app[data-guide-expanded="true"] .maplibregl-control-container{visibility:hidden}
   .sidebar header{padding:13px 17px 10px}.sidebar h1{font-size:22px;line-height:1.15;letter-spacing:-.5px;margin:0 0 6px}.sidebar h1 br{display:none}.sidebar h1 span{margin-left:5px}
   .pride-stripe{height:4px;width:80px;margin-bottom:9px}.trip-dates{font-size:11px;border:0;padding:0}
   .list-heading{margin:0 17px;padding:8px 0;font-size:9px}.list{padding:0 9px 10px}.region{min-height:60px;padding:11px}.region strong{font-size:14px}.region small{font-size:11px}.region-details{padding:14px}.region-details p{font-size:13px}
@@ -141,7 +147,8 @@ button:disabled{cursor:default;opacity:.55}
 <body>
   <main class="app">
     <aside class="sidebar" aria-label="Explorar regiões de Madri">
-      <header>
+      <button id="guide-handle" class="guide-handle" type="button" aria-expanded="false" aria-controls="regions" aria-label="Expandir o guia de bairros. Também pode arrastar para cima."><span id="guide-handle-label">Deslize para cima · Mais bairros</span></button>
+      <header id="guide-header">
         <div class="pride-stripe" aria-hidden="true"></div>
         <h1>Guia Madrid<br><span>por bairros</span></h1>
         <p class="trip-dates">Viagem 13/11/2026 a 16/11/2026</p>
@@ -2851,7 +2858,8 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Rua de compras",
       "base": true,
       "id": "reference-29",
-      "listIds": []
+      "listIds": [],
+      "isStreet": true
     },
     {
       "name": "Plaza de España",
@@ -2942,7 +2950,8 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Avenida",
       "base": true,
       "id": "reference-36",
-      "listIds": []
+      "listIds": [],
+      "isStreet": true
     },
     {
       "name": "Palacio de Cibeles",
@@ -3007,7 +3016,8 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Rua",
       "base": true,
       "id": "reference-41",
-      "listIds": []
+      "listIds": [],
+      "isStreet": true
     },
     {
       "name": "Plaza de la Armería",
@@ -3150,7 +3160,8 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Rua",
       "base": true,
       "id": "reference-52",
-      "listIds": []
+      "listIds": [],
+      "isStreet": true
     },
     {
       "name": "Calle del Doctor Fourquet",
@@ -3163,7 +3174,8 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Rua de galerias de arte",
       "base": true,
       "id": "reference-53",
-      "listIds": []
+      "listIds": [],
+      "isStreet": true
     },
     {
       "name": "La Casa Encendida",
@@ -3990,7 +4002,8 @@ button:disabled{cursor:default;opacity:.55}
         "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/Calle+del+Clavel/data=!4m2!3m1!1s0xd422886ee3b38a3:0x3bb910897ac27c86",
-      "googleCid": "4303489101585349766"
+      "googleCid": "4303489101585349766",
+      "isStreet": true
     },
     {
       "id": "google-9621959801930236433",
@@ -5674,6 +5687,52 @@ const regionDialog = $('region-dialog');
 let regionReturnFocus = null, regionReturnScroll = 0;
 let selected = null, map = null, overlaysReady = false, activePopup = null, activePlace = null;
 const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+const guideApp = document.querySelector('.app'), guideHandle = $('guide-handle');
+let guideExtent = .55, guideDrag = null, suppressGuideClick = false;
+function setGuideExtent(extent) {
+  guideExtent = Math.max(.35,Math.min(.94,extent));
+  guideApp.style.setProperty('--map-height',((1-guideExtent)*100)+'%');
+  const expanded = guideExtent >= .85;
+  guideApp.dataset.guideExpanded = String(expanded);
+  guideHandle.setAttribute('aria-expanded',String(expanded));
+  guideHandle.setAttribute('aria-label',expanded?'Recolher o guia e voltar ao mapa. Também pode arrastar para baixo.':'Expandir o guia de bairros. Também pode arrastar para cima.');
+  $('guide-handle-label').textContent = expanded?'Deslize para baixo · Voltar ao mapa':'Deslize para cima · Mais bairros';
+}
+function finishGuideDrag(event) {
+  if (!guideDrag || event.pointerId !== guideDrag.pointerId) return;
+  const moved = guideDrag.moved, startExtent = guideDrag.extent;
+  guideDrag = null;
+  if (!moved) return;
+  suppressGuideClick = true;
+  setTimeout(()=>{suppressGuideClick=false;},0);
+  const stops = [.35,.55,.78,.94];
+  setGuideExtent(event.type === 'pointercancel' ? startExtent : stops.reduce((best,value)=>Math.abs(value-guideExtent)<Math.abs(best-guideExtent)?value:best));
+}
+for (const grip of [guideHandle,$('guide-header')]) {
+  grip.addEventListener('pointerdown',event=>{
+    if (!mobileLayout.matches || !event.isPrimary || event.button !== 0) return;
+    guideDrag = {pointerId:event.pointerId,y:event.clientY,extent:guideExtent,moved:false,height:guideApp.getBoundingClientRect().height};
+    grip.setPointerCapture(event.pointerId);
+  });
+  grip.addEventListener('pointermove',event=>{
+    if (!guideDrag || event.pointerId !== guideDrag.pointerId) return;
+    const delta = guideDrag.y-event.clientY;
+    if (!guideDrag.moved && Math.abs(delta)<6) return;
+    guideDrag.moved = true;
+    setGuideExtent(guideDrag.extent+delta/guideDrag.height);
+  });
+  grip.addEventListener('pointerup',finishGuideDrag);
+  grip.addEventListener('pointercancel',finishGuideDrag);
+}
+guideHandle.addEventListener('click',()=>{
+  if (suppressGuideClick) return;
+  setGuideExtent(guideExtent >= .85?.55:.94);
+});
+guideHandle.addEventListener('keydown',event=>{
+  if (!['ArrowUp','ArrowDown','Home','End'].includes(event.key)) return;
+  event.preventDefault();
+  setGuideExtent(event.key === 'ArrowUp' || event.key === 'End'?.94:.55);
+});
 const mapLink = name => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(name + ', Madrid, España');
 function showNotice(text) { $('notice').textContent = text; $('notice').hidden = false; }
 function regionPoints(region) {
@@ -5692,6 +5751,7 @@ function refreshSelection() {
 }
 function focusRegion(region) {
   if (!map) return;
+  if (mobileLayout.matches) {setGuideExtent(.55);map.resize();}
   if (activePopup) activePopup.remove();
   map.fitBounds(boundsFor([region]), {padding:{top:75,bottom:80,left:30,right:45},maxZoom:15,duration:reducedMotion()?0:450});
 }
@@ -5734,6 +5794,7 @@ mobileLayout.addEventListener('change',()=>{
   }
 });
 function isPlaceVisible(place) {
+  if (place.isStreet) return false; // Streets will use the user's KML lines instead of dots.
   const isReference = place.base !== false;
   return (isReference && $('places').checked) || (place.listIds || []).some(id => activeLists.has(id));
 }
@@ -5750,6 +5811,7 @@ function renderListControls() {
   fitButton.type = 'button'; fitButton.className = 'fit-lists'; fitButton.textContent = 'Ver listas ativas no mapa'; fitButton.hidden = true;
   fitButton.addEventListener('click',()=>{
     if (!map) return;
+    if (mobileLayout.matches) {setGuideExtent(.55);map.resize();}
     const bounds = new maplibregl.LngLatBounds();
     allPlaces.filter(place => (place.listIds || []).some(id => activeLists.has(id))).forEach(place => bounds.extend(lngLat(place.coords)));
     if (!bounds.isEmpty()) map.fitBounds(bounds,{padding:{top:75,bottom:80,left:25,right:45},maxZoom:15,duration:reducedMotion()?0:450});

@@ -115,6 +115,12 @@ button:disabled{cursor:default;opacity:.55}
 .list-count{font-size:10px;opacity:.75;flex:none}
 .neighborhood-list-heading{padding:3px 10px 10px;color:var(--muted);font-size:10px;font-weight:650;letter-spacing:.6px;text-transform:uppercase}
 .fit-lists{width:100%;margin-top:9px;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:#f3f5ee;color:var(--ink);font-size:11px}
+.street-list{margin-bottom:14px}
+.street-button{display:block;width:100%;text-align:left;min-height:46px;padding:10px 12px;border:0;border-left:5px solid var(--color);border-radius:6px;background:#fff;color:var(--ink);font-size:13px;margin:7px 0}
+.street-button small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.street-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;font-weight:650}
+.street-heading label{display:flex;align-items:center;gap:5px;font-size:11px;min-height:44px;font-weight:400}
+.street-heading input{accent-color:var(--ink)}
 .region-dialog{position:fixed;inset:0;margin:0;padding:0;border:0;border-top:5px solid var(--color);width:100%;max-width:none;height:100vh;height:100dvh;max-height:none;background:var(--paper);color:var(--ink);overflow:hidden}
 .region-dialog[open]{display:flex;flex-direction:column}
 .region-dialog::backdrop{background:#263b3555}
@@ -155,10 +161,10 @@ button:disabled{cursor:default;opacity:.55}
       </header>
       <div class="list-heading"><span>Explore o guia</span><span id="count" aria-live="polite">13 áreas</span></div>
       <div class="list" id="regions"></div>
-      <footer><strong>Como ler o mapa</strong><p>As cores acompanham a lista de regiões. Os pontos vermelhos são seus lugares. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. O controle “Referências” cuida dos pontos turísticos que já estavam no mapa.</p><details><summary>Sobre os contornos e as fontes</summary><p>Áreas desenhadas por você no Google My Maps, preservadas como no arquivo enviado. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
+      <footer><strong>Como ler o mapa</strong><p>As cores acompanham a lista de regiões. Os pontos vermelhos são seus lugares. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. O controle “Referências” cuida dos pontos turísticos que já estavam no mapa. Toque nos traçados das ruas em destaque para ler seus comentários; cada rua usa a cor de seu bairro.</p><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
     </aside>
     <section class="map-shell" aria-label="Mapa interativo de Madri">
-      <div id="map" aria-label="Mapa: toque nos locais para ver nome e tipo. Informações dos bairros ficam na lista."></div>
+      <div id="map" aria-label="Mapa: toque nos locais ou nas ruas em destaque para ver suas informações. Informações dos bairros ficam na lista."></div>
       <div class="map-top"><div class="map-caption"><b>Madri · Espanha</b><span>Áreas de passeio, em cores</span></div><button id="overview" class="overview" type="button">↗ Ver todas as áreas</button></div>
       <div id="notice" class="notice" role="status" hidden></div>
       <div class="layers"><label><input type="checkbox" id="areas" checked> Áreas</label><label><input type="checkbox" id="labels" checked> Nomes</label><label><input type="checkbox" id="places" checked> Referências</label></div>
@@ -5548,6 +5554,42 @@ button:disabled{cursor:default;opacity:.55}
         "google-14169323668987311339"
       ]
     }
+  ],
+  "streets": [
+    {
+      "id": "calle-de-argumosa",
+      "name": "Calle de Argumosa",
+      "regionId": "lavapies",
+      "description": "",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.7005922,
+              40.4084251
+            ],
+            [
+              -3.6967727,
+              40.4077879
+            ],
+            [
+              -3.6955282,
+              40.4071834
+            ],
+            [
+              -3.6967727,
+              40.4078369
+            ],
+            [
+              -3.7005922,
+              40.4084251
+            ]
+          ]
+        ]
+      },
+      "sourceName": "Calles principales"
+    }
   ]
 }
   </script>
@@ -5562,20 +5604,22 @@ const panels = new Map(), labels = [], markers = [];
 const listButtons = new Map(), activeLists = new Set();
 const placeLists = data.placeLists || [];
 const allPlaces = data.places;
-const editorial = {bairros:new Map(),locais:new Map()};
-const editorialKind = {bairros:data.regions,locais:data.places};
-const editorialPaths = ['assets/conteudo/bairros.json','assets/conteudo/locais.json'];
+const streets = data.streets || [], streetButtons = new Map();
+const editorial = {bairros:new Map(),locais:new Map(),ruas:new Map()};
+const editorialKind = {bairros:data.regions,locais:data.places,ruas:streets};
+const editorialPaths = ['assets/conteudo/bairros.json','assets/conteudo/locais.json','assets/conteudo/ruas.json'];
 function editorialStatus(message, error = false) {
   $('editorial-status').textContent = message;
   $('editorial-status').classList.toggle('content-error',error);
 }
 function parseEditorialDocument(document) {
-  if (!document || typeof document !== 'object' || document.versao !== 1 || !Object.hasOwn(editorialKind,document.tipo) || !Array.isArray(document.itens)) throw new Error('Use um JSON de bairros ou locais com versao 1 e uma lista de itens.');
+  if (!document || typeof document !== 'object' || document.versao !== 1 || !Object.hasOwn(editorialKind,document.tipo) || !Array.isArray(document.itens)) throw new Error('Use um JSON de bairros, locais ou ruas com versao 1 e uma lista de itens.');
   const known = new Set(editorialKind[document.tipo].map(item=>item.id));
   const items = new Map();
   for (const item of document.itens) {
     if (!item || typeof item.id !== 'string' || !known.has(item.id)) throw new Error('ID desconhecido no arquivo de '+document.tipo+': '+String(item?.id));
     if (items.has(item.id)) throw new Error('ID repetido: '+item.id);
+    if (document.tipo === 'ruas' && item.bairro !== undefined && !data.regions.some(region=>region.id === item.bairro)) throw new Error('Bairro desconhecido na rua '+item.id+': '+String(item.bairro));
     for (const key of ['nome','subtitulo','tipo']) if (item[key] !== undefined && typeof item[key] !== 'string') throw new Error('O campo '+key+' de '+item.id+' precisa ser um texto.');
     if (!Array.isArray(item.secoes)) throw new Error('O campo secoes de '+item.id+' precisa ser uma lista.');
     for (const section of item.secoes) {
@@ -5613,6 +5657,16 @@ function placeContent(place) {
   const extra = item?renderEditorialSections(item):'';
   return '<strong class="place-name">'+escapeHTML(placeName(place))+'</strong><span class="place-type">'+escapeHTML(placeType(place))+'</span>'+(extra?'<div class="place-editorial">'+extra+'</div>':'');
 }
+function streetName(street) {return editorial.ruas.get(street.id)?.nome ?? street.name;}
+function streetRegion(street) {return data.regions.find(region=>region.id === (editorial.ruas.get(street.id)?.bairro ?? street.regionId));}
+function streetContent(street) {
+  const region = streetRegion(street), item = editorial.ruas.get(street.id);
+  const extra = item?renderEditorialSections(item):street.description?'<p class="editable-text">'+escapeHTML(street.description)+'</p>':'';
+  return '<strong class="place-name">'+escapeHTML(streetName(street))+'</strong><span class="place-type">Rua em destaque'+(region?' · '+escapeHTML(regionName(region)):'')+'</span>'+(extra?'<div class="place-editorial">'+extra+'</div>':'');
+}
+function streetFeatures() {
+  return {type:'FeatureCollection',features:streets.map(street=>({type:'Feature',properties:{id:street.id,color:streetRegion(street)?.color || '#263b35'},geometry:street.geometry}))};
+}
 function refreshEditorialViews() {
   data.regions.forEach((region,index)=>{
     const item = editorial.bairros.get(region.id);
@@ -5644,10 +5698,20 @@ function refreshEditorialViews() {
     }
   }
   if (activePopup?.isOpen() && activePlace) activePopup.setHTML(placeContent(activePlace));
+  for (const street of streets) {
+    const button = streetButtons.get(street.id), region = streetRegion(street);
+    if (button) {
+      button.querySelector('strong').textContent = streetName(street);
+      button.querySelector('small').textContent = region?regionName(region):'Rua em destaque';
+      button.style.setProperty('--color',region?.color || '#263b35');
+    }
+  }
+  if (overlaysReady) map.getSource('streets')?.setData(streetFeatures());
+  if (activePopup?.isOpen() && activeStreet) activePopup.setHTML(streetContent(activeStreet));
 }
 function applyEditorialDocuments(documents) {
   const parsed = documents.map(parseEditorialDocument);
-  if (new Set(parsed.map(item=>item.kind)).size !== parsed.length) throw new Error('Selecione apenas um arquivo de bairros e um de locais por vez.');
+  if (new Set(parsed.map(item=>item.kind)).size !== parsed.length) throw new Error('Selecione apenas um arquivo de cada tipo (bairros, locais ou ruas) por vez.');
   for (const document of parsed) editorial[document.kind] = document.items;
   refreshEditorialViews();
 }
@@ -5659,7 +5723,7 @@ function initializeEditorialContent() {
     try {
       const documents = await Promise.all(files.map(async file=>JSON.parse(await file.text())));
       applyEditorialDocuments(documents);
-      editorialStatus('Textos carregados. Abra um bairro ou local para conferir.');
+      editorialStatus('Textos carregados. Abra um bairro, local ou rua para conferir.');
     } catch (error) {editorialStatus('Não foi possível carregar: '+error.message,true);}
     event.target.value = '';
   });
@@ -5676,7 +5740,7 @@ function initializeEditorialContent() {
     const documents = results.filter(result=>result.status === 'fulfilled').map(result=>result.value);
     try {
       if (documents.length) applyEditorialDocuments(documents);
-      if (documents.length === editorialPaths.length) editorialStatus('Textos dos bairros e locais carregados dos arquivos JSON.');
+      if (documents.length === editorialPaths.length) editorialStatus('Textos dos bairros, locais e ruas carregados dos arquivos JSON.');
       else editorialStatus('Algum arquivo de textos não carregou. Os demais textos continuam disponíveis; você também pode carregar os JSONs pelo botão.',true);
     } catch (error) {editorialStatus('Não foi possível aplicar os textos: '+error.message,true);}
   });
@@ -5685,7 +5749,7 @@ function initializeEditorialContent() {
 const mobileLayout = matchMedia('(max-width:580px)');
 const regionDialog = $('region-dialog');
 let regionReturnFocus = null, regionReturnScroll = 0;
-let selected = null, map = null, overlaysReady = false, activePopup = null, activePlace = null;
+let selected = null, map = null, overlaysReady = false, activePopup = null, activePlace = null, activeStreet = null;
 const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const guideApp = document.querySelector('.app'), guideHandle = $('guide-handle');
 let guideExtent = .55, guideDrag = null, suppressGuideClick = false;
@@ -5798,6 +5862,30 @@ function isPlaceVisible(place) {
   const isReference = place.base !== false;
   return (isReference && $('places').checked) || (place.listIds || []).some(id => activeLists.has(id));
 }
+function renderStreetControls() {
+  if (!streets.length) return;
+  const section = document.createElement('section'); section.className = 'street-list';
+  section.setAttribute('aria-label','Ruas em destaque');
+  section.innerHTML = '<div class="street-heading"><span>Ruas em destaque</span><label><input id="streets" type="checkbox" checked> Mostrar</label></div>';
+  for (const street of streets) {
+    const region = streetRegion(street), button = document.createElement('button');
+    button.type = 'button'; button.className = 'street-button'; button.style.setProperty('--color',region?.color || '#263b35');
+    button.innerHTML = '<strong>'+escapeHTML(streetName(street))+'</strong><small>'+escapeHTML(region?regionName(region):'Rua em destaque')+'</small>';
+    button.addEventListener('click',()=>{
+      if (!map || !overlaysReady) return;
+      $('streets').checked = true; syncLayers();
+      if (mobileLayout.matches) {setGuideExtent(.55);map.resize();}
+      const bounds = new maplibregl.LngLatBounds();
+      const points = street.geometry.type === 'LineString'?street.geometry.coordinates:street.geometry.type === 'MultiPolygon'?street.geometry.coordinates.flat(2):street.geometry.coordinates.flat();
+      points.forEach(point=>bounds.extend(point));
+      map.fitBounds(bounds,{padding:{top:65,bottom:65,left:30,right:40},maxZoom:16,duration:0});
+      showStreet(street,bounds.getCenter());
+    });
+    streetButtons.set(street.id,button); section.append(button);
+  }
+  const list = $('regions'); list.insertBefore(section,list.querySelector('.neighborhood-list-heading'));
+  $('streets').addEventListener('change',syncLayers);
+}
 function renderListControls() {
   if (!placeLists.length) return;
   const section = document.createElement('details');
@@ -5836,10 +5924,12 @@ function renderListControls() {
 function syncLayers() {
   if (overlaysReady) {
     for (const id of ['region-fills','region-lines']) map.setLayoutProperty(id,'visibility',$('areas').checked?'visible':'none');
+    for (const id of ['street-fills','street-halo','street-lines','street-hit']) map.setLayoutProperty(id,'visibility',$('streets')?.checked === false?'none':'visible');
   }
   labels.forEach(marker => marker.getElement().hidden = !$('labels').checked);
   markers.forEach(({marker,place}) => marker.getElement().hidden = !isPlaceVisible(place));
   if (activePlace && !isPlaceVisible(activePlace) && activePopup) {activePopup.remove();activePlace=null;}
+  if (activeStreet && $('streets')?.checked === false && activePopup) {activePopup.remove();activeStreet=null;}
 }
 function fitAllAreas() {
   if (map) map.fitBounds(boundsFor(data.regions), {padding:{top:75,bottom:80,left:25,right:45},maxZoom:14,duration:0});
@@ -5848,10 +5938,18 @@ function showPlace(place) {
   if (!map || !isPlaceVisible(place)) return;
   if (activePopup) activePopup.remove();
   activePlace = place;
+  activeStreet = null;
   activePopup = new maplibregl.Popup({offset:14,maxWidth:'270px',closeButton:true,closeOnClick:true})
     .setLngLat(lngLat(place.coords))
     .setHTML(placeContent(place))
     .addTo(map);
+}
+function showStreet(street, position) {
+  if (!map || $('streets')?.checked === false) return;
+  if (activePopup) activePopup.remove();
+  activePlace = null; activeStreet = street;
+  activePopup = new maplibregl.Popup({offset:12,maxWidth:'290px',closeButton:true,closeOnClick:true})
+    .setLngLat(position).setHTML(streetContent(street)).addTo(map);
 }
 // Pick the closest actual dot, even when enlarged touch targets overlap.
 function nearestPlace(point, radius = 28) {
@@ -5867,6 +5965,7 @@ function nearestPlace(point, radius = 28) {
 }
 $('count').textContent = data.regions.length + ' áreas';
 renderListControls();
+renderStreetControls();
 data.regions.forEach(region => {
   const panel = document.createElement('details');
   panel.className = 'region-item'; panel.style.setProperty('--color',region.color);
@@ -5935,10 +6034,15 @@ try {
     });
     markers.push({place,marker:new maplibregl.Marker({element:icon,anchor:'center'}).setLngLat(lngLat(place.coords)).addTo(map)});
   });
-  // Only places respond to map taps; regions and their labels are passive.
+  // Places and highlighted streets respond to taps; neighborhood areas remain passive.
   map.on('click',event=>{
     const place = nearestPlace(event.point);
-    if (place) showPlace(place);
+    if (place) {showPlace(place);return;}
+    if (!overlaysReady || $('streets')?.checked === false) return;
+    const {x,y} = event.point;
+    const feature = map.queryRenderedFeatures([[x-10,y-10],[x+10,y+10]],{layers:['street-hit','street-fills']})[0];
+    const street = feature && streets.find(item=>item.id === feature.properties.id);
+    if (street) showStreet(street,event.lngLat);
   });
   map.on('load',()=>{
     const features = data.regions.map(region => {
@@ -5948,6 +6052,11 @@ try {
     map.addSource('regions',{type:'geojson',data:{type:'FeatureCollection',features}});
     map.addLayer({id:'region-fills',type:'fill',source:'regions',paint:{'fill-color':['get','color'],'fill-opacity':.22}});
     map.addLayer({id:'region-lines',type:'line',source:'regions',paint:{'line-color':['get','stroke'],'line-width':1.7}});
+    map.addSource('streets',{type:'geojson',data:streetFeatures()});
+    map.addLayer({id:'street-fills',type:'fill',source:'streets',filter:['==',['geometry-type'],'Polygon'],paint:{'fill-color':['get','color'],'fill-opacity':.75}});
+    map.addLayer({id:'street-halo',type:'line',source:'streets',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#fffdf8','line-width':8}});
+    map.addLayer({id:'street-lines',type:'line',source:'streets',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','color'],'line-width':4}});
+    map.addLayer({id:'street-hit',type:'line',source:'streets',paint:{'line-color':'#000','line-width':24,'line-opacity':0}});
     overlaysReady = true; refreshSelection(); syncLayers();
   });
   map.on('error',()=>{

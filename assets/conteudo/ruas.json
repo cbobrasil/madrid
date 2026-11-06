@@ -1,0 +1,18 @@
+{
+  "versao": 1,
+  "tipo": "ruas",
+  "itens": [
+    {
+      "id": "calle-de-argumosa",
+      "nome": "Calle de Argumosa",
+      "bairro": "lavapies",
+      "secoes": [
+        {
+          "texto": ""
+        }
+      ],
+      "links": [],
+      "origem": "Calles principales"
+    }
+  ]
+}

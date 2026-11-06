@@ -1,0 +1,2986 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ed">
+  <meta name="description" content="Um mapa de Madri por regiões de passeio: bairros, parques e pontos de referência.">
+  <title>Guia Madrid por bairros · 13 a 16 de novembro de 2026</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <style>
+    :root{--paper:#f5f3ed;--ink:#263b35;--muted:#63716a;--line:#dcded5;--accent:#b94730}
+    [hidden]{display:none!important}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}button,a,input{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #267a70;outline-offset:3px}button:disabled{cursor:default;opacity:.55}
+    .app{display:grid;grid-template-columns:360px 1fr;height:100vh;height:100dvh}.sidebar{display:flex;flex-direction:column;min-height:0;border-right:1px solid var(--line);z-index:1001;background:var(--paper)}header{padding:27px 25px 19px}.eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:750;color:var(--accent)}h1{font:normal 43px/.98 Georgia,serif;letter-spacing:-1.8px;margin:13px 0 15px}h1 em{font-weight:normal;color:var(--accent)}.intro{color:var(--muted);margin:0;font-size:13px;max-width:290px}.list-heading{display:flex;justify-content:space-between;margin:0 25px;padding:12px 0 9px;border-top:1px solid var(--line);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}.list{overflow:auto;flex:1;padding:0 14px 12px;scrollbar-width:thin}.region{width:100%;display:grid;grid-template-columns:12px 1fr 18px;gap:12px;align-items:center;text-align:left;padding:12px 11px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--ink);margin-bottom:2px}.region:hover{background:#eaece3}.region[aria-pressed="true"]{background:#fffdf8;border-color:#c9d0c3;box-shadow:0 2px 4px #223a3008}.dot{width:10px;height:10px;border-radius:50%;background:var(--color)}.region strong{font-size:13px;display:block;font-weight:650}.region small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.arrow{color:#748177;font-size:17px}.sidebar footer{padding:13px 25px 17px;border-top:1px solid var(--line);font-size:10px;color:var(--muted)}.sidebar footer strong{color:var(--ink);font-weight:650}
+    .map-shell{position:relative;min-width:0;background:#e4e7db;overflow:hidden}#map{position:absolute;inset:0;z-index:0}.map-top{position:absolute;left:22px;right:22px;top:20px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;z-index:500;pointer-events:none}.map-top>*{pointer-events:auto}.map-caption{background:#fffdf8ed;border:1px solid #d8ddd2;box-shadow:0 3px 15px #25372e10;padding:11px 15px;border-radius:9px;font-size:12px}.map-caption b{display:block;font-size:10px;letter-spacing:1.3px;text-transform:uppercase}.map-caption span{font-size:11px;color:var(--muted)}.overview{border:1px solid #d1d8cc;border-radius:8px;background:#fffdf8;padding:10px 14px;color:var(--ink);font-size:12px;box-shadow:0 3px 15px #25372e10}.layers{position:absolute;bottom:29px;left:22px;z-index:500;background:#fffdf8ef;border:1px solid #d8ddd2;border-radius:8px;padding:10px 14px;display:flex;gap:16px;font-size:11px}.layers label{display:flex;gap:6px;align-items:center;cursor:pointer}.layers input{accent-color:var(--ink);margin:0}.detail{position:absolute;right:22px;bottom:30px;width:360px;max-width:calc(100% - 44px);max-height:calc(100% - 125px);overflow:auto;overscroll-behavior:contain;z-index:600;background:#fffdf8;border:1px solid #d4d9cc;border-top:4px solid var(--color);border-radius:12px;box-shadow:0 8px 35px #183d2926;padding:21px}.detail[hidden]{display:none}.detail h2{font:27px/1.1 Georgia,serif;letter-spacing:-.6px;margin:9px 23px 10px 0}.detail p{font-size:13px;color:var(--muted);margin:0 0 13px}.detail ul{padding-left:17px;font-size:12px;line-height:1.9;margin:8px 0 14px}.detail a{color:#9f3e2c;font-size:12px;font-weight:650;text-underline-offset:3px}.detail h3{font-size:11px;letter-spacing:.5px;margin:18px 0 6px;color:var(--ink)}.detail .source{display:block;font-size:10px;font-weight:400;margin-top:12px;color:var(--muted)}.detail .group{font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:var(--muted)}.close{position:absolute;right:13px;top:12px;border:0;background:transparent;color:var(--ink);font-size:22px;line-height:1;padding:5px}.official{border-top:1px solid var(--line);padding-top:11px;font-size:11px!important}.notice{position:absolute;top:91px;left:22px;right:22px;z-index:700;background:#fff4d8;padding:12px 16px;border:1px solid #d8bb70;border-radius:8px;font-size:12px}.notice[hidden]{display:none}
+    .maplibregl-map{font-family:inherit;background:#e5e8dd}.maplibregl-ctrl-bottom-right{right:12px;bottom:12px}.maplibregl-ctrl-group button{color:var(--ink)}.zone-label{background:#fffdf8e8;border:1px solid #ffffff90;box-shadow:0 1px 5px #283d301a;color:#283d31;padding:3px 7px;border-radius:4px;font-size:11px;font-weight:650;text-align:center;white-space:nowrap;z-index:1}.place-icon{padding:0;background:#fffdf8;border:2px solid #334e41;border-radius:50%;box-shadow:0 1px 5px #182b3030;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;line-height:1;color:#334e41;z-index:2}.place-icon.anchor{background:#334e41;color:#fffdf8;z-index:3}.place-icon.saved{border-color:#c74939;color:#c74939;background:#fffdf8}.place-icon.saved.anchor{background:#c74939;color:#fffdf8}.maplibregl-popup{z-index:4}.maplibregl-popup-content{font-size:12px;line-height:1.7;border-radius:10px;padding:15px 20px 15px 15px}.maplibregl-popup-content b{font-size:14px}.maplibregl-popup-content a{color:#9f3e2c}.maplibregl-popup-close-button{padding:3px 7px;font-size:18px}.noscript{position:absolute;inset:100px 25px auto;z-index:800;padding:20px;background:#fffdf8}
+    @media(min-width:1500px){.app{grid-template-columns:390px 1fr}header{padding:32px}.list-heading{margin:0 32px}.region{padding:14px 17px}}
+    @media(max-width:800px){.app{grid-template-columns:285px 1fr}header{padding:20px}h1{font-size:37px}.list-heading{margin:0 20px}.map-top{left:14px;right:14px;top:14px}.map-caption{display:none}.map-top{justify-content:flex-end}.layers{left:14px;bottom:27px;gap:10px}.detail{right:14px;bottom:82px;width:285px;padding:17px}.detail h2{font-size:24px}}
+    @media(max-width:580px){.app{display:flex;flex-direction:column;height:auto;min-height:100dvh}.sidebar{order:2;border:0}.map-shell{height:58dvh;min-height:370px;order:1;position:sticky;top:0;z-index:1002;border-bottom:1px solid var(--line)}header{padding:19px 20px 13px}h1{font-size:35px;margin:8px 0}h1 br{display:none}.intro{max-width:none}.list{overflow:visible;padding:0 10px 10px}.region{padding:11px 10px}.list-heading{padding-top:10px}.sidebar footer{padding:12px 20px}.detail{bottom:68px;max-height:calc(58dvh - 132px);overflow:auto;width:290px;padding:14px}.detail h2{font-size:22px;margin:5px 24px 8px 0}.detail ul{line-height:1.65;margin:6px 0 10px}.detail p{font-size:12px;margin-bottom:9px}.map-caption{display:block;padding:8px 11px}.map-caption span{display:none}.map-caption b{font-size:9px}.overview{padding:8px 10px;font-size:11px}.zone-label{font-size:9px;padding:2px 4px}.layers{padding:8px 10px;font-size:10px;gap:10px}.notice{top:62px;left:14px;right:14px}}
+
+    .sidebar{background:#fcfbf8}.sidebar header{padding:29px 25px 23px}.pride-stripe{height:5px;width:108px;border-radius:4px;background:linear-gradient(to right,#E40303 0 16.667%,#FF8C00 16.667% 33.333%,#FFED00 33.333% 50%,#008026 50% 66.667%,#004DFF 66.667% 83.333%,#750787 83.333% 100%);margin-bottom:21px}.sidebar h1{font:700 31px/1.12 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-1px;margin:0 0 15px;color:#25352f}.sidebar h1 span{font-weight:450}.trip-dates{font-size:12px;color:#52605a;margin:0;padding:9px 0 0;border-top:1px solid #e1e4dc;white-space:nowrap}.list-heading{font-size:10px;font-weight:650;letter-spacing:.7px}.region{grid-template-columns:14px 1fr 18px;gap:12px;padding:13px 11px;border-radius:8px;margin-bottom:4px}.region .dot{width:13px;height:13px;box-shadow:inset 0 0 0 1px #00000014}.region:hover{background:color-mix(in srgb,var(--color) 8%,#fff)}.region[aria-pressed="true"]{background:color-mix(in srgb,var(--color) 9%,#fff);border-color:var(--color);box-shadow:none}.region strong{font-size:13px}.region small{font-size:11px}.sidebar footer{font-size:10px;padding:14px 25px}.sidebar footer>strong{font-size:10px;text-transform:uppercase;letter-spacing:.5px}.sidebar footer p{margin:5px 0 9px}.sidebar footer summary{cursor:pointer;text-decoration:underline;text-underline-offset:2px}.sidebar footer a{color:var(--muted)}.zone-label{max-width:130px;white-space:normal;line-height:1.2}.maplibregl-ctrl-attrib a{color:inherit}
+    @media(max-width:800px){.sidebar header{padding:23px 20px 20px}.sidebar h1{font-size:28px}.trip-dates{font-size:11px}.sidebar footer{padding:12px 20px}}
+    @media(max-width:580px){.sidebar header{padding:22px 20px 18px}.sidebar h1{font-size:28px}.sidebar h1 br{display:block}.pride-stripe{margin-bottom:14px}.trip-dates{font-size:12px}.zone-label{max-width:100px}}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <aside class="sidebar" aria-label="Explorar regiões de Madri">
+      <header>
+        <div class="pride-stripe" aria-hidden="true"></div>
+        <h1>Guia Madrid<br><span>por bairros</span></h1>
+        <p class="trip-dates">Viagem 13/11/2026 a 16/11/2026</p>
+      </header>
+      <div class="list-heading"><span>Escolha uma região</span><span id="count" aria-live="polite">13 áreas</span></div>
+      <div class="list" id="regions"></div>
+      <footer><strong>Como ler o mapa</strong><p>As cores acompanham a lista de regiões. Os pontos vermelhos são os lugares da sua seleção.</p><details><summary>Sobre os contornos e as fontes</summary><p>Áreas desenhadas por você no Google My Maps, preservadas como no arquivo enviado. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap.</p></details></footer>
+    </aside>
+    <section class="map-shell" aria-label="Mapa interativo de Madri">
+      <div id="map" aria-label="Mapa: use os botões de zoom ou escolha uma região na lista"></div>
+      <div class="map-top"><div class="map-caption"><b>Madri · Espanha</b><span>Áreas de passeio, em cores</span></div><button id="overview" class="overview" type="button">↗ Ver todas as áreas</button></div>
+      <div id="notice" class="notice" role="status" hidden></div>
+      <div class="layers"><label><input type="checkbox" id="areas" checked> Áreas</label><label><input type="checkbox" id="labels" checked> Nomes</label><label><input type="checkbox" id="places" checked> Referências</label></div>
+      <article id="detail" class="detail" aria-live="polite" aria-label="Detalhes da região" hidden></article>
+      <noscript><p class="noscript">Ative o JavaScript para explorar o mapa. Este HTML usa internet para carregar o mapa de ruas.</p></noscript>
+    </section>
+  </main>
+  <script id="map-data" type="application/json">
+{
+  "groups": {
+    "norte": "Ao redor de San Bernardo",
+    "centro": "Entre Sol e o Palácio",
+    "sul": "Atocha e o sul",
+    "leste": "Museus e Retiro"
+  },
+  "regions": [
+    {
+      "id": "lavapies",
+      "name": "Lavapiés",
+      "group": "sul",
+      "color": "#E40303",
+      "tag": "Multicultural e alternativo",
+      "center": [
+        40.408454125,
+        -3.6997237
+      ],
+      "polygon": [
+        [
+          40.4052303,
+          -3.6956253
+        ],
+        [
+          40.4090047,
+          -3.6921706
+        ],
+        [
+          40.412403,
+          -3.6991444
+        ],
+        [
+          40.412452,
+          -3.7032643
+        ],
+        [
+          40.4115861,
+          -3.7072768
+        ],
+        [
+          40.4107039,
+          -3.7070837
+        ],
+        [
+          40.4079263,
+          -3.7043157
+        ],
+        [
+          40.4053937,
+          -3.7027278
+        ],
+        [
+          40.4039232,
+          -3.7016549
+        ],
+        [
+          40.4048709,
+          -3.6986294
+        ]
+      ],
+      "description": "Entre La Latina e Atocha, reúne restaurantes de várias partes do mundo, bares e espaços culturais.",
+      "highlights": [
+        "Plaza de Lavapiés",
+        "Entorno da Tabacalera",
+        "Reina Sofía, na borda leste"
+      ],
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial.",
+      "atmosphere": "A diversidade de origens aparece nos restaurantes e pequenos comércios. Também é uma região de teatro, cinema e arte contemporânea, com o Reina Sofía próximo à sua borda leste.",
+      "walk": "Use a Plaza de Lavapiés para se orientar, explore as ruas de Tribulete e Argumosa e continue até o entorno do Reina Sofía. Outra possibilidade é seguir na direção de Antón Martín e do Cine Doré.",
+      "tip": "É um bom passeio para alternar comida e cultura. A Tabacalera aparece como referência do guia original; confirme a programação e o acesso antes de planejar uma visita ao espaço.",
+      "source": "https://www.esmadrid.com/barrios-de-madrid/lavapies",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "boundaryType": "user-drawn",
+      "mapLabel": "Lavapiés",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.6956253,
+              40.4052303
+            ],
+            [
+              -3.6921706,
+              40.4090047
+            ],
+            [
+              -3.6991444,
+              40.412403
+            ],
+            [
+              -3.7032643,
+              40.412452
+            ],
+            [
+              -3.7072768,
+              40.4115861
+            ],
+            [
+              -3.7070837,
+              40.4107039
+            ],
+            [
+              -3.7043157,
+              40.4079263
+            ],
+            [
+              -3.7027278,
+              40.4053937
+            ],
+            [
+              -3.7016549,
+              40.4039232
+            ],
+            [
+              -3.6986294,
+              40.4048709
+            ],
+            [
+              -3.6956253,
+              40.4052303
+            ]
+          ]
+        ]
+      },
+      "sourceName": "Lavapíes"
+    },
+    {
+      "id": "chueca",
+      "name": "Chueca",
+      "group": "norte",
+      "color": "#FF8C00",
+      "tag": "Vida noturna e diversidade",
+      "center": [
+        40.4230234125,
+        -3.6962673375
+      ],
+      "polygon": [
+        [
+          40.4291046,
+          -3.7020415
+        ],
+        [
+          40.4288106,
+          -3.7023204
+        ],
+        [
+          40.4252661,
+          -3.7008613
+        ],
+        [
+          40.4236979,
+          -3.7005394
+        ],
+        [
+          40.4199407,
+          -3.7016981
+        ],
+        [
+          40.419663,
+          -3.6995738
+        ],
+        [
+          40.4188626,
+          -3.6966985
+        ],
+        [
+          40.4195323,
+          -3.693158
+        ],
+        [
+          40.4249884,
+          -3.6909264
+        ],
+        [
+          40.4276019,
+          -3.6955827
+        ],
+        [
+          40.4281246,
+          -3.6982005
+        ]
+      ],
+      "description": "Um dos centros da vida LGBT de Madri, com bares, restaurantes e movimento nas ruas ao redor da praça.",
+      "highlights": [
+        "Plaza de Chueca",
+        "Mercado de San Antón"
+      ],
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial.",
+      "atmosphere": "É uma referência da vida LGBTQIA+ da cidade e também uma área de compras, encontros e gastronomia. A praça concentra o movimento, que se espalha por ruas como Hortaleza e Augusto Figueroa.",
+      "walk": "Parta da Plaza de Chueca, passe pelo Mercado de San Antón e explore as ruas ao redor. Fuencarral leva ao lado de Malasaña; na direção de Barquillo, o passeio se aproxima de Salesas.",
+      "tip": "A área que você desenhou também se aproxima de Salesas. Combine o entorno da Plaza de Chueca com as ruas de Fernando VI e Barquillo se quiser ampliar o passeio.",
+      "source": "https://www.esmadrid.com/barrios-de-madrid/chueca",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "boundaryType": "user-drawn",
+      "mapLabel": "Chueca",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.7020415,
+              40.4291046
+            ],
+            [
+              -3.7023204,
+              40.4288106
+            ],
+            [
+              -3.7008613,
+              40.4252661
+            ],
+            [
+              -3.7005394,
+              40.4236979
+            ],
+            [
+              -3.7016981,
+              40.4199407
+            ],
+            [
+              -3.6995738,
+              40.419663
+            ],
+            [
+              -3.6966985,
+              40.4188626
+            ],
+            [
+              -3.693158,
+              40.4195323
+            ],
+            [
+              -3.6909264,
+              40.4249884
+            ],
+            [
+              -3.6955827,
+              40.4276019
+            ],
+            [
+              -3.6982005,
+              40.4281246
+            ],
+            [
+              -3.7020415,
+              40.4291046
+            ]
+          ]
+        ]
+      },
+      "sourceName": "Chueca"
+    },
+    {
+      "id": "malasana",
+      "name": "Malasaña",
+      "group": "norte",
+      "color": "#FFED00",
+      "tag": "Vintage, cafés e bares indie",
+      "center": [
+        40.42697976875,
+        -3.7088824625
+      ],
+      "polygon": [
+        [
+          40.4306669,
+          -3.7162049
+        ],
+        [
+          40.4234308,
+          -3.7106903
+        ],
+        [
+          40.4240189,
+          -3.7091239
+        ],
+        [
+          40.4239535,
+          -3.7073643
+        ],
+        [
+          40.4231858,
+          -3.7074073
+        ],
+        [
+          40.4210131,
+          -3.7047036
+        ],
+        [
+          40.4202617,
+          -3.7048753
+        ],
+        [
+          40.4199407,
+          -3.7016981
+        ],
+        [
+          40.4238065,
+          -3.7005837
+        ],
+        [
+          40.4251133,
+          -3.7008198
+        ],
+        [
+          40.4264037,
+          -3.7013991
+        ],
+        [
+          40.4289355,
+          -3.7023647
+        ],
+        [
+          40.4298175,
+          -3.7082227
+        ]
+      ],
+      "description": "Ruas animadas, lojas vintage, livrarias e cafés. A Plaza del Dos de Mayo é uma boa referência para começar a explorar.",
+      "highlights": [
+        "Plaza del Dos de Mayo",
+        "Lojas e cafés da Calle del Pez"
+      ],
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial.",
+      "atmosphere": "Uma mistura de comércio independente, referências à cultura alternativa e praças pequenas. De dia, o passeio gira em torno de cafés e lojas; à noite, os bares mudam o ritmo das mesmas ruas.",
+      "walk": "Comece na Plaza del Dos de Mayo, explore as ruas próximas e siga pela Calle del Pez. Para ver mais lojas, caminhe em direção a Fuencarral, na borda com Chueca.",
+      "tip": "O desenho inclui o entorno de Conde Duque. Você pode alternar as ruas de Malasaña com a Plaza de las Comendadoras e o centro cultural.",
+      "source": "https://www.esmadrid.com/barrios-de-madrid/malasana",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "boundaryType": "user-drawn",
+      "mapLabel": "Malasaña",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.7162049,
+              40.4306669
+            ],
+            [
+              -3.7106903,
+              40.4234308
+            ],
+            [
+              -3.7091239,
+              40.4240189
+            ],
+            [
+              -3.7073643,
+              40.4239535
+            ],
+            [
+              -3.7074073,
+              40.4231858
+            ],
+            [
+              -3.7047036,
+              40.4210131
+            ],
+            [
+              -3.7048753,
+              40.4202617
+            ],
+            [
+              -3.7016981,
+              40.4199407
+            ],
+            [
+              -3.7005837,
+              40.4238065
+            ],
+            [
+              -3.7008198,
+              40.4251133
+            ],
+            [
+              -3.7013991,
+              40.4264037
+            ],
+            [
+              -3.7023647,
+              40.4289355
+            ],
+            [
+              -3.7082227,
+              40.4298175
+            ],
+            [
+              -3.7162049,
+              40.4306669
+            ]
+          ]
+        ]
+      },
+      "sourceName": "Malasaña"
+    },
+    {
+      "id": "letras",
+      "name": "Las Letras",
+      "group": "sul",
+      "color": "#008026",
+      "tag": "Huertas, literatura e bares",
+      "center": [
+        40.4145932,
+        -3.70060470625
+      ],
+      "polygon": [
+        [
+          40.4166272,
+          -3.7003586
+        ],
+        [
+          40.414585,
+          -3.7031267
+        ],
+        [
+          40.4141276,
+          -3.7033627
+        ],
+        [
+          40.4128859,
+          -3.7000904
+        ],
+        [
+          40.4125592,
+          -3.6994574
+        ],
+        [
+          40.4148546,
+          -3.6984596
+        ],
+        [
+          40.4149118,
+          -3.6985455
+        ],
+        [
+          40.4148709,
+          -3.698803
+        ],
+        [
+          40.4151732,
+          -3.6989961
+        ],
+        [
+          40.4165536,
+          -3.6988459
+        ]
+      ],
+      "description": "Também chamado Huertas, liga o entorno de Sol ao eixo dos museus. A Plaza de Santa Ana é uma referência para bares e vida noturna.",
+      "highlights": [
+        "Plaza de Santa Ana",
+        "Calle de las Huertas",
+        "Casa de Lope de Vega"
+      ],
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial.",
+      "atmosphere": "A memória de escritores como Cervantes e Lope de Vega convive com teatros, pequenos comércios e bares. É um bom trecho para ligar o centro histórico ao eixo cultural do Prado.",
+      "walk": "Comece na Plaza de Santa Ana, siga pela Calle de las Huertas e explore as ruas próximas à Casa de Lope de Vega. Continue em direção ao Paseo del Prado se quiser combinar literatura e museus.",
+      "tip": "Experimente percorrer as ruas de dia para observar os detalhes e voltar ao entorno de Santa Ana para tomar algo. Huertas e Barrio de las Letras são nomes usados para essa mesma região de passeio.",
+      "source": "https://www.esmadrid.com/informacion-turistica/barrio-de-las-letras",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "boundaryType": "user-drawn",
+      "mapLabel": "Las Letras",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.7003586,
+              40.4166272
+            ],
+            [
+              -3.7031267,
+              40.414585
+            ],
+            [
+              -3.7033627,
+              40.4141276
+            ],
+            [
+              -3.7000904,
+              40.4128859
+            ],
+            [
+              -3.6994574,
+              40.4125592
+            ],
+            [
+              -3.6984596,
+              40.4148546
+            ],
+            [
+              -3.6985455,
+              40.4149118
+            ],
+            [
+              -3.698803,
+              40.4148709
+            ],
+            [
+              -3.6989961,
+              40.4151732
+            ],
+            [
+              -3.6988459,
+              40.4165536
+            ],
+            [
+              -3.7003586,
+              40.4166272
+            ]
+          ]
+        ]
+      },
+      "sourceName": "Las Letras"
+    },
+    {
+      "id": "las-literras",
+      "group": "sul",
+      "tag": "Entre Las Letras e o Prado",
+      "description": "Esta área fica entre o núcleo de Las Letras e o eixo do Paseo del Prado. Ela aparece separada de Las Letras no seu mapa.",
+      "atmosphere": "Um trecho de ligação entre as ruas do centro e os grandes espaços culturais junto ao Prado.",
+      "highlights": [
+        "Entorno da Calle de las Huertas",
+        "Ligação com o Paseo del Prado"
+      ],
+      "walk": "Combine uma caminhada pelas ruas próximas a Las Letras com o passeio em direção ao Prado. Escolha os pontos marcados que mais interessam para organizar as paradas.",
+      "tip": "Você pode explorar esta região junto com Las Letras e o eixo dos museus, observando a distância entre os pontos no mapa.",
+      "source": "https://www.esmadrid.com/informacion-turistica/barrio-de-las-letras",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.7003586,
+              40.4166272
+            ],
+            [
+              -3.6988459,
+              40.4165536
+            ],
+            [
+              -3.6989961,
+              40.4151732
+            ],
+            [
+              -3.698803,
+              40.4148709
+            ],
+            [
+              -3.6985395,
+              40.4150682
+            ],
+            [
+              -3.6984596,
+              40.4148546
+            ],
+            [
+              -3.6994574,
+              40.4125592
+            ],
+            [
+              -3.693454,
+              40.4097257
+            ],
+            [
+              -3.6922524,
+              40.4091539
+            ],
+            [
+              -3.6924241,
+              40.4094316
+            ],
+            [
+              -3.6945054,
+              40.4153459
+            ],
+            [
+              -3.6947844,
+              40.4156236
+            ],
+            [
+              -3.6936901,
+              40.4192667
+            ],
+            [
+              -3.6966985,
+              40.4188626
+            ],
+            [
+              -3.6993549,
+              40.4180251
+            ],
+            [
+              -3.7003586,
+              40.4166272
+            ]
+          ]
+        ]
+      },
+      "polygon": [
+        [
+          40.4166272,
+          -3.7003586
+        ],
+        [
+          40.4165536,
+          -3.6988459
+        ],
+        [
+          40.4151732,
+          -3.6989961
+        ],
+        [
+          40.4148709,
+          -3.698803
+        ],
+        [
+          40.4150682,
+          -3.6985395
+        ],
+        [
+          40.4148546,
+          -3.6984596
+        ],
+        [
+          40.4125592,
+          -3.6994574
+        ],
+        [
+          40.4097257,
+          -3.693454
+        ],
+        [
+          40.4091539,
+          -3.6922524
+        ],
+        [
+          40.4094316,
+          -3.6924241
+        ],
+        [
+          40.4153459,
+          -3.6945054
+        ],
+        [
+          40.4156236,
+          -3.6947844
+        ],
+        [
+          40.4192667,
+          -3.6936901
+        ],
+        [
+          40.4188626,
+          -3.6966985
+        ],
+        [
+          40.4180251,
+          -3.6993549
+        ]
+      ],
+      "center": [
+        40.413262225,
+        -3.6963055000000002
+      ],
+      "name": "Las Literras",
+      "mapLabel": "Las Literras",
+      "color": "#004DFF",
+      "sourceName": "Las Literras",
+      "boundaryType": "user-drawn",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+    },
+    {
+      "id": "latina",
+      "name": "La Latina",
+      "group": "centro",
+      "color": "#750787",
+      "tag": "Tapeo, Cava Baja e Rastro",
+      "center": [
+        40.411569209374996,
+        -3.711315890625
+      ],
+      "polygon": [
+        [
+          40.4139122,
+          -3.7135582
+        ],
+        [
+          40.4139285,
+          -3.7137084
+        ],
+        [
+          40.4130626,
+          -3.7137728
+        ],
+        [
+          40.4110694,
+          -3.7139659
+        ],
+        [
+          40.4101381,
+          -3.7138157
+        ],
+        [
+          40.4086677,
+          -3.7130218
+        ],
+        [
+          40.4070828,
+          -3.7117987
+        ],
+        [
+          40.4070338,
+          -3.7114339
+        ],
+        [
+          40.4081122,
+          -3.7109618
+        ],
+        [
+          40.4113145,
+          -3.7083225
+        ],
+        [
+          40.4125725,
+          -3.7075715
+        ],
+        [
+          40.4134221,
+          -3.7074428
+        ],
+        [
+          40.4138142,
+          -3.7083655
+        ],
+        [
+          40.4137652,
+          -3.7089234
+        ],
+        [
+          40.4135364,
+          -3.7105541
+        ],
+        [
+          40.4139449,
+          -3.7117987
+        ]
+      ],
+      "description": "Ao sul da Plaza Mayor, a região das ruas de tapas e do passeio pela Cava Baja. O Rastro se espalha pelas ruas próximas.",
+      "highlights": [
+        "Cava Baja",
+        "Plaza de la Cebada",
+        "El Rastro"
+      ],
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial.",
+      "atmosphere": "Ruas sinuosas e pequenas praças fazem parte da paisagem da Madri antiga. O tapeo, com paradas em diferentes bares, é um dos jeitos de aproveitar a região.",
+      "walk": "Ligue a Plaza de la Cebada à Cava Baja e explore o entorno das praças de San Andrés e de la Paja. O passeio pode continuar em direção a Lavapiés e às ruas do Rastro.",
+      "tip": "Se quiser incluir o Rastro, confira o dia de funcionamento antes de planejar a visita. Para comer, olhe os cardápios: muitas tapas tradicionais levam carne ou peixe.",
+      "source": "https://www.esmadrid.com/barrios-de-madrid/la-latina",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "boundaryType": "user-drawn",
+      "mapLabel": "La Latina",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.7135582,
+              40.4139122
+            ],
+            [
+              -3.7137084,
+              40.4139285
+            ],
+            [
+              -3.7137728,
+              40.4130626
+            ],
+            [
+              -3.7139659,
+              40.4110694
+            ],
+            [
+              -3.7138157,
+              40.4101381
+            ],
+            [
+              -3.7130218,
+              40.4086677
+            ],
+            [
+              -3.7117987,
+              40.4070828
+            ],
+            [
+              -3.7114339,
+              40.4070338
+            ],
+            [
+              -3.7109618,
+              40.4081122
+            ],
+            [
+              -3.7083225,
+              40.4113145
+            ],
+            [
+              -3.7075715,
+              40.4125725
+            ],
+            [
+              -3.7074428,
+              40.4134221
+            ],
+            [
+              -3.7083655,
+              40.4138142
+            ],
+            [
+              -3.7089234,
+              40.4137652
+            ],
+            [
+              -3.7105541,
+              40.4135364
+            ],
+            [
+              -3.7117987,
+              40.4139449
+            ],
+            [
+              -3.7135582,
+              40.4139122
+            ]
+          ]
+        ]
+      },
+      "sourceName": "La Latina"
+    },
+    {
+      "id": "retiro",
+      "name": "Retiro",
+      "group": "leste",
+      "color": "#E40303",
+      "tag": "Parque, lago e caminhos",
+      "center": [
+        40.412479171875,
+        -3.676057703125
+      ],
+      "polygon": [
+        [
+          40.3985875,
+          -3.6695828
+        ],
+        [
+          40.3998948,
+          -3.6686387
+        ],
+        [
+          40.4023132,
+          -3.6674371
+        ],
+        [
+          40.4046008,
+          -3.6667504
+        ],
+        [
+          40.4067576,
+          -3.6655488
+        ],
+        [
+          40.4104174,
+          -3.6638322
+        ],
+        [
+          40.4133583,
+          -3.6617722
+        ],
+        [
+          40.4166911,
+          -3.659884
+        ],
+        [
+          40.4177366,
+          -3.6605706
+        ],
+        [
+          40.4191089,
+          -3.6609998
+        ],
+        [
+          40.4196316,
+          -3.6629739
+        ],
+        [
+          40.4206771,
+          -3.6657204
+        ],
+        [
+          40.4215919,
+          -3.673016
+        ],
+        [
+          40.421984,
+          -3.6798825
+        ],
+        [
+          40.4210692,
+          -3.6847749
+        ],
+        [
+          40.4195323,
+          -3.693158
+        ],
+        [
+          40.4160376,
+          -3.6943879
+        ],
+        [
+          40.4090047,
+          -3.6921706
+        ],
+        [
+          40.4062347,
+          -3.6863198
+        ],
+        [
+          40.4027053,
+          -3.6774792
+        ]
+      ],
+      "description": "A área do seu mapa abrange o parque e uma região mais ampla do distrito Retiro, ao sul e a leste. O parque continua sendo uma referência importante dentro dela.",
+      "highlights": [
+        "Estanque Grande",
+        "Palácio de Cristal",
+        "Jardins e caminhos do parque"
+      ],
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial.",
+      "atmosphere": "O parque funciona como uma pausa entre os passeios urbanos: caminhos arborizados, jardins e espaços para sentar. O lago e o Palácio de Cristal são referências para se localizar dentro dele.",
+      "walk": "Uma opção é começar no Parque de El Retiro, junto à Puerta de Alcalá, e ligar o Estanque Grande ao Palacio de Cristal. Para os trechos fora do parque, escolha as paradas marcadas de acordo com o passeio.",
+      "tip": "O destaque vai além do parque. Para caminhar entre os seus pontos, observe as distâncias: nem toda a área colorida corresponde a jardins e caminhos internos do Retiro.",
+      "source": "https://www.esmadrid.com/barrios-de-madrid/retiro",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "boundaryType": "user-drawn",
+      "mapLabel": "Retiro",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.6695828,
+              40.3985875
+            ],
+            [
+              -3.6686387,
+              40.3998948
+            ],
+            [
+              -3.6674371,
+              40.4023132
+            ],
+            [
+              -3.6667504,
+              40.4046008
+            ],
+            [
+              -3.6655488,
+              40.4067576
+            ],
+            [
+              -3.6638322,
+              40.4104174
+            ],
+            [
+              -3.6617722,
+              40.4133583
+            ],
+            [
+              -3.659884,
+              40.4166911
+            ],
+            [
+              -3.6605706,
+              40.4177366
+            ],
+            [
+              -3.6609998,
+              40.4191089
+            ],
+            [
+              -3.6629739,
+              40.4196316
+            ],
+            [
+              -3.6657204,
+              40.4206771
+            ],
+            [
+              -3.673016,
+              40.4215919
+            ],
+            [
+              -3.6798825,
+              40.421984
+            ],
+            [
+              -3.6847749,
+              40.4210692
+            ],
+            [
+              -3.693158,
+              40.4195323
+            ],
+            [
+              -3.6943879,
+              40.4160376
+            ],
+            [
+              -3.6921706,
+              40.4090047
+            ],
+            [
+              -3.6863198,
+              40.4062347
+            ],
+            [
+              -3.6774792,
+              40.4027053
+            ],
+            [
+              -3.6695828,
+              40.3985875
+            ]
+          ]
+        ]
+      },
+      "sourceName": "Retiro"
+    },
+    {
+      "id": "austrias",
+      "name": "Palacio",
+      "group": "centro",
+      "color": "#FF8C00",
+      "tag": "Palácio, praças e centro histórico",
+      "center": [
+        40.4173003,
+        -3.7130044937499997
+      ],
+      "polygon": [
+        [
+          40.4202044,
+          -3.7198306
+        ],
+        [
+          40.4191262,
+          -3.7205602
+        ],
+        [
+          40.417852,
+          -3.7205602
+        ],
+        [
+          40.4166757,
+          -3.7217618
+        ],
+        [
+          40.415042,
+          -3.7222339
+        ],
+        [
+          40.4141271,
+          -3.7222768
+        ],
+        [
+          40.4139311,
+          -3.7177707
+        ],
+        [
+          40.4139122,
+          -3.7135582
+        ],
+        [
+          40.4104674,
+          -3.7139941
+        ],
+        [
+          40.4070828,
+          -3.7117987
+        ],
+        [
+          40.4115458,
+          -3.7082006
+        ],
+        [
+          40.4134221,
+          -3.7074428
+        ],
+        [
+          40.4138142,
+          -3.7083655
+        ],
+        [
+          40.4145268,
+          -3.7080243
+        ],
+        [
+          40.4153926,
+          -3.7085393
+        ],
+        [
+          40.4159154,
+          -3.7088611
+        ],
+        [
+          40.4161441,
+          -3.7078312
+        ],
+        [
+          40.4179902,
+          -3.7067583
+        ],
+        [
+          40.4190357,
+          -3.7057927
+        ],
+        [
+          40.4201302,
+          -3.7080028
+        ],
+        [
+          40.4234308,
+          -3.7106903
+        ],
+        [
+          40.4214044,
+          -3.7142685
+        ],
+        [
+          40.4199669,
+          -3.7159851
+        ],
+        [
+          40.4203589,
+          -3.7187317
+        ]
+      ],
+      "description": "A área de Palacio reúne o entorno do Palacio Real de Madrid e boa parte do passeio pelo centro histórico. Seu desenho também alcança trechos ao sul do palácio.",
+      "highlights": [
+        "Palacio Real de Madrid e Catedral de la Almudena",
+        "Plaza de Oriente e Teatro Real",
+        "Jardines de Sabatini"
+      ],
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial.",
+      "atmosphere": "É a Madri das praças históricas, dos antigos comércios e dos grandes edifícios ligados à monarquia. Entre os pontos famosos, as ruas menores revelam um passeio de escala bem diferente.",
+      "walk": "Saia de Sol em direção à Plaza Mayor, passe pelo entorno do Mercado de San Miguel e continue até a Almudena e o Palácio Real. Sabatini pode ser uma continuação para o lado norte.",
+      "tip": "Escolha entre um passeio por fora e uma visita com entrada ao Palácio; são ritmos diferentes. O Templo de Debod fica mais ao norte, fora do contorno colorido desta região.",
+      "source": "https://www.esmadrid.com/barrios-de-madrid/austrias",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "boundaryType": "user-drawn",
+      "mapLabel": "Palacio",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.7198306,
+              40.4202044
+            ],
+            [
+              -3.7205602,
+              40.4191262
+            ],
+            [
+              -3.7205602,
+              40.417852
+            ],
+            [
+              -3.7217618,
+              40.4166757
+            ],
+            [
+              -3.7222339,
+              40.415042
+            ],
+            [
+              -3.7222768,
+              40.4141271
+            ],
+            [
+              -3.7177707,
+              40.4139311
+            ],
+            [
+              -3.7135582,
+              40.4139122
+            ],
+            [
+              -3.7139941,
+              40.4104674
+            ],
+            [
+              -3.7117987,
+              40.4070828
+            ],
+            [
+              -3.7082006,
+              40.4115458
+            ],
+            [
+              -3.7074428,
+              40.4134221
+            ],
+            [
+              -3.7083655,
+              40.4138142
+            ],
+            [
+              -3.7080243,
+              40.4145268
+            ],
+            [
+              -3.7085393,
+              40.4153926
+            ],
+            [
+              -3.7088611,
+              40.4159154
+            ],
+            [
+              -3.7078312,
+              40.4161441
+            ],
+            [
+              -3.7067583,
+              40.4179902
+            ],
+            [
+              -3.7057927,
+              40.4190357
+            ],
+            [
+              -3.7080028,
+              40.4201302
+            ],
+            [
+              -3.7106903,
+              40.4234308
+            ],
+            [
+              -3.7142685,
+              40.4214044
+            ],
+            [
+              -3.7159851,
+              40.4199669
+            ],
+            [
+              -3.7187317,
+              40.4203589
+            ],
+            [
+              -3.7198306,
+              40.4202044
+            ]
+          ]
+        ]
+      },
+      "sourceName": "Palace"
+    },
+    {
+      "id": "chamberi",
+      "name": "Chamberí",
+      "group": "norte",
+      "color": "#FFED00",
+      "tag": "Vida de bairro e museus",
+      "center": [
+        40.438750399999996,
+        -3.70219080625
+      ],
+      "polygon": [
+        [
+          40.4468443,
+          -3.7184074
+        ],
+        [
+          40.445048,
+          -3.7199095
+        ],
+        [
+          40.443611,
+          -3.719652
+        ],
+        [
+          40.4407368,
+          -3.7179783
+        ],
+        [
+          40.4391363,
+          -3.717592
+        ],
+        [
+          40.4366866,
+          -3.7179354
+        ],
+        [
+          40.4344001,
+          -3.7190512
+        ],
+        [
+          40.4306669,
+          -3.7162049
+        ],
+        [
+          40.4303822,
+          -3.7119701
+        ],
+        [
+          40.4296962,
+          -3.7059191
+        ],
+        [
+          40.4291046,
+          -3.7020415
+        ],
+        [
+          40.4280301,
+          -3.6965635
+        ],
+        [
+          40.4275401,
+          -3.6951902
+        ],
+        [
+          40.4249884,
+          -3.6909264
+        ],
+        [
+          40.4310028,
+          -3.6890533
+        ],
+        [
+          40.4330935,
+          -3.6884096
+        ],
+        [
+          40.4350861,
+          -3.6889246
+        ],
+        [
+          40.4384178,
+          -3.6910274
+        ],
+        [
+          40.4419126,
+          -3.6917999
+        ],
+        [
+          40.4463544,
+          -3.6906841
+        ],
+        [
+          40.446485,
+          -3.6947611
+        ],
+        [
+          40.4470076,
+          -3.7045029
+        ],
+        [
+          40.4470076,
+          -3.7094381
+        ],
+        [
+          40.4457665,
+          -3.7147596
+        ],
+        [
+          40.446779,
+          -3.7169054
+        ]
+      ],
+      "description": "O distrito Chamberí reúne áreas residenciais, mercados, praças e comércio cotidiano ao norte do centro. Seu desenho agora destaca uma área mais ampla da região.",
+      "highlights": [
+        "Museo Sorolla",
+        "Andén 0 · estação de Chamberí"
+      ],
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial.",
+      "atmosphere": "A vida de bairro divide espaço com cafés, mercados e referências culturais. Cada trecho do distrito tem uma escala diferente para explorar a pé.",
+      "walk": "Uma opção é ligar a Plaza de Olavide ao entorno de Bilbao e Quevedo. Outra é organizar o passeio em torno de Andén 0 e do Museo Sorolla, escolhendo antes as visitas que mais interessam.",
+      "tip": "Não tente cobrir todo o distrito numa única volta. Escolha uma praça ou museu como referência e consulte as informações de visita dos espaços culturais antes de sair.",
+      "source": "https://www.esmadrid.com/barrios-de-madrid/chamberi",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "boundaryType": "user-drawn",
+      "mapLabel": "Chamberí",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.7184074,
+              40.4468443
+            ],
+            [
+              -3.7199095,
+              40.445048
+            ],
+            [
+              -3.719652,
+              40.443611
+            ],
+            [
+              -3.7179783,
+              40.4407368
+            ],
+            [
+              -3.717592,
+              40.4391363
+            ],
+            [
+              -3.7179354,
+              40.4366866
+            ],
+            [
+              -3.7190512,
+              40.4344001
+            ],
+            [
+              -3.7162049,
+              40.4306669
+            ],
+            [
+              -3.7119701,
+              40.4303822
+            ],
+            [
+              -3.7059191,
+              40.4296962
+            ],
+            [
+              -3.7020415,
+              40.4291046
+            ],
+            [
+              -3.6965635,
+              40.4280301
+            ],
+            [
+              -3.6951902,
+              40.4275401
+            ],
+            [
+              -3.6909264,
+              40.4249884
+            ],
+            [
+              -3.6890533,
+              40.4310028
+            ],
+            [
+              -3.6884096,
+              40.4330935
+            ],
+            [
+              -3.6889246,
+              40.4350861
+            ],
+            [
+              -3.6910274,
+              40.4384178
+            ],
+            [
+              -3.6917999,
+              40.4419126
+            ],
+            [
+              -3.6906841,
+              40.4463544
+            ],
+            [
+              -3.6947611,
+              40.446485
+            ],
+            [
+              -3.7045029,
+              40.4470076
+            ],
+            [
+              -3.7094381,
+              40.4470076
+            ],
+            [
+              -3.7147596,
+              40.4457665
+            ],
+            [
+              -3.7169054,
+              40.446779
+            ],
+            [
+              -3.7184074,
+              40.4468443
+            ]
+          ]
+        ]
+      },
+      "sourceName": "Chamberí"
+    },
+    {
+      "id": "embajadores",
+      "group": "sul",
+      "tag": "Lavapiés, Rastro e vida de bairro",
+      "description": "Embajadores é o bairro oficial que inclui Lavapiés e o entorno do Rastro. No seu mapa, ele aparece como uma área própria e se sobrepõe a parte de Lavapiés.",
+      "atmosphere": "Pequenos comércios e espaços culturais fazem parte da paisagem desta região do sul do Centro.",
+      "highlights": [
+        "Entorno do Rastro",
+        "Ribera de Curtidores",
+        "Lavapiés e suas ruas próximas"
+      ],
+      "walk": "Use Ribera de Curtidores e a Plaza de Lavapiés como referências para escolher o trecho que quer explorar.",
+      "tip": "Lavapiés e Embajadores não são duas áreas completamente separadas: o nome popular Lavapiés está dentro do bairro administrativo Embajadores.",
+      "source": "https://www.esmadrid.com/barrios-de-madrid/lavapies",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.7072859,
+              40.4135581
+            ],
+            [
+              -3.7074147,
+              40.4125452
+            ],
+            [
+              -3.7088523,
+              40.4104702
+            ],
+            [
+              -3.7114339,
+              40.4070338
+            ],
+            [
+              -3.702694,
+              40.4049856
+            ],
+            [
+              -3.6938964,
+              40.4074038
+            ],
+            [
+              -3.6921797,
+              40.4079267
+            ],
+            [
+              -3.6921706,
+              40.4090047
+            ],
+            [
+              -3.6971794,
+              40.4114231
+            ],
+            [
+              -3.7003337,
+              40.4130569
+            ],
+            [
+              -3.7035094,
+              40.4141679
+            ],
+            [
+              -3.7039385,
+              40.4143639
+            ],
+            [
+              -3.704711,
+              40.4138901
+            ],
+            [
+              -3.7061487,
+              40.4140372
+            ],
+            [
+              -3.7072859,
+              40.4135581
+            ]
+          ]
+        ]
+      },
+      "polygon": [
+        [
+          40.4135581,
+          -3.7072859
+        ],
+        [
+          40.4125452,
+          -3.7074147
+        ],
+        [
+          40.4104702,
+          -3.7088523
+        ],
+        [
+          40.4070338,
+          -3.7114339
+        ],
+        [
+          40.4049856,
+          -3.702694
+        ],
+        [
+          40.4074038,
+          -3.6938964
+        ],
+        [
+          40.4079267,
+          -3.6921797
+        ],
+        [
+          40.4090047,
+          -3.6921706
+        ],
+        [
+          40.4114231,
+          -3.6971794
+        ],
+        [
+          40.4130569,
+          -3.7003337
+        ],
+        [
+          40.4141679,
+          -3.7035094
+        ],
+        [
+          40.4143639,
+          -3.7039385
+        ],
+        [
+          40.4138901,
+          -3.704711
+        ],
+        [
+          40.4140372,
+          -3.7061487
+        ]
+      ],
+      "center": [
+        40.408795534375,
+        -3.706016096875
+      ],
+      "name": "Embajadores",
+      "mapLabel": "Embajadores",
+      "color": "#008026",
+      "sourceName": "Ambassadors",
+      "boundaryType": "user-drawn",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+    },
+    {
+      "id": "sol",
+      "group": "centro",
+      "tag": "O ponto de partida do centro",
+      "description": "A Puerta del Sol é uma referência central para se localizar em Madrid. A partir dela, você pode seguir para o Palácio, Las Letras ou a Gran Vía.",
+      "atmosphere": "Um ponto de encontro no centro da cidade, cercado por ruas de passagem e comércio.",
+      "highlights": [
+        "Puerta del Sol",
+        "Calle del Arenal",
+        "Ligação com a Plaza Mayor"
+      ],
+      "walk": "Saia de Sol pela Calle del Arenal em direção ao Teatro Real ou escolha o caminho até a Plaza Mayor. São boas referências para começar a entender o centro.",
+      "tip": "Use Sol para se orientar, mas observe os nomes das ruas e das praças ao redor: cada saída leva a uma parte diferente do passeio.",
+      "source": "https://www.esmadrid.com",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.7059985,
+              40.4202732
+            ],
+            [
+              -3.7060843,
+              40.4192767
+            ],
+            [
+              -3.7055693,
+              40.4189664
+            ],
+            [
+              -3.7067066,
+              40.4178555
+            ],
+            [
+              -3.7076293,
+              40.4161565
+            ],
+            [
+              -3.7088611,
+              40.4159154
+            ],
+            [
+              -3.7079511,
+              40.4146371
+            ],
+            [
+              -3.7082086,
+              40.4138693
+            ],
+            [
+              -3.7074428,
+              40.4134221
+            ],
+            [
+              -3.7062989,
+              40.4140816
+            ],
+            [
+              -3.7048827,
+              40.414
+            ],
+            [
+              -3.7039385,
+              40.4143639
+            ],
+            [
+              -3.7033806,
+              40.414245
+            ],
+            [
+              -3.7031661,
+              40.4147025
+            ],
+            [
+              -3.7003586,
+              40.4166272
+            ],
+            [
+              -3.6993549,
+              40.4180251
+            ],
+            [
+              -3.6966985,
+              40.4188626
+            ],
+            [
+              -3.6995738,
+              40.419663
+            ],
+            [
+              -3.7015353,
+              40.4199465
+            ],
+            [
+              -3.7046681,
+              40.4202406
+            ],
+            [
+              -3.7059985,
+              40.4202732
+            ]
+          ]
+        ]
+      },
+      "polygon": [
+        [
+          40.4202732,
+          -3.7059985
+        ],
+        [
+          40.4192767,
+          -3.7060843
+        ],
+        [
+          40.4189664,
+          -3.7055693
+        ],
+        [
+          40.4178555,
+          -3.7067066
+        ],
+        [
+          40.4161565,
+          -3.7076293
+        ],
+        [
+          40.4159154,
+          -3.7088611
+        ],
+        [
+          40.4146371,
+          -3.7079511
+        ],
+        [
+          40.4138693,
+          -3.7082086
+        ],
+        [
+          40.4134221,
+          -3.7074428
+        ],
+        [
+          40.4140816,
+          -3.7062989
+        ],
+        [
+          40.414,
+          -3.7048827
+        ],
+        [
+          40.4143639,
+          -3.7039385
+        ],
+        [
+          40.414245,
+          -3.7033806
+        ],
+        [
+          40.4147025,
+          -3.7031661
+        ],
+        [
+          40.4166272,
+          -3.7003586
+        ],
+        [
+          40.4180251,
+          -3.6993549
+        ],
+        [
+          40.4188626,
+          -3.6966985
+        ],
+        [
+          40.419663,
+          -3.6995738
+        ],
+        [
+          40.4199465,
+          -3.7015353
+        ],
+        [
+          40.4202406,
+          -3.7046681
+        ]
+      ],
+      "center": [
+        40.417704037499995,
+        -3.70315988125
+      ],
+      "name": "Sol",
+      "mapLabel": "Sol",
+      "color": "#004DFF",
+      "sourceName": "Sol",
+      "boundaryType": "user-drawn",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+    },
+    {
+      "id": "moncloa-arguelles",
+      "group": "norte",
+      "tag": "Princesa, praças e o lado oeste",
+      "description": "A região de Argüelles e do eixo de Princesa liga a Plaza de España ao entorno de Moncloa, a oeste de Chamberí.",
+      "atmosphere": "Uma combinação de ruas residenciais, comércio e avenidas que conectam o centro ao lado noroeste da cidade.",
+      "highlights": [
+        "Calle de la Princesa",
+        "Entorno da Plaza de España",
+        "Templo de Debod, na parte sul do passeio"
+      ],
+      "walk": "Use a Plaza de España como referência e siga pelo eixo da Calle de la Princesa, escolhendo as ruas próximas de Argüelles para ampliar a volta.",
+      "tip": "A área do seu mapa destaca este trecho de passeio, sem representar todo o distrito Moncloa-Aravaca.",
+      "source": "https://www.esmadrid.com/barrios-de-madrid/princesa",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.7184921,
+              40.4356172
+            ],
+            [
+              -3.7195435,
+              40.4356008
+            ],
+            [
+              -3.7199298,
+              40.4350129
+            ],
+            [
+              -3.7196937,
+              40.4347189
+            ],
+            [
+              -3.7252298,
+              40.4325467
+            ],
+            [
+              -3.721582,
+              40.4288063
+            ],
+            [
+              -3.7194577,
+              40.4266327
+            ],
+            [
+              -3.7184707,
+              40.4255873
+            ],
+            [
+              -3.7163893,
+              40.4250646
+            ],
+            [
+              -3.7151662,
+              40.4238068
+            ],
+            [
+              -3.7152306,
+              40.4228104
+            ],
+            [
+              -3.7164322,
+              40.4219283
+            ],
+            [
+              -3.717312,
+              40.4220426
+            ],
+            [
+              -3.7183205,
+              40.422745
+            ],
+            [
+              -3.7196079,
+              40.422745
+            ],
+            [
+              -3.7181488,
+              40.4213238
+            ],
+            [
+              -3.718063,
+              40.4203764
+            ],
+            [
+              -3.7158314,
+              40.4202947
+            ],
+            [
+              -3.7142006,
+              40.4215362
+            ],
+            [
+              -3.7119046,
+              40.4229084
+            ],
+            [
+              -3.7109176,
+              40.4234638
+            ],
+            [
+              -3.7179664,
+              40.4329375
+            ],
+            [
+              -3.7172798,
+              40.4331498
+            ],
+            [
+              -3.7183312,
+              40.4346769
+            ],
+            [
+              -3.7182239,
+              40.4358365
+            ],
+            [
+              -3.7184921,
+              40.4356172
+            ]
+          ]
+        ]
+      },
+      "polygon": [
+        [
+          40.4356172,
+          -3.7184921
+        ],
+        [
+          40.4356008,
+          -3.7195435
+        ],
+        [
+          40.4350129,
+          -3.7199298
+        ],
+        [
+          40.4347189,
+          -3.7196937
+        ],
+        [
+          40.4325467,
+          -3.7252298
+        ],
+        [
+          40.4288063,
+          -3.721582
+        ],
+        [
+          40.4266327,
+          -3.7194577
+        ],
+        [
+          40.4255873,
+          -3.7184707
+        ],
+        [
+          40.4250646,
+          -3.7163893
+        ],
+        [
+          40.4238068,
+          -3.7151662
+        ],
+        [
+          40.4228104,
+          -3.7152306
+        ],
+        [
+          40.4219283,
+          -3.7164322
+        ],
+        [
+          40.4220426,
+          -3.717312
+        ],
+        [
+          40.422745,
+          -3.7183205
+        ],
+        [
+          40.422745,
+          -3.7196079
+        ],
+        [
+          40.4213238,
+          -3.7181488
+        ],
+        [
+          40.4203764,
+          -3.718063
+        ],
+        [
+          40.4202947,
+          -3.7158314
+        ],
+        [
+          40.4215362,
+          -3.7142006
+        ],
+        [
+          40.4229084,
+          -3.7119046
+        ],
+        [
+          40.4234638,
+          -3.7109176
+        ],
+        [
+          40.4329375,
+          -3.7179664
+        ],
+        [
+          40.4331498,
+          -3.7172798
+        ],
+        [
+          40.4346769,
+          -3.7183312
+        ],
+        [
+          40.4358365,
+          -3.7182239
+        ]
+      ],
+      "center": [
+        40.43146536875,
+        -3.7203099812500002
+      ],
+      "name": "Moncloa / Argüelles",
+      "mapLabel": "Moncloa / Argüelles",
+      "color": "#750787",
+      "sourceName": "Moncloa / Arguelles",
+      "boundaryType": "user-drawn",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+    },
+    {
+      "id": "salamanca",
+      "name": "Salamanca",
+      "group": "leste",
+      "color": "#750787",
+      "tag": "Compras e ruas elegantes",
+      "center": [
+        40.42970648125,
+        -3.6720530625
+      ],
+      "polygon": [
+        [
+          40.4379903,
+          -3.68986
+        ],
+        [
+          40.4353445,
+          -3.68883
+        ],
+        [
+          40.4330935,
+          -3.6884096
+        ],
+        [
+          40.4244664,
+          -3.6906754
+        ],
+        [
+          40.4195323,
+          -3.693158
+        ],
+        [
+          40.421428,
+          -3.682736
+        ],
+        [
+          40.4221141,
+          -3.6786161
+        ],
+        [
+          40.4216567,
+          -3.6736809
+        ],
+        [
+          40.4211013,
+          -3.6683594
+        ],
+        [
+          40.419533,
+          -3.6623512
+        ],
+        [
+          40.4189449,
+          -3.6593901
+        ],
+        [
+          40.4228655,
+          -3.659433
+        ],
+        [
+          40.431098,
+          -3.6609779
+        ],
+        [
+          40.437239,
+          -3.6599909
+        ],
+        [
+          40.4418771,
+          -3.6596476
+        ],
+        [
+          40.4430856,
+          -3.6607634
+        ],
+        [
+          40.4435428,
+          -3.6624371
+        ],
+        [
+          40.4429876,
+          -3.6644541
+        ],
+        [
+          40.440538,
+          -3.6684023
+        ],
+        [
+          40.4392315,
+          -3.6714922
+        ],
+        [
+          40.4387416,
+          -3.6748825
+        ],
+        [
+          40.437337,
+          -3.6771999
+        ],
+        [
+          40.4375983,
+          -3.6828648
+        ]
+      ],
+      "description": "A região a nordeste do centro combina ruas de compras e áreas residenciais. O desenho do seu mapa abrange uma área mais ampla do que o entorno imediato do Retiro.",
+      "highlights": [
+        "Calle de Serrano",
+        "Entorno da Calle de Goya",
+        "Puerta de Alcalá, na borda sul"
+      ],
+      "official": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial.",
+      "atmosphere": "O desenho regular das ruas e as fachadas do século XIX diferenciam a região do centro antigo. O comércio de luxo é marcante, mas observar a arquitetura também faz parte do passeio.",
+      "walk": "Parta do entorno da Puerta de Alcalá e siga pela Calle de Serrano. Explore as transversais em direção a Goya e Ortega y Gasset, adaptando a volta ao interesse por lojas ou arquitetura.",
+      "tip": "Você pode explorar a região por trechos, combinando Serrano e o entorno do Retiro ou escolhendo pontos mais a leste e ao norte. Use os lugares marcados para ajustar as distâncias.",
+      "source": "https://www.esmadrid.com/barrios-de-madrid/barrio-salamanca",
+      "boundarySource": "assets/maps/barrios-madrid.kml",
+      "boundaryType": "user-drawn",
+      "mapLabel": "Salamanca",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.68986,
+              40.4379903
+            ],
+            [
+              -3.68883,
+              40.4353445
+            ],
+            [
+              -3.6884096,
+              40.4330935
+            ],
+            [
+              -3.6906754,
+              40.4244664
+            ],
+            [
+              -3.693158,
+              40.4195323
+            ],
+            [
+              -3.682736,
+              40.421428
+            ],
+            [
+              -3.6786161,
+              40.4221141
+            ],
+            [
+              -3.6736809,
+              40.4216567
+            ],
+            [
+              -3.6683594,
+              40.4211013
+            ],
+            [
+              -3.6623512,
+              40.419533
+            ],
+            [
+              -3.6593901,
+              40.4189449
+            ],
+            [
+              -3.659433,
+              40.4228655
+            ],
+            [
+              -3.6609779,
+              40.431098
+            ],
+            [
+              -3.6599909,
+              40.437239
+            ],
+            [
+              -3.6596476,
+              40.4418771
+            ],
+            [
+              -3.6607634,
+              40.4430856
+            ],
+            [
+              -3.6624371,
+              40.4435428
+            ],
+            [
+              -3.6644541,
+              40.4429876
+            ],
+            [
+              -3.6684023,
+              40.440538
+            ],
+            [
+              -3.6714922,
+              40.4392315
+            ],
+            [
+              -3.6748825,
+              40.4387416
+            ],
+            [
+              -3.6771999,
+              40.437337
+            ],
+            [
+              -3.6828648,
+              40.4375983
+            ],
+            [
+              -3.68986,
+              40.4379903
+            ]
+          ]
+        ]
+      },
+      "sourceName": "Salamanca"
+    }
+  ],
+  "places": [
+    {
+      "name": "Puerta del Sol",
+      "coords": [
+        40.4169,
+        -3.7036
+      ],
+      "symbol": "S",
+      "anchor": true
+    },
+    {
+      "name": "San Bernardo · Metro",
+      "coords": [
+        40.43,
+        -3.7056
+      ],
+      "symbol": "M",
+      "anchor": true
+    },
+    {
+      "name": "Madrid Puerta de Atocha–Almudena Grandes",
+      "coords": [
+        40.4065,
+        -3.6895
+      ],
+      "symbol": "A",
+      "anchor": true,
+      "saved": true
+    },
+    {
+      "name": "Palacio Real de Madrid",
+      "coords": [
+        40.4179,
+        -3.7143
+      ],
+      "symbol": "P",
+      "anchor": true,
+      "saved": true
+    },
+    {
+      "name": "Plaza del Dos de Mayo",
+      "coords": [
+        40.4269,
+        -3.7039
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Centro Cultural Conde Duque",
+      "coords": [
+        40.4275,
+        -3.7106
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Mercado de San Antón",
+      "coords": [
+        40.4216,
+        -3.6973
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Plaza de las Salesas",
+      "coords": [
+        40.4246,
+        -3.6944
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Museo Sorolla",
+      "coords": [
+        40.4359,
+        -3.6925
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Andén 0 · Chamberí",
+      "coords": [
+        40.4325,
+        -3.6977
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Plaza Mayor",
+      "coords": [
+        40.4154,
+        -3.7074
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Mercado de San Miguel",
+      "coords": [
+        40.4154,
+        -3.7092
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Catedral de la Almudena",
+      "coords": [
+        40.4156,
+        -3.7145
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Jardines de Sabatini",
+      "coords": [
+        40.4202,
+        -3.7124
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Templo de Debod",
+      "coords": [
+        40.424,
+        -3.7178
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Cava Baja",
+      "coords": [
+        40.4122,
+        -3.7092
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "El Rastro · Ribera de Curtidores",
+      "coords": [
+        40.4083,
+        -3.7076
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Plaza de Santa Ana",
+      "coords": [
+        40.4147,
+        -3.7013
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Casa Museo Lope de Vega",
+      "coords": [
+        40.4143,
+        -3.6976
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Plaza de Lavapiés",
+      "coords": [
+        40.4087,
+        -3.7009
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Tabacalera",
+      "coords": [
+        40.4062,
+        -3.7027
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Museo Nacional Centro de Arte Reina Sofía",
+      "coords": [
+        40.4079,
+        -3.6946
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Museo Nacional del Prado",
+      "coords": [
+        40.4138,
+        -3.6921
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Museo Nacional Thyssen-Bornemisza",
+      "coords": [
+        40.416,
+        -3.6949
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "CaixaForum Madrid",
+      "coords": [
+        40.411,
+        -3.6933
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Estanque Grande de El Retiro",
+      "coords": [
+        40.4172,
+        -3.6836
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Palacio de Cristal",
+      "coords": [
+        40.4136,
+        -3.682
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Puerta de Alcalá",
+      "coords": [
+        40.42,
+        -3.6887
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Calle de Serrano",
+      "coords": [
+        40.429,
+        -3.6878
+      ],
+      "symbol": "•"
+    },
+    {
+      "name": "Plaza de España",
+      "coords": [
+        40.4235,
+        -3.7122
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Mercado de los Mostenses",
+      "coords": [
+        40.4232,
+        -3.7085
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Mercado de San Ildefonso",
+      "coords": [
+        40.424,
+        -3.7007
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Plaza de Chueca",
+      "coords": [
+        40.4227,
+        -3.6978
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Plaza de Pedro Zerolo",
+      "coords": [
+        40.42095,
+        -3.69944
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "UNIQLO Gran Vía",
+      "coords": [
+        40.41993,
+        -3.70508
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Gran Vía",
+      "coords": [
+        40.4197,
+        -3.6979
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Palacio de Cibeles",
+      "coords": [
+        40.4193,
+        -3.6919
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "UNIQLO Serrano",
+      "coords": [
+        40.42535,
+        -3.68699
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Plaza de Oriente",
+      "coords": [
+        40.4183,
+        -3.7121
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Teatro Real",
+      "coords": [
+        40.4182,
+        -3.7106
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Calle del Arenal",
+      "coords": [
+        40.4175,
+        -3.7075
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Plaza de la Armería",
+      "coords": [
+        40.4163,
+        -3.7145
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Arco de Cuchilleros",
+      "coords": [
+        40.4148,
+        -3.7085
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Jardín del Príncipe de Anglona",
+      "coords": [
+        40.413539,
+        -3.711464
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Ateneo de Madrid",
+      "coords": [
+        40.4146,
+        -3.698
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Parque de El Retiro",
+      "coords": [
+        40.4153,
+        -3.682
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Fuente del Ángel Caído",
+      "coords": [
+        40.4113,
+        -3.6846
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Real Jardín Botánico",
+      "coords": [
+        40.4119,
+        -3.6908
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Mercado de la Cebada",
+      "coords": [
+        40.411,
+        -3.7088
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Plaza del General Vara de Rey",
+      "coords": [
+        40.409325,
+        -3.708181
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Puerta de Toledo",
+      "coords": [
+        40.4067,
+        -3.7115
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Calle de la Ribera de Curtidores",
+      "coords": [
+        40.4068,
+        -3.7071
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "Calle del Doctor Fourquet",
+      "coords": [
+        40.4078,
+        -3.6973
+      ],
+      "symbol": "•",
+      "saved": true
+    },
+    {
+      "name": "La Casa Encendida",
+      "coords": [
+        40.405,
+        -3.6995
+      ],
+      "symbol": "•",
+      "saved": true
+    }
+  ],
+  "boundaryAttribution": "Contornos pessoais do mapa Barrios Madrid, desenhados pelo usuário no Google My Maps e importados sem simplificação do arquivo KMZ."
+}
+  </script>
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script>
+'use strict';
+const data = JSON.parse(document.getElementById('map-data').textContent);
+const $ = id => document.getElementById(id);
+const escapeHTML = text => text.replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const lngLat = ([lat, lng]) => [lng, lat];
+const buttons = new Map(), labels = [], markers = [];
+let selected = null, map = null, overlaysReady = false;
+const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mapLink = name => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(name + ', Madrid, España');
+function showNotice(text) { $('notice').textContent = text; $('notice').hidden = false; }
+function regionPoints(region) {
+  if (region.geometry) return region.geometry.type === 'Polygon' ? region.geometry.coordinates.flat() : region.geometry.coordinates.flat(2);
+  return region.polygon.map(lngLat);
+}
+function boundsFor(regions) {
+  const bounds = new maplibregl.LngLatBounds();
+  regions.forEach(region => regionPoints(region).forEach(point => bounds.extend(point)));
+  return bounds;
+}
+function refreshSelection() {
+  for (const [id, button] of buttons) button.setAttribute('aria-pressed', String(id === selected));
+  if (!overlaysReady) return;
+  map.setPaintProperty('region-fills', 'fill-opacity', ['case',['==',['get','id'],selected || ''],.36,.22]);
+  map.setPaintProperty('region-lines', 'line-width', ['case',['==',['get','id'],selected || ''],3,1.7]);
+}
+function selectRegion(region) {
+  selected = region.id;
+  refreshSelection();
+  const detail = $('detail');
+  detail.style.setProperty('--color', region.color);
+  detail.innerHTML = '<button type="button" class="close" aria-label="Fechar detalhes">×</button><div class="group">'+escapeHTML(data.groups[region.group])+'</div><h2>'+escapeHTML(region.name)+'</h2><p>'+escapeHTML(region.description)+'</p><h3>O clima da região</h3><p>'+escapeHTML(region.atmosphere)+'</p><h3>O que ver</h3><ul>'+region.highlights.map(item=>'<li>'+escapeHTML(item)+'</li>').join('')+'</ul><h3>Uma ideia de passeio</h3><p>'+escapeHTML(region.walk)+'</p><h3>Para aproveitar melhor</h3><p>'+escapeHTML(region.tip)+'</p><p class="official">'+escapeHTML(region.official)+'</p><a target="_blank" rel="noopener noreferrer" href="'+mapLink(region.name)+'">Pesquisar no Google Maps ↗</a><a class="source" target="_blank" rel="noopener noreferrer" href="'+escapeHTML(region.source)+'">Mais sobre a região · fonte oficial ↗</a>';
+  detail.hidden = false;
+  detail.scrollTop = 0;
+  detail.querySelector('.close').addEventListener('click', closeDetail);
+  if (map) {
+    const mobile = matchMedia('(max-width:580px)').matches;
+    const right = mobile || $('map').clientWidth < 650 ? 35 : 390;
+    map.fitBounds(boundsFor([region]), {padding:{top:75,bottom:mobile?125:65,left:35,right},maxZoom:15,duration:reducedMotion()?0:500});
+  }
+}
+function closeDetail() {
+  const previous = selected;
+  selected = null;
+  $('detail').hidden = true;
+  refreshSelection();
+  if (buttons.has(previous)) buttons.get(previous).focus({preventScroll:true});
+}
+function syncLayers() {
+  if (overlaysReady) {
+    for (const id of ['region-fills','region-lines']) map.setLayoutProperty(id,'visibility',$('areas').checked?'visible':'none');
+  }
+  labels.forEach(marker => marker.getElement().hidden = !$('labels').checked);
+  markers.forEach(marker => {
+    marker.getElement().hidden = !$('places').checked;
+    if (!$('places').checked && marker.getPopup().isOpen()) marker.togglePopup();
+  });
+}
+function fitAllAreas() {
+  if (map) map.fitBounds(boundsFor(data.regions), {padding:{top:80,bottom:65,left:30,right:30},maxZoom:14,duration:0});
+}
+$('count').textContent = data.regions.length + ' áreas';
+data.regions.forEach(region => {
+  const button = document.createElement('button');
+  button.type = 'button'; button.className = 'region'; button.setAttribute('aria-pressed','false');
+  button.style.setProperty('--color',region.color);
+  button.innerHTML = '<span class="dot" aria-hidden="true"></span><span><strong>'+escapeHTML(region.name)+'</strong><small>'+escapeHTML(region.tag)+'</small></span><span class="arrow" aria-hidden="true">↗</span>';
+  button.addEventListener('click',()=>selectRegion(region));
+  buttons.set(region.id,button); $('regions').append(button);
+});
+document.addEventListener('keydown',event=>{ if(event.key === 'Escape' && !$('detail').hidden) closeDetail(); });
+['areas','labels','places'].forEach(id => $(id).addEventListener('change',syncLayers));
+$('overview').addEventListener('click',()=>{closeDetail();fitAllAreas();});
+try {
+  if (typeof maplibregl === 'undefined') throw new Error('Biblioteca do mapa indisponível.');
+  map = new maplibregl.Map({
+    container:'map', style:'https://tiles.openfreemap.org/styles/positron',
+    center:[-3.701,40.418], zoom:13, minZoom:3, maxZoom:19,
+    pitch:0, bearing:0, dragRotate:false, pitchWithRotate:false, touchPitch:false,
+    attributionControl:false
+  });
+  map.touchZoomRotate.disableRotation();
+  map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'bottom-right');
+  map.addControl(new maplibregl.ScaleControl({unit:'metric'}), 'bottom-right');
+  map.addControl(new maplibregl.AttributionControl({compact:true,customAttribution:'Contornos: mapa pessoal Barrios Madrid'}), 'bottom-right');
+  fitAllAreas();
+  // Background, polygons, labels and markers now share MapLibre's projection.
+  data.regions.forEach(region => {
+    const label = document.createElement('button');
+    label.type = 'button'; label.className = 'zone-label'; label.textContent = region.mapLabel || region.name;
+    label.setAttribute('aria-label','Ver '+region.name);
+    label.addEventListener('click',()=>selectRegion(region));
+    labels.push(new maplibregl.Marker({element:label,anchor:'center'}).setLngLat(lngLat(region.center)).addTo(map));
+  });
+  data.places.forEach(place => {
+    const icon = document.createElement('button');
+    icon.type = 'button'; icon.className = 'place-icon'+(place.anchor?' anchor':'')+(place.saved?' saved':'');
+    icon.textContent = place.symbol; icon.title = place.name; icon.setAttribute('aria-label',place.name);
+    const size = place.anchor?23:13;
+    icon.style.width = size+'px'; icon.style.height = size+'px';
+    const popup = new maplibregl.Popup({offset:12,maxWidth:'290px'}).setHTML('<b>'+escapeHTML(place.name)+'</b>'+(place.saved?'<br><span style="color:#a14134">Ponto da sua seleção</span>':'')+'<br><a href="'+mapLink(place.name)+'" target="_blank" rel="noopener noreferrer">Pesquisar no Google Maps ↗</a>');
+    const marker = new maplibregl.Marker({element:icon,anchor:'center'}).setLngLat(lngLat(place.coords)).setPopup(popup).addTo(map);
+    markers.push(marker);
+  });
+  map.on('load',()=>{
+    const features = data.regions.map(region => {
+      const ring = region.polygon.map(lngLat);
+      ring.push([...ring[0]]);
+      return {type:'Feature',properties:{id:region.id,color:region.color,stroke:region.color === '#FFED00' ? '#B39400' : region.color},geometry:region.geometry || {type:'Polygon',coordinates:[ring]}};
+    });
+    map.addSource('regions',{type:'geojson',data:{type:'FeatureCollection',features}});
+    map.addLayer({id:'region-fills',type:'fill',source:'regions',paint:{'fill-color':['get','color'],'fill-opacity':.22}});
+    map.addLayer({id:'region-lines',type:'line',source:'regions',paint:{'line-color':['get','stroke'],'line-width':1.7}});
+    overlaysReady = true;
+    refreshSelection(); syncLayers();
+    map.on('click','region-fills',event=>{
+      const region = data.regions.find(region=>region.id === event.features[0].properties.id);
+      if (region) selectRegion(region);
+    });
+    map.on('mouseenter','region-fills',()=>map.getCanvas().style.cursor='pointer');
+    map.on('mouseleave','region-fills',()=>map.getCanvas().style.cursor='');
+  });
+  map.on('error',()=>{
+    $('map').dataset.background='error';
+    showNotice('O mapa não carregou por completo. Verifique a conexão e o acesso a tiles.openfreemap.org.');
+  });
+  map.on('idle',()=>{
+    if (map.isStyleLoaded() && map.areTilesLoaded()) {
+      $('map').dataset.background='loaded'; $('notice').hidden=true;
+    }
+  });
+  syncLayers();
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(()=>map.resize()).observe($('map'));
+} catch (error) {
+  showNotice('Não foi possível iniciar o mapa. Verifique a conexão e a aceleração de hardware do navegador. Você pode consultar as regiões na lista.');
+  $('overview').disabled = true;
+  document.querySelectorAll('.layers input').forEach(input=>input.disabled=true);
+}
+
+  </script>
+</body>
+</html>

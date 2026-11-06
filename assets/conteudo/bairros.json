@@ -1,0 +1,574 @@
+{
+  "versao": 1,
+  "tipo": "bairros",
+  "itens": [
+    {
+      "id": "lavapies",
+      "nome": "Lavapiés",
+      "subtitulo": "Multicultural e alternativo",
+      "secoes": [
+        {
+          "texto": "Entre La Latina e Atocha, reúne restaurantes de várias partes do mundo, bares e espaços culturais."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "A diversidade de origens aparece nos restaurantes e pequenos comércios. Também é uma região de teatro, cinema e arte contemporânea, com o Reina Sofía próximo à sua borda leste."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Plaza de Lavapiés",
+            "Entorno da Tabacalera",
+            "Reina Sofía, na borda leste"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Use a Plaza de Lavapiés para se orientar, explore as ruas de Tribulete e Argumosa e continue até o entorno do Reina Sofía. Outra possibilidade é seguir na direção de Antón Martín e do Cine Doré."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "É um bom passeio para alternar comida e cultura. A Tabacalera aparece como referência do guia original; confirme a programação e o acesso antes de planejar uma visita ao espaço."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Lavapi%C3%A9s%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com/barrios-de-madrid/lavapies"
+        }
+      ]
+    },
+    {
+      "id": "chueca",
+      "nome": "Chueca",
+      "subtitulo": "Vida noturna e diversidade",
+      "secoes": [
+        {
+          "texto": "Um dos centros da vida LGBT de Madri, com bares, restaurantes e movimento nas ruas ao redor da praça."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "É uma referência da vida LGBTQIA+ da cidade e também uma área de compras, encontros e gastronomia. A praça concentra o movimento, que se espalha por ruas como Hortaleza e Augusto Figueroa."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Plaza de Chueca",
+            "Mercado de San Antón"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Parta da Plaza de Chueca, passe pelo Mercado de San Antón e explore as ruas ao redor. Fuencarral leva ao lado de Malasaña; na direção de Barquillo, o passeio se aproxima de Salesas."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "A área que você desenhou também se aproxima de Salesas. Combine o entorno da Plaza de Chueca com as ruas de Fernando VI e Barquillo se quiser ampliar o passeio."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Chueca%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com/barrios-de-madrid/chueca"
+        }
+      ]
+    },
+    {
+      "id": "malasana",
+      "nome": "Malasaña",
+      "subtitulo": "Vintage, cafés e bares indie",
+      "secoes": [
+        {
+          "texto": "Ruas animadas, lojas vintage, livrarias e cafés. A Plaza del Dos de Mayo é uma boa referência para começar a explorar."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "Uma mistura de comércio independente, referências à cultura alternativa e praças pequenas. De dia, o passeio gira em torno de cafés e lojas; à noite, os bares mudam o ritmo das mesmas ruas."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Plaza del Dos de Mayo",
+            "Lojas e cafés da Calle del Pez"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Comece na Plaza del Dos de Mayo, explore as ruas próximas e siga pela Calle del Pez. Para ver mais lojas, caminhe em direção a Fuencarral, na borda com Chueca."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "O desenho inclui o entorno de Conde Duque. Você pode alternar as ruas de Malasaña com a Plaza de las Comendadoras e o centro cultural."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Malasa%C3%B1a%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com/barrios-de-madrid/malasana"
+        }
+      ]
+    },
+    {
+      "id": "letras",
+      "nome": "Las Letras",
+      "subtitulo": "Huertas, literatura e bares",
+      "secoes": [
+        {
+          "texto": "Também chamado Huertas, liga o entorno de Sol ao eixo dos museus. A Plaza de Santa Ana é uma referência para bares e vida noturna."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "A memória de escritores como Cervantes e Lope de Vega convive com teatros, pequenos comércios e bares. É um bom trecho para ligar o centro histórico ao eixo cultural do Prado."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Plaza de Santa Ana",
+            "Calle de las Huertas",
+            "Casa de Lope de Vega"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Comece na Plaza de Santa Ana, siga pela Calle de las Huertas e explore as ruas próximas à Casa de Lope de Vega. Continue em direção ao Paseo del Prado se quiser combinar literatura e museus."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "Experimente percorrer as ruas de dia para observar os detalhes e voltar ao entorno de Santa Ana para tomar algo. Huertas e Barrio de las Letras são nomes usados para essa mesma região de passeio."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Las%20Letras%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com/informacion-turistica/barrio-de-las-letras"
+        }
+      ]
+    },
+    {
+      "id": "las-literras",
+      "nome": "Las Literras",
+      "subtitulo": "Entre Las Letras e o Prado",
+      "secoes": [
+        {
+          "texto": "Esta área fica entre o núcleo de Las Letras e o eixo do Paseo del Prado. Ela aparece separada de Las Letras no seu mapa."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "Um trecho de ligação entre as ruas do centro e os grandes espaços culturais junto ao Prado."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Entorno da Calle de las Huertas",
+            "Ligação com o Paseo del Prado"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Combine uma caminhada pelas ruas próximas a Las Letras com o passeio em direção ao Prado. Escolha os pontos marcados que mais interessam para organizar as paradas."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "Você pode explorar esta região junto com Las Letras e o eixo dos museus, observando a distância entre os pontos no mapa."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Las%20Literras%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com/informacion-turistica/barrio-de-las-letras"
+        }
+      ]
+    },
+    {
+      "id": "latina",
+      "nome": "La Latina",
+      "subtitulo": "Tapeo, Cava Baja e Rastro",
+      "secoes": [
+        {
+          "texto": "Ao sul da Plaza Mayor, a região das ruas de tapas e do passeio pela Cava Baja. O Rastro se espalha pelas ruas próximas."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "Ruas sinuosas e pequenas praças fazem parte da paisagem da Madri antiga. O tapeo, com paradas em diferentes bares, é um dos jeitos de aproveitar a região."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Cava Baja",
+            "Plaza de la Cebada",
+            "El Rastro"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Ligue a Plaza de la Cebada à Cava Baja e explore o entorno das praças de San Andrés e de la Paja. O passeio pode continuar em direção a Lavapiés e às ruas do Rastro."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "Se quiser incluir o Rastro, confira o dia de funcionamento antes de planejar a visita. Para comer, olhe os cardápios: muitas tapas tradicionais levam carne ou peixe."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=La%20Latina%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com/barrios-de-madrid/la-latina"
+        }
+      ]
+    },
+    {
+      "id": "retiro",
+      "nome": "Retiro",
+      "subtitulo": "Parque, lago e caminhos",
+      "secoes": [
+        {
+          "texto": "A área do seu mapa abrange o parque e uma região mais ampla do distrito Retiro, ao sul e a leste. O parque continua sendo uma referência importante dentro dela."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "O parque funciona como uma pausa entre os passeios urbanos: caminhos arborizados, jardins e espaços para sentar. O lago e o Palácio de Cristal são referências para se localizar dentro dele."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Estanque Grande",
+            "Palácio de Cristal",
+            "Jardins e caminhos do parque"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Uma opção é começar no Parque de El Retiro, junto à Puerta de Alcalá, e ligar o Estanque Grande ao Palacio de Cristal. Para os trechos fora do parque, escolha as paradas marcadas de acordo com o passeio."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "O destaque vai além do parque. Para caminhar entre os seus pontos, observe as distâncias: nem toda a área colorida corresponde a jardins e caminhos internos do Retiro."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Retiro%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com/barrios-de-madrid/retiro"
+        }
+      ]
+    },
+    {
+      "id": "austrias",
+      "nome": "Palacio",
+      "subtitulo": "Palácio, praças e centro histórico",
+      "secoes": [
+        {
+          "texto": "A área de Palacio reúne o entorno do Palacio Real de Madrid e boa parte do passeio pelo centro histórico. Seu desenho também alcança trechos ao sul do palácio."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "É a Madri das praças históricas, dos antigos comércios e dos grandes edifícios ligados à monarquia. Entre os pontos famosos, as ruas menores revelam um passeio de escala bem diferente."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Palacio Real de Madrid e Catedral de la Almudena",
+            "Plaza de Oriente e Teatro Real",
+            "Jardines de Sabatini"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Saia de Sol em direção à Plaza Mayor, passe pelo entorno do Mercado de San Miguel e continue até a Almudena e o Palácio Real. Sabatini pode ser uma continuação para o lado norte."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "Escolha entre um passeio por fora e uma visita com entrada ao Palácio; são ritmos diferentes. O Templo de Debod fica mais ao norte, fora do contorno colorido desta região."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Palacio%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com/barrios-de-madrid/austrias"
+        }
+      ]
+    },
+    {
+      "id": "chamberi",
+      "nome": "Chamberí",
+      "subtitulo": "Vida de bairro e museus",
+      "secoes": [
+        {
+          "texto": "O distrito Chamberí reúne áreas residenciais, mercados, praças e comércio cotidiano ao norte do centro. Seu desenho agora destaca uma área mais ampla da região."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "A vida de bairro divide espaço com cafés, mercados e referências culturais. Cada trecho do distrito tem uma escala diferente para explorar a pé."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Museo Sorolla",
+            "Andén 0 · estação de Chamberí"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Uma opção é ligar a Plaza de Olavide ao entorno de Bilbao e Quevedo. Outra é organizar o passeio em torno de Andén 0 e do Museo Sorolla, escolhendo antes as visitas que mais interessam."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "Não tente cobrir todo o distrito numa única volta. Escolha uma praça ou museu como referência e consulte as informações de visita dos espaços culturais antes de sair."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Chamber%C3%AD%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com/barrios-de-madrid/chamberi"
+        }
+      ]
+    },
+    {
+      "id": "embajadores",
+      "nome": "Embajadores",
+      "subtitulo": "Lavapiés, Rastro e vida de bairro",
+      "secoes": [
+        {
+          "texto": "Embajadores é o bairro oficial que inclui Lavapiés e o entorno do Rastro. No seu mapa, ele aparece como uma área própria e se sobrepõe a parte de Lavapiés."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "Pequenos comércios e espaços culturais fazem parte da paisagem desta região do sul do Centro."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Entorno do Rastro",
+            "Ribera de Curtidores",
+            "Lavapiés e suas ruas próximas"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Use Ribera de Curtidores e a Plaza de Lavapiés como referências para escolher o trecho que quer explorar."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "Lavapiés e Embajadores não são duas áreas completamente separadas: o nome popular Lavapiés está dentro do bairro administrativo Embajadores."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Embajadores%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com/barrios-de-madrid/lavapies"
+        }
+      ]
+    },
+    {
+      "id": "sol",
+      "nome": "Sol",
+      "subtitulo": "O ponto de partida do centro",
+      "secoes": [
+        {
+          "texto": "A Puerta del Sol é uma referência central para se localizar em Madrid. A partir dela, você pode seguir para o Palácio, Las Letras ou a Gran Vía."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "Um ponto de encontro no centro da cidade, cercado por ruas de passagem e comércio."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Puerta del Sol",
+            "Calle del Arenal",
+            "Ligação com a Plaza Mayor"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Saia de Sol pela Calle del Arenal em direção ao Teatro Real ou escolha o caminho até a Plaza Mayor. São boas referências para começar a entender o centro."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "Use Sol para se orientar, mas observe os nomes das ruas e das praças ao redor: cada saída leva a uma parte diferente do passeio."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Sol%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com"
+        }
+      ]
+    },
+    {
+      "id": "moncloa-arguelles",
+      "nome": "Moncloa / Argüelles",
+      "subtitulo": "Princesa, praças e o lado oeste",
+      "secoes": [
+        {
+          "texto": "A região de Argüelles e do eixo de Princesa liga a Plaza de España ao entorno de Moncloa, a oeste de Chamberí."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "Uma combinação de ruas residenciais, comércio e avenidas que conectam o centro ao lado noroeste da cidade."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Calle de la Princesa",
+            "Entorno da Plaza de España",
+            "Templo de Debod, na parte sul do passeio"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Use a Plaza de España como referência e siga pelo eixo da Calle de la Princesa, escolhendo as ruas próximas de Argüelles para ampliar a volta."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "A área do seu mapa destaca este trecho de passeio, sem representar todo o distrito Moncloa-Aravaca."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Moncloa%20/%20Arg%C3%BCelles%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com/barrios-de-madrid/princesa"
+        }
+      ]
+    },
+    {
+      "id": "salamanca",
+      "nome": "Salamanca",
+      "subtitulo": "Compras e ruas elegantes",
+      "secoes": [
+        {
+          "texto": "A região a nordeste do centro combina ruas de compras e áreas residenciais. O desenho do seu mapa abrange uma área mais ampla do que o entorno imediato do Retiro."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "O desenho regular das ruas e as fachadas do século XIX diferenciam a região do centro antigo. O comércio de luxo é marcante, mas observar a arquitetura também faz parte do passeio."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Calle de Serrano",
+            "Entorno da Calle de Goya",
+            "Puerta de Alcalá, na borda sul"
+          ]
+        },
+        {
+          "titulo": "Uma ideia de passeio",
+          "texto": "Parta do entorno da Puerta de Alcalá e siga pela Calle de Serrano. Explore as transversais em direção a Goya e Ortega y Gasset, adaptando a volta ao interesse por lojas ou arquitetura."
+        },
+        {
+          "titulo": "Para aproveitar melhor",
+          "texto": "Você pode explorar a região por trechos, combinando Serrano e o entorno do Retiro ou escolhendo pontos mais a leste e ao norte. Use os lugares marcados para ajustar as distâncias."
+        },
+        {
+          "titulo": "Sobre esta área",
+          "texto": "Contorno desenhado por você no Google My Maps, preservado como no arquivo enviado. É uma divisão pessoal para o passeio, não um limite administrativo oficial."
+        }
+      ],
+      "links": [
+        {
+          "texto": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Salamanca%2C%20Madrid%2C%20Espa%C3%B1a"
+        },
+        {
+          "texto": "Mais sobre a região",
+          "url": "https://www.esmadrid.com/barrios-de-madrid/barrio-salamanca"
+        }
+      ]
+    }
+  ]
+}

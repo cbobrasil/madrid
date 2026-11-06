@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5f3ed">
   <meta name="description" content="Um mapa de Madri por regiões de passeio: bairros, parques e pontos de referência.">
   <title>Guia Madrid por bairros · 13 a 16 de novembro de 2026</title>
@@ -96,7 +96,47 @@ button:disabled{cursor:default;opacity:.55}
 }
 @media(prefers-reduced-motion:reduce){.arrow{transition:none}}
 
-  </style>
+
+.place-lists{margin:0 0 15px;border:1px solid var(--line);border-radius:9px;background:#fffdf8}
+.place-lists>summary{min-height:46px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;font-size:13px;font-weight:650;list-style:none}
+.place-lists>summary::-webkit-details-marker{display:none}
+.active-list-count{font-size:10px;font-weight:450;color:var(--muted)}
+.place-list-content{padding:0 10px 12px}
+.place-list-content>p{font-size:11px;color:var(--muted);margin:0 2px 10px}
+.list-toggles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.list-toggle{display:flex;align-items:center;justify-content:space-between;gap:6px;text-align:left;border:1px solid var(--line);border-radius:8px;min-height:46px;padding:8px 9px;background:#fff;color:var(--ink);font-size:11px;line-height:1.25}
+.list-toggle[aria-pressed="true"]{background:#263b35;color:#fff;border-color:#263b35}
+.list-count{font-size:10px;opacity:.75;flex:none}
+.neighborhood-list-heading{padding:3px 10px 10px;color:var(--muted);font-size:10px;font-weight:650;letter-spacing:.6px;text-transform:uppercase}
+.fit-lists{width:100%;margin-top:9px;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:#f3f5ee;color:var(--ink);font-size:11px}
+.region-dialog{position:fixed;inset:0;margin:0;padding:0;border:0;border-top:5px solid var(--color);width:100%;max-width:none;height:100vh;height:100dvh;max-height:none;background:var(--paper);color:var(--ink);overflow:hidden}
+.region-dialog[open]{display:flex;flex-direction:column}
+.region-dialog::backdrop{background:#263b3555}
+.region-dialog-header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex:none;padding:calc(15px + env(safe-area-inset-top,0px)) max(18px,env(safe-area-inset-right,0px)) 15px max(20px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);background:var(--paper)}
+.region-dialog-header p{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.region-dialog-header h2{font-size:25px;line-height:1.2;letter-spacing:-.6px;margin:0;overflow-wrap:anywhere}
+.region-dialog-close{display:flex;align-items:center;justify-content:center;flex:none;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);font-size:29px;line-height:1}
+.region-dialog-body{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:24px max(22px,env(safe-area-inset-right,0px)) calc(28px + env(safe-area-inset-bottom,0px)) max(22px,env(safe-area-inset-left,0px))}
+.region-dialog-body p{font-size:15px;line-height:1.75;margin-bottom:19px}
+.region-dialog-body h3{font-size:12px;margin:25px 0 9px}
+.region-dialog-body ul{font-size:14px;line-height:1.9;margin-bottom:22px}
+.region-dialog-body .official{font-size:12px!important;line-height:1.7;padding-top:16px}
+.region-dialog-body .region-actions{gap:18px}
+.region-dialog-body .locate-region{min-height:48px;font-size:13px}
+.region-dialog-body .region-actions a{min-height:48px;font-size:13px}
+.region-dialog-body .source{font-size:11px;margin-top:21px}
+
+.editable-text{white-space:pre-line}
+.editorial-links{display:flex;flex-wrap:wrap;gap:5px 16px;margin:18px 0}
+.editorial-links a{display:inline-flex;align-items:center;min-height:44px}
+.place-editorial{max-height:28dvh;overflow-y:auto;overscroll-behavior:contain;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
+.place-editorial h3{font-size:12px;line-height:1.4;margin:13px 0 6px}
+.place-editorial p,.place-editorial li{font-size:13px;line-height:1.6}
+.place-editorial p{margin:0 0 10px}.place-editorial ul{padding-left:18px;margin:7px 0 12px}
+.place-editorial .editorial-links{margin:8px 0 0;gap:3px 12px}.place-editorial a{font-size:12px;color:#9f3e2c}
+.editorial-tools{margin-top:7px}.editorial-tools button{min-height:44px;padding:8px 11px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);font-size:12px}
+.editorial-tools p{line-height:1.6}.content-error{color:#9f3e2c}
+</style>
 </head>
 <body>
   <main class="app">
@@ -106,9 +146,9 @@ button:disabled{cursor:default;opacity:.55}
         <h1>Guia Madrid<br><span>por bairros</span></h1>
         <p class="trip-dates">Viagem 13/11/2026 a 16/11/2026</p>
       </header>
-      <div class="list-heading"><span>Explore os bairros</span><span id="count" aria-live="polite">13 áreas</span></div>
+      <div class="list-heading"><span>Explore o guia</span><span id="count" aria-live="polite">13 áreas</span></div>
       <div class="list" id="regions"></div>
-      <footer><strong>Como ler o mapa</strong><p>As cores acompanham a lista de regiões. Os pontos vermelhos são os lugares da sua seleção.</p><details><summary>Sobre os contornos e as fontes</summary><p>Áreas desenhadas por você no Google My Maps, preservadas como no arquivo enviado. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap.</p></details></footer>
+      <footer><strong>Como ler o mapa</strong><p>As cores acompanham a lista de regiões. Os pontos vermelhos são seus lugares. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. O controle “Referências” cuida dos pontos turísticos que já estavam no mapa.</p><details><summary>Sobre os contornos e as fontes</summary><p>Áreas desenhadas por você no Google My Maps, preservadas como no arquivo enviado. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
     </aside>
     <section class="map-shell" aria-label="Mapa interativo de Madri">
       <div id="map" aria-label="Mapa: toque nos locais para ver nome e tipo. Informações dos bairros ficam na lista."></div>
@@ -118,6 +158,13 @@ button:disabled{cursor:default;opacity:.55}
       <noscript><p class="noscript">Ative o JavaScript para explorar o mapa. Este HTML usa internet para carregar o mapa de ruas.</p></noscript>
     </section>
   </main>
+  <dialog id="region-dialog" class="region-dialog" aria-labelledby="region-dialog-title">
+    <div class="region-dialog-header">
+      <div><p>Guia por bairros</p><h2 id="region-dialog-title"></h2></div>
+      <button id="close-region-dialog" class="region-dialog-close" type="button" aria-label="Fechar informações do bairro e voltar ao mapa" autofocus>×</button>
+    </div>
+    <div id="region-dialog-body" class="region-details region-dialog-body"></div>
+  </dialog>
   <script id="map-data" type="application/json">
 {
   "groups": {
@@ -2448,7 +2495,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "S",
       "anchor": true,
-      "type": "Praça"
+      "type": "Praça",
+      "base": true,
+      "id": "reference-1",
+      "listIds": []
     },
     {
       "name": "San Bernardo · Metro",
@@ -2458,7 +2508,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "M",
       "anchor": true,
-      "type": "Estação de metrô"
+      "type": "Estação de metrô",
+      "base": true,
+      "id": "reference-2",
+      "listIds": []
     },
     {
       "name": "Madrid Puerta de Atocha–Almudena Grandes",
@@ -2469,7 +2522,10 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "A",
       "anchor": true,
       "saved": true,
-      "type": "Estação ferroviária"
+      "type": "Estação ferroviária",
+      "base": true,
+      "id": "reference-3",
+      "listIds": []
     },
     {
       "name": "Palacio Real de Madrid",
@@ -2480,7 +2536,10 @@ button:disabled{cursor:default;opacity:.55}
       "symbol": "P",
       "anchor": true,
       "saved": true,
-      "type": "Palácio"
+      "type": "Palácio",
+      "base": true,
+      "id": "reference-4",
+      "listIds": []
     },
     {
       "name": "Plaza del Dos de Mayo",
@@ -2489,7 +2548,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.7039
       ],
       "symbol": "•",
-      "type": "Praça"
+      "type": "Praça",
+      "base": true,
+      "id": "reference-5",
+      "listIds": []
     },
     {
       "name": "Centro Cultural Conde Duque",
@@ -2498,7 +2560,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.7106
       ],
       "symbol": "•",
-      "type": "Centro cultural"
+      "type": "Centro cultural",
+      "base": true,
+      "id": "reference-6",
+      "listIds": []
     },
     {
       "name": "Mercado de San Antón",
@@ -2508,7 +2573,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Mercado gastronômico"
+      "type": "Mercado gastronômico",
+      "base": true,
+      "id": "reference-7",
+      "listIds": []
     },
     {
       "name": "Plaza de las Salesas",
@@ -2517,7 +2585,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.6944
       ],
       "symbol": "•",
-      "type": "Praça"
+      "type": "Praça",
+      "base": true,
+      "id": "reference-8",
+      "listIds": []
     },
     {
       "name": "Museo Sorolla",
@@ -2526,7 +2597,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.6925
       ],
       "symbol": "•",
-      "type": "Museu"
+      "type": "Museu",
+      "base": true,
+      "id": "reference-9",
+      "listIds": []
     },
     {
       "name": "Andén 0 · Chamberí",
@@ -2535,7 +2609,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.6977
       ],
       "symbol": "•",
-      "type": "Museu do metrô"
+      "type": "Museu do metrô",
+      "base": true,
+      "id": "reference-10",
+      "listIds": []
     },
     {
       "name": "Plaza Mayor",
@@ -2545,7 +2622,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Praça"
+      "type": "Praça",
+      "base": true,
+      "id": "reference-11",
+      "listIds": []
     },
     {
       "name": "Mercado de San Miguel",
@@ -2555,7 +2635,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Mercado gastronômico"
+      "type": "Mercado gastronômico",
+      "base": true,
+      "id": "reference-12",
+      "listIds": []
     },
     {
       "name": "Catedral de la Almudena",
@@ -2564,7 +2647,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.7145
       ],
       "symbol": "•",
-      "type": "Catedral"
+      "type": "Catedral",
+      "base": true,
+      "id": "reference-13",
+      "listIds": []
     },
     {
       "name": "Jardines de Sabatini",
@@ -2574,7 +2660,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Jardim"
+      "type": "Jardim",
+      "base": true,
+      "id": "reference-14",
+      "listIds": []
     },
     {
       "name": "Templo de Debod",
@@ -2584,7 +2673,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Templo e monumento"
+      "type": "Templo e monumento",
+      "base": true,
+      "id": "reference-15",
+      "listIds": []
     },
     {
       "name": "Cava Baja",
@@ -2593,7 +2685,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.7092
       ],
       "symbol": "•",
-      "type": "Rua de bares e tapas"
+      "type": "Rua de bares e tapas",
+      "base": true,
+      "id": "reference-16",
+      "listIds": []
     },
     {
       "name": "El Rastro · Ribera de Curtidores",
@@ -2602,7 +2697,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.7076
       ],
       "symbol": "•",
-      "type": "Feira de rua"
+      "type": "Feira de rua",
+      "base": true,
+      "id": "reference-17",
+      "listIds": []
     },
     {
       "name": "Plaza de Santa Ana",
@@ -2611,7 +2709,14 @@ button:disabled{cursor:default;opacity:.55}
         -3.7013
       ],
       "symbol": "•",
-      "type": "Praça"
+      "type": "Praça",
+      "base": true,
+      "id": "google-2540394481554893872",
+      "listIds": [
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Plaza+santa+Ana/data=!4m2!3m1!1s0xd4229f872078c35:0x23414b5246712c30",
+      "googleCid": "2540394481554893872"
     },
     {
       "name": "Casa Museo Lope de Vega",
@@ -2620,7 +2725,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.6976
       ],
       "symbol": "•",
-      "type": "Casa-museu"
+      "type": "Casa-museu",
+      "base": true,
+      "id": "reference-19",
+      "listIds": []
     },
     {
       "name": "Plaza de Lavapiés",
@@ -2629,7 +2737,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.7009
       ],
       "symbol": "•",
-      "type": "Praça"
+      "type": "Praça",
+      "base": true,
+      "id": "reference-20",
+      "listIds": []
     },
     {
       "name": "Tabacalera",
@@ -2638,7 +2749,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.7027
       ],
       "symbol": "•",
-      "type": "Espaço cultural"
+      "type": "Espaço cultural",
+      "base": true,
+      "id": "reference-21",
+      "listIds": []
     },
     {
       "name": "Museo Nacional Centro de Arte Reina Sofía",
@@ -2648,7 +2762,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Museu de arte"
+      "type": "Museu de arte",
+      "base": true,
+      "id": "reference-22",
+      "listIds": []
     },
     {
       "name": "Museo Nacional del Prado",
@@ -2658,7 +2775,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Museu de arte"
+      "type": "Museu de arte",
+      "base": true,
+      "id": "reference-23",
+      "listIds": []
     },
     {
       "name": "Museo Nacional Thyssen-Bornemisza",
@@ -2667,7 +2787,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.6949
       ],
       "symbol": "•",
-      "type": "Museu de arte"
+      "type": "Museu de arte",
+      "base": true,
+      "id": "reference-24",
+      "listIds": []
     },
     {
       "name": "CaixaForum Madrid",
@@ -2676,7 +2799,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.6933
       ],
       "symbol": "•",
-      "type": "Centro cultural"
+      "type": "Centro cultural",
+      "base": true,
+      "id": "reference-25",
+      "listIds": []
     },
     {
       "name": "Estanque Grande de El Retiro",
@@ -2685,7 +2811,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.6836
       ],
       "symbol": "•",
-      "type": "Lago"
+      "type": "Lago",
+      "base": true,
+      "id": "reference-26",
+      "listIds": []
     },
     {
       "name": "Palacio de Cristal",
@@ -2695,7 +2824,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Palácio e espaço de exposições"
+      "type": "Palácio e espaço de exposições",
+      "base": true,
+      "id": "reference-27",
+      "listIds": []
     },
     {
       "name": "Puerta de Alcalá",
@@ -2704,7 +2836,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.6887
       ],
       "symbol": "•",
-      "type": "Monumento"
+      "type": "Monumento",
+      "base": true,
+      "id": "reference-28",
+      "listIds": []
     },
     {
       "name": "Calle de Serrano",
@@ -2713,7 +2848,10 @@ button:disabled{cursor:default;opacity:.55}
         -3.6878
       ],
       "symbol": "•",
-      "type": "Rua de compras"
+      "type": "Rua de compras",
+      "base": true,
+      "id": "reference-29",
+      "listIds": []
     },
     {
       "name": "Plaza de España",
@@ -2723,7 +2861,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Praça"
+      "type": "Praça",
+      "base": true,
+      "id": "reference-30",
+      "listIds": []
     },
     {
       "name": "Mercado de los Mostenses",
@@ -2733,7 +2874,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Mercado"
+      "type": "Mercado",
+      "base": true,
+      "id": "reference-31",
+      "listIds": []
     },
     {
       "name": "Mercado de San Ildefonso",
@@ -2743,7 +2887,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Mercado gastronômico"
+      "type": "Mercado gastronômico",
+      "base": true,
+      "id": "reference-32",
+      "listIds": []
     },
     {
       "name": "Plaza de Chueca",
@@ -2753,7 +2900,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Praça"
+      "type": "Praça",
+      "base": true,
+      "id": "reference-33",
+      "listIds": []
     },
     {
       "name": "Plaza de Pedro Zerolo",
@@ -2763,7 +2913,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Praça"
+      "type": "Praça",
+      "base": true,
+      "id": "reference-34",
+      "listIds": []
     },
     {
       "name": "UNIQLO Gran Vía",
@@ -2773,7 +2926,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Loja de roupas"
+      "type": "Loja de roupas",
+      "base": true,
+      "id": "reference-35",
+      "listIds": []
     },
     {
       "name": "Gran Vía",
@@ -2783,7 +2939,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Avenida"
+      "type": "Avenida",
+      "base": true,
+      "id": "reference-36",
+      "listIds": []
     },
     {
       "name": "Palacio de Cibeles",
@@ -2793,7 +2952,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Palácio e centro cultural"
+      "type": "Palácio e centro cultural",
+      "base": true,
+      "id": "reference-37",
+      "listIds": []
     },
     {
       "name": "UNIQLO Serrano",
@@ -2803,7 +2965,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Loja de roupas"
+      "type": "Loja de roupas",
+      "base": true,
+      "id": "reference-38",
+      "listIds": []
     },
     {
       "name": "Plaza de Oriente",
@@ -2813,7 +2978,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Praça e jardins"
+      "type": "Praça e jardins",
+      "base": true,
+      "id": "reference-39",
+      "listIds": []
     },
     {
       "name": "Teatro Real",
@@ -2823,7 +2991,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Teatro de ópera"
+      "type": "Teatro de ópera",
+      "base": true,
+      "id": "reference-40",
+      "listIds": []
     },
     {
       "name": "Calle del Arenal",
@@ -2833,7 +3004,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Rua"
+      "type": "Rua",
+      "base": true,
+      "id": "reference-41",
+      "listIds": []
     },
     {
       "name": "Plaza de la Armería",
@@ -2843,7 +3017,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Praça"
+      "type": "Praça",
+      "base": true,
+      "id": "reference-42",
+      "listIds": []
     },
     {
       "name": "Arco de Cuchilleros",
@@ -2853,7 +3030,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Arco histórico"
+      "type": "Arco histórico",
+      "base": true,
+      "id": "reference-43",
+      "listIds": []
     },
     {
       "name": "Jardín del Príncipe de Anglona",
@@ -2863,7 +3043,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Jardim"
+      "type": "Jardim",
+      "base": true,
+      "id": "reference-44",
+      "listIds": []
     },
     {
       "name": "Ateneo de Madrid",
@@ -2873,7 +3056,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Instituição cultural"
+      "type": "Instituição cultural",
+      "base": true,
+      "id": "reference-45",
+      "listIds": []
     },
     {
       "name": "Parque de El Retiro",
@@ -2883,7 +3069,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Parque"
+      "type": "Parque",
+      "base": true,
+      "id": "reference-46",
+      "listIds": []
     },
     {
       "name": "Fuente del Ángel Caído",
@@ -2893,7 +3082,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Fonte e escultura"
+      "type": "Fonte e escultura",
+      "base": true,
+      "id": "reference-47",
+      "listIds": []
     },
     {
       "name": "Real Jardín Botánico",
@@ -2903,7 +3095,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Jardim botânico"
+      "type": "Jardim botânico",
+      "base": true,
+      "id": "reference-48",
+      "listIds": []
     },
     {
       "name": "Mercado de la Cebada",
@@ -2913,7 +3108,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Mercado"
+      "type": "Mercado",
+      "base": true,
+      "id": "reference-49",
+      "listIds": []
     },
     {
       "name": "Plaza del General Vara de Rey",
@@ -2923,7 +3121,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Praça"
+      "type": "Praça",
+      "base": true,
+      "id": "reference-50",
+      "listIds": []
     },
     {
       "name": "Puerta de Toledo",
@@ -2933,7 +3134,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Monumento"
+      "type": "Monumento",
+      "base": true,
+      "id": "reference-51",
+      "listIds": []
     },
     {
       "name": "Calle de la Ribera de Curtidores",
@@ -2943,7 +3147,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Rua"
+      "type": "Rua",
+      "base": true,
+      "id": "reference-52",
+      "listIds": []
     },
     {
       "name": "Calle del Doctor Fourquet",
@@ -2953,7 +3160,10 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Rua de galerias de arte"
+      "type": "Rua de galerias de arte",
+      "base": true,
+      "id": "reference-53",
+      "listIds": []
     },
     {
       "name": "La Casa Encendida",
@@ -2963,10 +3173,2369 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "•",
       "saved": true,
-      "type": "Centro cultural"
+      "type": "Centro cultural",
+      "base": true,
+      "id": "reference-54",
+      "listIds": []
+    },
+    {
+      "id": "google-4863409570507183551",
+      "name": "HanSo Café",
+      "sourceName": "HanSo Café",
+      "coords": [
+        40.4235109,
+        -3.7026311
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Cafetería",
+      "base": false,
+      "listIds": [
+        "desayunos",
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/HanSo+Caf%C3%A9/data=!4m2!3m1!1s0xd4227b3b15e0a6d:0x437e4d3ca750d5bf",
+      "googleCid": "4863409570507183551"
+    },
+    {
+      "id": "google-16249970219666254974",
+      "name": "Café de la Luz",
+      "sourceName": "Café de la Luz",
+      "coords": [
+        40.4221315,
+        -3.7025339
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Cafetería",
+      "base": false,
+      "listIds": [
+        "desayunos",
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Caf%C3%A9+de+la+Luz/data=!4m2!3m1!1s0xd422887f3ea359f:0xe1837dd199e22c7e",
+      "googleCid": "16249970219666254974"
+    },
+    {
+      "id": "google-5620708204232263553",
+      "name": "La Bicicleta Café",
+      "sourceName": "La Bicicleta",
+      "coords": [
+        40.4238303,
+        -3.7022327
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de brunch",
+      "base": false,
+      "listIds": [
+        "desayunos",
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Bicicleta/data=!4m2!3m1!1s0xd42288810735d23:0x4e00c454fb634781",
+      "googleCid": "5620708204232263553"
+    },
+    {
+      "id": "google-8058510306749723843",
+      "name": "Motteau pastelería",
+      "sourceName": "Motteau Pasteleria",
+      "coords": [
+        40.4116599,
+        -3.6946357
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Pastelería",
+      "base": false,
+      "listIds": [
+        "desayunos",
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Motteau+Pasteleria/data=!4m2!3m1!1s0xd42262848899c57:0x6fd5946d9ca434c3",
+      "googleCid": "8058510306749723843"
+    },
+    {
+      "id": "google-4239888599698978590",
+      "name": "ACID Café",
+      "sourceName": "ACID Café",
+      "coords": [
+        40.411898,
+        -3.6949265
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Cafetería",
+      "base": false,
+      "listIds": [
+        "desayunos",
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/ACID+Caf%C3%A9/data=!4m2!3m1!1s0xd422628361b5e69:0x3ad71c37b049371e",
+      "googleCid": "4239888599698978590"
+    },
+    {
+      "id": "google-2544653266152632812",
+      "name": "Adorado Bar Lavapies",
+      "sourceName": "Adorado Bar Lavapies",
+      "coords": [
+        40.4106219,
+        -3.7046934
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Cafetería",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Adorado+Bar+Lavapies/data=!4m2!3m1!1s0xd4227cae317eccf:0x23506ca9d590b1ec",
+      "googleCid": "2544653266152632812"
+    },
+    {
+      "id": "google-16665013920977340912",
+      "name": "Churrería-Chocolatería Las Farolas",
+      "sourceName": "Churrería-Chocolatería Las Farolas",
+      "coords": [
+        40.4163149,
+        -3.7060923
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Churrería",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Churrer%C3%ADa-Chocolater%C3%ADa+Las+Farolas/data=!4m2!3m1!1s0xd42287ef276c71b:0xe74605ddb8cb49f0",
+      "googleCid": "16665013920977340912"
+    },
+    {
+      "id": "google-18173052380889699295",
+      "name": "Cafés La Mexicana",
+      "sourceName": "Cafés La Mexicana",
+      "coords": [
+        40.4298249,
+        -3.7028894
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Tienda de café",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Caf%C3%A9s+La+Mexicana/data=!4m2!3m1!1s0xd422861d8991bad:0xfc33a6daff7f53df",
+      "googleCid": "18173052380889699295"
+    },
+    {
+      "id": "google-6290939653698193056",
+      "name": "FEDERAL Brunch y Café de Especialidad - Comendadoras",
+      "sourceName": "Café Federal",
+      "coords": [
+        40.427076,
+        -3.7091597
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de brunch",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Caf%C3%A9+Federal/data=!4m2!3m1!1s0xd422864161c3961:0x574de848c21986a0",
+      "googleCid": "6290939653698193056"
+    },
+    {
+      "id": "google-12250481613890523802",
+      "name": "Religion Coffee & EATERY",
+      "sourceName": "Religion Speciality Coffee",
+      "coords": [
+        40.43757009999999,
+        -3.6850403
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Cafetería",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Religion+Speciality+Coffee/data=!4m2!3m1!1s0xd4229d3726857c3:0xaa02741f3b66129a",
+      "googleCid": "12250481613890523802"
+    },
+    {
+      "id": "google-7872075929105124128",
+      "name": "Bô Specialty Coffee",
+      "sourceName": "Bô Coffee",
+      "coords": [
+        40.4405396,
+        -3.6977732
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Cafetería",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/B%C3%B4+Coffee/data=!4m2!3m1!1s0xd4228f11a59693d:0x6d3f3b597736cb20",
+      "googleCid": "7872075929105124128"
+    },
+    {
+      "id": "google-10842700100078159715",
+      "name": "Salón des Fleurs",
+      "sourceName": "Salon Des Fleurs",
+      "coords": [
+        40.4422788,
+        -3.7124212
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Cafetería",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Salon+Des+Fleurs/data=!4m2!3m1!1s0xd42285ab07247af:0x9679024b3f404763",
+      "googleCid": "10842700100078159715"
+    },
+    {
+      "id": "google-5365112568611976535",
+      "name": "Varela Café",
+      "sourceName": "Varela Café",
+      "coords": [
+        40.4196788,
+        -3.7074527
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Varela+Caf%C3%A9/data=!4m2!3m1!1s0xd42287c7a9cb03d:0x4a74b574a019b557",
+      "googleCid": "5365112568611976535"
+    },
+    {
+      "id": "google-2811971431825680536",
+      "name": "Zenith Brunch & Cocktails",
+      "sourceName": "Zenith Brunch & Cocktails - Valverde",
+      "coords": [
+        40.422371,
+        -3.7016131
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de brunch",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Zenith+Brunch+%26+Cocktails+-+Valverde/data=!4m2!3m1!1s0xd4229920d446169:0x2706211e68842898",
+      "googleCid": "2811971431825680536"
+    },
+    {
+      "id": "google-3128596001001833931",
+      "name": "Restaurante Carmencita",
+      "sourceName": "Carmencita Brunch",
+      "coords": [
+        40.4261315,
+        -3.7079092
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de brunch",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Carmencita+Brunch/data=!4m2!3m1!1s0xd4228638fed2b3b:0x2b6b017ca56c05cb",
+      "googleCid": "3128596001001833931"
+    },
+    {
+      "id": "google-14443535890859007998",
+      "name": "Bar Tomate - Madrid",
+      "sourceName": "Restaurante Bar Tomate",
+      "coords": [
+        40.4279549,
+        -3.6905347
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar de tapas",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Restaurante+Bar+Tomate/data=!4m2!3m1!1s0xd42289184bb59b7:0xc871bf5e1b419ffe",
+      "googleCid": "14443535890859007998"
+    },
+    {
+      "id": "google-9530508032753326214",
+      "name": "NAJI SPECIALTY COFFEE",
+      "sourceName": "NAJI SPECIALTY COFFEE",
+      "coords": [
+        40.4316574,
+        -3.7021703
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Cafetería",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/NAJI+SPECIALTY+COFFEE/data=!4m2!3m1!1s0xd4229a9933389d7:0x84432a8f9d44d886",
+      "googleCid": "9530508032753326214"
+    },
+    {
+      "id": "google-11425162409541839954",
+      "name": "Le Pain Quotidien",
+      "sourceName": "Le Pain Quotidien",
+      "coords": [
+        40.4268909,
+        -3.6877543
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Le+Pain+Quotidien/data=!4m2!3m1!1s0xd42289132ebeabd:0x9e8e54ada9e32c52",
+      "googleCid": "11425162409541839954"
+    },
+    {
+      "id": "google-11090263251894186972",
+      "name": "Cafetería Santa Isabel",
+      "sourceName": "Santa Isabel Bar",
+      "coords": [
+        40.4105072,
+        -3.6980015
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Santa+Isabel+Bar/data=!4m2!3m1!1s0xd42262a2b2b7119:0x99e887ab3ab8b3dc",
+      "googleCid": "11090263251894186972"
+    },
+    {
+      "id": "google-17847004284429484810",
+      "name": "Más Corazón",
+      "sourceName": "Más Corazón",
+      "coords": [
+        40.4114622,
+        -3.699013
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar de tapas",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "tapas"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/M%C3%A1s+Coraz%C3%B3n/data=!4m2!3m1!1s0xd42262a38d69aef:0xf7ad4bd6d64b430a",
+      "googleCid": "17847004284429484810"
+    },
+    {
+      "id": "google-10536130390506159085",
+      "name": "Cafetería Rocablanca",
+      "sourceName": "Cafetería Rocablanca",
+      "coords": [
+        40.4247017,
+        -3.7007871
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Cafetería",
+      "base": false,
+      "listIds": [
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Cafeter%C3%ADa+Rocablanca/data=!4m2!3m1!1s0xd4228885b8c078d:0x9237dac471513bed",
+      "googleCid": "10536130390506159085"
+    },
+    {
+      "id": "google-12403492849310868236",
+      "name": "Taberna Antonio Sánchez - 1787 - La Taberna más antigua de Madrid",
+      "sourceName": "Taberna Antonio Sánchez - 1787 - La Taberna más antigua de Madrid",
+      "coords": [
+        40.4111281,
+        -3.7048072
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Taberna+Antonio+S%C3%A1nchez+-+1787+-+La+Taberna+m%C3%A1s+antigua+de+Madrid/data=!4m2!3m1!1s0xd4227d50fe453df:0xac220f07a945a30c",
+      "googleCid": "12403492849310868236"
+    },
+    {
+      "id": "google-1695919946792572181",
+      "name": "La Embajada de Embajadores",
+      "sourceName": "La Embajada de Embajadores",
+      "coords": [
+        40.4072396,
+        -3.7039703
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar restaurante",
+      "base": false,
+      "listIds": [
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Embajada+de+Embajadores/data=!4m2!3m1!1s0xd42274d377f7e39:0x17891e34cc121515",
+      "googleCid": "1695919946792572181"
+    },
+    {
+      "id": "google-13501021393992418522",
+      "name": "Ni Subo Ni Bajo",
+      "sourceName": "Ni Subo Ni Bajo",
+      "coords": [
+        40.4368575,
+        -3.698108
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante gallego",
+      "base": false,
+      "listIds": [
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Ni+Subo+Ni+Bajo/data=!4m2!3m1!1s0xd4228f476c60e8b:0xbb5d436d25de04da",
+      "googleCid": "13501021393992418522"
+    },
+    {
+      "id": "google-7847081014235962356",
+      "name": "Heladería Sienna Narváez",
+      "sourceName": "Heladería Sienna Narváez",
+      "coords": [
+        40.4186111,
+        -3.6763889
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Heladería",
+      "base": false,
+      "listIds": [
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Helader%C3%ADa+Sienna+Narv%C3%A1ez/data=!4m2!3m1!1s0xd4228a6a1a974c1:0x6ce66e9b593f1bf4",
+      "googleCid": "7847081014235962356"
+    },
+    {
+      "id": "google-10021149558472812878",
+      "name": "PANEM",
+      "sourceName": "PANEM",
+      "coords": [
+        40.4201798,
+        -3.6745938
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Panadería",
+      "base": false,
+      "listIds": [
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/PANEM/data=!4m2!3m1!1s0xd4228a5ce9647e3:0x8b12466dd9d5a94e",
+      "googleCid": "10021149558472812878"
+    },
+    {
+      "id": "google-9221432279364710718",
+      "name": "La Castela",
+      "sourceName": "La Castela",
+      "coords": [
+        40.4203106,
+        -3.6766423
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Castela/data=!4m2!3m1!1s0xd4228a46c43e001:0x7ff91bcd03dab13e",
+      "googleCid": "9221432279364710718"
+    },
+    {
+      "id": "google-12343702592041276602",
+      "name": "Restaurante La Montería",
+      "sourceName": "Restaurante La Montería",
+      "coords": [
+        40.42027909999999,
+        -3.6775336
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Restaurante+La+Monter%C3%ADa/data=!4m2!3m1!1s0xd4228a38a7708c7:0xab4da41b93b054ba",
+      "googleCid": "12343702592041276602"
+    },
+    {
+      "id": "google-11299379746788690756",
+      "name": "La Musa Latina",
+      "sourceName": "La Musa Latina",
+      "coords": [
+        40.4127644,
+        -3.7119158
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante especializado en tapas",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "tapas"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Musa+Latina/data=!4m2!3m1!1s0xd4228780b092501:0x9ccf760355954b44",
+      "googleCid": "11299379746788690756"
+    },
+    {
+      "id": "google-5207724359404973078",
+      "name": "Taberna La Concha",
+      "sourceName": "Taberna LA CONCHA",
+      "coords": [
+        40.4131907,
+        -3.7083581
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar de tapas",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "tapas"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Taberna+LA+CONCHA/data=!4m2!3m1!1s0xd422878ae61d9bd:0x48458db6927b6c16",
+      "googleCid": "5207724359404973078"
+    },
+    {
+      "id": "google-16967322963016588772",
+      "name": "Casa Lucio",
+      "sourceName": "Casa Lucio",
+      "coords": [
+        40.4120839,
+        -3.7096356
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de cocina española",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "tapas"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Casa+Lucio/data=!4m2!3m1!1s0xd41882c5525318d:0xeb780a568fee9de4",
+      "googleCid": "16967322963016588772"
+    },
+    {
+      "id": "google-13485039316248665669",
+      "name": "La Santoría Cocktail Bar",
+      "sourceName": "La Santoría Cocktail Bar",
+      "coords": [
+        40.4135922,
+        -3.6962508
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Coctelería",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Santor%C3%ADa+Cocktail+Bar/data=!4m2!3m1!1s0xd42298a8c42fc0b:0xbb247bcfb32d9e45",
+      "googleCid": "13485039316248665669"
+    },
+    {
+      "id": "google-15941502466976776414",
+      "name": "Santos y Desamparados",
+      "sourceName": "Santos y Desamparados",
+      "coords": [
+        40.4129171,
+        -3.6966068
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Coctelería",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Santos+y+Desamparados/data=!4m2!3m1!1s0xd422629e088fcfb:0xdd3b9808322a00de",
+      "googleCid": "15941502466976776414"
+    },
+    {
+      "id": "google-970529132706750433",
+      "name": "Jazz Bar",
+      "sourceName": "Jazz Bar",
+      "coords": [
+        40.4125735,
+        -3.6958959
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Coctelería",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Jazz+Bar/data=!4m2!3m1!1s0xd422629da7cac91:0xd78031aa7275fe1",
+      "googleCid": "970529132706750433"
+    },
+    {
+      "id": "google-10602161234339883812",
+      "name": "Taberna La Elisa l Taberna Madrid",
+      "sourceName": "Taberna La Elisa l Taberna Madrid",
+      "coords": [
+        40.41269,
+        -3.696321
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de cocina española",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Taberna+La+Elisa+l+Taberna+Madrid/data=!4m2!3m1!1s0xd422629dc402b7f:0x93227178503eeb24",
+      "googleCid": "10602161234339883812"
+    },
+    {
+      "id": "google-14807356915472911636",
+      "name": "Cervecería El Diario",
+      "sourceName": "Cervecería El Diario",
+      "coords": [
+        40.41314,
+        -3.6957292
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar de tapas",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "tapas"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Cervecer%C3%ADa+El+Diario/data=!4m2!3m1!1s0xd42289d0ddfc0c3:0xcd7e4ca9712fcd14",
+      "googleCid": "14807356915472911636"
+    },
+    {
+      "id": "google-16607483527883873431",
+      "name": "Pez Tortilla",
+      "sourceName": "Pez Tortilla",
+      "coords": [
+        40.4149386,
+        -3.7022601
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar de tapas",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "tapas"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Pez+Tortilla/data=!4m2!3m1!1s0xd4229304aaea6ad:0xe679a24744ab5c97",
+      "googleCid": "16607483527883873431"
+    },
+    {
+      "id": "google-8875086737308258876",
+      "name": "Solo de Croquetas Echegaray",
+      "sourceName": "Solo de Croquetas Echegaray",
+      "coords": [
+        40.4160129,
+        -3.6995733
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "tapas"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Solo+de+Croquetas+Echegaray/data=!4m2!3m1!1s0xd4229eb79dec833:0x7b2aa45d880a123c",
+      "googleCid": "8875086737308258876"
+    },
+    {
+      "id": "google-17882959854788034088",
+      "name": "La abacería del príncipe",
+      "sourceName": "La abacería del príncipe",
+      "coords": [
+        40.41533039999999,
+        -3.7003632
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Taberna",
+      "base": false,
+      "listIds": [
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+abacer%C3%ADa+del+pr%C3%ADncipe/data=!4m2!3m1!1s0xd42299dfc6bde7d:0xf82d093d6d363e28",
+      "googleCid": "17882959854788034088"
+    },
+    {
+      "id": "google-3135864569193974320",
+      "name": "La Venencia",
+      "sourceName": "La Venencia",
+      "coords": [
+        40.4158357,
+        -3.6995633
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Venencia/data=!4m2!3m1!1s0xd4228810eb286a1:0x2b84d4360e8a4a30",
+      "googleCid": "3135864569193974320"
+    },
+    {
+      "id": "google-5012004565998211204",
+      "name": "Casa Alberto",
+      "sourceName": "Casa Alberto",
+      "coords": [
+        40.4137615,
+        -3.7001568
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de cocina española",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "tapas"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Casa+Alberto/data=!4m2!3m1!1s0xd42262954d14b8b:0x458e379918f59084",
+      "googleCid": "5012004565998211204"
+    },
+    {
+      "id": "google-640524323929077889",
+      "name": "TÖTO ICE CREAM & COFFEE",
+      "sourceName": "TÖTO ICE CREAM & COFFEE",
+      "coords": [
+        40.4251827,
+        -3.7018976
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Heladería",
+      "base": false,
+      "listIds": [
+        "samantha"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/T%C3%96TO+ICE+CREAM+%26+COFFEE/data=!4m2!3m1!1s0xd42293dd34d527f:0x8e3997a9dca3881",
+      "googleCid": "640524323929077889"
+    },
+    {
+      "id": "google-5610143011285896869",
+      "name": "Freeway",
+      "sourceName": "Freeway",
+      "coords": [
+        40.425471,
+        -3.701964
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Freeway/data=!4m2!3m1!1s0xd4228883367034d:0x4ddb3b584ed60ea5",
+      "googleCid": "5610143011285896869"
+    },
+    {
+      "id": "google-4303489101585349766",
+      "name": "Calle del Clavel",
+      "sourceName": "Calle del Clavel",
+      "coords": [
+        40.4199183,
+        -3.6996041
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Calle",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "bares",
+        "tapas"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Calle+del+Clavel/data=!4m2!3m1!1s0xd422886ee3b38a3:0x3bb910897ac27c86",
+      "googleCid": "4303489101585349766"
+    },
+    {
+      "id": "google-9621959801930236433",
+      "name": "Bodega de la Ardosa",
+      "sourceName": "Bodega de la Ardosa",
+      "coords": [
+        40.4237683,
+        -3.7017596
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar de tapas",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "tapas"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Bodega+de+la+Ardosa/data=!4m2!3m1!1s0xd422888128612f3:0x85881175e523c211",
+      "googleCid": "9621959801930236433"
+    },
+    {
+      "id": "google-7769702076070350088",
+      "name": "BAR SIDI",
+      "sourceName": "BAR SIDI",
+      "coords": [
+        40.4237841,
+        -3.7020794
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar de tapas",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "tapas"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/BAR+SIDI/data=!4m2!3m1!1s0xd42288811cb0b95:0x6bd386df5ec9cd08",
+      "googleCid": "7769702076070350088"
+    },
+    {
+      "id": "google-12591180763755363191",
+      "name": "La Colmada",
+      "sourceName": "La Colmada",
+      "coords": [
+        40.4254392,
+        -3.7043994
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "samantha",
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Colmada/data=!4m2!3m1!1s0xd422862f5c807fb:0xaebcdc31965ebb77",
+      "googleCid": "12591180763755363191"
+    },
+    {
+      "id": "google-4915677956733284920",
+      "name": "La Taberna de Al Lado Lavapiés",
+      "sourceName": "La Taberna de Al Lado Lavapiés",
+      "coords": [
+        40.4114865,
+        -3.7029853
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Taberna",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Taberna+de+Al+Lado+Lavapi%C3%A9s/data=!4m2!3m1!1s0xd422702ab4a2efb:0x4437ff0ea94e3238",
+      "googleCid": "4915677956733284920"
+    },
+    {
+      "id": "google-17477045954970439440",
+      "name": "SALA EQUIS",
+      "sourceName": "SALA EQUIS",
+      "coords": [
+        40.4119879,
+        -3.7058726
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/SALA+EQUIS/data=!4m2!3m1!1s0xd4227d59ba34439:0xf28af0b2dd30cf10",
+      "googleCid": "17477045954970439440"
+    },
+    {
+      "id": "google-9657289886343318337",
+      "name": "Los Chuchis",
+      "sourceName": "Los Chuchis",
+      "coords": [
+        40.40737499999999,
+        -3.7011556
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Los+Chuchis/data=!4m2!3m1!1s0xd42262c9a9679bd:0x860595fc30774b41",
+      "googleCid": "9657289886343318337"
+    },
+    {
+      "id": "google-656591650489203650",
+      "name": "Twist & Shout Bar",
+      "sourceName": "Twist & Shout Bar",
+      "coords": [
+        40.422152,
+        -3.69829
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Twist+%26+Shout+Bar/data=!4m2!3m1!1s0xd4228860c4c5b59:0x91caea099e57bc2",
+      "googleCid": "656591650489203650"
+    },
+    {
+      "id": "google-16466690213159839955",
+      "name": "La Monte",
+      "sourceName": "La Monte",
+      "coords": [
+        40.4205503,
+        -3.6781978
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar restaurante",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Monte/data=!4m2!3m1!1s0xd4228a390588381:0xe4856f812dcb28d3",
+      "googleCid": "16466690213159839955"
+    },
+    {
+      "id": "google-5323126480045677272",
+      "name": "Patio de Leones",
+      "sourceName": "Patio de Leones",
+      "coords": [
+        40.4207253,
+        -3.6888273
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Patio+de+Leones/data=!4m2!3m1!1s0xd4229befd457dc9:0x49df8b5499991ad8",
+      "googleCid": "5323126480045677272"
+    },
+    {
+      "id": "google-8698733027357404921",
+      "name": "Hermanos Vinagre",
+      "sourceName": "Hermanos Vinagre",
+      "coords": [
+        40.431265,
+        -3.7019073
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Hermanos+Vinagre/data=!4m2!3m1!1s0xd4229504cb21787:0x78b81b99bb98aef9",
+      "googleCid": "8698733027357404921"
+    },
+    {
+      "id": "google-1107236860694176798",
+      "name": "DLRO Live",
+      "sourceName": "DLRO Live",
+      "coords": [
+        40.4249268,
+        -3.696882
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Local de ambiente",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/DLRO+Live/data=!4m2!3m1!1s0xd42288f3bf701e3:0xf5db20ef3e5241e",
+      "googleCid": "1107236860694176798"
+    },
+    {
+      "id": "google-11512730167455505112",
+      "name": "Madklyn",
+      "sourceName": "Madklyn",
+      "coords": [
+        40.4265125,
+        -3.7036807
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar musical",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Madklyn/data=!4m2!3m1!1s0xd4228626dd642b3:0x9fc56f171a1bdad8",
+      "googleCid": "11512730167455505112"
+    },
+    {
+      "id": "google-7256781333778537159",
+      "name": "Picnic",
+      "sourceName": "Picnic",
+      "coords": [
+        40.4243221,
+        -3.7062325
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Picnic/data=!4m2!3m1!1s0xd42286317060413:0x64b5442ccc8e1ac7",
+      "googleCid": "7256781333778537159"
+    },
+    {
+      "id": "google-3929411769757451141",
+      "name": "Bar Tupper Ware",
+      "sourceName": "Tupperware",
+      "coords": [
+        40.4262806,
+        -3.7016878
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Tupperware/data=!4m2!3m1!1s0xd422889c8090145:0x3688132f88a1c385",
+      "googleCid": "3929411769757451141"
+    },
+    {
+      "id": "google-6526324325580628742",
+      "name": "ContraClub",
+      "sourceName": "ContraClub",
+      "coords": [
+        40.412609,
+        -3.713908
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Sala de conciertos",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/ContraClub/data=!4m2!3m1!1s0xd422877e27a97c9:0x5a9229656b396306",
+      "googleCid": "6526324325580628742"
+    },
+    {
+      "id": "google-1333046324896884765",
+      "name": "La Boite",
+      "sourceName": "La Boite",
+      "coords": [
+        40.4183095,
+        -3.7032094
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Local de ambiente",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Boite/data=!4m2!3m1!1s0xd42287e07432377:0x127fee91d89e681d",
+      "googleCid": "1333046324896884765"
+    },
+    {
+      "id": "google-8823429009575331122",
+      "name": "Teatro Barceló",
+      "sourceName": "Barceló Theatre",
+      "coords": [
+        40.4270213,
+        -3.6997948
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Discoteca",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Barcel%C3%B3+Theatre/data=!4m2!3m1!1s0xd4228890c479503:0x7a731def889d4532",
+      "googleCid": "8823429009575331122"
+    },
+    {
+      "id": "google-6282320076328955658",
+      "name": "Studio 54 Madrid",
+      "sourceName": "Club 54",
+      "coords": [
+        40.4210146,
+        -3.6982655
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Club",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Club+54/data=!4m2!3m1!1s0xd4228867b8a1c03:0x572f48d302e46f0a",
+      "googleCid": "6282320076328955658"
+    },
+    {
+      "id": "google-13965533682271774518",
+      "name": "Black & White",
+      "sourceName": "Black & White",
+      "coords": [
+        40.4226249,
+        -3.6967549
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Discoteca",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Black+%26+White/data=!4m2!3m1!1s0xd422885f26f7d83:0xc1cf8ae4368fe736",
+      "googleCid": "13965533682271774518"
+    },
+    {
+      "id": "google-14261144102398146015",
+      "name": "Escape",
+      "sourceName": "Escape",
+      "coords": [
+        40.4229433,
+        -3.69724
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Escape/data=!4m2!3m1!1s0xd422885fa23fb17:0xc5e9c3009a1935df",
+      "googleCid": "14261144102398146015"
+    },
+    {
+      "id": "google-4840729264217534456",
+      "name": "Club 33",
+      "sourceName": "Club 33",
+      "coords": [
+        40.4120003,
+        -3.7010755
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Discoteca",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Club+33/data=!4m2!3m1!1s0xd42262a91f52bdf:0x432db99e57862ff8",
+      "googleCid": "4840729264217534456"
+    },
+    {
+      "id": "google-11348647999543357696",
+      "name": "Truco",
+      "sourceName": "Truco",
+      "coords": [
+        40.4229534,
+        -3.6976309
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Truco/data=!4m2!3m1!1s0xd422885fe591b09:0x9d7e7f3a55bab100",
+      "googleCid": "11348647999543357696"
+    },
+    {
+      "id": "google-9498297823461622240",
+      "name": "Fulanita de Tal",
+      "sourceName": "Tal Fulanita",
+      "coords": [
+        40.4246596,
+        -3.6964762
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar lésbico",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Tal+Fulanita/data=!4m2!3m1!1s0xd422885154b2175:0x83d0bb8bda4bc1e0",
+      "googleCid": "9498297823461622240"
+    },
+    {
+      "id": "google-11715439545118424628",
+      "name": "Cazador",
+      "sourceName": "Cazador",
+      "coords": [
+        40.4110247,
+        -3.6995904
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Cazador/data=!4m2!3m1!1s0xd4228630d4ef3b7:0xa2959a31fa58fe34",
+      "googleCid": "11715439545118424628"
+    },
+    {
+      "id": "google-12644374886195368111",
+      "name": "Costa Social Club",
+      "sourceName": "Costa Social Club",
+      "coords": [
+        40.4301493,
+        -3.6970143
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Discoteca",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Costa+Social+Club/data=!4m2!3m1!1s0xd42290c9bdad1dd:0xaf79d7f75a8b90af",
+      "googleCid": "12644374886195368111"
+    },
+    {
+      "id": "google-2128826372851116398",
+      "name": "Maravillas Club",
+      "sourceName": "Maravillas Club",
+      "coords": [
+        40.4257368,
+        -3.7043061
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Discoteca",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Maravillas+Club/data=!4m2!3m1!1s0xd4228625e5867b1:0x1d8b1c4e9e46296e",
+      "googleCid": "2128826372851116398"
+    },
+    {
+      "id": "google-17680540480222121474",
+      "name": "Club Malasaña",
+      "sourceName": "Club Malasaña",
+      "coords": [
+        40.4256283,
+        -3.7031121
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Club nocturno",
+      "base": false,
+      "listIds": [
+        "bares"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Club+Malasa%C3%B1a/data=!4m2!3m1!1s0xd42298ccded08b3:0xf55de5e4288dce02",
+      "googleCid": "17680540480222121474"
+    },
+    {
+      "id": "google-14967256057652037010",
+      "name": "Galería Fernando Pradilla",
+      "sourceName": "GALERIA FERNANDO PRADILLA SL",
+      "coords": [
+        40.4229033,
+        -3.6867688
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/GALERIA+FERNANDO+PRADILLA+SL/data=!4m2!3m1!1s0xd4229b5fba23ca5:0xcfb66015a2a9c592",
+      "googleCid": "14967256057652037010"
+    },
+    {
+      "id": "google-9842588642587067223",
+      "name": "Galería Luis Carvajal",
+      "sourceName": "Galería Luis Carvajal",
+      "coords": [
+        40.42330339999999,
+        -3.6866895
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Galer%C3%ADa+Luis+Carvajal/data=!4m2!3m1!1s0xd4229e0122bff39:0x8897e638dfb24357",
+      "googleCid": "9842588642587067223"
+    },
+    {
+      "id": "google-66789211272748296",
+      "name": "Concha Barrios Gallery",
+      "sourceName": "Concha Barrios Gallery",
+      "coords": [
+        40.422394,
+        -3.683795
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Concha+Barrios+Gallery/data=!4m2!3m1!1s0xd4228986aca9ac1:0xed486f0cbd9d08",
+      "googleCid": "66789211272748296"
+    },
+    {
+      "id": "google-8526298465525008785",
+      "name": "Galería Jorge Juan",
+      "sourceName": "Gallery Jorge Juan",
+      "coords": [
+        40.4216634,
+        -3.6863201
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Gallery+Jorge+Juan/data=!4m2!3m1!1s0xd4228976135ff5f:0x76537f47b6938991",
+      "googleCid": "8526298465525008785"
+    },
+    {
+      "id": "google-48050933080513137",
+      "name": "Galería de Arte Puerta de Alcalá",
+      "sourceName": "Art gallery Puerta de Alcalá",
+      "coords": [
+        40.4201316,
+        -3.6898997
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Art+gallery+Puerta+de+Alcal%C3%A1/data=!4m2!3m1!1s0xd42289ba378544b:0xaab611ad63da71",
+      "googleCid": "48050933080513137"
+    },
+    {
+      "id": "google-16354534992943358253",
+      "name": "Galería María Porto & David Bardía - Espacio Villanueva",
+      "sourceName": "Galería de Arte David Bardía",
+      "coords": [
+        40.4221697,
+        -3.6828092
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Galer%C3%ADa+de+Arte+David+Bard%C3%ADa/data=!4m2!3m1!1s0xd422898715088eb:0xe2f6faed1115a12d",
+      "googleCid": "16354534992943358253"
+    },
+    {
+      "id": "google-2273468348997727658",
+      "name": "Galería Jorge Alcolea",
+      "sourceName": "Gallery Jorge Alcolea",
+      "coords": [
+        40.4236309,
+        -3.6866846
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Gallery+Jorge+Alcolea/data=!4m2!3m1!1s0xd4228975f159f17:0x1f8cfb6b061a75aa",
+      "googleCid": "2273468348997727658"
+    },
+    {
+      "id": "google-7832960485702692459",
+      "name": "GÄRNA GALLERY",
+      "sourceName": "GÄRNA ART GALLERY",
+      "coords": [
+        40.4233883,
+        -3.6861165
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/G%C3%84RNA+ART+GALLERY/data=!4m2!3m1!1s0xd42298ff77f3b4f:0x6cb4440f99faee6b",
+      "googleCid": "7832960485702692459"
+    },
+    {
+      "id": "google-2694973609330292786",
+      "name": "Galería Parra & Romero",
+      "sourceName": "Galería Parra & Romero",
+      "coords": [
+        40.4220431,
+        -3.6868327
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Galer%C3%ADa+Parra+%26+Romero/data=!4m2!3m1!1s0xd42289a24d496c5:0x25667838172f3832",
+      "googleCid": "2694973609330292786"
+    },
+    {
+      "id": "google-3697390330958135631",
+      "name": "NF Nieves Fernández",
+      "sourceName": "NF Nieves Fernández",
+      "coords": [
+        40.42875189999999,
+        -3.6925389
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/NF+Nieves+Fern%C3%A1ndez/data=!4m2!3m1!1s0xd42289202d568d1:0x334fc4ea98b9414f",
+      "googleCid": "3697390330958135631"
+    },
+    {
+      "id": "google-1283512662765786324",
+      "name": "Galería Guillermo de Osma",
+      "sourceName": "Galería Guillermo de Osma",
+      "coords": [
+        40.4208538,
+        -3.687013
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Galer%C3%ADa+Guillermo+de+Osma/data=!4m2!3m1!1s0xd42289424eda205:0x11cff3f768ded4d4",
+      "googleCid": "1283512662765786324"
+    },
+    {
+      "id": "google-3312834804244923264",
+      "name": "Galeria de Arte Fernández-Braso",
+      "sourceName": "Galeria de arte Fernández-Braso",
+      "coords": [
+        40.4222414,
+        -3.6850431
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Galeria+de+arte+Fern%C3%A1ndez-Braso/data=!4m2!3m1!1s0xd4228984a5efec5:0x2df98db3ca91c380",
+      "googleCid": "3312834804244923264"
+    },
+    {
+      "id": "google-13419042500056169886",
+      "name": "Casado Santapau",
+      "sourceName": "Casado Santapau",
+      "coords": [
+        40.4230708,
+        -3.6952941
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Casado+Santapau/data=!4m2!3m1!1s0xd42288d08d50157:0xba3a040e81b7bd9e",
+      "googleCid": "13419042500056169886"
+    },
+    {
+      "id": "google-11177896781365376239",
+      "name": "Álvaro Alcázar Arte",
+      "sourceName": "Álvaro Alcázar Gallery",
+      "coords": [
+        40.4481981,
+        -3.6691074
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galería de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/%C3%81lvaro+Alc%C3%A1zar+Gallery/data=!4m2!3m1!1s0xd4228bd0625b2df:0x9b1fdde64d43f4ef",
+      "googleCid": "11177896781365376239"
+    },
+    {
+      "id": "google-10685162323907715484",
+      "name": "La Buga del Lobo",
+      "sourceName": "La Buga del Lobo",
+      "coords": [
+        40.40838859999999,
+        -3.6991417
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Buga+del+Lobo/data=!4m2!3m1!1s0xd42262b8c983da7:0x944952856be8219c",
+      "googleCid": "10685162323907715484"
+    },
+    {
+      "id": "google-7583036715135880975",
+      "name": "Restaurante Himalaya",
+      "sourceName": "Restaurante Himalaya",
+      "coords": [
+        40.4194192,
+        -3.7079684
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante indio",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Restaurante+Himalaya/data=!4m2!3m1!1s0xd42287b89f0850f:0x693c5bb73c6b4f0f",
+      "googleCid": "7583036715135880975"
+    },
+    {
+      "id": "google-5013808763917864695",
+      "name": "La Máquina Jorge Juan",
+      "sourceName": "La Máquina Jorge Juan",
+      "coords": [
+        40.4237984,
+        -3.686161
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+M%C3%A1quina+Jorge+Juan/data=!4m2!3m1!1s0xd42289761a077e5:0x4594a081a9108ef7",
+      "googleCid": "5013808763917864695"
+    },
+    {
+      "id": "google-12390837081556648169",
+      "name": "Cachivache l Restaurante Chamartín",
+      "sourceName": "Cachivache Taberna Serrano",
+      "coords": [
+        40.4546521,
+        -3.6781132
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Cachivache+Taberna+Serrano/data=!4m2!3m1!1s0xd422920a8bea1c1:0xabf518ad1bec00e9",
+      "googleCid": "12390837081556648169"
+    },
+    {
+      "id": "google-17490519682216145550",
+      "name": "Raimunda | Restaurante Fusión Madrid",
+      "sourceName": "Raimunda",
+      "coords": [
+        40.4200456,
+        -3.6921982
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de fusión",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Raimunda/data=!4m2!3m1!1s0xd42298c3d96ae9d:0xf2bacefb7378b28e",
+      "googleCid": "17490519682216145550"
+    },
+    {
+      "id": "google-12418458808243515079",
+      "name": "Restaurante Abascal",
+      "sourceName": "Restaurante Abascal",
+      "coords": [
+        40.4378788,
+        -3.6944539
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Restaurante+Abascal/data=!4m2!3m1!1s0xd4229ddd9ccb10b:0xac573a7d832ceec7",
+      "googleCid": "12418458808243515079"
+    },
+    {
+      "id": "google-12247816939941948797",
+      "name": "perretxiCo Chamberí",
+      "sourceName": "perretxiCo Chamberí",
+      "coords": [
+        40.4342025,
+        -3.692626
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Taberna",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/perretxiCo+Chamber%C3%AD/data=!4m2!3m1!1s0xd4229d421814e37:0xa9f8fc9d7b406d7d",
+      "googleCid": "12247816939941948797"
+    },
+    {
+      "id": "google-11025778450379756612",
+      "name": "Nômâda",
+      "sourceName": "Nômâda",
+      "coords": [
+        40.4288166,
+        -3.687976
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/N%C3%B4m%C3%A2da/data=!4m2!3m1!1s0xd4229607ff4baf9:0x99036f15630ad444",
+      "googleCid": "11025778450379756612"
+    },
+    {
+      "id": "google-3321513216854555284",
+      "name": "Marieta",
+      "sourceName": "Marieta",
+      "coords": [
+        40.4337553,
+        -3.6876344
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Marieta/data=!4m2!3m1!1s0xd4228ecac60925b:0x2e1862ac2f617a94",
+      "googleCid": "3321513216854555284"
+    },
+    {
+      "id": "google-17673806090390484062",
+      "name": "L’Entrecote Café de París",
+      "sourceName": "L’Entrecote Café de París",
+      "coords": [
+        40.4218409,
+        -3.6866941
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante francés",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/L%E2%80%99Entrecote+Caf%C3%A9+de+Par%C3%ADs/data=!4m2!3m1!1s0xd422899972b9187:0xf545f8ffd6dc345e",
+      "googleCid": "17673806090390484062"
+    },
+    {
+      "id": "google-17467081702055343602",
+      "name": "Tortillas de Gabino",
+      "sourceName": "Restaurante Las Tortillas de Gabino",
+      "coords": [
+        40.4338707,
+        -3.6938244
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de cocina española",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Restaurante+Las+Tortillas+de+Gabino/data=!4m2!3m1!1s0xd4228f2b6f713b7:0xf2678a4371bbf5f2",
+      "googleCid": "17467081702055343602"
+    },
+    {
+      "id": "google-11931624270227425837",
+      "name": "Restaurante Cañadío Madrid",
+      "sourceName": "Restaurante Cañadio Madrid",
+      "coords": [
+        40.4332272,
+        -3.6747976
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante cántabro",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Restaurante+Ca%C3%B1adio+Madrid/data=!4m2!3m1!1s0xd4228b861eb460b:0xa595a50eac55ca2d",
+      "googleCid": "11931624270227425837"
+    },
+    {
+      "id": "google-3782343548019451332",
+      "name": "La Maruca - Velázquez",
+      "sourceName": "La Maruca",
+      "coords": [
+        40.4275228,
+        -3.6837319
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Maruca/data=!4m2!3m1!1s0xd41f3110944fb1f:0x347d956ace30a5c4",
+      "googleCid": "3782343548019451332"
+    },
+    {
+      "id": "google-8374021515657965940",
+      "name": "Ochenta Grados Malasaña",
+      "sourceName": "Ochenta Grados Malasaña",
+      "coords": [
+        40.4286929,
+        -3.7034745
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de fusión",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Ochenta+Grados+Malasa%C3%B1a/data=!4m2!3m1!1s0xd422861fabec507:0x7436803376457174",
+      "googleCid": "8374021515657965940"
+    },
+    {
+      "id": "google-15220245183242151038",
+      "name": "Casa Dani",
+      "sourceName": "Casa Dani",
+      "coords": [
+        40.4270238,
+        -3.6856626
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de cocina española",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Casa+Dani/data=!4m2!3m1!1s0xd4228968e77f10b:0xd3392c5a957fa47e",
+      "googleCid": "15220245183242151038"
+    },
+    {
+      "id": "google-5910748328877585550",
+      "name": "El Imparcial",
+      "sourceName": "El Imparcial",
+      "coords": [
+        40.4119922,
+        -3.7057752
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/El+Imparcial/data=!4m2!3m1!1s0xd4227d59ba34439:0x52073249e37b748e",
+      "googleCid": "5910748328877585550"
+    },
+    {
+      "id": "google-18421491318895562903",
+      "name": "Tatema Madrid",
+      "sourceName": "Tatema Madrid",
+      "coords": [
+        40.4082989,
+        -3.6992193
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Tatema+Madrid/data=!4m2!3m1!1s0xd422783c85fc995:0xffa648c0d7b65097",
+      "googleCid": "18421491318895562903"
+    },
+    {
+      "id": "google-15234851080654399231",
+      "name": "C. de la Torrecilla del Leal, 4",
+      "sourceName": "C. de la Torrecilla del Leal, 4",
+      "coords": [
+        40.4114329,
+        -3.6995092
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Dirección",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/C.+de+la+Torrecilla+del+Leal,+4/data=!4m2!3m1!1s0xd42262a4471e6f7:0xd36d10571461a6ff",
+      "googleCid": "15234851080654399231"
+    },
+    {
+      "id": "google-4925830301960849510",
+      "name": "Los Porfiados",
+      "sourceName": "Los Porfiados",
+      "coords": [
+        40.4101667,
+        -3.6989804
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Los+Porfiados/data=!4m2!3m1!1s0xd42262bc98decb1:0x445c108fbc3b4866",
+      "googleCid": "4925830301960849510"
+    },
+    {
+      "id": "google-8830460946706857083",
+      "name": "El Jardín de Arzábal | Restaurante Reina Sofia",
+      "sourceName": "Arzábal Reina Sofia Museum",
+      "coords": [
+        40.4080769,
+        -3.6933438
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Arz%C3%A1bal+Reina+Sofia+Museum/data=!4m2!3m1!1s0xd422628c9e741a9:0x7a8c1971fb6bfc7b",
+      "googleCid": "8830460946706857083"
+    },
+    {
+      "id": "google-173692238674608533",
+      "name": "C. de San Carlos, 17",
+      "sourceName": "C. de San Carlos, 17",
+      "coords": [
+        40.4105036,
+        -3.7011123
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Dirección",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/C.+de+San+Carlos,+17/data=!4m2!3m1!1s0xd42262ae2ee15bf:0x269142bba714195",
+      "googleCid": "173692238674608533"
+    },
+    {
+      "id": "google-8563962755142144770",
+      "name": "Casa González",
+      "sourceName": "Casa González",
+      "coords": [
+        40.414032,
+        -3.698952
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Tienda de delicatessen",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Casa+Gonz%C3%A1lez/data=!4m2!3m1!1s0xd422881ebe8119d:0x76d94ec081ec5302",
+      "googleCid": "8563962755142144770"
+    },
+    {
+      "id": "google-6841416850379268829",
+      "name": "Restaurante Docamar",
+      "sourceName": "Docamar",
+      "coords": [
+        40.4335969,
+        -3.6481751
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Docamar/data=!4m2!3m1!1s0xd422f4717fba587:0x5ef19860c73a62dd",
+      "googleCid": "6841416850379268829"
+    },
+    {
+      "id": "google-9532164442613046126",
+      "name": "Taberna Laredo",
+      "sourceName": "Taberna Laredo",
+      "coords": [
+        40.4201583,
+        -3.6751321
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Taberna",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Taberna+Laredo/data=!4m2!3m1!1s0xd4228a3f7eb1e69:0x84490d0e968f5b6e",
+      "googleCid": "9532164442613046126"
+    },
+    {
+      "id": "google-1538361556832068294",
+      "name": "La Catapa",
+      "sourceName": "La Catapa",
+      "coords": [
+        40.419409,
+        -3.677358
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Catapa/data=!4m2!3m1!1s0xd4229f3f5b26d71:0x15595baf7317a2c6",
+      "googleCid": "1538361556832068294"
+    },
+    {
+      "id": "google-4394264153438677907",
+      "name": "Casa de Canarias",
+      "sourceName": "Casa De Canarias",
+      "coords": [
+        40.428578,
+        -3.7088617
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Asociación sociocultural",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Casa+De+Canarias/data=!4m2!3m1!1s0xd422883ec88017f:0x3cfb8ff73af1eb93",
+      "googleCid": "4394264153438677907"
+    },
+    {
+      "id": "google-12237500682244192994",
+      "name": "Hogar Extremeño De Madrid",
+      "sourceName": "Hogar Extremeño De Madrid",
+      "coords": [
+        40.422022,
+        -3.7091663
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Asociación sociocultural",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Hogar+Extreme%C3%B1o+De+Madrid/data=!4m2!3m1!1s0xd42287b48779529:0xa9d456088fc3fae2",
+      "googleCid": "12237500682244192994"
+    },
+    {
+      "id": "google-9525813679709581549",
+      "name": "Casa Regional de Castilla-La Mancha",
+      "sourceName": "Casa Regional de Castilla-La Mancha",
+      "coords": [
+        40.415425,
+        -3.7043309
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Centro cultural",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Casa+Regional+de+Castilla-La+Mancha/data=!4m2!3m1!1s0xd42287e4a0d1d75:0x84327d125fa570ed",
+      "googleCid": "9525813679709581549"
+    },
+    {
+      "id": "google-16622484925084248816",
+      "name": "Xiongzai",
+      "sourceName": "Xiongzai",
+      "coords": [
+        40.4249114,
+        -3.710653
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de cocina mandarina",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Xiongzai/data=!4m2!3m1!1s0xd422865026a4835:0xe6aeedf83beeaaf0",
+      "googleCid": "16622484925084248816"
+    },
+    {
+      "id": "google-9137709714899748970",
+      "name": "Restaurante Lily Peruano",
+      "sourceName": "Cafeteria Lili",
+      "coords": [
+        40.4231721,
+        -3.7089118
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante peruano",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Cafeteria+Lili/data=!4m2!3m1!1s0xd42287b4ceb47cf:0x7ecfaa92713c486a",
+      "googleCid": "9137709714899748970"
+    },
+    {
+      "id": "google-4684091705908314090",
+      "name": "11 Nudos Madrid",
+      "sourceName": "11 Nudos Madrid",
+      "coords": [
+        40.4220473,
+        -3.6975538
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de cocina española",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/11+Nudos+Madrid/data=!4m2!3m1!1s0xd422885e0da6785:0x41013c96d204bfea",
+      "googleCid": "4684091705908314090"
+    },
+    {
+      "id": "google-2702315172062738795",
+      "name": "La Cerda de Chueca",
+      "sourceName": "Le Coco",
+      "coords": [
+        40.4215945,
+        -3.6980498
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Le+Coco/data=!4m2!3m1!1s0xd422886769640e5:0x25808d54ddf2b96b",
+      "googleCid": "2702315172062738795"
+    },
+    {
+      "id": "google-10348270423779738464",
+      "name": "Gracias Padre - Zona Rosa - Restaurante Mexicano",
+      "sourceName": "Gracias Padre - Zona rosa",
+      "coords": [
+        40.4221665,
+        -3.6973905
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante mexicano",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Gracias+Padre+-+Zona+rosa/data=!4m2!3m1!1s0xd422907ea08f475:0x8f9c711f79128360",
+      "googleCid": "10348270423779738464"
+    },
+    {
+      "id": "google-14169323668987311339",
+      "name": "Bar Melo's Lavapiés",
+      "sourceName": "Bar Melo's Lavapiés",
+      "coords": [
+        40.4097954,
+        -3.7010841
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar de tapas",
+      "base": false,
+      "listIds": [
+        "tapas"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Bar+Melo's+Lavapi%C3%A9s/data=!4m2!3m1!1s0xd42262b101e3785:0xc4a38ccdfd85f4eb",
+      "googleCid": "14169323668987311339"
     }
   ],
-  "boundaryAttribution": "Contornos pessoais do mapa Barrios Madrid, desenhados pelo usuário no Google My Maps e importados sem simplificação do arquivo KMZ."
+  "boundaryAttribution": "Contornos pessoais do mapa Barrios Madrid, desenhados pelo usuário no Google My Maps e importados sem simplificação do arquivo KMZ.",
+  "placeLists": [
+    {
+      "id": "desayunos",
+      "name": "Desayunos, brunch y meriendas",
+      "sourceName": "Madrid - Desayunos, brunch y meriendas",
+      "placeIds": [
+        "google-4863409570507183551",
+        "google-16249970219666254974",
+        "google-5620708204232263553",
+        "google-8058510306749723843",
+        "google-4239888599698978590",
+        "google-2544653266152632812",
+        "google-16665013920977340912",
+        "google-18173052380889699295",
+        "google-6290939653698193056",
+        "google-12250481613890523802",
+        "google-7872075929105124128",
+        "google-10842700100078159715",
+        "google-5365112568611976535",
+        "google-2811971431825680536",
+        "google-3128596001001833931",
+        "google-14443535890859007998",
+        "google-9530508032753326214",
+        "google-11425162409541839954"
+      ]
+    },
+    {
+      "id": "samantha",
+      "name": "Samantha Del Tagle",
+      "sourceName": "Madrid - Samantha Del Tagle",
+      "placeIds": [
+        "google-11090263251894186972",
+        "google-17847004284429484810",
+        "google-10536130390506159085",
+        "google-12403492849310868236",
+        "google-1695919946792572181",
+        "google-13501021393992418522",
+        "google-7847081014235962356",
+        "google-10021149558472812878",
+        "google-9221432279364710718",
+        "google-12343702592041276602",
+        "google-11299379746788690756",
+        "google-5207724359404973078",
+        "google-16967322963016588772",
+        "google-13485039316248665669",
+        "google-15941502466976776414",
+        "google-4239888599698978590",
+        "google-8058510306749723843",
+        "google-970529132706750433",
+        "google-10602161234339883812",
+        "google-14807356915472911636",
+        "google-16607483527883873431",
+        "google-8875086737308258876",
+        "google-17882959854788034088",
+        "google-3135864569193974320",
+        "google-5012004565998211204",
+        "google-2540394481554893872",
+        "google-640524323929077889",
+        "google-5620708204232263553",
+        "google-16249970219666254974",
+        "google-4863409570507183551",
+        "google-5610143011285896869",
+        "google-4303489101585349766",
+        "google-9621959801930236433",
+        "google-7769702076070350088",
+        "google-12591180763755363191"
+      ]
+    },
+    {
+      "id": "bares",
+      "name": "Clubs e bares",
+      "sourceName": "Madrid Clubs e Bares",
+      "placeIds": [
+        "google-4303489101585349766",
+        "google-5610143011285896869",
+        "google-3135864569193974320",
+        "google-970529132706750433",
+        "google-15941502466976776414",
+        "google-13485039316248665669",
+        "google-4915677956733284920",
+        "google-17477045954970439440",
+        "google-9657289886343318337",
+        "google-656591650489203650",
+        "google-16466690213159839955",
+        "google-5323126480045677272",
+        "google-8698733027357404921",
+        "google-1107236860694176798",
+        "google-11512730167455505112",
+        "google-7256781333778537159",
+        "google-3929411769757451141",
+        "google-6526324325580628742",
+        "google-1333046324896884765",
+        "google-8823429009575331122",
+        "google-6282320076328955658",
+        "google-13965533682271774518",
+        "google-14261144102398146015",
+        "google-4840729264217534456",
+        "google-11348647999543357696",
+        "google-9498297823461622240",
+        "google-11715439545118424628",
+        "google-12644374886195368111",
+        "google-2128826372851116398",
+        "google-17680540480222121474"
+      ]
+    },
+    {
+      "id": "galerias",
+      "name": "Galerías de arte",
+      "sourceName": "Madrid Galerias Arte",
+      "placeIds": [
+        "google-14967256057652037010",
+        "google-9842588642587067223",
+        "google-66789211272748296",
+        "google-8526298465525008785",
+        "google-48050933080513137",
+        "google-16354534992943358253",
+        "google-2273468348997727658",
+        "google-7832960485702692459",
+        "google-2694973609330292786",
+        "google-3697390330958135631",
+        "google-1283512662765786324",
+        "google-3312834804244923264",
+        "google-13419042500056169886",
+        "google-11177896781365376239"
+      ]
+    },
+    {
+      "id": "restaurantes",
+      "name": "Restaurantes",
+      "sourceName": "Madrid Restaurante",
+      "placeIds": [
+        "google-12591180763755363191",
+        "google-12343702592041276602",
+        "google-10602161234339883812",
+        "google-10685162323907715484",
+        "google-7583036715135880975",
+        "google-5013808763917864695",
+        "google-12390837081556648169",
+        "google-17490519682216145550",
+        "google-12418458808243515079",
+        "google-12247816939941948797",
+        "google-11025778450379756612",
+        "google-3321513216854555284",
+        "google-17673806090390484062",
+        "google-17467081702055343602",
+        "google-11931624270227425837",
+        "google-3782343548019451332",
+        "google-8374021515657965940",
+        "google-15220245183242151038",
+        "google-5910748328877585550",
+        "google-18421491318895562903",
+        "google-15234851080654399231",
+        "google-4925830301960849510",
+        "google-8830460946706857083",
+        "google-173692238674608533",
+        "google-8563962755142144770",
+        "google-6841416850379268829",
+        "google-9532164442613046126",
+        "google-1538361556832068294",
+        "google-4394264153438677907",
+        "google-12237500682244192994",
+        "google-9525813679709581549",
+        "google-16622484925084248816",
+        "google-9137709714899748970",
+        "google-4684091705908314090",
+        "google-2702315172062738795",
+        "google-10348270423779738464"
+      ]
+    },
+    {
+      "id": "tapas",
+      "name": "Tapas",
+      "sourceName": "Madrid Tapas",
+      "placeIds": [
+        "google-7769702076070350088",
+        "google-9621959801930236433",
+        "google-4303489101585349766",
+        "google-8875086737308258876",
+        "google-5012004565998211204",
+        "google-16607483527883873431",
+        "google-14807356915472911636",
+        "google-16967322963016588772",
+        "google-5207724359404973078",
+        "google-11299379746788690756",
+        "google-17847004284429484810",
+        "google-14169323668987311339"
+      ]
+    }
+  ]
 }
   </script>
   <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
@@ -2977,7 +5546,133 @@ const $ = id => document.getElementById(id);
 const escapeHTML = text => text.replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const lngLat = ([lat, lng]) => [lng, lat];
 const panels = new Map(), labels = [], markers = [];
-let selected = null, map = null, overlaysReady = false, activePopup = null;
+const listButtons = new Map(), activeLists = new Set();
+const placeLists = data.placeLists || [];
+const allPlaces = data.places;
+const editorial = {bairros:new Map(),locais:new Map()};
+const editorialKind = {bairros:data.regions,locais:data.places};
+const editorialPaths = ['assets/conteudo/bairros.json','assets/conteudo/locais.json'];
+function editorialStatus(message, error = false) {
+  $('editorial-status').textContent = message;
+  $('editorial-status').classList.toggle('content-error',error);
+}
+function parseEditorialDocument(document) {
+  if (!document || typeof document !== 'object' || document.versao !== 1 || !Object.hasOwn(editorialKind,document.tipo) || !Array.isArray(document.itens)) throw new Error('Use um JSON de bairros ou locais com versao 1 e uma lista de itens.');
+  const known = new Set(editorialKind[document.tipo].map(item=>item.id));
+  const items = new Map();
+  for (const item of document.itens) {
+    if (!item || typeof item.id !== 'string' || !known.has(item.id)) throw new Error('ID desconhecido no arquivo de '+document.tipo+': '+String(item?.id));
+    if (items.has(item.id)) throw new Error('ID repetido: '+item.id);
+    for (const key of ['nome','subtitulo','tipo']) if (item[key] !== undefined && typeof item[key] !== 'string') throw new Error('O campo '+key+' de '+item.id+' precisa ser um texto.');
+    if (!Array.isArray(item.secoes)) throw new Error('O campo secoes de '+item.id+' precisa ser uma lista.');
+    for (const section of item.secoes) {
+      if (!section || typeof section !== 'object' || Array.isArray(section)) throw new Error('Seção inválida em '+item.id);
+      for (const key of ['titulo','texto']) if (section[key] !== undefined && typeof section[key] !== 'string') throw new Error('O campo '+key+' de uma seção precisa ser um texto.');
+      if (section.itens !== undefined && (!Array.isArray(section.itens) || section.itens.some(value=>typeof value !== 'string'))) throw new Error('Os itens de uma seção precisam ser uma lista de textos.');
+    }
+    if (item.links !== undefined && (!Array.isArray(item.links) || item.links.some(link=>!link || typeof link.texto !== 'string' || typeof link.url !== 'string'))) throw new Error('Cada link precisa de texto e url.');
+    items.set(item.id,item);
+  }
+  return {kind:document.tipo,items};
+}
+function safeContentUrl(raw) {
+  try {
+    const url = new URL(raw,location.href);
+    return ['http:','https:'].includes(url.protocol)?url.href:null;
+  } catch {return null;}
+}
+function renderEditorialSections(item) {
+  let html = '';
+  for (const section of item.secoes) {
+    if (section.titulo) html += '<h3>'+escapeHTML(section.titulo)+'</h3>';
+    if (section.texto) html += '<p class="editable-text">'+escapeHTML(section.texto)+'</p>';
+    if (section.itens?.length) html += '<ul>'+section.itens.map(value=>'<li>'+escapeHTML(value)+'</li>').join('')+'</ul>';
+  }
+  const links = (item.links || []).map(link=>({texto:link.texto,url:safeContentUrl(link.url)})).filter(link=>link.url);
+  if (links.length) html += '<div class="editorial-links">'+links.map(link=>'<a href="'+escapeHTML(link.url)+'" target="_blank" rel="noopener noreferrer">'+escapeHTML(link.texto)+' ↗</a>').join('')+'</div>';
+  return html;
+}
+function regionName(region) {return editorial.bairros.get(region.id)?.nome ?? region.name;}
+function placeName(place) {return editorial.locais.get(place.id)?.nome ?? place.name;}
+function placeType(place) {return editorial.locais.get(place.id)?.tipo ?? place.type;}
+function placeContent(place) {
+  const item = editorial.locais.get(place.id);
+  const extra = item?renderEditorialSections(item):'';
+  return '<strong class="place-name">'+escapeHTML(placeName(place))+'</strong><span class="place-type">'+escapeHTML(placeType(place))+'</span>'+(extra?'<div class="place-editorial">'+extra+'</div>':'');
+}
+function refreshEditorialViews() {
+  data.regions.forEach((region,index)=>{
+    const item = editorial.bairros.get(region.id);
+    const panel = panels.get(region.id);
+    if (panel) {
+      panel.querySelector('.region strong').textContent = regionName(region);
+      panel.querySelector('.region small').textContent = item?.subtitulo ?? region.tag;
+      const content = panel.querySelector('.region-details');
+      content.innerHTML = regionContent(region);
+      content.querySelector('.locate-region').addEventListener('click',()=>focusRegion(region));
+      content.querySelector('.locate-region').disabled = !map;
+    }
+    if (labels[index]) labels[index].getElement().textContent = item?.nome ?? region.mapLabel ?? region.name;
+  });
+  for (const {marker,place} of markers) {
+    const label = placeName(place)+' · '+placeType(place);
+    marker.getElement().title = label;
+    marker.getElement().setAttribute('aria-label',label);
+  }
+  if (regionDialog.open && selected) {
+    const region = data.regions.find(item=>item.id === selected);
+    if (region) {
+      $('region-dialog-title').textContent = regionName(region);
+      const body = $('region-dialog-body'), scroll = body.scrollTop;
+      body.innerHTML = regionContent(region);
+      body.querySelector('.locate-region').addEventListener('click',()=>{regionDialog.close();focusRegion(region);});
+      body.querySelector('.locate-region').disabled = !map;
+      body.scrollTop = scroll;
+    }
+  }
+  if (activePopup?.isOpen() && activePlace) activePopup.setHTML(placeContent(activePlace));
+}
+function applyEditorialDocuments(documents) {
+  const parsed = documents.map(parseEditorialDocument);
+  if (new Set(parsed.map(item=>item.kind)).size !== parsed.length) throw new Error('Selecione apenas um arquivo de bairros e um de locais por vez.');
+  for (const document of parsed) editorial[document.kind] = document.items;
+  refreshEditorialViews();
+}
+function initializeEditorialContent() {
+  $('import-editorial').addEventListener('click',()=>$('editorial-files').click());
+  $('editorial-files').addEventListener('change',async event=>{
+    const files = Array.from(event.target.files || []);
+    if (!files.length) return;
+    try {
+      const documents = await Promise.all(files.map(async file=>JSON.parse(await file.text())));
+      applyEditorialDocuments(documents);
+      editorialStatus('Textos carregados. Abra um bairro ou local para conferir.');
+    } catch (error) {editorialStatus('Não foi possível carregar: '+error.message,true);}
+    event.target.value = '';
+  });
+  if (location.protocol === 'file:') {
+    editorialStatus('Abrindo por arquivo: use Carregar textos JSON para aplicar suas edições.');
+    return;
+  }
+  editorialStatus('Carregando seus textos…');
+  Promise.allSettled(editorialPaths.map(async path=>{
+    const response = await fetch(new URL(path,location.href),{cache:'no-store'});
+    if (!response.ok) throw new Error(path+' ('+response.status+')');
+    return await response.json();
+  })).then(results=>{
+    const documents = results.filter(result=>result.status === 'fulfilled').map(result=>result.value);
+    try {
+      if (documents.length) applyEditorialDocuments(documents);
+      if (documents.length === editorialPaths.length) editorialStatus('Textos dos bairros e locais carregados dos arquivos JSON.');
+      else editorialStatus('Algum arquivo de textos não carregou. Os demais textos continuam disponíveis; você também pode carregar os JSONs pelo botão.',true);
+    } catch (error) {editorialStatus('Não foi possível aplicar os textos: '+error.message,true);}
+  });
+}
+
+const mobileLayout = matchMedia('(max-width:580px)');
+const regionDialog = $('region-dialog');
+let regionReturnFocus = null, regionReturnScroll = 0;
+let selected = null, map = null, overlaysReady = false, activePopup = null, activePlace = null;
 const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const mapLink = name => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(name + ', Madrid, España');
 function showNotice(text) { $('notice').textContent = text; $('notice').hidden = false; }
@@ -3001,32 +5696,107 @@ function focusRegion(region) {
   map.fitBounds(boundsFor([region]), {padding:{top:75,bottom:80,left:30,right:45},maxZoom:15,duration:reducedMotion()?0:450});
 }
 function regionContent(region) {
+  const editable = editorial.bairros.get(region.id);
+  if (editable) return renderEditorialSections(editable)+'<div class="region-actions"><button type="button" class="locate-region">Ver área no mapa</button></div>';
   return '<p>'+escapeHTML(region.description)+'</p><h3>O clima da região</h3><p>'+escapeHTML(region.atmosphere)+'</p><h3>O que ver</h3><ul>'+region.highlights.map(item=>'<li>'+escapeHTML(item)+'</li>').join('')+'</ul><h3>Uma ideia de passeio</h3><p>'+escapeHTML(region.walk)+'</p><h3>Para aproveitar melhor</h3><p>'+escapeHTML(region.tip)+'</p><p class="official">'+escapeHTML(region.official)+'</p><div class="region-actions"><button type="button" class="locate-region">Ver área no mapa</button><a target="_blank" rel="noopener noreferrer" href="'+mapLink(region.name)+'">Google Maps ↗</a></div><a class="source" target="_blank" rel="noopener noreferrer" href="'+escapeHTML(region.source)+'">Mais sobre a região · fonte oficial ↗</a>';
+}
+function openMobileRegion(region, trigger) {
+  regionReturnFocus = trigger;
+  regionReturnScroll = $('regions').scrollTop;
+  if (activePopup) activePopup.remove();
+  selected = region.id;
+  refreshSelection();
+  regionDialog.style.setProperty('--color',region.color);
+  $('region-dialog-title').textContent = regionName(region);
+  const body = $('region-dialog-body');
+  body.innerHTML = regionContent(region);
+  body.querySelector('.locate-region').addEventListener('click',()=>{
+    regionDialog.close();
+    focusRegion(region);
+  });
+  if (!map) body.querySelector('.locate-region').disabled = true;
+  if (!regionDialog.open) regionDialog.showModal();
+  body.scrollTop = 0;
+}
+$('close-region-dialog').addEventListener('click',()=>regionDialog.close());
+regionDialog.addEventListener('close',()=>{
+  selected = null;
+  refreshSelection();
+  if (regionReturnFocus) regionReturnFocus.focus({preventScroll:true});
+  $('regions').scrollTop = regionReturnScroll;
+  regionReturnFocus = null;
+});
+mobileLayout.addEventListener('change',()=>{
+  if (!mobileLayout.matches && regionDialog.open) regionDialog.close();
+  if (mobileLayout.matches) {
+    for (const panel of panels.values()) panel.open = false;
+    if (!regionDialog.open) {selected=null;refreshSelection();}
+  }
+});
+function isPlaceVisible(place) {
+  const isReference = place.base !== false;
+  return (isReference && $('places').checked) || (place.listIds || []).some(id => activeLists.has(id));
+}
+function renderListControls() {
+  if (!placeLists.length) return;
+  const section = document.createElement('details');
+  section.className = 'place-lists'; section.open = true;
+  const summary = document.createElement('summary');
+  summary.innerHTML = '<span>Minhas listas</span><span class="active-list-count" id="active-list-count" aria-live="polite">Nenhuma ativa</span>';
+  const content = document.createElement('div'); content.className = 'place-list-content';
+  const hint = document.createElement('p'); hint.textContent = 'Ative as listas que quer ver no mapa. Pode escolher várias.';
+  const controls = document.createElement('div'); controls.className = 'list-toggles';
+  const fitButton = document.createElement('button');
+  fitButton.type = 'button'; fitButton.className = 'fit-lists'; fitButton.textContent = 'Ver listas ativas no mapa'; fitButton.hidden = true;
+  fitButton.addEventListener('click',()=>{
+    if (!map) return;
+    const bounds = new maplibregl.LngLatBounds();
+    allPlaces.filter(place => (place.listIds || []).some(id => activeLists.has(id))).forEach(place => bounds.extend(lngLat(place.coords)));
+    if (!bounds.isEmpty()) map.fitBounds(bounds,{padding:{top:75,bottom:80,left:25,right:45},maxZoom:15,duration:reducedMotion()?0:450});
+  });
+  placeLists.forEach(list => {
+    const button = document.createElement('button');
+    button.type = 'button'; button.className = 'list-toggle'; button.setAttribute('aria-pressed','false');
+    button.title = list.sourceName || list.name;
+    button.innerHTML = '<span>'+escapeHTML(list.name)+'</span><span class="list-count">'+list.placeIds.length+'</span>';
+    button.addEventListener('click',()=>{
+      if (activeLists.has(list.id)) activeLists.delete(list.id); else activeLists.add(list.id);
+      for (const [id,item] of listButtons) item.setAttribute('aria-pressed',String(activeLists.has(id)));
+      $('active-list-count').textContent = activeLists.size ? activeLists.size+' de '+placeLists.length+' ativas' : 'Nenhuma ativa';
+      fitButton.hidden = !activeLists.size;
+      syncLayers();
+    });
+    listButtons.set(list.id,button); controls.append(button);
+  });
+  content.append(hint,controls,fitButton); section.append(summary,content); $('regions').append(section);
+  const heading = document.createElement('div'); heading.className = 'neighborhood-list-heading'; heading.textContent = 'Bairros'; $('regions').append(heading);
 }
 function syncLayers() {
   if (overlaysReady) {
     for (const id of ['region-fills','region-lines']) map.setLayoutProperty(id,'visibility',$('areas').checked?'visible':'none');
   }
   labels.forEach(marker => marker.getElement().hidden = !$('labels').checked);
-  markers.forEach(marker => marker.getElement().hidden = !$('places').checked);
-  if (!$('places').checked && activePopup) activePopup.remove();
+  markers.forEach(({marker,place}) => marker.getElement().hidden = !isPlaceVisible(place));
+  if (activePlace && !isPlaceVisible(activePlace) && activePopup) {activePopup.remove();activePlace=null;}
 }
 function fitAllAreas() {
   if (map) map.fitBounds(boundsFor(data.regions), {padding:{top:75,bottom:80,left:25,right:45},maxZoom:14,duration:0});
 }
 function showPlace(place) {
-  if (!map || !$('places').checked) return;
+  if (!map || !isPlaceVisible(place)) return;
   if (activePopup) activePopup.remove();
+  activePlace = place;
   activePopup = new maplibregl.Popup({offset:14,maxWidth:'270px',closeButton:true,closeOnClick:true})
     .setLngLat(lngLat(place.coords))
-    .setHTML('<strong class="place-name">'+escapeHTML(place.name)+'</strong><span class="place-type">'+escapeHTML(place.type)+'</span>')
+    .setHTML(placeContent(place))
     .addTo(map);
 }
 // Pick the closest actual dot, even when enlarged touch targets overlap.
 function nearestPlace(point, radius = 28) {
-  if (!map || !$('places').checked) return null;
+  if (!map) return null;
   let closest = null, distance = radius*radius;
-  for (const place of data.places) {
+  for (const place of allPlaces) {
+    if (!isPlaceVisible(place)) continue;
     const projected = map.project(lngLat(place.coords));
     const squared = (projected.x-point.x)**2+(projected.y-point.y)**2;
     if (squared <= distance) { distance = squared; closest = place; }
@@ -3034,11 +5804,18 @@ function nearestPlace(point, radius = 28) {
   return closest;
 }
 $('count').textContent = data.regions.length + ' áreas';
+renderListControls();
 data.regions.forEach(region => {
   const panel = document.createElement('details');
   panel.className = 'region-item'; panel.style.setProperty('--color',region.color);
   const summary = document.createElement('summary'); summary.className = 'region';
   summary.innerHTML = '<span class="dot" aria-hidden="true"></span><span><strong>'+escapeHTML(region.name)+'</strong><small>'+escapeHTML(region.tag)+'</small></span><span class="arrow" aria-hidden="true">⌄</span>';
+  summary.addEventListener('click',event=>{
+    if (mobileLayout.matches) {
+      event.preventDefault();
+      openMobileRegion(region,summary);
+    }
+  });
   const content = document.createElement('div'); content.className = 'region-details';
   content.innerHTML = regionContent(region);
   content.querySelector('.locate-region').addEventListener('click',()=>focusRegion(region));
@@ -3053,6 +5830,7 @@ data.regions.forEach(region => {
   panels.set(region.id,panel); $('regions').append(panel);
 });
 document.addEventListener('keydown',event=>{
+  if (regionDialog.open) return; // Native dialog handles Escape and keeps focus inside.
   if (event.key === 'Escape') {
     if (activePopup && activePopup.isOpen()) activePopup.remove();
     else if (selected) {
@@ -3093,7 +5871,7 @@ try {
       const rect = map.getContainer().getBoundingClientRect();
       showPlace(nearestPlace({x:event.clientX-rect.left,y:event.clientY-rect.top}) || place);
     });
-    markers.push(new maplibregl.Marker({element:icon,anchor:'center'}).setLngLat(lngLat(place.coords)).addTo(map));
+    markers.push({place,marker:new maplibregl.Marker({element:icon,anchor:'center'}).setLngLat(lngLat(place.coords)).addTo(map)});
   });
   // Only places respond to map taps; regions and their labels are passive.
   map.on('click',event=>{
@@ -3125,6 +5903,7 @@ try {
   document.querySelectorAll('.layers input').forEach(input=>input.disabled=true);
   document.querySelectorAll('.locate-region').forEach(button=>button.disabled=true);
 }
+initializeEditorialContent();
 
   </script>
 </body>

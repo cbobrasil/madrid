@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5f3ed">
   <meta name="description" content="Um mapa de Madri por regiões de passeio: bairros, parques e pontos de referência.">
-  <title>Guia de Madrid · 13 a 16 de novembro de 2026</title>
+  <title>Guia de Madrid</title>
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <style>
 :root{--paper:#fcfbf8;--ink:#263b35;--muted:#63716a;--line:#dcded5;--accent:#b94730}
@@ -23,7 +23,6 @@ button:disabled{cursor:default;opacity:.55}
 .pride-stripe{height:5px;width:108px;border-radius:4px;background:linear-gradient(to right,#E40303 0 16.667%,#FF8C00 16.667% 33.333%,#FFED00 33.333% 50%,#008026 50% 66.667%,#004DFF 66.667% 83.333%,#750787 83.333% 100%);margin-bottom:21px}
 .sidebar h1{font-size:31px;line-height:1.12;font-weight:700;letter-spacing:-1px;margin:0 0 15px;color:#25352f}
 .sidebar h1 span{font-weight:450}
-.trip-dates{font-size:12px;color:#52605a;margin:0;padding-top:9px;border-top:1px solid #e1e4dc;white-space:nowrap}
 .list-heading{display:flex;justify-content:space-between;margin:0 25px;padding:12px 0 9px;border-top:1px solid var(--line);font-size:10px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);font-weight:650;flex:none}
 .list{overflow:auto;flex:1;min-height:0;padding:0 14px 12px;scrollbar-width:thin;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 .region-item{border:1px solid transparent;border-radius:9px;margin:0 0 4px}
@@ -87,7 +86,7 @@ button:disabled{cursor:default;opacity:.55}
 .maplibregl-popup-close-button{width:40px;height:40px;font-size:23px;color:var(--ink)}
 .noscript{position:absolute;inset:100px 25px auto;z-index:25;padding:20px;background:#fffdf8}
 @media(min-width:1500px){.app{grid-template-columns:390px minmax(0,1fr)}.sidebar header{padding:32px}.list-heading{margin:0 32px}}
-@media(max-width:800px){.app{grid-template-columns:285px minmax(0,1fr)}.sidebar header{padding:23px 20px 20px}.sidebar h1{font-size:28px}.trip-dates{font-size:11px}.list-heading{margin:0 20px}.sidebar footer{padding:12px 20px}.map-top{left:12px;right:12px;top:12px}.map-caption{display:none}.map-top{justify-content:flex-end}.layers{left:12px;bottom:29px;gap:0;padding:0 5px}.layers label{padding:0 4px}.notice{left:12px;right:12px;top:67px}}
+@media(max-width:800px){.app{grid-template-columns:285px minmax(0,1fr)}.sidebar header{padding:23px 20px 20px}.sidebar h1{font-size:28px}.list-heading{margin:0 20px}.sidebar footer{padding:12px 20px}.map-top{left:12px;right:12px;top:12px}.map-caption{display:none}.map-top{justify-content:flex-end}.layers{left:12px;bottom:29px;gap:0;padding:0 5px}.layers label{padding:0 4px}.notice{left:12px;right:12px;top:67px}}
 @media(max-width:580px){
   .app{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,var(--map-height,45%)) minmax(0,1fr)}
   .map-shell{grid-row:1}.sidebar{grid-row:2;border-right:0;border-top:1px solid var(--line)}
@@ -97,7 +96,7 @@ button:disabled{cursor:default;opacity:.55}
   .sidebar footer{max-height:24dvh;overflow:auto}
 .app[data-guide-expanded="true"] .map-top,.app[data-guide-expanded="true"] .layers,.app[data-guide-expanded="true"] .maplibregl-control-container{visibility:hidden}
   .sidebar header{padding:13px 17px 10px}.sidebar h1{font-size:22px;line-height:1.15;letter-spacing:-.5px;margin:0 0 6px}.sidebar h1 br{display:none}.sidebar h1 span{margin-left:5px}
-  .pride-stripe{height:4px;width:80px;margin-bottom:9px}.trip-dates{font-size:11px;border:0;padding:0}
+  .pride-stripe{height:4px;width:80px;margin-bottom:9px}
   .list-heading{margin:0 17px;padding:8px 0;font-size:9px}.list{padding:0 9px 10px}.region{min-height:60px;padding:11px}.region strong{font-size:14px}.region small{font-size:11px}.region-details{padding:14px}.region-details p{font-size:13px}
   .sidebar footer{padding:7px 17px}.sidebar footer>strong,.sidebar footer>p{display:none}.sidebar footer summary{min-height:28px;display:flex;align-items:center}
   .map-caption{display:block;padding:9px 10px}.map-caption span{display:none}.map-caption b{font-size:9px}.overview{padding:9px 10px;font-size:11px}
@@ -171,9 +170,7 @@ button:disabled{cursor:default;opacity:.55}
       <button id="guide-handle" class="guide-handle" type="button" aria-expanded="false" aria-controls="regions" aria-label="Expandir o guia de bairros. Também pode arrastar para cima."><span id="guide-handle-label">Deslize para cima · Mais bairros</span></button>
       <header id="guide-header">
         <div class="pride-stripe" aria-hidden="true"></div>
-        <h1>Guia<br><span>de Madrid</span></h1>
-        <p class="trip-dates">Viagem 13/11/2026 a 16/11/2026</p>
-      </header>
+        <h1>Guia<br><span>de Madrid</span></h1>      </header>
       <div class="list-heading"><span>Explore o guia</span><span id="count" aria-live="polite">13 áreas</span></div>
       <div class="list" id="regions"></div>
       <footer><details><summary>Como ler o mapa</summary><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. O controle “Referências” mostra Sol (S), o Palácio Real (P) e Atocha (A); o hotel e a rodoviária aparecem sempre. Toque nos traçados das ruas em destaque para ler seus comentários; cada rua usa a cor de seu bairro. As linhas de metrô seguem as cores oficiais; toque no losango de uma estação para ver as linhas que passam por ela.</p></details><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap. Linhas e estações de metrô: OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
@@ -2766,7 +2763,6 @@ button:disabled{cursor:default;opacity:.55}
       "base": false,
       "id": "google-2540394481554893872",
       "listIds": [
-        "samantha",
         "pracas"
       ],
       "googleUrl": "https://www.google.com/maps/place/Plaza+santa+Ana/data=!4m2!3m1!1s0xd4229f872078c35:0x23414b5246712c30",
@@ -3316,8 +3312,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Cafetería",
       "base": false,
       "listIds": [
-        "desayunos",
-        "samantha"
+        "desayunos"
       ],
       "googleUrl": "https://www.google.com/maps/place/HanSo+Caf%C3%A9/data=!4m2!3m1!1s0xd4227b3b15e0a6d:0x437e4d3ca750d5bf",
       "googleCid": "4863409570507183551"
@@ -3335,8 +3330,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Cafetería",
       "base": false,
       "listIds": [
-        "desayunos",
-        "samantha"
+        "desayunos"
       ],
       "googleUrl": "https://www.google.com/maps/place/Caf%C3%A9+de+la+Luz/data=!4m2!3m1!1s0xd422887f3ea359f:0xe1837dd199e22c7e",
       "googleCid": "16249970219666254974"
@@ -3354,8 +3348,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante de brunch",
       "base": false,
       "listIds": [
-        "desayunos",
-        "samantha"
+        "desayunos"
       ],
       "googleUrl": "https://www.google.com/maps/place/La+Bicicleta/data=!4m2!3m1!1s0xd42288810735d23:0x4e00c454fb634781",
       "googleCid": "5620708204232263553"
@@ -3373,8 +3366,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Pastelería",
       "base": false,
       "listIds": [
-        "desayunos",
-        "samantha"
+        "desayunos"
       ],
       "googleUrl": "https://www.google.com/maps/place/Motteau+Pasteleria/data=!4m2!3m1!1s0xd42262848899c57:0x6fd5946d9ca434c3",
       "googleCid": "8058510306749723843"
@@ -3392,8 +3384,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Cafetería",
       "base": false,
       "listIds": [
-        "desayunos",
-        "samantha"
+        "desayunos"
       ],
       "googleUrl": "https://www.google.com/maps/place/ACID+Caf%C3%A9/data=!4m2!3m1!1s0xd422628361b5e69:0x3ad71c37b049371e",
       "googleCid": "4239888599698978590"
@@ -3645,7 +3636,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante",
       "base": false,
       "listIds": [
-        "samantha"
+        "restaurantes"
       ],
       "googleUrl": "https://www.google.com/maps/place/Santa+Isabel+Bar/data=!4m2!3m1!1s0xd42262a2b2b7119:0x99e887ab3ab8b3dc",
       "googleCid": "11090263251894186972"
@@ -3663,7 +3654,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Bar de tapas",
       "base": false,
       "listIds": [
-        "samantha",
         "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/M%C3%A1s+Coraz%C3%B3n/data=!4m2!3m1!1s0xd42262a38d69aef:0xf7ad4bd6d64b430a",
@@ -3682,7 +3672,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Cafetería",
       "base": false,
       "listIds": [
-        "samantha"
+        "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/Cafeter%C3%ADa+Rocablanca/data=!4m2!3m1!1s0xd4228885b8c078d:0x9237dac471513bed",
       "googleCid": "10536130390506159085"
@@ -3700,7 +3690,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante",
       "base": false,
       "listIds": [
-        "samantha"
+        "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/Taberna+Antonio+S%C3%A1nchez+-+1787+-+La+Taberna+m%C3%A1s+antigua+de+Madrid/data=!4m2!3m1!1s0xd4227d50fe453df:0xac220f07a945a30c",
       "googleCid": "12403492849310868236"
@@ -3718,7 +3708,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Bar restaurante",
       "base": false,
       "listIds": [
-        "samantha"
+        "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/La+Embajada+de+Embajadores/data=!4m2!3m1!1s0xd42274d377f7e39:0x17891e34cc121515",
       "googleCid": "1695919946792572181"
@@ -3736,7 +3726,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante gallego",
       "base": false,
       "listIds": [
-        "samantha"
+        "restaurantes"
       ],
       "googleUrl": "https://www.google.com/maps/place/Ni+Subo+Ni+Bajo/data=!4m2!3m1!1s0xd4228f476c60e8b:0xbb5d436d25de04da",
       "googleCid": "13501021393992418522"
@@ -3754,7 +3744,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Heladería",
       "base": false,
       "listIds": [
-        "samantha"
+        "desayunos"
       ],
       "googleUrl": "https://www.google.com/maps/place/Helader%C3%ADa+Sienna+Narv%C3%A1ez/data=!4m2!3m1!1s0xd4228a6a1a974c1:0x6ce66e9b593f1bf4",
       "googleCid": "7847081014235962356"
@@ -3772,7 +3762,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Panadería",
       "base": false,
       "listIds": [
-        "samantha"
+        "desayunos"
       ],
       "googleUrl": "https://www.google.com/maps/place/PANEM/data=!4m2!3m1!1s0xd4228a5ce9647e3:0x8b12466dd9d5a94e",
       "googleCid": "10021149558472812878"
@@ -3790,7 +3780,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante",
       "base": false,
       "listIds": [
-        "samantha"
+        "restaurantes"
       ],
       "googleUrl": "https://www.google.com/maps/place/La+Castela/data=!4m2!3m1!1s0xd4228a46c43e001:0x7ff91bcd03dab13e",
       "googleCid": "9221432279364710718"
@@ -3808,7 +3798,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante",
       "base": false,
       "listIds": [
-        "samantha",
         "restaurantes"
       ],
       "googleUrl": "https://www.google.com/maps/place/Restaurante+La+Monter%C3%ADa/data=!4m2!3m1!1s0xd4228a38a7708c7:0xab4da41b93b054ba",
@@ -3827,7 +3816,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante especializado en tapas",
       "base": false,
       "listIds": [
-        "samantha",
         "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/La+Musa+Latina/data=!4m2!3m1!1s0xd4228780b092501:0x9ccf760355954b44",
@@ -3846,7 +3834,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Bar de tapas",
       "base": false,
       "listIds": [
-        "samantha",
         "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/Taberna+LA+CONCHA/data=!4m2!3m1!1s0xd422878ae61d9bd:0x48458db6927b6c16",
@@ -3865,7 +3852,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante de cocina española",
       "base": false,
       "listIds": [
-        "samantha",
         "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/Casa+Lucio/data=!4m2!3m1!1s0xd41882c5525318d:0xeb780a568fee9de4",
@@ -3884,7 +3870,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Coctelería",
       "base": false,
       "listIds": [
-        "samantha",
         "bares"
       ],
       "googleUrl": "https://www.google.com/maps/place/La+Santor%C3%ADa+Cocktail+Bar/data=!4m2!3m1!1s0xd42298a8c42fc0b:0xbb247bcfb32d9e45",
@@ -3903,7 +3888,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Coctelería",
       "base": false,
       "listIds": [
-        "samantha",
         "bares"
       ],
       "googleUrl": "https://www.google.com/maps/place/Santos+y+Desamparados/data=!4m2!3m1!1s0xd422629e088fcfb:0xdd3b9808322a00de",
@@ -3922,7 +3906,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Coctelería",
       "base": false,
       "listIds": [
-        "samantha",
         "bares"
       ],
       "googleUrl": "https://www.google.com/maps/place/Jazz+Bar/data=!4m2!3m1!1s0xd422629da7cac91:0xd78031aa7275fe1",
@@ -3941,7 +3924,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante de cocina española",
       "base": false,
       "listIds": [
-        "samantha",
         "restaurantes"
       ],
       "googleUrl": "https://www.google.com/maps/place/Taberna+La+Elisa+l+Taberna+Madrid/data=!4m2!3m1!1s0xd422629dc402b7f:0x93227178503eeb24",
@@ -3960,7 +3942,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Bar de tapas",
       "base": false,
       "listIds": [
-        "samantha",
         "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/Cervecer%C3%ADa+El+Diario/data=!4m2!3m1!1s0xd42289d0ddfc0c3:0xcd7e4ca9712fcd14",
@@ -3979,7 +3960,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Bar de tapas",
       "base": false,
       "listIds": [
-        "samantha",
         "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/Pez+Tortilla/data=!4m2!3m1!1s0xd4229304aaea6ad:0xe679a24744ab5c97",
@@ -3998,7 +3978,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante",
       "base": false,
       "listIds": [
-        "samantha",
         "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/Solo+de+Croquetas+Echegaray/data=!4m2!3m1!1s0xd4229eb79dec833:0x7b2aa45d880a123c",
@@ -4017,7 +3996,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Taberna",
       "base": false,
       "listIds": [
-        "samantha"
+        "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/La+abacer%C3%ADa+del+pr%C3%ADncipe/data=!4m2!3m1!1s0xd42299dfc6bde7d:0xf82d093d6d363e28",
       "googleCid": "17882959854788034088"
@@ -4035,7 +4014,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Bar",
       "base": false,
       "listIds": [
-        "samantha",
         "bares"
       ],
       "googleUrl": "https://www.google.com/maps/place/La+Venencia/data=!4m2!3m1!1s0xd4228810eb286a1:0x2b84d4360e8a4a30",
@@ -4054,7 +4032,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante de cocina española",
       "base": false,
       "listIds": [
-        "samantha",
         "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/Casa+Alberto/data=!4m2!3m1!1s0xd42262954d14b8b:0x458e379918f59084",
@@ -4073,7 +4050,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Heladería",
       "base": false,
       "listIds": [
-        "samantha"
+        "desayunos"
       ],
       "googleUrl": "https://www.google.com/maps/place/T%C3%96TO+ICE+CREAM+%26+COFFEE/data=!4m2!3m1!1s0xd42293dd34d527f:0x8e3997a9dca3881",
       "googleCid": "640524323929077889"
@@ -4091,7 +4068,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Bar",
       "base": false,
       "listIds": [
-        "samantha",
         "bares"
       ],
       "googleUrl": "https://www.google.com/maps/place/Freeway/data=!4m2!3m1!1s0xd4228883367034d:0x4ddb3b584ed60ea5",
@@ -4110,7 +4086,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Calle",
       "base": false,
       "listIds": [
-        "samantha",
         "bares",
         "tapas"
       ],
@@ -4131,7 +4106,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Bar de tapas",
       "base": false,
       "listIds": [
-        "samantha",
         "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/Bodega+de+la+Ardosa/data=!4m2!3m1!1s0xd422888128612f3:0x85881175e523c211",
@@ -4150,7 +4124,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Bar de tapas",
       "base": false,
       "listIds": [
-        "samantha",
         "tapas"
       ],
       "googleUrl": "https://www.google.com/maps/place/BAR+SIDI/data=!4m2!3m1!1s0xd42288811cb0b95:0x6bd386df5ec9cd08",
@@ -4169,7 +4142,6 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante",
       "base": false,
       "listIds": [
-        "samantha",
         "restaurantes"
       ],
       "googleUrl": "https://www.google.com/maps/place/La+Colmada/data=!4m2!3m1!1s0xd422862f5c807fb:0xaebcdc31965ebb77",
@@ -5371,8 +5343,7 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Cafetería",
       "base": false,
       "listIds": [
-        "desayunos",
-        "samantha"
+        "desayunos"
       ],
       "googleUrl": "https://www.google.com/maps/place/Nomade+Cafe/data=!4m2!3m1!1s0xd42262a4beb11e3:0x8539a7012eec497c!8m2!3d40.4107147!4d-3.6993613",
       "googleCid": "9599887704240966012"
@@ -5419,50 +5390,10 @@ button:disabled{cursor:default;opacity:.55}
         "google-14443535890859007998",
         "google-9530508032753326214",
         "google-11425162409541839954",
-        "google-9599887704240966012"
-      ]
-    },
-    {
-      "id": "samantha",
-      "name": "Samantha Del Tagle",
-      "sourceName": "Madrid - Samantha Del Tagle",
-      "placeIds": [
-        "google-11090263251894186972",
-        "google-17847004284429484810",
-        "google-10536130390506159085",
-        "google-12403492849310868236",
-        "google-1695919946792572181",
-        "google-13501021393992418522",
+        "google-9599887704240966012",
         "google-7847081014235962356",
         "google-10021149558472812878",
-        "google-9221432279364710718",
-        "google-12343702592041276602",
-        "google-11299379746788690756",
-        "google-5207724359404973078",
-        "google-16967322963016588772",
-        "google-13485039316248665669",
-        "google-15941502466976776414",
-        "google-4239888599698978590",
-        "google-8058510306749723843",
-        "google-970529132706750433",
-        "google-10602161234339883812",
-        "google-14807356915472911636",
-        "google-16607483527883873431",
-        "google-8875086737308258876",
-        "google-17882959854788034088",
-        "google-3135864569193974320",
-        "google-5012004565998211204",
-        "google-2540394481554893872",
-        "google-640524323929077889",
-        "google-5620708204232263553",
-        "google-16249970219666254974",
-        "google-4863409570507183551",
-        "google-5610143011285896869",
-        "google-4303489101585349766",
-        "google-9621959801930236433",
-        "google-7769702076070350088",
-        "google-12591180763755363191",
-        "google-9599887704240966012"
+        "google-640524323929077889"
       ]
     },
     {
@@ -5555,7 +5486,10 @@ button:disabled{cursor:default;opacity:.55}
         "google-9137709714899748970",
         "google-4684091705908314090",
         "google-2702315172062738795",
-        "google-10348270423779738464"
+        "google-10348270423779738464",
+        "google-11090263251894186972",
+        "google-13501021393992418522",
+        "google-9221432279364710718"
       ]
     },
     {
@@ -5574,7 +5508,11 @@ button:disabled{cursor:default;opacity:.55}
         "google-5207724359404973078",
         "google-11299379746788690756",
         "google-17847004284429484810",
-        "google-14169323668987311339"
+        "google-14169323668987311339",
+        "google-10536130390506159085",
+        "google-12403492849310868236",
+        "google-1695919946792572181",
+        "google-17882959854788034088"
       ]
     },
     {

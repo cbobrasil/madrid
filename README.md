@@ -1,6 +1,6 @@
 # Guia de Madrid
 
-Um guia pessoal e interativo para explorar Madrid durante a viagem de **13 a 16 de novembro de 2026**. O mapa reúne bairros, pontos de interesse e listas de lugares para comer, tomar café, conhecer arte e sair à noite.
+Um guia interativo para explorar Madrid a pé. O mapa reúne bairros, pontos de interesse e listas de lugares para comer, tomar café, conhecer arte e sair à noite.
 
 Pensado principalmente para usar no celular durante os passeios.
 
@@ -12,7 +12,7 @@ Pensado principalmente para usar no celular durante os passeios.
 - **Cores por categoria nos pontos:** verde para parques e jardins, vermelho para monumentos e praças, azul para estabelecimentos e museus.
 - **8 ruas em destaque**, com traçados na cor do bairro e comentários ao tocar: Augusto Figueroa, Hortaleza, Argumosa, Pez, Huertas, Cava Baja, Serrano e Goya.
 - **Metrô de Madri**: as 12 linhas e o Ramal com as cores oficiais e as estações marcadas com o losango do metrô. Toque numa estação para ver as linhas que passam por ela.
-- **Listas independentes** de restaurantes, tapas, cafés e brunch, bares e clubs, galerias de arte, indicações de Samantha Del Tagle, praças e monumentos, parques e jardins, museus, cultura, e lojas e mercados.
+- **Listas independentes** de restaurantes, tapas, cafés e brunch, bares e clubs, galerias de arte, praças e monumentos, parques e jardins, museus, cultura, e lojas e mercados.
 - **Referências fixas no mapa:** Sol (S), Palácio Real (P) e Atocha (A), além do hotel e da rodoviária, que aparecem sempre.
 
 ## Como explorar

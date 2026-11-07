@@ -212,6 +212,28 @@
       ]
     },
     {
+      "id": "rastro",
+      "nome": "El Rastro",
+      "subtitulo": "Feira de rua aos domingos",
+      "secoes": [
+        {
+          "texto": "Área da feira do Rastro, que toma as ruas entre a Plaza de Cascorro e a Puerta de Toledo aos domingos e feriados de manhã."
+        },
+        {
+          "titulo": "O clima da região",
+          "texto": "Barracas de antiguidades, roupas usadas, discos e objetos de todo tipo, com muita gente circulando. Fora do domingo, as ruas voltam a ser de lojas de antiguidades e bairro."
+        },
+        {
+          "titulo": "O que ver",
+          "itens": [
+            "Ribera de Curtidores",
+            "Plaza de Cascorro",
+            "Plaza del General Vara de Rey"
+          ]
+        }
+      ]
+    },
+    {
       "id": "sol",
       "nome": "Sol",
       "subtitulo": "O ponto de partida do centro",

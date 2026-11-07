@@ -6,7 +6,7 @@ Pensado principalmente para usar no celular durante os passeios.
 
 ## O que você encontra
 
-- **13 regiões de passeio**, desenhadas no Google My Maps e identificadas com as cores da bandeira arco-íris.
+- **14 regiões de passeio**, desenhadas no Google My Maps e identificadas com as cores da bandeira arco-íris.
 - **Fichas dos bairros** com descrições, destaques e ideias de passeio.
 - **Pontos no mapa** com o nome do lugar e sua categoria.
 - **Cores por categoria nos pontos:** verde para parques e jardins, vermelho para monumentos e praças, azul para estabelecimentos e museus.

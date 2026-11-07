@@ -30,6 +30,44 @@
         <styleUrl>#line-000000-1200-nodesc-highlight</styleUrl>
       </Pair>
     </StyleMap>
+    <Style id="poly-000000-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff000000</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d000000</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-000000-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff000000</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d000000</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-000000-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-000000-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-000000-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
     <Placemark>
       <name>Calle Augusto Figueroa</name>
       <styleUrl>#line-000000-1200-nodesc</styleUrl>
@@ -123,6 +161,36 @@
           -3.6878606,40.4254165,0
         </coordinates>
       </LineString>
+    </Placemark>
+    <Placemark>
+      <name>El Rastro - Domingos</name>
+      <styleUrl>#poly-000000-1200-77-nodesc</styleUrl>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <tessellate>1</tessellate>
+            <coordinates>
+              -3.7083225,40.4113145,0
+              -3.7102191,40.4089531,0
+              -3.7091463,40.4067093,0
+              -3.7095039,40.4064043,0
+              -3.7097042,40.4061319,0
+              -3.7072151,40.405718,0
+              -3.7033098,40.4049991,0
+              -3.7031524,40.405206,0
+              -3.707072,40.4058269,0
+              -3.7070964,40.406126,0
+              -3.7037633,40.4071771,0
+              -3.7043157,40.4079263,0
+              -3.7053405,40.4089036,0
+              -3.7067137,40.4104176,0
+              -3.7072716,40.410984,0
+              -3.7072768,40.4115861,0
+              -3.7083225,40.4113145,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
     </Placemark>
   </Document>
 </kml>

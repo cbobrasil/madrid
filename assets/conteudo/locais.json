@@ -13,7 +13,8 @@
       ],
       "links": [],
       "origens": [
-        "Referências do mapa"
+        "Referências do mapa",
+        "Nati Chord"
       ]
     },
     {
@@ -55,7 +56,8 @@
       ],
       "links": [],
       "origens": [
-        "Referências do mapa"
+        "Referências do mapa",
+        "Nati Chord"
       ]
     },
     {
@@ -209,7 +211,8 @@
       ],
       "links": [],
       "origens": [
-        "Praças e monumentos"
+        "Praças e monumentos",
+        "Nati Chord"
       ]
     },
     {
@@ -223,7 +226,8 @@
       ],
       "links": [],
       "origens": [
-        "Referências do mapa"
+        "Referências do mapa",
+        "Nati Chord"
       ],
       "exibicao": "Não aparece como ponto: Cava Baja já está nos traçados de ruas."
     },
@@ -506,7 +510,8 @@
       ],
       "links": [],
       "origens": [
-        "Referências do mapa"
+        "Referências do mapa",
+        "Nati Chord"
       ],
       "exibicao": "Aguardando traçado da rua no KML; não aparece como ponto."
     },
@@ -620,7 +625,8 @@
       ],
       "links": [],
       "origens": [
-        "Parques e jardins"
+        "Parques e jardins",
+        "Nati Chord"
       ]
     },
     {
@@ -1326,7 +1332,8 @@
       ],
       "links": [],
       "origens": [
-        "Madrid Clubs e Bares"
+        "Madrid Clubs e Bares",
+        "Nati Chord"
       ]
     },
     {
@@ -1340,7 +1347,8 @@
       ],
       "links": [],
       "origens": [
-        "Madrid Tapas"
+        "Madrid Tapas",
+        "Nati Chord"
       ]
     },
     {
@@ -1398,7 +1406,8 @@
       ],
       "links": [],
       "origens": [
-        "Madrid Tapas"
+        "Madrid Tapas",
+        "Nati Chord"
       ]
     },
     {
@@ -2154,7 +2163,8 @@
       ],
       "links": [],
       "origens": [
-        "Madrid Restaurante"
+        "Madrid Restaurante",
+        "Nati Chord"
       ]
     },
     {
@@ -2336,7 +2346,8 @@
       ],
       "links": [],
       "origens": [
-        "Hospedagem da viagem"
+        "Hospedagem da viagem",
+        "Nati Chord"
       ]
     },
     {
@@ -2384,6 +2395,390 @@
       ],
       "origens": [
         "Transporte da viagem"
+      ]
+    },
+    {
+      "id": "google-1197722748382881187",
+      "nome": "Teatro Español",
+      "tipo": "Teatro",
+      "secoes": [
+        {
+          "texto": "O teatro mais antigo de Madri, na Plaza de Santa Ana, com teatro clássico e contemporâneo."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Cultura",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-2500470723625515874",
+      "nome": "Calle de las Huertas",
+      "tipo": "Rua",
+      "secoes": [
+        {
+          "texto": "Rua de Las Letras com citações de escritores gravadas no chão e muitos bares."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-307106950819825981",
+      "nome": "Calle de Álvarez Gato",
+      "tipo": "Rua",
+      "secoes": [
+        {
+          "texto": "Ruela perto de Sol com os espelhos deformantes do Callejón del Gato, famosos na literatura espanhola."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-9329857030484869599",
+      "nome": "Café Central",
+      "tipo": "Clube de jazz",
+      "secoes": [
+        {
+          "texto": "Clube de jazz lendário, com shows todas as noites (geralmente às 20h e às 22h) de artistas espanhóis e internacionais. Em 2026 mudou para o Ateneo de Madrid, ali perto: confira o endereço antes de ir."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-12931009012691091937",
+      "nome": "Galería FORMATOCOMODO",
+      "tipo": "Galeria de arte",
+      "secoes": [
+        {
+          "texto": "Pequena galeria independente, com artistas espanhóis e internacionais e uma linha mais experimental. Rende uma visita rápida."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-6504285474319867618",
+      "nome": "Los Gabrieles",
+      "tipo": "Taberna",
+      "secoes": [
+        {
+          "texto": "Taberna de 1907 revestida de azulejos históricos, frequentada por artistas e escritores. Reabriu em 2026 depois de mais de 20 anos fechada. Cozinha espanhola, vinhos de Jerez e música ao vivo."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Tapas",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-5314366928465279962",
+      "nome": "Pesquera de Duero",
+      "tipo": "Vila vinícola · Ribera del Duero",
+      "secoes": [
+        {
+          "texto": "Pequena vila de vinícolas, com adegas subterrâneas tradicionais e produtores como a Emilio Moro. Fica a cerca de 2h30 de carro de Madri. Vale reservar uma visita guiada com degustação de vinhos de Ribera del Duero."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Bate-voltas",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-2642459187324273273",
+      "nome": "Álex Cordobés · Velázquez",
+      "tipo": "Restaurante andaluz",
+      "secoes": [
+        {
+          "texto": "Cozinha de Córdoba no bairro de Salamanca: salmorejo, flamenquín e frituras andaluzas. Costuma lotar; vale reservar."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Restaurante",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-3164668885062170009",
+      "nome": "Taberna Jam · Cocina libanesa",
+      "tipo": "Taberna libanesa",
+      "secoes": [
+        {
+          "texto": "Cozinha libanesa servida como tapas, para dividir: homus, falafel e outros mezze."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Tapas",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-14996261831124037132",
+      "nome": "Corredera Alta de San Pablo",
+      "tipo": "Rua",
+      "secoes": [
+        {
+          "texto": "Rua de Malasaña com brechós e lojas vintage."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-4434529231171628137",
+      "nome": "Calle de Velarde",
+      "tipo": "Rua",
+      "secoes": [
+        {
+          "texto": "Rua no coração de Malasaña, com bares e lojas."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-16126926953300393915",
+      "nome": "Calle del Espíritu Santo",
+      "tipo": "Rua",
+      "secoes": [
+        {
+          "texto": "Rua de Malasaña com grafites, lojas independentes e bares."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-2277797689742293998",
+      "nome": "Calle de la Palma",
+      "tipo": "Rua",
+      "secoes": [
+        {
+          "texto": "Rua de Malasaña conhecida pelos grafites, com bares e lojas pequenas."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-946660475584661431",
+      "nome": "Bar Cock",
+      "tipo": "Coquetelaria",
+      "secoes": [
+        {
+          "texto": "Bar de coquetéis clássico, aberto desde 1921 perto da Gran Vía, com ambiente de clube inglês."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Clubs e Bares",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-279732186407431582",
+      "nome": "Bardero",
+      "tipo": "Bar de tapas",
+      "secoes": [
+        {
+          "texto": "Bar de tapas mais caprichado, bom para uma noite especial."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Tapas",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-16042419982745982626",
+      "nome": "La Primera",
+      "tipo": "Bar de tapas",
+      "secoes": [
+        {
+          "texto": "Bar e restaurante no começo da Gran Vía. Tem fama de servir a melhor tortilha da cidade."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Tapas",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-780799337310163524",
+      "nome": "La Taberna Errante",
+      "tipo": "Bar de tapas",
+      "secoes": [
+        {
+          "texto": "Taberna de tapas em La Latina."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Tapas",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-9158100828380707757",
+      "nome": "Josefita Bar",
+      "tipo": "Bar de tapas",
+      "secoes": [
+        {
+          "texto": "Bar de tapas e vinhos em Malasaña."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Tapas",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-634896209194114537",
+      "nome": "Plaza de San Andrés",
+      "tipo": "Praça",
+      "secoes": [
+        {
+          "texto": "Praça de La Latina ao lado da igreja de San Andrés. Aos domingos, depois do Rastro, enche de gente no tapeo."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Praças e monumentos",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-14391836231440706367",
+      "nome": "COCOL",
+      "tipo": "Bar",
+      "secoes": [
+        {
+          "texto": "Bar em La Latina, perto da Cava Baja."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Tapas",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-16238844590549623371",
+      "nome": "El Moderno Gallery",
+      "tipo": "Galeria de arte",
+      "secoes": [
+        {
+          "texto": "Galeria de arte em La Latina, perto da Plaza de la Paja."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-3066449188113516800",
+      "nome": "Casa Macareno",
+      "tipo": "Restaurante de cozinha espanhola",
+      "secoes": [
+        {
+          "texto": "Casa de comidas clássica de Malasaña, com azulejos e balcão antigo. O menu do dia custa cerca de 15 euros."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Restaurante",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-6380438410191808605",
+      "nome": "La Bola",
+      "tipo": "Restaurante de cozinha madrilena",
+      "secoes": [
+        {
+          "texto": "Taberna de 1870 famosa pelo cozido madrileño, feito em panelas de barro no fogo a lenha. Vale reservar."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Restaurante",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-17443685543650418446",
+      "nome": "Plaza de la Villa",
+      "tipo": "Praça",
+      "secoes": [
+        {
+          "texto": "Uma das praças mais antigas de Madri, com a Casa de la Villa (a antiga prefeitura) e a Torre de los Lujanes."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Praças e monumentos",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-14504031207824719436",
+      "nome": "Mercado de Tirso de Molina",
+      "tipo": "Mercado",
+      "secoes": [
+        {
+          "texto": "Mercado de bairro tranquilo, fora do circuito turístico. Aos domingos, a praça ao lado recebe vermute e música (Electroaperitivo). Confira a localização antes de ir."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Lojas e mercados",
+        "Nati Chord"
+      ]
+    },
+    {
+      "id": "google-12696808076577241862",
+      "nome": "Mercado de Vallehermoso",
+      "tipo": "Mercado",
+      "secoes": [
+        {
+          "texto": "Mercado municipal de Chamberí que virou polo gastronômico, com bancas tradicionais e balcões para comer."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Lojas e mercados",
+        "Nati Chord"
       ]
     }
   ]

@@ -12,7 +12,7 @@ Pensado principalmente para usar no celular durante os passeios.
 - **Cores por categoria nos pontos:** verde para parques e jardins, vermelho para monumentos e praças, azul para estabelecimentos e museus.
 - **8 ruas em destaque**, com traçados na cor do bairro e comentários ao tocar: Augusto Figueroa, Hortaleza, Argumosa, Pez, Huertas, Cava Baja, Serrano e Goya.
 - **Metrô de Madri**: as 12 linhas e o Ramal com as cores oficiais e as estações marcadas com o losango do metrô. Toque numa estação para ver as linhas que passam por ela.
-- **Listas independentes** de restaurantes, tapas, cafés e brunch, bares e clubs, galerias de arte, praças e monumentos, parques e jardins, museus, cultura, e lojas e mercados.
+- **Listas independentes** de restaurantes, tapas, cafés e brunch, bares e clubs, galerias de arte, praças e monumentos, parques e jardins, museus, cultura, lojas e mercados e bate-voltas, além da lista **Nati Chord**, com as dicas da Nati marcadas com 💃.
 - **Referências fixas no mapa:** Sol (S), Palácio Real (P) e Atocha (A), além do hotel e da rodoviária, que aparecem sempre.
 
 ## Como explorar

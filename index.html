@@ -72,6 +72,7 @@ button:disabled{cursor:default;opacity:.55}
 .zone-label{pointer-events:none!important;background:#fffdf8e8;border:1px solid #ffffff90;box-shadow:0 1px 5px #283d301a;color:#283d31;padding:3px 7px;border-radius:4px;font-size:11px;font-weight:650;text-align:center;max-width:125px;line-height:1.2;z-index:1}
 .place-icon{--place-color:#1565c0;padding:0;background:transparent!important;border:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;z-index:2;touch-action:manipulation;cursor:pointer}
 .place-dot{width:14px;height:14px;display:flex;align-items:center;justify-content:center;background:#fffdf8;border:2px solid var(--place-color);border-radius:50%;box-shadow:0 1px 5px #182b3030;font-size:9px;font-weight:800;line-height:1;color:var(--place-color);pointer-events:none}
+.place-icon.list-marker .place-dot{width:auto;height:auto;background:none;border:0;box-shadow:none;font-size:21px;font-weight:400;filter:drop-shadow(0 1px 2px #182b3060)}
 .place-icon.anchor{z-index:3}
 .place-icon.anchor .place-dot{width:23px;height:23px;background:var(--place-color);color:#fffdf8}
 .place-icon.anchor.compact-anchor .place-dot{width:20px;height:20px}
@@ -173,7 +174,7 @@ button:disabled{cursor:default;opacity:.55}
         <h1>Guia<br><span>de Madrid</span></h1>      </header>
       <div class="list-heading"><span>Explore o guia</span><span id="count" aria-live="polite">13 áreas</span></div>
       <div class="list" id="regions"></div>
-      <footer><details><summary>Como ler o mapa</summary><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. O controle “Referências” mostra Sol (S), o Palácio Real (P) e Atocha (A); o hotel e a rodoviária aparecem sempre. Toque nos traçados das ruas em destaque para ler seus comentários; cada rua usa a cor de seu bairro. As linhas de metrô seguem as cores oficiais; toque no losango de uma estação para ver as linhas que passam por ela.</p></details><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap. Linhas e estações de metrô: OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
+      <footer><details><summary>Como ler o mapa</summary><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. Os lugares da lista Nati Chord aparecem com 💃. O controle “Referências” mostra Sol (S), o Palácio Real (P) e Atocha (A); o hotel e a rodoviária aparecem sempre. Toque nos traçados das ruas em destaque para ler seus comentários; cada rua usa a cor de seu bairro. As linhas de metrô seguem as cores oficiais; toque no losango de uma estação para ver as linhas que passam por ela.</p></details><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap. Linhas e estações de metrô: OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
     </aside>
     <section class="map-shell" aria-label="Mapa interativo de Madri">
       <div id="map" aria-label="Mapa: toque nos locais ou nas ruas em destaque para ver suas informações. Informações dos bairros ficam na lista."></div>
@@ -2690,7 +2691,9 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Praça",
       "base": true,
       "id": "reference-1",
-      "listIds": []
+      "listIds": [
+        "nati"
+      ]
     },
     {
       "name": "San Bernardo · Metro",
@@ -2732,7 +2735,9 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Palácio",
       "base": true,
       "id": "reference-4",
-      "listIds": []
+      "listIds": [
+        "nati"
+      ]
     },
     {
       "name": "Plaza del Dos de Mayo",
@@ -2890,7 +2895,8 @@ button:disabled{cursor:default;opacity:.55}
       "base": false,
       "id": "reference-15",
       "listIds": [
-        "pracas"
+        "pracas",
+        "nati"
       ]
     },
     {
@@ -2903,7 +2909,9 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Rua de bares e tapas",
       "base": true,
       "id": "reference-16",
-      "listIds": [],
+      "listIds": [
+        "nati"
+      ],
       "isStreet": true
     },
     {
@@ -3194,7 +3202,9 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Avenida",
       "base": true,
       "id": "reference-36",
-      "listIds": [],
+      "listIds": [
+        "nati"
+      ],
       "isStreet": true
     },
     {
@@ -3315,7 +3325,8 @@ button:disabled{cursor:default;opacity:.55}
       "base": false,
       "id": "reference-44",
       "listIds": [
-        "parques"
+        "parques",
+        "nati"
       ]
     },
     {
@@ -4181,7 +4192,8 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Bar",
       "base": false,
       "listIds": [
-        "bares"
+        "bares",
+        "nati"
       ],
       "googleUrl": "https://www.google.com/maps/place/La+Venencia/data=!4m2!3m1!1s0xd4228810eb286a1:0x2b84d4360e8a4a30",
       "googleCid": "3135864569193974320"
@@ -4199,7 +4211,8 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Restaurante de cocina española",
       "base": false,
       "listIds": [
-        "tapas"
+        "tapas",
+        "nati"
       ],
       "googleUrl": "https://www.google.com/maps/place/Casa+Alberto/data=!4m2!3m1!1s0xd42262954d14b8b:0x458e379918f59084",
       "googleCid": "5012004565998211204"
@@ -4273,7 +4286,8 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Bar de tapas",
       "base": false,
       "listIds": [
-        "tapas"
+        "tapas",
+        "nati"
       ],
       "googleUrl": "https://www.google.com/maps/place/Bodega+de+la+Ardosa/data=!4m2!3m1!1s0xd422888128612f3:0x85881175e523c211",
       "googleCid": "9621959801930236433"
@@ -5245,7 +5259,8 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Tienda de delicatessen",
       "base": false,
       "listIds": [
-        "restaurantes"
+        "restaurantes",
+        "nati"
       ],
       "googleUrl": "https://www.google.com/maps/place/Casa+Gonz%C3%A1lez/data=!4m2!3m1!1s0xd422881ebe8119d:0x76d94ec081ec5302",
       "googleCid": "8563962755142144770"
@@ -5476,7 +5491,9 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "symbol": "",
       "base": false,
-      "listIds": [],
+      "listIds": [
+        "nati"
+      ],
       "hotel": true,
       "alwaysVisible": true,
       "googleUrl": "https://www.google.com/maps/place/Axel+Hotel+Madrid/data=!4m2!3m1!1s0xd4228802bbbbd6b:0x4bdd7f69395c64b9!8m2!3d40.4131764!4d-3.7005754"
@@ -5530,6 +5547,500 @@ button:disabled{cursor:default;opacity:.55}
       "alwaysVisible": true,
       "googleUrl": "https://www.google.com/maps/search/?api=1&query=Estaci%C3%B3n+Sur+de+Autobuses+Madrid",
       "coordinateSource": "https://estacionsurmadrid.avanzagrupo.com/la-estacion/donde-estamos"
+    },
+    {
+      "id": "google-1197722748382881187",
+      "name": "Teatro Español",
+      "sourceName": "Teatro Espanhol",
+      "coords": [
+        40.4149459,
+        -3.7001849
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Teatro",
+      "base": false,
+      "listIds": [
+        "cultura",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Teatro+Espa%C3%B1ol/data=!4m2!3m1!1s0xd422881ad000ce9:0x109f2a7e6cc425a3",
+      "googleCid": "1197722748382881187"
+    },
+    {
+      "id": "google-2500470723625515874",
+      "name": "Calle de las Huertas",
+      "sourceName": "C. de las Huertas",
+      "coords": [
+        40.4134815,
+        -3.6981499
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Rua",
+      "base": false,
+      "listIds": [
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Calle+de+las+Huertas/data=!4m2!3m1!1s0xd4228820235f6fb:0x22b374e004f67b62",
+      "googleCid": "2500470723625515874",
+      "isStreet": true
+    },
+    {
+      "id": "google-307106950819825981",
+      "name": "Calle de Álvarez Gato",
+      "sourceName": "C. de Álvarez Gato",
+      "coords": [
+        40.4151205,
+        -3.7018624
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Rua",
+      "base": false,
+      "listIds": [
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Calle+de+%C3%81lvarez+Gato/data=!4m2!3m1!1s0xd42288066c56935:0x443102507ab493d",
+      "googleCid": "307106950819825981",
+      "isStreet": true
+    },
+    {
+      "id": "google-9329857030484869599",
+      "name": "Café Central",
+      "sourceName": "Café Central",
+      "coords": [
+        40.4152211,
+        -3.6982251
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Clube de jazz",
+      "base": false,
+      "listIds": [
+        "bares",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Caf%C3%A9+Central/data=!4m2!3m1!1s0xd4228806b2a4841:0x817a4f899b3b41df",
+      "googleCid": "9329857030484869599"
+    },
+    {
+      "id": "google-12931009012691091937",
+      "name": "Galería FORMATOCOMODO",
+      "sourceName": "Galería FORMATOCOMODO",
+      "coords": [
+        40.4138882,
+        -3.6984516
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galeria de arte",
+      "base": false,
+      "listIds": [
+        "galerias",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Galer%C3%ADa+FORMATOCOMODO/data=!4m2!3m1!1s0xd422881ee6b134b:0xb3742c2f84d3c1e1",
+      "googleCid": "12931009012691091937"
+    },
+    {
+      "id": "google-6504285474319867618",
+      "name": "Los Gabrieles",
+      "sourceName": "Los Gabrieles",
+      "coords": [
+        40.4153058,
+        -3.6995332
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Taberna",
+      "base": false,
+      "listIds": [
+        "tapas",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Los+Gabrieles/data=!4m2!3m1!1s0xd4229003feb2c61:0x5a43dd2d7e919ee2",
+      "googleCid": "6504285474319867618"
+    },
+    {
+      "id": "google-5314366928465279962",
+      "name": "Pesquera de Duero",
+      "sourceName": "Pesquera de Duero",
+      "coords": [
+        41.6415475,
+        -4.1558553
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Vila vinícola · Ribera del Duero",
+      "base": false,
+      "listIds": [
+        "bate-voltas",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Pesquera+de+Duero/data=!4m2!3m1!1s0xd46ee86b9d912ff:0x49c06c909141bbda",
+      "googleCid": "5314366928465279962"
+    },
+    {
+      "id": "google-2642459187324273273",
+      "name": "Álex Cordobés · Velázquez",
+      "sourceName": "Álex Cordobés | Velázquez",
+      "coords": [
+        40.4279759,
+        -3.6836145
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante andaluz",
+      "base": false,
+      "listIds": [
+        "restaurantes",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/%C3%81lex+Cordob%C3%A9s+%C2%B7+Vel%C3%A1zquez/data=!4m2!3m1!1s0xd4229bfe27bda51:0x24abe6a169ee4279",
+      "googleCid": "2642459187324273273"
+    },
+    {
+      "id": "google-3164668885062170009",
+      "name": "Taberna Jam · Cocina libanesa",
+      "sourceName": "Taberna Jam | Cocina libanesa",
+      "coords": [
+        40.4100239,
+        -3.6960625
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Taberna libanesa",
+      "base": false,
+      "listIds": [
+        "tapas",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Taberna+Jam+%C2%B7+Cocina+libanesa/data=!4m2!3m1!1s0xd4227448467fa01:0x2beb299575dcb599",
+      "googleCid": "3164668885062170009"
+    },
+    {
+      "id": "google-14996261831124037132",
+      "name": "Corredera Alta de San Pablo",
+      "sourceName": "Corre. Alta de San Pablo",
+      "coords": [
+        40.425565,
+        -3.7018802
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Rua",
+      "base": false,
+      "listIds": [
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Corredera+Alta+de+San+Pablo/data=!4m2!3m1!1s0xd4228883a058eef:0xd01d6cae8ae5ae0c",
+      "googleCid": "14996261831124037132",
+      "isStreet": true
+    },
+    {
+      "id": "google-4434529231171628137",
+      "name": "Calle de Velarde",
+      "sourceName": "C. de Velarde",
+      "coords": [
+        40.4268148,
+        -3.7028226
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Rua",
+      "base": false,
+      "listIds": [
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Calle+de+Velarde/data=!4m2!3m1!1s0xd422889ddd99b63:0x3d8a9cd732122c69",
+      "googleCid": "4434529231171628137",
+      "isStreet": true
+    },
+    {
+      "id": "google-16126926953300393915",
+      "name": "Calle del Espíritu Santo",
+      "sourceName": "C. del Espíritu Santo",
+      "coords": [
+        40.4255156,
+        -3.7045783
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Rua",
+      "base": false,
+      "listIds": [
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Calle+del+Esp%C3%ADritu+Santo/data=!4m2!3m1!1s0xd422862f6e42bcd:0xdfce5a9eb2247fbb",
+      "googleCid": "16126926953300393915",
+      "isStreet": true
+    },
+    {
+      "id": "google-2277797689742293998",
+      "name": "Calle de la Palma",
+      "sourceName": "C. de la Palma",
+      "coords": [
+        40.4265009,
+        -3.7056663
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Rua",
+      "base": false,
+      "listIds": [
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Calle+de+la+Palma/data=!4m2!3m1!1s0xd4228624c843c47:0x1f9c5cee374b7bee",
+      "googleCid": "2277797689742293998",
+      "isStreet": true
+    },
+    {
+      "id": "google-946660475584661431",
+      "name": "Bar Cock",
+      "sourceName": "Bar Cock",
+      "coords": [
+        40.419883,
+        -3.6988065
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Coquetelaria",
+      "base": false,
+      "listIds": [
+        "bares",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Bar+Cock/data=!4m2!3m1!1s0xd422886fa0f5913:0xd2336afda2047b7",
+      "googleCid": "946660475584661431"
+    },
+    {
+      "id": "google-279732186407431582",
+      "name": "Bardero",
+      "sourceName": "Bardero",
+      "coords": [
+        40.4033288,
+        -3.6982368
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar de tapas",
+      "base": false,
+      "listIds": [
+        "tapas",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Bardero/data=!4m2!3m1!1s0xd422795204e5e8b:0x3e1cef1030eed9e",
+      "googleCid": "279732186407431582"
+    },
+    {
+      "id": "google-16042419982745982626",
+      "name": "La Primera",
+      "sourceName": "La Primera",
+      "coords": [
+        40.4191482,
+        -3.6980136
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar de tapas",
+      "base": false,
+      "listIds": [
+        "tapas",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Primera/data=!4m2!3m1!1s0xd42287b2fb90629:0xdea21ffa5933d6a2",
+      "googleCid": "16042419982745982626"
+    },
+    {
+      "id": "google-780799337310163524",
+      "name": "La Taberna Errante",
+      "sourceName": "La Taberna Errante",
+      "coords": [
+        40.411082,
+        -3.7128142
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar de tapas",
+      "base": false,
+      "listIds": [
+        "tapas",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Taberna+Errante/data=!4m2!3m1!1s0xd4227d78bec29e9:0xad5f4dc453b9244",
+      "googleCid": "780799337310163524"
+    },
+    {
+      "id": "google-9158100828380707757",
+      "name": "Josefita Bar",
+      "sourceName": "Josefita Bar",
+      "coords": [
+        40.4232655,
+        -3.7014581
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar de tapas",
+      "base": false,
+      "listIds": [
+        "tapas",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Josefita+Bar/data=!4m2!3m1!1s0xd422938c00f7ed5:0x7f181c2e84d7bbad",
+      "googleCid": "9158100828380707757"
+    },
+    {
+      "id": "google-634896209194114537",
+      "name": "Plaza de San Andrés",
+      "sourceName": "Pl. de San Andrés",
+      "coords": [
+        40.4120654,
+        -3.7109604
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Praça",
+      "base": false,
+      "listIds": [
+        "pracas",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Plaza+de+San+Andr%C3%A9s/data=!4m2!3m1!1s0xd4227d7ce30037d:0x8cf9abd0a41dde9",
+      "googleCid": "634896209194114537"
+    },
+    {
+      "id": "google-14391836231440706367",
+      "name": "COCOL",
+      "sourceName": "COCOL",
+      "coords": [
+        40.41243,
+        -3.7117736
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Bar",
+      "base": false,
+      "listIds": [
+        "tapas",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/COCOL/data=!4m2!3m1!1s0xd4227d7de37eb25:0xc7ba12cd209eab3f",
+      "googleCid": "14391836231440706367"
+    },
+    {
+      "id": "google-16238844590549623371",
+      "name": "El Moderno Gallery",
+      "sourceName": "El Moderno Gallery",
+      "coords": [
+        40.4118042,
+        -3.7103632
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galeria de arte",
+      "base": false,
+      "listIds": [
+        "galerias",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/El+Moderno+Gallery/data=!4m2!3m1!1s0xd42270011789b11:0xe15bf71e367be24b",
+      "googleCid": "16238844590549623371"
+    },
+    {
+      "id": "google-3066449188113516800",
+      "name": "Casa Macareno",
+      "sourceName": "Casa Macareno",
+      "coords": [
+        40.4259636,
+        -3.7047437
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de cozinha espanhola",
+      "base": false,
+      "listIds": [
+        "restaurantes",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Casa+Macareno/data=!4m2!3m1!1s0xd42286250978605:0x2a8e374a334a8900",
+      "googleCid": "3066449188113516800"
+    },
+    {
+      "id": "google-6380438410191808605",
+      "name": "La Bola",
+      "sourceName": "La Bola",
+      "coords": [
+        40.4200437,
+        -3.7105059
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante de cozinha madrilena",
+      "base": false,
+      "listIds": [
+        "restaurantes",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Bola/data=!4m2!3m1!1s0xd42287baca83d53:0x588bdeedd6bda85d",
+      "googleCid": "6380438410191808605"
+    },
+    {
+      "id": "google-17443685543650418446",
+      "name": "Plaza de la Villa",
+      "sourceName": "Pl. de la Villa",
+      "coords": [
+        40.4152002,
+        -3.7105431
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Praça",
+      "base": false,
+      "listIds": [
+        "pracas",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Plaza+de+la+Villa/data=!4m2!3m1!1s0xd422879003d11ad:0xf2146b94d2e65f0e",
+      "googleCid": "17443685543650418446"
+    },
+    {
+      "id": "google-14504031207824719436",
+      "name": "Mercado de Tirso de Molina",
+      "sourceName": "Mercado de Tirso de Molina",
+      "coords": [
+        40.412906,
+        -3.7260221
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Mercado",
+      "base": false,
+      "listIds": [
+        "lojas",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Mercado+de+Tirso+de+Molina/data=!4m2!3m1!1s0xd42280a6386e8df:0xc948ab89b1927e4c",
+      "googleCid": "14504031207824719436"
+    },
+    {
+      "id": "google-12696808076577241862",
+      "name": "Mercado de Vallehermoso",
+      "sourceName": "Mercado de Vallehermoso",
+      "coords": [
+        40.4341695,
+        -3.7082257
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Mercado",
+      "base": false,
+      "listIds": [
+        "lojas",
+        "nati"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Mercado+de+Vallehermoso/data=!4m2!3m1!1s0xd422979184b8f5f:0xb0341facd1b27b06",
+      "googleCid": "12696808076577241862"
     }
   ],
   "boundaryAttribution": "Contornos pessoais do mapa Barrios Madrid, desenhados pelo usuário no Google My Maps e importados sem simplificação do arquivo KMZ.",
@@ -5594,7 +6105,9 @@ button:disabled{cursor:default;opacity:.55}
         "google-9498297823461622240",
         "google-12644374886195368111",
         "google-2128826372851116398",
-        "google-17680540480222121474"
+        "google-17680540480222121474",
+        "google-9329857030484869599",
+        "google-946660475584661431"
       ]
     },
     {
@@ -5613,7 +6126,9 @@ button:disabled{cursor:default;opacity:.55}
         "google-1283512662765786324",
         "google-3312834804244923264",
         "google-13419042500056169886",
-        "google-11177896781365376239"
+        "google-11177896781365376239",
+        "google-12931009012691091937",
+        "google-16238844590549623371"
       ]
     },
     {
@@ -5656,7 +6171,10 @@ button:disabled{cursor:default;opacity:.55}
         "google-10348270423779738464",
         "google-11090263251894186972",
         "google-13501021393992418522",
-        "google-9221432279364710718"
+        "google-9221432279364710718",
+        "google-2642459187324273273",
+        "google-3066449188113516800",
+        "google-6380438410191808605"
       ]
     },
     {
@@ -5679,7 +6197,14 @@ button:disabled{cursor:default;opacity:.55}
         "google-10536130390506159085",
         "google-12403492849310868236",
         "google-1695919946792572181",
-        "google-17882959854788034088"
+        "google-17882959854788034088",
+        "google-6504285474319867618",
+        "google-3164668885062170009",
+        "google-279732186407431582",
+        "google-16042419982745982626",
+        "google-780799337310163524",
+        "google-9158100828380707757",
+        "google-14391836231440706367"
       ]
     },
     {
@@ -5703,7 +6228,9 @@ button:disabled{cursor:default;opacity:.55}
         "reference-28",
         "reference-51",
         "reference-43",
-        "reference-47"
+        "reference-47",
+        "google-634896209194114537",
+        "google-17443685543650418446"
       ]
     },
     {
@@ -5743,7 +6270,8 @@ button:disabled{cursor:default;opacity:.55}
         "reference-45",
         "reference-27",
         "reference-37",
-        "reference-40"
+        "reference-40",
+        "google-1197722748382881187"
       ]
     },
     {
@@ -5758,7 +6286,62 @@ button:disabled{cursor:default;opacity:.55}
         "reference-32",
         "reference-31",
         "reference-49",
-        "reference-55"
+        "reference-55",
+        "google-14504031207824719436",
+        "google-12696808076577241862"
+      ]
+    },
+    {
+      "id": "bate-voltas",
+      "name": "Bate-voltas",
+      "sourceName": "Bate-voltas",
+      "placeIds": [
+        "google-5314366928465279962"
+      ]
+    },
+    {
+      "id": "nati",
+      "name": "Nati Chord",
+      "sourceName": "natalia chor · Madrid",
+      "marker": "💃",
+      "placeIds": [
+        "google-1197722748382881187",
+        "google-2500470723625515874",
+        "google-307106950819825981",
+        "google-9329857030484869599",
+        "google-12931009012691091937",
+        "google-8563962755142144770",
+        "google-3135864569193974320",
+        "google-6504285474319867618",
+        "google-5314366928465279962",
+        "hotel-axel-madrid",
+        "google-2642459187324273273",
+        "google-3164668885062170009",
+        "google-9621959801930236433",
+        "google-14996261831124037132",
+        "google-4434529231171628137",
+        "google-16126926953300393915",
+        "google-2277797689742293998",
+        "google-946660475584661431",
+        "google-279732186407431582",
+        "google-16042419982745982626",
+        "google-780799337310163524",
+        "google-9158100828380707757",
+        "google-634896209194114537",
+        "reference-44",
+        "google-14391836231440706367",
+        "google-16238844590549623371",
+        "reference-16",
+        "google-3066449188113516800",
+        "google-5012004565998211204",
+        "google-6380438410191808605",
+        "reference-36",
+        "reference-15",
+        "reference-4",
+        "google-17443685543650418446",
+        "reference-1",
+        "google-14504031207824719436",
+        "google-12696808076577241862"
       ]
     }
   ],
@@ -6238,10 +6821,11 @@ mobileLayout.addEventListener('change',()=>{
   }
 });
 function isPlaceVisible(place) {
-  if (place.isStreet || place.hideMarker) return false; // Routes and hidden references do not get dots.
+  const listed = (place.listIds || []).some(id => activeLists.has(id));
+  if (place.isStreet || place.hideMarker) return listed; // Routes and hidden references only get a dot through an active list.
   if (place.alwaysVisible) return true;
   const isReference = place.base !== false;
-  return (isReference && $('places').checked) || (place.listIds || []).some(id => activeLists.has(id));
+  return (isReference && $('places').checked) || listed;
 }
 function renderStreetControls() {
   if (!streets.length) return;
@@ -6397,7 +6981,11 @@ function renderListControls() {
     if (!map) return;
     if (mobileLayout.matches) {setGuideExtent(.55);map.resize();}
     const bounds = new maplibregl.LngLatBounds();
-    allPlaces.filter(place => (place.listIds || []).some(id => activeLists.has(id))).forEach(place => bounds.extend(lngLat(place.coords)));
+    const active = allPlaces.filter(place => (place.listIds || []).some(id => activeLists.has(id)));
+    // Day trips far from the city would zoom the map out too much; frame them only when nothing else is active.
+    const city = boundsFor(data.regions).getCenter();
+    const nearby = active.filter(place => city.distanceTo(new maplibregl.LngLat(place.coords[1],place.coords[0])) < 30000);
+    (nearby.length ? nearby : active).forEach(place => bounds.extend(lngLat(place.coords)));
     if (!bounds.isEmpty()) map.fitBounds(bounds,{padding:{top:75,bottom:80,left:25,right:45},maxZoom:15,duration:reducedMotion()?0:450});
   });
   placeLists.forEach(list => {
@@ -6541,6 +7129,9 @@ try {
     icon.style.setProperty('--place-color',placeColor(place));
     icon.title = place.name+' · '+place.type; icon.setAttribute('aria-label',icon.title);
     const dot = document.createElement('span'); dot.className = 'place-dot'; dot.textContent = place.symbol; dot.setAttribute('aria-hidden','true');
+    // A list can give its places its own marker (e.g. 💃), except for the fixed references and the hotel.
+    const listMarker = placeLists.find(list => list.marker && (place.listIds || []).includes(list.id))?.marker;
+    if (listMarker && !place.anchor && !place.hotel) {icon.classList.add('list-marker');dot.textContent = listMarker;}
     if (place.hotel) dot.textContent = 'H';
     if (place.busStation) dot.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="16" rx="3"/><rect x="7" y="6" width="10" height="6" rx="1"/><path d="M8 19v2M16 19v2M9 3V2h6v1"/><circle cx="8" cy="16" r=".8" fill="currentColor"/><circle cx="16" cy="16" r=".8" fill="currentColor"/></svg>';
     icon.append(dot);

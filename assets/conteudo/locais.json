@@ -237,14 +237,14 @@
       "tipo": "Feira de rua",
       "secoes": [
         {
-          "texto": "A feira de rua mais famosa de Madri, aos domingos e feriados de manhã. Cuidado com bolsas e celulares."
+          "texto": "A feira de rua mais famosa de Madri, aos domingos e feriados, das 9h às 15h (as barracas começam a desmontar por volta das 14h30). Vai da Plaza de Cascorro à Ronda de Toledo, e cada rua tem seu tema: pintores, pássaros, livros, figurinhas. No primeiro sábado do mês tem Los Sábados de El Rastro, na Plaza del General Vara del Rey. Chegue cedo e cuide das bolsas e do celular."
         }
       ],
       "links": [],
       "origens": [
-        "Referências do mapa"
+        "Feiras"
       ],
-      "exibicao": "Não aparece como ponto: El Rastro será representado pelo traçado da Calle de la Ribera de Curtidores."
+      "exibicao": "Aparece como ponto quando a lista Feiras está ligada; as ruas da feira também entram nessa lista."
     },
     {
       "id": "google-2540394481554893872",
@@ -2779,6 +2779,104 @@
       "origens": [
         "Lojas e mercados",
         "Nat Chord"
+      ]
+    },
+    {
+      "id": "feira-mercado-de-motores",
+      "nome": "Mercado de Motores",
+      "tipo": "Feira vintage · Museo del Ferrocarril",
+      "secoes": [
+        {
+          "texto": "Mercado vintage dentro do Museo del Ferrocarril, entre trens antigos: moda, decoração, discos e food trucks. No segundo fim de semana de cada mês (menos em agosto), das 11h às 20h. Entrada grátis; confira as datas antes de ir."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Feiras"
+      ]
+    },
+    {
+      "id": "feira-plaza-mayor",
+      "nome": "Plaza Mayor · selos, moedas e Natal",
+      "tipo": "Feira de colecionadores",
+      "secoes": [
+        {
+          "texto": "Aos domingos de manhã (9h às 14h), colecionadores vendem e trocam selos, moedas e cédulas sob as arcadas. Do fim de novembro ao fim de dezembro, a praça recebe o mercado de Natal, com barracas de enfeites e presépios."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Feiras"
+      ]
+    },
+    {
+      "id": "feira-mercadillo-de-pintores",
+      "nome": "Mercadillo de Pintores",
+      "tipo": "Feira de arte",
+      "secoes": [
+        {
+          "texto": "Todo domingo de manhã, cerca de 40 artistas expõem e vendem quadros na Plaza del Conde de Barajas, ao lado do Arco de Cuchilleros."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Feiras"
+      ]
+    },
+    {
+      "id": "feira-productores-planetario",
+      "nome": "Mercado de Productores · Planetario",
+      "tipo": "Feira de produtores",
+      "secoes": [
+        {
+          "texto": "Feira de produtores locais (pães, queijos, frutas e verduras) no Parque Tierno Galván, ao lado do Planetário. No primeiro e no terceiro domingo do mês."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Feiras"
+      ]
+    },
+    {
+      "id": "feira-madrizebada",
+      "nome": "MadriZebada Market",
+      "tipo": "Feira · Mercado de la Cebada",
+      "secoes": [
+        {
+          "texto": "Feira no primeiro sábado do mês no Mercado de la Cebada, em La Latina: comida, moda, arte, design e artesanato. Confira as datas antes de ir."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Feiras"
+      ]
+    },
+    {
+      "id": "feira-las-ranas",
+      "nome": "Mercado de Las Ranas",
+      "tipo": "Feira de bairro",
+      "secoes": [
+        {
+          "texto": "Um sábado por mês, as lojas do Barrio de las Letras saem para a rua com moda, arte, comida e música. Confira a data antes de ir."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Feiras"
+      ]
+    },
+    {
+      "id": "feira-del-libro",
+      "nome": "Feria del Libro de Madrid",
+      "tipo": "Feira do livro · Retiro",
+      "secoes": [
+        {
+          "texto": "A grande feira do livro de Madri, no Paseo de Coches do Retiro, entre o fim de maio e meados de junho. Centenas de barracas de editoras e livrarias, com sessões de autógrafos."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Feiras"
       ]
     }
   ]

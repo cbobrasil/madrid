@@ -97,6 +97,150 @@
       ],
       "links": [],
       "origem": "Calles principales"
+    },
+    {
+      "id": "rastro-ribera-de-curtidores",
+      "nome": "Ribera de Curtidores",
+      "bairro": "rastro",
+      "secoes": [
+        {
+          "texto": "Eixo principal do Rastro, descendo da Plaza de Cascorro até a Ronda de Toledo. Aos domingos é a rua mais cheia, com barracas de roupas, artesanato e objetos de todo tipo; nos outros dias ficam as lojas de antiguidades."
+        }
+      ],
+      "links": [],
+      "origem": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-plaza-de-cascorro",
+      "nome": "Plaza de Cascorro",
+      "bairro": "rastro",
+      "secoes": [
+        {
+          "texto": "Começo do Rastro, no alto da Ribera de Curtidores, com a estátua do herói de Cascorro. Boa referência para combinar um ponto de encontro."
+        }
+      ],
+      "links": [],
+      "origem": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-san-cayetano",
+      "nome": "Calle de San Cayetano",
+      "bairro": "rastro",
+      "secoes": [
+        {
+          "texto": "A \"rua dos pintores\": quadros, molduras e material de pintura."
+        }
+      ],
+      "links": [],
+      "origem": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-fray-ceferino-gonzalez",
+      "nome": "Calle de Fray Ceferino González",
+      "bairro": "rastro",
+      "secoes": [
+        {
+          "texto": "Conhecida como a \"rua dos pássaros\", pela tradição de venda de aves. Ainda restam algumas lojas."
+        }
+      ],
+      "links": [],
+      "origem": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-carlos-arniches",
+      "nome": "Calle de Carlos Arniches",
+      "bairro": "rastro",
+      "secoes": [
+        {
+          "texto": "Livros usados e antiguidades, junto com a Calle del Carnero."
+        }
+      ],
+      "links": [],
+      "origem": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-carnero",
+      "nome": "Calle del Carnero",
+      "bairro": "rastro",
+      "secoes": [
+        {
+          "texto": "Livros antigos, discos e objetos de segunda mão."
+        }
+      ],
+      "links": [],
+      "origem": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-plaza-vara-del-rey",
+      "nome": "Plaza del General Vara del Rey",
+      "bairro": "rastro",
+      "secoes": [
+        {
+          "texto": "Praça de móveis, antiguidades e objetos vintage. No primeiro sábado do mês recebe Los Sábados de El Rastro, com antiguidades, comida e música."
+        }
+      ],
+      "links": [],
+      "origem": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-campillo-del-mundo-nuevo",
+      "nome": "Plaza del Campillo del Mundo Nuevo",
+      "bairro": "rastro",
+      "secoes": [
+        {
+          "texto": "Aos domingos, ponto de troca de figurinhas, revistas e cartas colecionáveis."
+        }
+      ],
+      "links": [],
+      "origem": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-rodas",
+      "nome": "Calle de Rodas",
+      "bairro": "rastro",
+      "secoes": [
+        {
+          "texto": "Quadrinhos, revistas e figurinhas, ao lado do Campillo del Mundo Nuevo."
+        }
+      ],
+      "links": [],
+      "origem": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-mira-el-rio-alta",
+      "nome": "Calle de Mira el Río Alta",
+      "bairro": "rastro",
+      "secoes": [
+        {
+          "texto": "Rua lateral do Rastro, com barracas de objetos usados e menos movimento que a Ribera."
+        }
+      ],
+      "links": [],
+      "origem": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-mira-el-rio-baja",
+      "nome": "Calle de Mira el Río Baja",
+      "bairro": "rastro",
+      "secoes": [
+        {
+          "texto": "Continuação da Mira el Río Alta, também com barracas de objetos usados."
+        }
+      ],
+      "links": [],
+      "origem": "OpenStreetMap"
+    },
+    {
+      "id": "cuesta-de-moyano",
+      "nome": "Cuesta de Moyano",
+      "bairro": "retiro",
+      "secoes": [
+        {
+          "texto": "Ladeira entre o Jardim Botânico e Atocha com cerca de 30 barracas de livreiros, abertas todos os dias. Livros usados, edições antigas e muita coisa barata."
+        }
+      ],
+      "links": [],
+      "origem": "OpenStreetMap"
     }
   ]
 }

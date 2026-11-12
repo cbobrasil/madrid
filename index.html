@@ -129,8 +129,6 @@ button:disabled{cursor:default;opacity:.55}
 .metro-popup-lines{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
 .metro-popup-lines .metro-badge{font-size:12px;min-width:26px;height:26px;border-radius:13px}
 .street-list{margin-bottom:14px}
-.street-button{display:block;width:100%;text-align:left;min-height:46px;padding:10px 12px;border:0;border-left:5px solid var(--color);border-radius:6px;background:#fff;color:var(--ink);font-size:13px;margin:7px 0}
-.street-button small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
 .street-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;font-weight:650}
 .street-heading label{display:flex;align-items:center;gap:5px;font-size:11px;min-height:44px;font-weight:400}
 .street-heading input{accent-color:var(--ink)}
@@ -174,7 +172,7 @@ button:disabled{cursor:default;opacity:.55}
         <h1>Guia<br><span>de Madrid</span></h1>      </header>
       <div class="list-heading"><span>Explore o guia</span><span id="count" aria-live="polite">13 áreas</span></div>
       <div class="list" id="regions"></div>
-      <footer><details><summary>Como ler o mapa</summary><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. Os lugares da lista Nat Chord aparecem com 💃. O controle “Referências” mostra Sol (S), o Palácio Real (P) e Atocha (A); o hotel e a rodoviária aparecem sempre. Toque nos traçados das ruas em destaque para ler seus comentários; cada rua usa a cor de seu bairro. As linhas de metrô seguem as cores oficiais; toque no losango de uma estação para ver as linhas que passam por ela.</p></details><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap. Linhas e estações de metrô: OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
+      <footer><details><summary>Como ler o mapa</summary><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. Os lugares da lista Nat Chord aparecem com 💃. O controle “Referências” mostra Sol (S), o Palácio Real (P) e Atocha (A); o hotel e a rodoviária aparecem sempre. As ruas aparecem junto com as listas (lojas, bares, tapas e feiras); toque no traçado para ler o comentário. Cada rua usa a cor de seu bairro. As linhas de metrô seguem as cores oficiais; toque no losango de uma estação para ver as linhas que passam por ela.</p></details><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap. Linhas e estações de metrô e ruas das feiras: OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
     </aside>
     <section class="map-shell" aria-label="Mapa interativo de Madri">
       <div id="map" aria-label="Mapa: toque nos locais ou nas ruas em destaque para ver suas informações. Informações dos bairros ficam na lista."></div>
@@ -2924,7 +2922,9 @@ button:disabled{cursor:default;opacity:.55}
       "type": "Feira de rua",
       "base": true,
       "id": "reference-17",
-      "listIds": [],
+      "listIds": [
+        "feiras"
+      ],
       "hideMarker": true
     },
     {
@@ -6041,6 +6041,104 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "googleUrl": "https://www.google.com/maps/place/Mercado+de+Vallehermoso/data=!4m2!3m1!1s0xd422979184b8f5f:0xb0341facd1b27b06",
       "googleCid": "12696808076577241862"
+    },
+    {
+      "id": "feira-mercado-de-motores",
+      "name": "Mercado de Motores",
+      "coords": [
+        40.3993,
+        -3.6941
+      ],
+      "symbol": "•",
+      "type": "Feira vintage · Museo del Ferrocarril",
+      "base": false,
+      "listIds": [
+        "feiras"
+      ]
+    },
+    {
+      "id": "feira-plaza-mayor",
+      "name": "Plaza Mayor · selos, moedas e Natal",
+      "coords": [
+        40.4154,
+        -3.7074
+      ],
+      "symbol": "•",
+      "type": "Feira de colecionadores",
+      "base": false,
+      "listIds": [
+        "feiras"
+      ]
+    },
+    {
+      "id": "feira-mercadillo-de-pintores",
+      "name": "Mercadillo de Pintores",
+      "coords": [
+        40.41445,
+        -3.70876
+      ],
+      "symbol": "•",
+      "type": "Feira de arte",
+      "base": false,
+      "listIds": [
+        "feiras"
+      ]
+    },
+    {
+      "id": "feira-productores-planetario",
+      "name": "Mercado de Productores · Planetario",
+      "coords": [
+        40.3923,
+        -3.6835
+      ],
+      "symbol": "•",
+      "type": "Feira de produtores",
+      "base": false,
+      "listIds": [
+        "feiras"
+      ]
+    },
+    {
+      "id": "feira-madrizebada",
+      "name": "MadriZebada Market",
+      "coords": [
+        40.411094,
+        -3.709847
+      ],
+      "symbol": "•",
+      "type": "Feira · Mercado de la Cebada",
+      "base": false,
+      "listIds": [
+        "feiras"
+      ]
+    },
+    {
+      "id": "feira-las-ranas",
+      "name": "Mercado de Las Ranas",
+      "coords": [
+        40.4143,
+        -3.699
+      ],
+      "symbol": "•",
+      "type": "Feira de bairro",
+      "base": false,
+      "listIds": [
+        "feiras"
+      ]
+    },
+    {
+      "id": "feira-del-libro",
+      "name": "Feria del Libro de Madrid",
+      "coords": [
+        40.414052,
+        -3.679542
+      ],
+      "symbol": "•",
+      "type": "Feira do livro · Retiro",
+      "base": false,
+      "listIds": [
+        "feiras"
+      ]
     }
   ],
   "boundaryAttribution": "Contornos pessoais do mapa Barrios Madrid, desenhados pelo usuário no Google My Maps e importados sem simplificação do arquivo KMZ.",
@@ -6108,6 +6206,10 @@ button:disabled{cursor:default;opacity:.55}
         "google-17680540480222121474",
         "google-9329857030484869599",
         "google-946660475584661431"
+      ],
+      "streetIds": [
+        "calle-de-argumosa",
+        "calle-de-las-huertas"
       ]
     },
     {
@@ -6205,6 +6307,9 @@ button:disabled{cursor:default;opacity:.55}
         "google-780799337310163524",
         "google-9158100828380707757",
         "google-14391836231440706367"
+      ],
+      "streetIds": [
+        "cava-baja"
       ]
     },
     {
@@ -6289,6 +6394,42 @@ button:disabled{cursor:default;opacity:.55}
         "reference-55",
         "google-14504031207824719436",
         "google-12696808076577241862"
+      ],
+      "streetIds": [
+        "calle-augusto-figueroa",
+        "calle-de-hortaleza",
+        "calle-del-pez",
+        "calle-de-serrano",
+        "calle-de-goya"
+      ]
+    },
+    {
+      "id": "feiras",
+      "name": "Feiras",
+      "sourceName": "Feiras",
+      "placeIds": [
+        "reference-17",
+        "feira-mercado-de-motores",
+        "feira-plaza-mayor",
+        "feira-mercadillo-de-pintores",
+        "feira-productores-planetario",
+        "feira-madrizebada",
+        "feira-las-ranas",
+        "feira-del-libro"
+      ],
+      "streetIds": [
+        "rastro-ribera-de-curtidores",
+        "rastro-plaza-de-cascorro",
+        "rastro-san-cayetano",
+        "rastro-fray-ceferino-gonzalez",
+        "rastro-carlos-arniches",
+        "rastro-carnero",
+        "rastro-plaza-vara-del-rey",
+        "rastro-campillo-del-mundo-nuevo",
+        "rastro-rodas",
+        "rastro-mira-el-rio-alta",
+        "rastro-mira-el-rio-baja",
+        "cuesta-de-moyano"
       ]
     },
     {
@@ -6529,6 +6670,948 @@ button:disabled{cursor:default;opacity:.55}
         ]
       },
       "sourceName": "Calles principales"
+    },
+    {
+      "id": "rastro-ribera-de-curtidores",
+      "name": "Ribera de Curtidores",
+      "regionId": "rastro",
+      "description": "",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              -3.707113,
+              40.405837
+            ],
+            [
+              -3.707108,
+              40.405739
+            ]
+          ],
+          [
+            [
+              -3.707394,
+              40.410771
+            ],
+            [
+              -3.707393,
+              40.410712
+            ],
+            [
+              -3.707386,
+              40.410405
+            ],
+            [
+              -3.707381,
+              40.410296
+            ],
+            [
+              -3.707379,
+              40.410236
+            ],
+            [
+              -3.707376,
+              40.409908
+            ]
+          ],
+          [
+            [
+              -3.707266,
+              40.407015
+            ],
+            [
+              -3.707248,
+              40.406895
+            ],
+            [
+              -3.707129,
+              40.406097
+            ],
+            [
+              -3.707125,
+              40.405997
+            ],
+            [
+              -3.707113,
+              40.405837
+            ]
+          ],
+          [
+            [
+              -3.707376,
+              40.409908
+            ],
+            [
+              -3.707311,
+              40.409861
+            ],
+            [
+              -3.707311,
+              40.409827
+            ],
+            [
+              -3.707312,
+              40.40941
+            ],
+            [
+              -3.707313,
+              40.409338
+            ],
+            [
+              -3.707316,
+              40.40909
+            ],
+            [
+              -3.707316,
+              40.408945
+            ],
+            [
+              -3.707316,
+              40.408518
+            ],
+            [
+              -3.707352,
+              40.407964
+            ],
+            [
+              -3.707359,
+              40.407784
+            ],
+            [
+              -3.707355,
+              40.407756
+            ],
+            [
+              -3.707273,
+              40.407076
+            ],
+            [
+              -3.707266,
+              40.407015
+            ]
+          ],
+          [
+            [
+              -3.706881,
+              40.404892
+            ],
+            [
+              -3.706851,
+              40.404676
+            ],
+            [
+              -3.706828,
+              40.404488
+            ],
+            [
+              -3.706671,
+              40.404023
+            ],
+            [
+              -3.706635,
+              40.403928
+            ]
+          ],
+          [
+            [
+              -3.706515,
+              40.403966
+            ],
+            [
+              -3.706553,
+              40.404071
+            ],
+            [
+              -3.706728,
+              40.404585
+            ],
+            [
+              -3.706782,
+              40.404688
+            ],
+            [
+              -3.706881,
+              40.404892
+            ]
+          ],
+          [
+            [
+              -3.706635,
+              40.403928
+            ],
+            [
+              -3.70649,
+              40.40389
+            ]
+          ],
+          [
+            [
+              -3.707101,
+              40.405691
+            ],
+            [
+              -3.707094,
+              40.405636
+            ],
+            [
+              -3.706995,
+              40.405308
+            ],
+            [
+              -3.706881,
+              40.404892
+            ]
+          ],
+          [
+            [
+              -3.707108,
+              40.405739
+            ],
+            [
+              -3.707101,
+              40.405691
+            ]
+          ],
+          [
+            [
+              -3.70649,
+              40.40389
+            ],
+            [
+              -3.706515,
+              40.403966
+            ]
+          ]
+        ]
+      },
+      "sourceName": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-plaza-de-cascorro",
+      "name": "Plaza de Cascorro",
+      "regionId": "rastro",
+      "description": "",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.707131,
+              40.411071
+            ],
+            [
+              -3.707133,
+              40.411097
+            ],
+            [
+              -3.707148,
+              40.411214
+            ],
+            [
+              -3.707156,
+              40.411283
+            ],
+            [
+              -3.707168,
+              40.41137
+            ],
+            [
+              -3.707175,
+              40.411427
+            ],
+            [
+              -3.707253,
+              40.411381
+            ],
+            [
+              -3.707339,
+              40.411322
+            ],
+            [
+              -3.707343,
+              40.411306
+            ],
+            [
+              -3.707352,
+              40.411272
+            ],
+            [
+              -3.707363,
+              40.411226
+            ],
+            [
+              -3.707378,
+              40.411168
+            ],
+            [
+              -3.707389,
+              40.411127
+            ],
+            [
+              -3.7074,
+              40.411086
+            ],
+            [
+              -3.707428,
+              40.410976
+            ],
+            [
+              -3.707462,
+              40.410841
+            ],
+            [
+              -3.707454,
+              40.41079
+            ],
+            [
+              -3.707479,
+              40.41075
+            ],
+            [
+              -3.707478,
+              40.410646
+            ],
+            [
+              -3.707477,
+              40.410569
+            ],
+            [
+              -3.707477,
+              40.410522
+            ],
+            [
+              -3.707476,
+              40.410476
+            ],
+            [
+              -3.707476,
+              40.410434
+            ],
+            [
+              -3.707475,
+              40.410359
+            ],
+            [
+              -3.707466,
+              40.4103
+            ],
+            [
+              -3.707461,
+              40.410272
+            ],
+            [
+              -3.707458,
+              40.410252
+            ],
+            [
+              -3.70745,
+              40.410203
+            ],
+            [
+              -3.707443,
+              40.41016
+            ],
+            [
+              -3.707467,
+              40.410158
+            ],
+            [
+              -3.707466,
+              40.410137
+            ],
+            [
+              -3.707465,
+              40.410114
+            ],
+            [
+              -3.707463,
+              40.410014
+            ],
+            [
+              -3.707462,
+              40.409986
+            ],
+            [
+              -3.707462,
+              40.409947
+            ],
+            [
+              -3.707462,
+              40.409911
+            ],
+            [
+              -3.707376,
+              40.409908
+            ],
+            [
+              -3.707285,
+              40.409898
+            ],
+            [
+              -3.70727,
+              40.409874
+            ],
+            [
+              -3.707266,
+              40.409846
+            ],
+            [
+              -3.70727,
+              40.40975
+            ],
+            [
+              -3.707181,
+              40.409762
+            ],
+            [
+              -3.707146,
+              40.409763
+            ],
+            [
+              -3.70712,
+              40.409804
+            ],
+            [
+              -3.707086,
+              40.409859
+            ],
+            [
+              -3.707024,
+              40.40996
+            ],
+            [
+              -3.707042,
+              40.410017
+            ],
+            [
+              -3.707054,
+              40.410055
+            ],
+            [
+              -3.707079,
+              40.410135
+            ],
+            [
+              -3.7071,
+              40.410202
+            ],
+            [
+              -3.707104,
+              40.410215
+            ],
+            [
+              -3.707108,
+              40.410228
+            ],
+            [
+              -3.707111,
+              40.410236
+            ],
+            [
+              -3.707113,
+              40.410245
+            ],
+            [
+              -3.707117,
+              40.410258
+            ],
+            [
+              -3.707121,
+              40.41027
+            ],
+            [
+              -3.707133,
+              40.410306
+            ],
+            [
+              -3.707145,
+              40.410342
+            ],
+            [
+              -3.707155,
+              40.410376
+            ],
+            [
+              -3.707166,
+              40.410408
+            ],
+            [
+              -3.707172,
+              40.410427
+            ],
+            [
+              -3.707178,
+              40.410445
+            ],
+            [
+              -3.707187,
+              40.410474
+            ],
+            [
+              -3.707195,
+              40.410497
+            ],
+            [
+              -3.707213,
+              40.410555
+            ],
+            [
+              -3.707139,
+              40.4106
+            ],
+            [
+              -3.707009,
+              40.410555
+            ],
+            [
+              -3.706869,
+              40.410617
+            ],
+            [
+              -3.706791,
+              40.410666
+            ],
+            [
+              -3.706802,
+              40.410678
+            ],
+            [
+              -3.70683,
+              40.410709
+            ],
+            [
+              -3.706869,
+              40.410751
+            ],
+            [
+              -3.706898,
+              40.410783
+            ],
+            [
+              -3.706957,
+              40.410847
+            ],
+            [
+              -3.706978,
+              40.410871
+            ],
+            [
+              -3.706997,
+              40.410891
+            ],
+            [
+              -3.707073,
+              40.410876
+            ],
+            [
+              -3.707102,
+              40.410963
+            ],
+            [
+              -3.70713,
+              40.411043
+            ],
+            [
+              -3.707131,
+              40.411071
+            ]
+          ]
+        ]
+      },
+      "sourceName": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-san-cayetano",
+      "name": "Calle de San Cayetano",
+      "regionId": "rastro",
+      "description": "",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -3.707316,
+            40.40909
+          ],
+          [
+            -3.70682,
+            40.409117
+          ],
+          [
+            -3.706043,
+            40.409654
+          ]
+        ]
+      },
+      "sourceName": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-fray-ceferino-gonzalez",
+      "name": "Calle de Fray Ceferino González",
+      "regionId": "rastro",
+      "description": "",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -3.705598,
+            40.40919
+          ],
+          [
+            -3.706062,
+            40.408864
+          ],
+          [
+            -3.706237,
+            40.408741
+          ],
+          [
+            -3.706425,
+            40.408649
+          ],
+          [
+            -3.706607,
+            40.408589
+          ],
+          [
+            -3.706815,
+            40.408523
+          ],
+          [
+            -3.706891,
+            40.408512
+          ],
+          [
+            -3.707316,
+            40.408518
+          ]
+        ]
+      },
+      "sourceName": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-carlos-arniches",
+      "name": "Calle de Carlos Arniches",
+      "regionId": "rastro",
+      "description": "",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -3.708145,
+            40.406826
+          ],
+          [
+            -3.708175,
+            40.40694
+          ],
+          [
+            -3.708439,
+            40.407996
+          ],
+          [
+            -3.708461,
+            40.408223
+          ],
+          [
+            -3.708467,
+            40.408286
+          ],
+          [
+            -3.708461,
+            40.408331
+          ],
+          [
+            -3.708405,
+            40.408726
+          ],
+          [
+            -3.708433,
+            40.408976
+          ],
+          [
+            -3.708467,
+            40.409104
+          ]
+        ]
+      },
+      "sourceName": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-carnero",
+      "name": "Calle del Carnero",
+      "regionId": "rastro",
+      "description": "",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -3.709871,
+            40.408156
+          ],
+          [
+            -3.709406,
+            40.408185
+          ],
+          [
+            -3.708901,
+            40.408224
+          ],
+          [
+            -3.708568,
+            40.408272
+          ],
+          [
+            -3.708467,
+            40.408286
+          ],
+          [
+            -3.7084,
+            40.4083
+          ],
+          [
+            -3.70742,
+            40.408497
+          ],
+          [
+            -3.707316,
+            40.408518
+          ]
+        ]
+      },
+      "sourceName": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-plaza-vara-del-rey",
+      "name": "Plaza del General Vara del Rey",
+      "regionId": "rastro",
+      "description": "",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.708482,
+              40.409378
+            ],
+            [
+              -3.708403,
+              40.409196
+            ],
+            [
+              -3.707952,
+              40.409309
+            ],
+            [
+              -3.708032,
+              40.409492
+            ],
+            [
+              -3.708482,
+              40.409378
+            ]
+          ]
+        ]
+      },
+      "sourceName": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-campillo-del-mundo-nuevo",
+      "name": "Plaza del Campillo del Mundo Nuevo",
+      "regionId": "rastro",
+      "description": "",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.709261,
+              40.406327
+            ],
+            [
+              -3.709206,
+              40.406398
+            ],
+            [
+              -3.709115,
+              40.406514
+            ],
+            [
+              -3.709084,
+              40.406539
+            ],
+            [
+              -3.709014,
+              40.406594
+            ],
+            [
+              -3.708256,
+              40.406732
+            ],
+            [
+              -3.70807,
+              40.406253
+            ],
+            [
+              -3.708064,
+              40.406186
+            ],
+            [
+              -3.70809,
+              40.406129
+            ],
+            [
+              -3.708135,
+              40.406109
+            ],
+            [
+              -3.709261,
+              40.406327
+            ]
+          ]
+        ]
+      },
+      "sourceName": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-rodas",
+      "name": "Calle de Rodas",
+      "regionId": "rastro",
+      "description": "",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -3.707352,
+            40.407964
+          ],
+          [
+            -3.706779,
+            40.407981
+          ],
+          [
+            -3.706286,
+            40.408085
+          ],
+          [
+            -3.706126,
+            40.408183
+          ],
+          [
+            -3.705457,
+            40.408584
+          ],
+          [
+            -3.705221,
+            40.408814
+          ]
+        ]
+      },
+      "sourceName": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-mira-el-rio-alta",
+      "name": "Calle de Mira el Río Alta",
+      "regionId": "rastro",
+      "description": "",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -3.708433,
+            40.408976
+          ],
+          [
+            -3.708698,
+            40.40892
+          ],
+          [
+            -3.708874,
+            40.408884
+          ],
+          [
+            -3.709573,
+            40.408741
+          ],
+          [
+            -3.71005,
+            40.408577
+          ]
+        ]
+      },
+      "sourceName": "OpenStreetMap"
+    },
+    {
+      "id": "rastro-mira-el-rio-baja",
+      "name": "Calle de Mira el Río Baja",
+      "regionId": "rastro",
+      "description": "",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -3.708874,
+            40.408884
+          ],
+          [
+            -3.708901,
+            40.408224
+          ],
+          [
+            -3.708817,
+            40.40781
+          ],
+          [
+            -3.708567,
+            40.406855
+          ],
+          [
+            -3.708541,
+            40.406756
+          ]
+        ]
+      },
+      "sourceName": "OpenStreetMap"
+    },
+    {
+      "id": "cuesta-de-moyano",
+      "name": "Cuesta de Moyano",
+      "regionId": "retiro",
+      "description": "",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -3.688968,
+            40.409639
+          ],
+          [
+            -3.689084,
+            40.409637
+          ],
+          [
+            -3.689327,
+            40.409632
+          ],
+          [
+            -3.691132,
+            40.409595
+          ],
+          [
+            -3.691513,
+            40.409587
+          ],
+          [
+            -3.691893,
+            40.40958
+          ],
+          [
+            -3.69209,
+            40.409474
+          ]
+        ]
+      },
+      "sourceName": "OpenStreetMap"
     }
   ]
 }
@@ -6544,7 +7627,12 @@ const panels = new Map(), labels = [], markers = [];
 const listButtons = new Map(), activeLists = new Set();
 const placeLists = data.placeLists || [];
 const allPlaces = data.places;
-const streets = data.streets || [], streetButtons = new Map();
+const streets = data.streets || [];
+// Streets follow the lists, like places: a street shows when one of its lists is on; a street in no list is always shown.
+const streetLists = new Map();
+for (const list of placeLists) for (const id of list.streetIds || []) streetLists.set(id,[...(streetLists.get(id) || []),list.id]);
+const visibleStreetIds = () => streets.filter(street=>!streetLists.has(street.id) || streetLists.get(street.id).some(id=>activeLists.has(id))).map(street=>street.id);
+const streetPoints = street => street.geometry.type === 'LineString'?street.geometry.coordinates:street.geometry.type === 'MultiPolygon'?street.geometry.coordinates.flat(2):street.geometry.coordinates.flat();
 const metroLines = [], metroStations = [], metroButtons = new Map(), activeMetroLines = new Set();
 let metroReady = false, activeStation = null;
 const metroData = fetch(new URL('assets/maps/metro.geojson',location.href)).then(response=>{
@@ -6661,14 +7749,6 @@ function refreshEditorialViews() {
     }
   }
   if (activePopup?.isOpen() && activePlace) activePopup.setHTML(placeContent(activePlace));
-  for (const street of streets) {
-    const button = streetButtons.get(street.id), region = streetRegion(street);
-    if (button) {
-      button.querySelector('strong').textContent = streetName(street);
-      button.querySelector('small').textContent = region?regionName(region):'Rua em destaque';
-      button.style.setProperty('--color',region?.color || '#263b35');
-    }
-  }
   if (overlaysReady) map.getSource('streets')?.setData(streetFeatures());
   if (activePopup?.isOpen() && activeStreet) activePopup.setHTML(streetContent(activeStreet));
 }
@@ -6827,30 +7907,6 @@ function isPlaceVisible(place) {
   const isReference = place.base !== false;
   return (isReference && $('places').checked) || listed;
 }
-function renderStreetControls() {
-  if (!streets.length) return;
-  const section = document.createElement('section'); section.className = 'street-list';
-  section.setAttribute('aria-label','Ruas em destaque');
-  section.innerHTML = '<div class="street-heading"><span>Ruas em destaque</span><label><input id="streets" type="checkbox" checked> Mostrar</label></div>';
-  for (const street of streets) {
-    const region = streetRegion(street), button = document.createElement('button');
-    button.type = 'button'; button.className = 'street-button'; button.style.setProperty('--color',region?.color || '#263b35');
-    button.innerHTML = '<strong>'+escapeHTML(streetName(street))+'</strong><small>'+escapeHTML(region?regionName(region):'Rua em destaque')+'</small>';
-    button.addEventListener('click',()=>{
-      if (!map || !overlaysReady) return;
-      $('streets').checked = true; syncLayers();
-      if (mobileLayout.matches) {setGuideExtent(.55);map.resize();}
-      const bounds = new maplibregl.LngLatBounds();
-      const points = street.geometry.type === 'LineString'?street.geometry.coordinates:street.geometry.type === 'MultiPolygon'?street.geometry.coordinates.flat(2):street.geometry.coordinates.flat();
-      points.forEach(point=>bounds.extend(point));
-      map.fitBounds(bounds,{padding:{top:65,bottom:65,left:30,right:40},maxZoom:16,duration:0});
-      showStreet(street,bounds.getCenter());
-    });
-    streetButtons.set(street.id,button); section.append(button);
-  }
-  const list = $('regions'); list.insertBefore(section,list.querySelector('.neighborhood-list-heading'));
-  $('streets').addEventListener('change',syncLayers);
-}
 // Light line colours (yellow, lime, Ramal white…) need dark numbers to stay legible.
 function metroInk(color) {
   const [r,g,b] = [1,3,5].map(i=>parseInt(color.slice(i,i+2),16)/255);
@@ -6986,13 +8042,14 @@ function renderListControls() {
     const city = boundsFor(data.regions).getCenter();
     const nearby = active.filter(place => city.distanceTo(new maplibregl.LngLat(place.coords[1],place.coords[0])) < 30000);
     (nearby.length ? nearby : active).forEach(place => bounds.extend(lngLat(place.coords)));
+    placeLists.filter(list => activeLists.has(list.id)).forEach(list => (list.streetIds || []).forEach(id => {const street = streets.find(item=>item.id === id); if (street) streetPoints(street).forEach(point=>bounds.extend(point));}));
     if (!bounds.isEmpty()) map.fitBounds(bounds,{padding:{top:75,bottom:80,left:25,right:45},maxZoom:15,duration:reducedMotion()?0:450});
   });
   placeLists.forEach(list => {
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'list-toggle'; button.setAttribute('aria-pressed','false');
     button.title = list.sourceName || list.name;
-    button.innerHTML = '<span>'+escapeHTML(list.name)+'</span><span class="list-count">'+list.placeIds.length+'</span>';
+    button.innerHTML = '<span>'+escapeHTML(list.name)+'</span><span class="list-count">'+(list.placeIds.length+(list.streetIds || []).length)+'</span>';
     button.addEventListener('click',()=>{
       if (activeLists.has(list.id)) activeLists.delete(list.id); else activeLists.add(list.id);
       for (const [id,item] of listButtons) item.setAttribute('aria-pressed',String(activeLists.has(id)));
@@ -7008,7 +8065,9 @@ function renderListControls() {
 function syncLayers() {
   if (overlaysReady) {
     for (const id of ['region-fills','region-lines']) map.setLayoutProperty(id,'visibility',$('areas').checked?'visible':'none');
-    for (const id of ['street-fills','street-halo','street-lines','street-hit']) map.setLayoutProperty(id,'visibility',$('streets')?.checked === false?'none':'visible');
+    const shown = ['in',['get','id'],['literal',visibleStreetIds()]];
+    map.setFilter('street-fills',['all',['==',['geometry-type'],'Polygon'],shown]);
+    for (const id of ['street-halo','street-lines','street-hit']) map.setFilter(id,shown);
   }
   if (overlaysReady && metroReady) {
     const lines = [...activeMetroLines], visible = $('metro').checked && lines.length ? 'visible' : 'none';
@@ -7021,7 +8080,7 @@ function syncLayers() {
   labels.forEach(marker => marker.getElement().hidden = !$('labels').checked);
   markers.forEach(({marker,place}) => marker.getElement().hidden = !isPlaceVisible(place));
   if (activePlace && !isPlaceVisible(activePlace) && activePopup) {activePopup.remove();activePlace=null;}
-  if (activeStreet && $('streets')?.checked === false && activePopup) {activePopup.remove();activeStreet=null;}
+  if (activeStreet && !visibleStreetIds().includes(activeStreet.id) && activePopup) {activePopup.remove();activeStreet=null;}
 }
 function fitAllAreas() {
   if (!map) return;
@@ -7040,7 +8099,7 @@ function showPlace(place) {
     .addTo(map);
 }
 function showStreet(street, position) {
-  if (!map || $('streets')?.checked === false) return;
+  if (!map || !visibleStreetIds().includes(street.id)) return;
   if (activePopup) activePopup.remove();
   activePlace = null; activeStreet = street; activeStation = null;
   activePopup = new maplibregl.Popup({offset:12,maxWidth:'290px',closeButton:true,closeOnClick:true})
@@ -7061,7 +8120,6 @@ function nearestPlace(point, radius = 28) {
 $('count').textContent = data.regions.length + ' áreas';
 renderListControls();
 renderMetroControls();
-renderStreetControls();
 data.regions.forEach(region => {
   const panel = document.createElement('details');
   panel.className = 'region-item'; panel.style.setProperty('--color',region.color);
@@ -7152,7 +8210,6 @@ try {
     const stationFeature = metroReady && $('metro').checked && map.queryRenderedFeatures([[x-12,y-12],[x+12,y+12]],{layers:['metro-stations']})[0];
     const station = stationFeature && metroStations[stationFeature.properties.station];
     if (station) {showStation(station);return;}
-    if ($('streets')?.checked === false) return;
     const feature = map.queryRenderedFeatures([[x-10,y-10],[x+10,y+10]],{layers:['street-hit','street-fills']})[0];
     const street = feature && streets.find(item=>item.id === feature.properties.id);
     if (street) showStreet(street,event.lngLat);

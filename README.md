@@ -12,7 +12,7 @@ Pensado principalmente para usar no celular durante os passeios.
 - **Cores por categoria nos pontos:** verde para parques e jardins, vermelho para monumentos e praças, azul para estabelecimentos e museus.
 - **Ruas dentro das listas**, com traçados na cor do bairro e comentários ao tocar. Elas aparecem quando a lista está ligada: Augusto Figueroa, Hortaleza, Pez, Serrano e Goya em Lojas e mercados; Argumosa e Huertas em Clubs e bares; Cava Baja em Tapas; e as ruas do Rastro e a Cuesta de Moyano em Feiras.
 - **Metrô de Madri**: as 12 linhas e o Ramal com as cores oficiais e as estações marcadas com o losango do metrô. Toque numa estação para ver as linhas que passam por ela.
-- **Listas independentes** de restaurantes, tapas, cafés, bares e clubs, galerias de arte, praças e monumentos, parques e jardins, museus, cultura, lojas e mercados, feiras (o Rastro e outras feiras e mercadinhos da cidade) e bate-voltas, além da lista **Nat Chord**, com as dicas da Nat marcadas com 💃.
+- **Listas independentes** de restaurantes, tapas, cafés, bares e clubs, galerias de arte, praças e monumentos, parques e jardins, museus, cultura, lojas e mercados, lojas de arte, feiras (o Rastro e outras feiras e mercadinhos da cidade) e bate-voltas, além da lista **Nat Chord**, com as dicas da Nat marcadas com 💃.
 - **Referências fixas no mapa:** Sol (S), Palácio Real (P) e Atocha (A), além do hotel e da rodoviária, que aparecem sempre.
 
 ## Como explorar

@@ -2904,7 +2904,7 @@
       ],
       "links": [],
       "origens": [
-        "Lojas e mercados"
+        "Lojas de arte"
       ]
     },
     {
@@ -2947,6 +2947,90 @@
       "links": [],
       "origens": [
         "Praças e monumentos"
+      ]
+    },
+    {
+      "id": "google-9652608526930673611",
+      "nome": "Bellas Artes Jeco",
+      "tipo": "Loja de material de arte",
+      "secoes": [
+        {
+          "texto": "Loja tradicional de belas artes em dois andares na Calle Pelayo, em Chueca: tintas, pincéis, papéis e material de desenho. Na Calle Hortaleza 82 ficam a loja de chassis e telas sob medida e a de arte urbana (sprays). Fecha na hora do almoço (14h às 17h), aos sábados à tarde e aos domingos."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Lojas de arte"
+      ]
+    },
+    {
+      "id": "extra-bomagui",
+      "nome": "Bomagui",
+      "tipo": "Papelaria artesanal",
+      "secoes": [
+        {
+          "texto": "Papelaria e oficina de encadernação artesanal na Calle de Noviciado, em Malasaña: cadernos feitos à mão, postais e papéis de design. Também faz encadernação sob encomenda."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Lojas de arte"
+      ]
+    },
+    {
+      "id": "extra-carapazona",
+      "nome": "Carapazona",
+      "tipo": "Papelaria artesanal",
+      "secoes": [
+        {
+          "texto": "Ateliê e loja de cadernos, agendas e álbuns feitos à mão na Calle de la Palma, em Malasaña, com encadernação tradicional e capas de tecido. Bom para presente."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Lojas de arte"
+      ]
+    },
+    {
+      "id": "extra-panta-rhei",
+      "nome": "Panta Rhei",
+      "tipo": "Livraria de arte e design",
+      "secoes": [
+        {
+          "texto": "Livraria em Chueca especializada em fotografia, design gráfico, ilustração e arte, com muitos livros importados."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Lojas de arte"
+      ]
+    },
+    {
+      "id": "extra-taschen-store",
+      "nome": "Taschen Store Madrid",
+      "tipo": "Livraria de arte",
+      "secoes": [
+        {
+          "texto": "Loja da editora alemã Taschen na Calle del Barquillo: livros de arte, arquitetura, design, fotografia e moda, de edições de bolso a volumes de colecionador. De vez em quando faz liquidações grandes."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Lojas de arte"
+      ]
+    },
+    {
+      "id": "google-7514859822253533441",
+      "nome": "Los Artistas del Barrio",
+      "tipo": "Loja de arte e ilustração",
+      "secoes": [
+        {
+          "texto": "Loja e galeria na Calle de Embajadores, em Lavapiés, só com trabalhos de artistas locais: gravuras, ilustrações, objetos de decoração e acessórios. Boa para levar uma lembrança de Madrid que não seja de loja turística."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Lojas de arte"
       ]
     }
   ]

@@ -201,21 +201,6 @@
       ]
     },
     {
-      "id": "reference-15",
-      "nome": "Templo de Debod",
-      "tipo": "Templo e monumento",
-      "secoes": [
-        {
-          "texto": "Templo egípcio de mais de 2.000 anos, doado à Espanha e remontado no Parque del Oeste. Um dos melhores pores do sol da cidade."
-        }
-      ],
-      "links": [],
-      "origens": [
-        "Praças e monumentos",
-        "Nat Chord"
-      ]
-    },
-    {
       "id": "reference-16",
       "nome": "Cava Baja",
       "tipo": "Rua de bares e tapas",
@@ -421,7 +406,7 @@
       "tipo": "Praça",
       "secoes": [
         {
-          "texto": "Praça reformada em 2021, com o monumento a Cervantes, Dom Quixote e Sancho Pança. Liga a Gran Vía ao Templo de Debod."
+          "texto": "Praça reformada em 2021, com o monumento a Cervantes, Dom Quixote e Sancho Pança. Fica no fim da Gran Vía."
         }
       ],
       "links": [],
@@ -3115,6 +3100,20 @@
       "links": [],
       "origens": [
         "Restaurantes"
+      ]
+    },
+    {
+      "id": "google-8660068020181941346",
+      "nome": "La Rosaleda del Retiro",
+      "tipo": "Jardim de rosas · Retiro",
+      "secoes": [
+        {
+          "texto": "Roseiral no sul do Retiro, perto da Fuente del Ángel Caído, com canteiros geométricos, pérgolas e centenas de variedades de rosas. A melhor época é a floração, de meados de abril a junho; fora disso tem pouca flor. Entrada grátis."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Parques e jardins"
       ]
     }
   ]

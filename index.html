@@ -6139,13 +6139,83 @@ button:disabled{cursor:default;opacity:.55}
       "listIds": [
         "feiras"
       ]
+    },
+    {
+      "id": "extra-central-de-diseno",
+      "name": "Central de Diseño",
+      "coords": [
+        40.3918,
+        -3.6979
+      ],
+      "symbol": "•",
+      "type": "Espaço de exposições · Matadero",
+      "base": false,
+      "listIds": [
+        "cultura"
+      ]
+    },
+    {
+      "id": "extra-hartem",
+      "name": "Hartem",
+      "coords": [
+        40.41322,
+        -3.70633
+      ],
+      "symbol": "•",
+      "type": "Loja de material de arte",
+      "base": false,
+      "listIds": [
+        "lojas"
+      ]
+    },
+    {
+      "id": "extra-la-gatoteca",
+      "name": "La Gatoteca",
+      "coords": [
+        40.41307,
+        -3.70626
+      ],
+      "symbol": "•",
+      "type": "Café com gatos",
+      "base": false,
+      "listIds": [
+        "desayunos"
+      ]
+    },
+    {
+      "id": "extra-plaza-de-castilla",
+      "name": "Plaza de Castilla",
+      "coords": [
+        40.46628,
+        -3.68966
+      ],
+      "symbol": "•",
+      "type": "Praça · Torres KIO",
+      "base": false,
+      "listIds": [
+        "pracas"
+      ]
+    },
+    {
+      "id": "monumento-a-cervantes",
+      "name": "Monumento a Cervantes",
+      "coords": [
+        40.42318,
+        -3.71261
+      ],
+      "symbol": "•",
+      "type": "Monumento · Plaza de España",
+      "base": false,
+      "listIds": [
+        "pracas"
+      ]
     }
   ],
   "boundaryAttribution": "Contornos pessoais do mapa Barrios Madrid, desenhados pelo usuário no Google My Maps e importados sem simplificação do arquivo KMZ.",
   "placeLists": [
     {
       "id": "desayunos",
-      "name": "Desayunos, brunch y meriendas",
+      "name": "Cafés",
       "sourceName": "Madrid - Desayunos, brunch y meriendas",
       "placeIds": [
         "google-4863409570507183551",
@@ -6169,7 +6239,8 @@ button:disabled{cursor:default;opacity:.55}
         "google-9599887704240966012",
         "google-7847081014235962356",
         "google-10021149558472812878",
-        "google-640524323929077889"
+        "google-640524323929077889",
+        "extra-la-gatoteca"
       ]
     },
     {
@@ -6335,7 +6406,9 @@ button:disabled{cursor:default;opacity:.55}
         "reference-43",
         "reference-47",
         "google-634896209194114537",
-        "google-17443685543650418446"
+        "google-17443685543650418446",
+        "extra-plaza-de-castilla",
+        "monumento-a-cervantes"
       ]
     },
     {
@@ -6376,7 +6449,8 @@ button:disabled{cursor:default;opacity:.55}
         "reference-27",
         "reference-37",
         "reference-40",
-        "google-1197722748382881187"
+        "google-1197722748382881187",
+        "extra-central-de-diseno"
       ]
     },
     {
@@ -6393,7 +6467,8 @@ button:disabled{cursor:default;opacity:.55}
         "reference-49",
         "reference-55",
         "google-14504031207824719436",
-        "google-12696808076577241862"
+        "google-12696808076577241862",
+        "extra-hartem"
       ],
       "streetIds": [
         "calle-augusto-figueroa",
@@ -7668,7 +7743,8 @@ function parseEditorialDocument(document) {
 }
 function safeContentUrl(raw) {
   try {
-    const url = new URL(raw,location.href);
+    // Absolute links only: an empty or relative value would point back to this site.
+    const url = new URL(String(raw || '').trim());
     return ['http:','https:'].includes(url.protocol)?url.href:null;
   } catch {return null;}
 }

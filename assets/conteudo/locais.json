@@ -2878,6 +2878,76 @@
       "origens": [
         "Feiras"
       ]
+    },
+    {
+      "id": "extra-central-de-diseno",
+      "nome": "Central de Diseño",
+      "tipo": "Espaço de exposições · Matadero",
+      "secoes": [
+        {
+          "texto": "Espaço do Matadero Madrid dedicado a exposições de design gráfico, industrial e de moda. Entrada costuma ser gratuita. Dá para combinar com o resto do Matadero e um passeio pelo Madrid Río. Confira a programação antes de ir."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Cultura"
+      ]
+    },
+    {
+      "id": "extra-hartem",
+      "nome": "Hartem",
+      "tipo": "Loja de material de arte",
+      "secoes": [
+        {
+          "texto": "Loja grande de material de arte perto de Tirso de Molina: tintas, papéis, cadernos, pincéis e material de desenho. Boa parada para quem desenha ou pinta."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Lojas e mercados"
+      ]
+    },
+    {
+      "id": "extra-la-gatoteca",
+      "nome": "La Gatoteca",
+      "tipo": "Café com gatos",
+      "secoes": [
+        {
+          "texto": "Café com gatos de uma associação de adoção, na Calle del Duque de Rivas, ao lado de Tirso de Molina. Paga-se a entrada por tempo, com bebida incluída. Convém reservar, principalmente no fim de semana; confira antes de ir."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid - Desayunos, brunch y meriendas"
+      ]
+    },
+    {
+      "id": "extra-plaza-de-castilla",
+      "nome": "Plaza de Castilla",
+      "tipo": "Praça · Torres KIO",
+      "secoes": [
+        {
+          "texto": "Praça no norte da Castellana com as Torres KIO (Puerta de Europa), as duas torres inclinadas, e o obelisco dourado de Calatrava. Fácil de chegar de metrô (Plaza de Castilla). Dá para seguir até as Cuatro Torres, um pouco mais ao norte."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Praças e monumentos"
+      ]
+    },
+    {
+      "id": "monumento-a-cervantes",
+      "nome": "Monumento a Cervantes",
+      "tipo": "Monumento · Plaza de España",
+      "secoes": [
+        {
+          "texto": "Monumento a Miguel de Cervantes no centro da Plaza de España, com as estátuas de bronze de Dom Quixote no Rocinante e Sancho Pança no burro logo à frente. Fica junto ao espelho d'água; bom para foto, sem custo e aberto o tempo todo."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Praças e monumentos"
+      ]
     }
   ]
 }

@@ -3032,6 +3032,76 @@
       "origens": [
         "Lojas de arte"
       ]
+    },
+    {
+      "id": "google-14848665689244396600",
+      "nome": "La Fiambrera",
+      "tipo": "Galeria de arte",
+      "secoes": [
+        {
+          "texto": "Galeria pequena em Malasaña com ilustração, pintura e gravura a preços acessíveis (dá para parcelar). Boa para comprar uma obra original sem gastar muito."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Madrid Galerias Arte"
+      ]
+    },
+    {
+      "id": "google-15462832170398099417",
+      "nome": "Bajoelvolcán",
+      "tipo": "Loja de discos",
+      "secoes": [
+        {
+          "texto": "Loja de discos em Lavapiés, na Calle del Ave María: vinil novo e usado, LPs e singles de vários estilos e épocas, além de fanzines e publicações independentes."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Lojas de discos"
+      ]
+    },
+    {
+      "id": "google-946114877073037541",
+      "nome": "La Metralleta",
+      "tipo": "Loja de discos",
+      "secoes": [
+        {
+          "texto": "Loja de discos clássica perto de Callao, com um catálogo enorme de vinil e CD, novos e usados, de raridades a discos de colecionador. Boa para passar um tempo garimpando."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Lojas de discos"
+      ]
+    },
+    {
+      "id": "google-14285506437632466561",
+      "nome": "Almacén de Pontejos",
+      "tipo": "Armarinho",
+      "secoes": [
+        {
+          "texto": "Armarinho tradicional na Plaza de Pontejos, a dois passos de Sol: lãs, linhas, botões, fitas e tudo de costura, tricô e trabalhos manuais. Costuma estar cheio; vale entrar mesmo só para ver."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Lojas de arte"
+      ]
+    },
+    {
+      "id": "google-12553575828175008457",
+      "nome": "Little Dragon Moncloa",
+      "tipo": "Restaurante chinês",
+      "secoes": [
+        {
+          "texto": "Unidade de Moncloa do Little Dragon, casa de comida de Xangai. Destaques: xiaolongbao (dumplings com caldo), shengjianbao (pãezinhos fritos) e lamian, o macarrão puxado à mão. Ambiente simples e sempre cheio; a casa original, perto da Plaza de España, está no Guia Michelin."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Restaurantes"
+      ]
     }
   ]
 }

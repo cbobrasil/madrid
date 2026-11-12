@@ -73,6 +73,7 @@ button:disabled{cursor:default;opacity:.55}
 .place-icon{--place-color:#1565c0;padding:0;background:transparent!important;border:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;z-index:2;touch-action:manipulation;cursor:pointer}
 .place-dot{width:14px;height:14px;display:flex;align-items:center;justify-content:center;background:#fffdf8;border:2px solid var(--place-color);border-radius:50%;box-shadow:0 1px 5px #182b3030;font-size:9px;font-weight:800;line-height:1;color:var(--place-color);pointer-events:none}
 .place-icon.list-marker .place-dot{width:auto;height:auto;background:none;border:0;box-shadow:none;font-size:21px;font-weight:400;filter:drop-shadow(0 1px 2px #182b3060)}
+.place-icon.list-marker .place-dot svg{width:24px;height:24px;display:block}
 .place-icon.anchor{z-index:3}
 .place-icon.anchor .place-dot{width:23px;height:23px;background:var(--place-color);color:#fffdf8}
 .place-icon.anchor.compact-anchor .place-dot{width:20px;height:20px}
@@ -172,7 +173,7 @@ button:disabled{cursor:default;opacity:.55}
         <h1>Guia<br><span>de Madrid</span></h1>      </header>
       <div class="list-heading"><span>Explore o guia</span><span id="count" aria-live="polite">13 áreas</span></div>
       <div class="list" id="regions"></div>
-      <footer><details><summary>Como ler o mapa</summary><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. Os lugares da lista Nat Chord aparecem com 💃. O controle “Referências” mostra Sol (S), o Palácio Real (P) e Atocha (A); o hotel e a rodoviária aparecem sempre. As ruas aparecem junto com as listas (lojas, bares, tapas e feiras); toque no traçado para ler o comentário. Cada rua usa a cor de seu bairro. As linhas de metrô seguem as cores oficiais; toque no losango de uma estação para ver as linhas que passam por ela.</p></details><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap. Linhas e estações de metrô e ruas das feiras: OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
+      <footer><details><summary>Como ler o mapa</summary><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. Algumas listas têm símbolo próprio: ☕ cafés, 🍴 restaurantes, 🍺 tapas, 🌳 parques, 🖼️ galerias, 🛍️ lojas e mercados, 🖌️ lojas de arte, um disco de vinil para lojas de discos, uma barraquinha branca para feiras e 💃 Nat Chord. Se um lugar está em mais de uma lista ligada, vale o símbolo da primeira. O controle “Referências” mostra Sol (S), o Palácio Real (P) e Atocha (A); o hotel e a rodoviária aparecem sempre. As ruas aparecem junto com as listas (lojas, bares, tapas e feiras); toque no traçado para ler o comentário. Cada rua usa a cor de seu bairro. As linhas de metrô seguem as cores oficiais; toque no losango de uma estação para ver as linhas que passam por ela.</p></details><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap. Linhas e estações de metrô e ruas das feiras: OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
     </aside>
     <section class="map-shell" aria-label="Mapa interativo de Madri">
       <div id="map" aria-label="Mapa: toque nos locais ou nas ruas em destaque para ver suas informações. Informações dos bairros ficam na lista."></div>
@@ -6309,6 +6310,96 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "googleUrl": "https://www.google.com/maps/place/Los+Artistas+del+Barrio/data=!4m2!3m1!1s0xd42278d04f816a3:0x684a25316246e901",
       "googleCid": "7514859822253533441"
+    },
+    {
+      "id": "google-14848665689244396600",
+      "name": "La Fiambrera",
+      "sourceName": "La Fiambrera",
+      "coords": [
+        40.4240445,
+        -3.7060596
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Galeria de arte",
+      "base": false,
+      "listIds": [
+        "galerias"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Fiambrera+Art+Gallery/data=!4m2!3m1!1s0xd422862cdf4ce3d:0xce110ec5d3f16c38",
+      "googleCid": "14848665689244396600"
+    },
+    {
+      "id": "google-15462832170398099417",
+      "name": "Bajoelvolcán",
+      "sourceName": "Bajoelvolcán",
+      "coords": [
+        40.4098852,
+        -3.7010636
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Loja de discos",
+      "base": false,
+      "listIds": [
+        "discos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Bajoelvolc%C3%A1n/data=!4m2!3m1!1s0xd42262b1add35b3:0xd69703eef20fa7d9",
+      "googleCid": "15462832170398099417"
+    },
+    {
+      "id": "google-946114877073037541",
+      "name": "La Metralleta",
+      "sourceName": "La Metralleta",
+      "coords": [
+        40.4185646,
+        -3.7066093
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Loja de discos",
+      "base": false,
+      "listIds": [
+        "discos"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/La+Metralleta+Records/data=!4m2!3m1!1s0xd42287c23d79f05:0xd214677cca698e5",
+      "googleCid": "946114877073037541"
+    },
+    {
+      "id": "google-14285506437632466561",
+      "name": "Almacén de Pontejos",
+      "sourceName": "Almacén de Pontejos",
+      "coords": [
+        40.4161096,
+        -3.7044032
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Armarinho",
+      "base": false,
+      "listIds": [
+        "lojas-arte"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/Almac%C3%A9n+de+Pontejos/data=!4m2!3m1!1s0xd42287e50d67401:0xc640506acba39e81",
+      "googleCid": "14285506437632466561"
+    },
+    {
+      "id": "google-12553575828175008457",
+      "name": "Little Dragon Moncloa",
+      "sourceName": "小笼 Little Dragon Moncloa",
+      "coords": [
+        40.4344676,
+        -3.7100139
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante chinês",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/%E5%B0%8F%E7%AC%BC+Little+Dragon+Moncloa/data=!4m2!3m1!1s0xd422940bbddf59b:0xae3742b43b4d32c9",
+      "googleCid": "12553575828175008457"
     }
   ],
   "boundaryAttribution": "Contornos pessoais do mapa Barrios Madrid, desenhados pelo usuário no Google My Maps e importados sem simplificação do arquivo KMZ.",
@@ -6317,6 +6408,7 @@ button:disabled{cursor:default;opacity:.55}
       "id": "desayunos",
       "name": "Cafés",
       "sourceName": "Madrid - Desayunos, brunch y meriendas",
+      "marker": "☕",
       "placeIds": [
         "google-4863409570507183551",
         "google-16249970219666254974",
@@ -6387,6 +6479,7 @@ button:disabled{cursor:default;opacity:.55}
       "id": "galerias",
       "name": "Galerías de arte",
       "sourceName": "Madrid Galerias Arte",
+      "marker": "🖼️",
       "placeIds": [
         "google-14967256057652037010",
         "google-9842588642587067223",
@@ -6401,13 +6494,15 @@ button:disabled{cursor:default;opacity:.55}
         "google-13419042500056169886",
         "google-11177896781365376239",
         "google-12931009012691091937",
-        "google-16238844590549623371"
+        "google-16238844590549623371",
+        "google-14848665689244396600"
       ]
     },
     {
       "id": "restaurantes",
       "name": "Restaurantes",
       "sourceName": "Madrid Restaurante",
+      "marker": "🍴",
       "placeIds": [
         "google-12591180763755363191",
         "google-12343702592041276602",
@@ -6447,13 +6542,15 @@ button:disabled{cursor:default;opacity:.55}
         "google-9221432279364710718",
         "google-2642459187324273273",
         "google-3066449188113516800",
-        "google-6380438410191808605"
+        "google-6380438410191808605",
+        "google-12553575828175008457"
       ]
     },
     {
       "id": "tapas",
       "name": "Tapas",
       "sourceName": "Madrid Tapas",
+      "marker": "🍺",
       "placeIds": [
         "google-7769702076070350088",
         "google-9621959801930236433",
@@ -6515,6 +6612,7 @@ button:disabled{cursor:default;opacity:.55}
       "id": "parques",
       "name": "Parques e jardins",
       "sourceName": "Parques e jardins",
+      "marker": "🌳",
       "placeIds": [
         "reference-46",
         "reference-26",
@@ -6557,6 +6655,7 @@ button:disabled{cursor:default;opacity:.55}
       "id": "lojas",
       "name": "Lojas e mercados",
       "sourceName": "Lojas e mercados",
+      "marker": "🛍️",
       "placeIds": [
         "reference-35",
         "reference-38",
@@ -6581,6 +6680,7 @@ button:disabled{cursor:default;opacity:.55}
       "id": "lojas-arte",
       "name": "Lojas de arte",
       "sourceName": "Lojas de arte",
+      "marker": "🖌️",
       "placeIds": [
         "extra-hartem",
         "google-9652608526930673611",
@@ -6588,13 +6688,25 @@ button:disabled{cursor:default;opacity:.55}
         "extra-carapazona",
         "extra-panta-rhei",
         "extra-taschen-store",
-        "google-7514859822253533441"
+        "google-7514859822253533441",
+        "google-14285506437632466561"
+      ]
+    },
+    {
+      "id": "discos",
+      "name": "Lojas de discos",
+      "sourceName": "Lojas de discos",
+      "marker": "svg:vinil",
+      "placeIds": [
+        "google-15462832170398099417",
+        "google-946114877073037541"
       ]
     },
     {
       "id": "feiras",
       "name": "Feiras",
       "sourceName": "Feiras",
+      "marker": "svg:feira",
       "placeIds": [
         "reference-17",
         "feira-mercado-de-motores",
@@ -8251,6 +8363,21 @@ function renderListControls() {
   content.append(hint,controls,fitButton); section.append(summary,content); $('regions').append(section);
   const heading = document.createElement('div'); heading.className = 'neighborhood-list-heading'; heading.textContent = 'Bairros'; $('regions').append(heading);
 }
+// A list can give its places its own marker (☕, 🍺, 💃...). The first active list with a marker wins,
+// so a place in two lists shows the symbol of the list that is on. Fixed references and the hotel keep theirs.
+function applyListMarker(icon, place) {
+  if (place.anchor || place.hotel || place.busStation) return;
+  const dot = icon.querySelector('.place-dot');
+  const listMarker = placeLists.find(list => list.marker && activeLists.has(list.id) && (place.listIds || []).includes(list.id))?.marker;
+  icon.classList.toggle('list-marker',Boolean(listMarker));
+  if (listMarker && listMarker.startsWith('svg:') && MARKER_SVGS[listMarker.slice(4)]) dot.innerHTML = MARKER_SVGS[listMarker.slice(4)];
+  else dot.textContent = listMarker || place.symbol;
+}
+// Drawn markers for lists without a fitting emoji (use "marker": "svg:<name>" in placeLists).
+const MARKER_SVGS = {
+  vinil: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#1d1d1f"/><circle cx="12" cy="12" r="8.2" fill="none" stroke="#4a4a4f" stroke-width=".7"/><circle cx="12" cy="12" r="6.3" fill="none" stroke="#4a4a4f" stroke-width=".7"/><path d="M5.2 8.4a7.8 7.8 0 0 1 3.4-3.3" fill="none" stroke="#9a9aa2" stroke-width="1" stroke-linecap="round"/><circle cx="12" cy="12" r="3.6" fill="#E40303"/><circle cx="12" cy="12" r=".9" fill="#fffdf8"/></svg>',
+  feira: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 10v11M19.5 10v11" stroke="#6b5a48" stroke-width="1.6" stroke-linecap="round"/><rect x="6" y="15" width="12" height="4.2" rx=".8" fill="#c98b4e" stroke="#7a5230" stroke-width=".8"/><path d="M2.5 9.5 5.5 3h13l3 6.5z" fill="#fffdf8" stroke="#4d5a63" stroke-width="1.1" stroke-linejoin="round"/><path d="M2.5 9.5q1.9 2.6 3.8 0q1.9 2.6 3.8 0q1.9 2.6 3.8 0q1.9 2.6 3.8 0q1.9 2.6 3.8 0" fill="#fffdf8" stroke="#4d5a63" stroke-width="1.1" stroke-linejoin="round"/></svg>'
+};
 function syncLayers() {
   if (overlaysReady) {
     for (const id of ['region-fills','region-lines']) map.setLayoutProperty(id,'visibility',$('areas').checked?'visible':'none');
@@ -8267,7 +8394,7 @@ function syncLayers() {
   }
   if (activeStation && !isStationVisible(activeStation) && activePopup) {activePopup.remove();activeStation=null;}
   labels.forEach(marker => marker.getElement().hidden = !$('labels').checked);
-  markers.forEach(({marker,place}) => marker.getElement().hidden = !isPlaceVisible(place));
+  markers.forEach(({marker,place}) => {marker.getElement().hidden = !isPlaceVisible(place); applyListMarker(marker.getElement(),place);});
   if (activePlace && !isPlaceVisible(activePlace) && activePopup) {activePopup.remove();activePlace=null;}
   if (activeStreet && !visibleStreetIds().includes(activeStreet.id) && activePopup) {activePopup.remove();activeStreet=null;}
 }
@@ -8376,9 +8503,6 @@ try {
     icon.style.setProperty('--place-color',placeColor(place));
     icon.title = place.name+' · '+place.type; icon.setAttribute('aria-label',icon.title);
     const dot = document.createElement('span'); dot.className = 'place-dot'; dot.textContent = place.symbol; dot.setAttribute('aria-hidden','true');
-    // A list can give its places its own marker (e.g. 💃), except for the fixed references and the hotel.
-    const listMarker = placeLists.find(list => list.marker && (place.listIds || []).includes(list.id))?.marker;
-    if (listMarker && !place.anchor && !place.hotel) {icon.classList.add('list-marker');dot.textContent = listMarker;}
     if (place.hotel) dot.textContent = 'H';
     if (place.busStation) dot.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="16" rx="3"/><rect x="7" y="6" width="10" height="6" rx="1"/><path d="M8 19v2M16 19v2M9 3V2h6v1"/><circle cx="8" cy="16" r=".8" fill="currentColor"/><circle cx="16" cy="16" r=".8" fill="currentColor"/></svg>';
     icon.append(dot);

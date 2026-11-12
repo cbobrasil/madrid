@@ -99,7 +99,7 @@
       ],
       "links": [],
       "origens": [
-        "Lojas e mercados"
+        "Mercados gastronômicos"
       ]
     },
     {
@@ -169,7 +169,7 @@
       ],
       "links": [],
       "origens": [
-        "Lojas e mercados"
+        "Mercados gastronômicos"
       ]
     },
     {
@@ -454,7 +454,7 @@
       ],
       "links": [],
       "origens": [
-        "Lojas e mercados"
+        "Mercados gastronômicos"
       ]
     },
     {
@@ -3095,7 +3095,21 @@
       "tipo": "Restaurante chinês",
       "secoes": [
         {
-          "texto": "Unidade de Moncloa do Little Dragon, casa de comida de Xangai. Destaques: xiaolongbao (dumplings com caldo), shengjianbao (pãezinhos fritos) e lamian, o macarrão puxado à mão. Ambiente simples e sempre cheio; a casa original, perto da Plaza de España, está no Guia Michelin."
+          "texto": "Uma das unidades do Little Dragon, casa de comida de Xangai, em Moncloa. Destaques: xiaolongbao (dumplings com caldo), shengjianbao (pãezinhos fritos) e lamian, o macarrão puxado à mão. Ambiente simples e sempre cheio. A unidade que está no Guia Michelin é a da Calle de los Reyes, perto da Plaza de España."
+        }
+      ],
+      "links": [],
+      "origens": [
+        "Restaurantes"
+      ]
+    },
+    {
+      "id": "google-15841914576631989771",
+      "nome": "Little Dragon Plaza de España",
+      "tipo": "Restaurante chinês",
+      "secoes": [
+        {
+          "texto": "Casa de comida de Xangai na Calle de los Reyes, a poucos metros da Plaza de España, citada no Guia Michelin. Destaques: xiaolongbao (dumplings com caldo), shengjianbao (pãezinhos fritos), wonton e lamian, o macarrão puxado à mão. Preço bom, ambiente simples e sempre cheio; confira o horário antes de ir."
         }
       ],
       "links": [],

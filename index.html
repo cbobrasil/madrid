@@ -26,7 +26,7 @@ button:disabled{cursor:default;opacity:.55}
 .list-heading{display:flex;justify-content:space-between;margin:0 25px;padding:12px 0 9px;border-top:1px solid var(--line);font-size:10px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);font-weight:650;flex:none}
 .list{overflow:auto;flex:1;min-height:0;padding:0 14px 12px;scrollbar-width:thin;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 .region-item{border:1px solid transparent;border-radius:9px;margin:0 0 4px}
-.region{display:grid;grid-template-columns:14px minmax(0,1fr) 18px;gap:12px;align-items:center;text-align:left;padding:13px 11px;min-height:58px;list-style:none;border-radius:8px;color:var(--ink)}
+.region{display:grid;grid-template-columns:14px minmax(0,1fr) auto 18px;gap:12px;align-items:center;text-align:left;padding:13px 11px;min-height:58px;list-style:none;border-radius:8px;color:var(--ink)}
 .region::-webkit-details-marker{display:none}
 .region::marker{content:""}
 .region:hover{background:color-mix(in srgb,var(--color) 8%,#fff)}
@@ -35,6 +35,9 @@ button:disabled{cursor:default;opacity:.55}
 .dot{width:13px;height:13px;border-radius:50%;background:var(--color);box-shadow:inset 0 0 0 1px #00000014}
 .region strong{display:block;font-size:13px;font-weight:650}
 .region small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.region-places{display:inline-flex;align-items:center;gap:5px;min-height:34px;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:11px;font-weight:600;white-space:nowrap;cursor:pointer}
+.region-places[aria-pressed="true"]{background:#263b35;color:#fff;border-color:#263b35}
+.region-places .list-count{font-weight:450}
 .arrow{color:#748177;font-size:20px;text-align:center;transition:transform .15s}
 .region-item[open] .arrow{transform:rotate(180deg)}
 .region-details{padding:16px 15px 18px;overflow-wrap:anywhere}
@@ -173,7 +176,7 @@ button:disabled{cursor:default;opacity:.55}
         <h1>Guia<br><span>de Madrid</span></h1>      </header>
       <div class="list-heading"><span>Explore o guia</span><span id="count" aria-live="polite">13 áreas</span></div>
       <div class="list" id="regions"></div>
-      <footer><details><summary>Como ler o mapa</summary><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. Algumas listas têm símbolo próprio: ☕ cafés, 🍴 restaurantes, 🍺 tapas, 🌳 parques, 🖼️ galerias, 🛍️ lojas e mercados, 🖌️ lojas de arte, um disco de vinil para lojas de discos, uma barraquinha branca para feiras e 💃 Nat Chord. Se um lugar está em mais de uma lista ligada, vale o símbolo da primeira. O controle “Referências” mostra Sol (S), o Palácio Real (P) e Atocha (A); o hotel e a rodoviária aparecem sempre. As ruas aparecem junto com as listas (lojas, bares, tapas e feiras); toque no traçado para ler o comentário. Cada rua usa a cor de seu bairro. As linhas de metrô seguem as cores oficiais; toque no losango de uma estação para ver as linhas que passam por ela.</p></details><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap. Linhas e estações de metrô e ruas das feiras: OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
+      <footer><details><summary>Como ler o mapa</summary><p>As cores acompanham a lista de regiões. Os pontos verdes indicam parques e jardins; vermelhos, monumentos e praças; azuis, estabelecimentos, museus e transporte. Use os botões em “Minhas listas” para mostrar ou ocultar cada seleção. Na lista de bairros, o botão “Lugares” mostra todos os lugares de dentro do bairro, de qualquer lista; toque de novo para escondê-los. Algumas listas têm símbolo próprio: ☕ cafés, 🍽️ restaurantes, 🍺 tapas, 🌳 parques, 🖼️ galerias, 🏛️ museus, um obelisco para praças e monumentos, 🛍️ lojas e mercados, 🥘 mercados gastronômicos, 🖌️ lojas de arte, um disco de vinil para lojas de discos, uma barraquinha branca para feiras e 💃 Nat Chord. Se um lugar está em mais de uma lista ligada, vale o símbolo da primeira. O controle “Referências” mostra Sol (S), o Palácio Real (P) e Atocha (A); o hotel e a rodoviária aparecem sempre. As ruas aparecem junto com as listas (lojas, bares, tapas e feiras); toque no traçado para ler o comentário. Cada rua usa a cor de seu bairro. As linhas de metrô seguem as cores oficiais; toque no losango de uma estação para ver as linhas que passam por ela.</p></details><details><summary>Sobre os contornos e as fontes</summary><p>Áreas e ruas desenhadas por você no Google My Maps, preservadas como nos arquivos enviados. Sobreposições entre regiões também foram mantidas. As partes sem cor ficam fora desses desenhos.</p><p>Mapa de fundo: OpenFreeMap, com dados do OpenStreetMap. Linhas e estações de metrô e ruas das feiras: OpenStreetMap.</p></details><details class="editorial-tools"><summary>Meus textos</summary><p id="editorial-status" role="status">Os textos podem ser personalizados nos arquivos JSON.</p><button type="button" id="import-editorial">Carregar textos JSON</button><input id="editorial-files" type="file" accept=".json,application/json" multiple hidden></details></footer>
     </aside>
     <section class="map-shell" aria-label="Mapa interativo de Madri">
       <div id="map" aria-label="Mapa: toque nos locais ou nas ruas em destaque para ver suas informações. Informações dos bairros ficam na lista."></div>
@@ -2778,7 +2781,7 @@ button:disabled{cursor:default;opacity:.55}
       "base": false,
       "id": "reference-7",
       "listIds": [
-        "lojas"
+        "mercados-gastro"
       ]
     },
     {
@@ -2850,7 +2853,7 @@ button:disabled{cursor:default;opacity:.55}
       "base": false,
       "id": "reference-12",
       "listIds": [
-        "lojas"
+        "mercados-gastro"
       ]
     },
     {
@@ -3142,7 +3145,7 @@ button:disabled{cursor:default;opacity:.55}
       "base": false,
       "id": "reference-32",
       "listIds": [
-        "lojas"
+        "mercados-gastro"
       ]
     },
     {
@@ -6400,6 +6403,24 @@ button:disabled{cursor:default;opacity:.55}
       ],
       "googleUrl": "https://www.google.com/maps/place/%E5%B0%8F%E7%AC%BC+Little+Dragon+Moncloa/data=!4m2!3m1!1s0xd422940bbddf59b:0xae3742b43b4d32c9",
       "googleCid": "12553575828175008457"
+    },
+    {
+      "id": "google-15841914576631989771",
+      "name": "Little Dragon Plaza de España",
+      "sourceName": "小笼 Little Dragon Plaza de España",
+      "coords": [
+        40.4240978,
+        -3.709425
+      ],
+      "symbol": "•",
+      "saved": true,
+      "type": "Restaurante chinês",
+      "base": false,
+      "listIds": [
+        "restaurantes"
+      ],
+      "googleUrl": "https://www.google.com/maps/place/%E5%B0%8F%E7%AC%BC+Little+Dragon+Plaza+de+Espa%C3%B1a/data=!4m2!3m1!1s0xd42299c20c9e1b5:0xdbd9c95f963b860b",
+      "googleCid": "15841914576631989771"
     }
   ],
   "boundaryAttribution": "Contornos pessoais do mapa Barrios Madrid, desenhados pelo usuário no Google My Maps e importados sem simplificação do arquivo KMZ.",
@@ -6502,7 +6523,7 @@ button:disabled{cursor:default;opacity:.55}
       "id": "restaurantes",
       "name": "Restaurantes",
       "sourceName": "Madrid Restaurante",
-      "marker": "🍴",
+      "marker": "🍽️",
       "placeIds": [
         "google-12591180763755363191",
         "google-12343702592041276602",
@@ -6543,7 +6564,8 @@ button:disabled{cursor:default;opacity:.55}
         "google-2642459187324273273",
         "google-3066449188113516800",
         "google-6380438410191808605",
-        "google-12553575828175008457"
+        "google-12553575828175008457",
+        "google-15841914576631989771"
       ]
     },
     {
@@ -6584,6 +6606,7 @@ button:disabled{cursor:default;opacity:.55}
       "id": "pracas",
       "name": "Praças e monumentos",
       "sourceName": "Praças e monumentos",
+      "marker": "svg:monumento",
       "placeIds": [
         "reference-5",
         "reference-8",
@@ -6625,6 +6648,7 @@ button:disabled{cursor:default;opacity:.55}
       "id": "museus",
       "name": "Museus",
       "sourceName": "Museus",
+      "marker": "🏛️",
       "placeIds": [
         "reference-23",
         "reference-22",
@@ -6659,9 +6683,6 @@ button:disabled{cursor:default;opacity:.55}
       "placeIds": [
         "reference-35",
         "reference-38",
-        "reference-7",
-        "reference-12",
-        "reference-32",
         "reference-31",
         "reference-49",
         "reference-55",
@@ -6674,6 +6695,17 @@ button:disabled{cursor:default;opacity:.55}
         "calle-del-pez",
         "calle-de-serrano",
         "calle-de-goya"
+      ]
+    },
+    {
+      "id": "mercados-gastro",
+      "name": "Mercados gastronômicos",
+      "sourceName": "Mercados gastronômicos",
+      "marker": "🥘",
+      "placeIds": [
+        "reference-7",
+        "reference-12",
+        "reference-32"
       ]
     },
     {
@@ -8154,8 +8186,9 @@ function boundsFor(regions) {
 }
 function refreshSelection() {
   if (!overlaysReady) return;
-  map.setPaintProperty('region-fills', 'fill-opacity', ['case',['==',['get','id'],selected || ''],.36,.22]);
-  map.setPaintProperty('region-lines', 'line-width', ['case',['==',['get','id'],selected || ''],3,1.7]);
+  const highlighted = ['in',['get','id'],['literal',[...new Set([selected,...activeRegions].filter(Boolean))]]];
+  map.setPaintProperty('region-fills', 'fill-opacity', ['case',highlighted,.36,.22]);
+  map.setPaintProperty('region-lines', 'line-width', ['case',highlighted,3,1.7]);
 }
 function focusRegion(region) {
   if (!map) return;
@@ -8201,8 +8234,50 @@ mobileLayout.addEventListener('change',()=>{
     if (!regionDialog.open) {selected=null;refreshSelection();}
   }
 });
+// Neighborhood toggles: show every place inside the area, whatever its lists.
+const activeRegions = new Set(), regionButtons = new Map();
+function pointInRing(point, ring) {
+  let inside = false;
+  for (let i = 0, j = ring.length-1; i < ring.length; j = i++) {
+    const [xi,yi] = ring[i], [xj,yj] = ring[j];
+    if ((yi > point[1]) !== (yj > point[1]) && point[0] < (xj-xi)*(point[1]-yi)/(yj-yi)+xi) inside = !inside;
+  }
+  return inside;
+}
+function regionPolygons(region) {
+  if (region.geometry) return region.geometry.type === 'Polygon' ? [region.geometry.coordinates] : region.geometry.coordinates;
+  return [[region.polygon.map(lngLat)]];
+}
+function regionContains(region, point) {
+  return regionPolygons(region).some(([outer,...holes]) => pointInRing(point,outer) && !holes.some(hole=>pointInRing(point,hole)));
+}
+const regionPlaces = new Map(data.regions.map(region => [region.id, allPlaces.filter(place =>
+  place.base === false && !place.isStreet && !place.hideMarker && regionContains(region,lngLat(place.coords)))]));
+const inActiveRegion = place => [...activeRegions].some(id => regionPlaces.get(id)?.includes(place));
+function toggleRegionPlaces(region) {
+  const on = !activeRegions.has(region.id);
+  if (on) activeRegions.add(region.id); else activeRegions.delete(region.id);
+  for (const button of regionButtons.get(region.id) || []) {
+    button.setAttribute('aria-pressed',String(on));
+    button.querySelector('.region-places-label').textContent = on ? 'Esconder lugares' : 'Lugares';
+  }
+  refreshSelection(); syncLayers();
+  if (on) focusRegion(region);
+}
+function regionPlacesButton(region) {
+  const button = document.createElement('button');
+  button.type = 'button'; button.className = 'region-places';
+  const on = activeRegions.has(region.id);
+  button.setAttribute('aria-pressed',String(on));
+  button.setAttribute('aria-label','Mostrar no mapa todos os lugares de '+region.name);
+  button.innerHTML = '<span class="region-places-label">'+(on?'Esconder lugares':'Lugares')+'</span><span class="list-count">'+regionPlaces.get(region.id).length+'</span>';
+  button.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();toggleRegionPlaces(region);});
+  if (!regionButtons.has(region.id)) regionButtons.set(region.id,new Set());
+  regionButtons.get(region.id).add(button);
+  return button;
+}
 function isPlaceVisible(place) {
-  const listed = (place.listIds || []).some(id => activeLists.has(id));
+  const listed = (place.listIds || []).some(id => activeLists.has(id)) || inActiveRegion(place);
   if (place.isStreet || place.hideMarker) return listed; // Routes and hidden references only get a dot through an active list.
   if (place.alwaysVisible) return true;
   const isReference = place.base !== false;
@@ -8368,7 +8443,8 @@ function renderListControls() {
 function applyListMarker(icon, place) {
   if (place.anchor || place.hotel || place.busStation) return;
   const dot = icon.querySelector('.place-dot');
-  const listMarker = placeLists.find(list => list.marker && activeLists.has(list.id) && (place.listIds || []).includes(list.id))?.marker;
+  const own = placeLists.filter(list => list.marker && (place.listIds || []).includes(list.id));
+  const listMarker = (own.find(list => activeLists.has(list.id)) || (inActiveRegion(place) ? own[0] : null))?.marker;
   icon.classList.toggle('list-marker',Boolean(listMarker));
   if (listMarker && listMarker.startsWith('svg:') && MARKER_SVGS[listMarker.slice(4)]) dot.innerHTML = MARKER_SVGS[listMarker.slice(4)];
   else dot.textContent = listMarker || place.symbol;
@@ -8376,6 +8452,7 @@ function applyListMarker(icon, place) {
 // Drawn markers for lists without a fitting emoji (use "marker": "svg:<name>" in placeLists).
 const MARKER_SVGS = {
   vinil: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#1d1d1f"/><circle cx="12" cy="12" r="8.2" fill="none" stroke="#4a4a4f" stroke-width=".7"/><circle cx="12" cy="12" r="6.3" fill="none" stroke="#4a4a4f" stroke-width=".7"/><path d="M5.2 8.4a7.8 7.8 0 0 1 3.4-3.3" fill="none" stroke="#9a9aa2" stroke-width="1" stroke-linecap="round"/><circle cx="12" cy="12" r="3.6" fill="#E40303"/><circle cx="12" cy="12" r=".9" fill="#fffdf8"/></svg>',
+  monumento: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.4 4.4 12 1.4l1.6 3 .8 11.2H9.6z" fill="#E40303" stroke="#7a1010" stroke-width="1.1" stroke-linejoin="round"/><rect x="7.9" y="15.6" width="8.2" height="2.7" fill="#c74939" stroke="#7a1010" stroke-width="1.1"/><rect x="5" y="18.3" width="14" height="3.4" rx=".5" fill="#a83426" stroke="#7a1010" stroke-width="1.1"/></svg>',
   feira: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 10v11M19.5 10v11" stroke="#6b5a48" stroke-width="1.6" stroke-linecap="round"/><rect x="6" y="15" width="12" height="4.2" rx=".8" fill="#c98b4e" stroke="#7a5230" stroke-width=".8"/><path d="M2.5 9.5 5.5 3h13l3 6.5z" fill="#fffdf8" stroke="#4d5a63" stroke-width="1.1" stroke-linejoin="round"/><path d="M2.5 9.5q1.9 2.6 3.8 0q1.9 2.6 3.8 0q1.9 2.6 3.8 0q1.9 2.6 3.8 0q1.9 2.6 3.8 0" fill="#fffdf8" stroke="#4d5a63" stroke-width="1.1" stroke-linejoin="round"/></svg>'
 };
 function syncLayers() {
@@ -8441,6 +8518,7 @@ data.regions.forEach(region => {
   panel.className = 'region-item'; panel.style.setProperty('--color',region.color);
   const summary = document.createElement('summary'); summary.className = 'region';
   summary.innerHTML = '<span class="dot" aria-hidden="true"></span><span><strong>'+escapeHTML(region.name)+'</strong><small>'+escapeHTML(region.tag)+'</small></span><span class="arrow" aria-hidden="true">⌄</span>';
+  summary.insertBefore(regionPlacesButton(region),summary.querySelector('.arrow'));
   summary.addEventListener('click',event=>{
     if (mobileLayout.matches) {
       event.preventDefault();
